@@ -1,8 +1,26 @@
 body{
     font-family: 'Space Grotesk', sans-serif !important;
+    letter-spacing: 2px;
 }
+/* header */
+.header{
+    background-color: transparent;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    text-align: center;
+}
+
+/* navbar */
 .navbar{
     font-size: 27px;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+    line-height: 34px;
 }
 .nav-item{
     position: relative;
@@ -44,6 +62,60 @@ body{
     display: none;
 }
 .brand{
+    display: inline;
+    text-align: center;
+}
+
+/* intro */
+.intro{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    min-height: 1080px;
+    position: relative;
+
+    background: url("../img/intro.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.intro_title{
+    position: absolute;
+    top: 25.5%;
+
+    margin-left: 89px;
+
+    font-size: 74px;
+    line-height: 94px;
+    letter-spacing: 0.08em;
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    border: 1px solid #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.intro_title-first_letter{
+    color: #E73D3D;
+}
+
+.intro_title-first_letter .text_color-dark_red{
+    color: #E92828;
+}
+
+.intro_quote{
+    position: absolute;
+    left: 33.7%;
+    right: 40%;
+    bottom: 9.4%;
+    top: 90.01%;
+
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 0.06em;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    mix-blend-mode: normal;
 }
