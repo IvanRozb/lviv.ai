@@ -98,15 +98,6 @@ video {
     background: transparent;
 }
 
-body {
-    line-height: 1;
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: normal;
-    font-size: 27px;
-    background-color: var(--black);
-    margin: 0;
-}
-
 article,
 aside,
 details,
@@ -140,6 +131,21 @@ a {
     color: white;
 }
 
+
+body {
+    line-height: 1;
+    font-family: var(--font-family);
+    font-weight: normal;
+    font-size: 27px;
+    background-color: var(--black);
+    margin: 0;
+}
+
+
+h1{
+    letter-spacing: var(--h1-letter-spacing);
+    font-size: var(--h1-size);
+}
 /* Container */
 .container {
     width: 100%;
@@ -176,22 +182,23 @@ a {
 .nav_lang :last-child {
     margin-left: 5px;
 }
+
 .nav_item {
     width: 20%;
     text-align: center;
 
-    font-family: var(--font-family);
     line-height: 34px;
     letter-spacing: 0.07em;
     font-size: 1.4vw;
 
     cursor: pointer;
 }
+
 .nav_item:after {
     content: "";
     display: block;
     width: 90%;
-    height: 8px;
+    height: 0.15em;
     border-radius: 3px;
 
     margin: 10px auto 0;
@@ -204,9 +211,7 @@ a {
 .nav_lang :nth-child(n):hover:after {
     background-color: transparent;
 }
-.nav_link {
-    display: block;
-}
+
 .nav_link.active {
     color: rgba(255, 255, 255, 0.8);
 }
@@ -215,9 +220,10 @@ a {
     left: 50%;
     transform: translate(-50%, 0);
 
-    width: 200%;
-    max-width: 94px;
+    width: 3.2em;
 }
+
+
 /* intro */
 .intro {
     width: 100%;
@@ -231,38 +237,38 @@ a {
 }
 .intro_title {
     position: absolute;
-    left: 4.63vw;
-    top: 24.07vh;
+    left: 4.5vw;
+    top: 24vh;
 
     line-height: 4.9vw;
-    letter-spacing: var(--h1-letter-spacing);
-    font-size: var(--h1-size);
     color: var(--white);
 }
 
+.intro_title > p:first-letter{
+    color: var(--peachy);
+}
+
+.intro_title :nth-child(2) {
+    margin-left: 9%;
+}
+.intro_title :nth-child(3) {
+    margin-left: 18%;
+}
+
+
 .intro_label {
     position: absolute;
-    left: 33.7vw;
-    top: 90.01vh;
-
-    font-size: 30px;
-    line-height: 38px;
-    letter-spacing: 0.06em;
+    left: 34vw;
+    top: 90vh;
 
     color: var(--transparent-white);
 }
 
-.intro_title_f_letter {
-    color: var(--peachy);
-}
-.intro_title :nth-child(3) {
-    margin-left: 9.72%;
-}
-.intro_title :nth-child(5) {
-    margin-left: 17.57%;
-}
 
-.intro_sidebar {
+/*sidebar*/
+.main_sidebar {
     position: absolute;
     right: 0;
+
+    height: 100vh;
 }
