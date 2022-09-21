@@ -228,7 +228,7 @@ h1{
 .intro {
     width: 100%;
     height: 100vh;
-    max-height: 1080px;
+    /*max-height: 1080px;*/
     position: relative;
 
     background: url(../img/intro.jpg) center no-repeat;
@@ -236,30 +236,49 @@ h1{
     -moz-background-size: cover;
 }
 .intro_title {
-    position: absolute;
-    left: 4.5vw;
-    top: 24vh;
+    position: relative;
+    margin-top: 12.5vw;
+    padding-left: 5%;
 
     line-height: 4.9vw;
     color: var(--white);
 }
-
-.intro_title > p:first-letter{
+.intro_title :nth-child(2) {
+    margin-left: 4.5%;
+}
+.intro_title :nth-child(3) {
+    margin-left: 9%;
+}
+.color_letter{
     color: var(--peachy);
 }
 
-.intro_title :nth-child(2) {
-    margin-left: 9%;
-}
-.intro_title :nth-child(3) {
-    margin-left: 18%;
+.intro_label{
+    width: 36vw;
+    height: 35vh;
+    position: relative;
+    margin-left: 28vw;
+    margin-top: 5.5vh;
+
+    text-align: center;
+    font-size: var(--h3-size);
+
+    background: linear-gradient(
+            181deg,
+            var(--transparent-fire-brick) -3%,
+            var(--transparent-fire-brick-2) 99%
+    );
+
+    backdrop-filter: blur(20px);
+
+    z-index: 2;
 }
 
-
-.intro_label {
-    position: absolute;
-    left: 34vw;
-    top: 90vh;
+.intro_label p{
+    position:absolute;
+    width:100%;
+    bottom: 0;
+    right:0;
 
     color: var(--transparent-white);
 }
@@ -269,6 +288,7 @@ h1{
 .main_sidebar {
     position: absolute;
     right: 0;
+    top: 0;
 
     height: 100vh;
 }
