@@ -243,18 +243,15 @@ h1{
     line-height: 4.9vw;
     color: var(--white);
 }
-
-.intro_title > p:first-letter{
-    color: var(--peachy);
-}
-
 .intro_title :nth-child(2) {
     margin-left: 9%;
 }
 .intro_title :nth-child(3) {
     margin-left: 18%;
 }
-
+.color_letter{
+    color: var(--peachy);
+}
 
 .intro_label {
     position: absolute;
