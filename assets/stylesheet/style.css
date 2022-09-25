@@ -135,6 +135,7 @@ a {
 body {
     line-height: 1;
     font-family: var(--font-family);
+    color: var(--transparent-white);
     font-weight: normal;
     font-size: 27px;
     background-color: var(--black);
@@ -291,4 +292,37 @@ h1{
     top: 0;
 
     height: 100vh;
+}
+
+/*AIS-info*/
+.ais-info{
+    margin-top: 18.5vh;
+}
+.ais-info_title{
+    text-align: center;
+    font-size: 3vw;
+    letter-spacing: 0.08em;
+}
+.ais-info_content{
+    margin-top: 9vh;
+
+    border-top: var(--transparent-white) 2px solid;
+    border-bottom: var(--transparent-white) 2px solid;
+
+    list-style: none;
+}
+.ais-info_label{
+    display: flex;
+    font-size: 1.6vw;
+    margin: 1.3vw 0;
+}
+.ais-info_label::before
+{
+    content: "";
+    display: block;
+    margin: auto 10px auto;
+    background-color: var(--transparent-white);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
 }
