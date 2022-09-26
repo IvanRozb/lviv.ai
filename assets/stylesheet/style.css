@@ -14,7 +14,9 @@
 
     --h1-size: 3.8vw;
     --h1-letter-spacing: 0.08em;
+    --h2-size: 3vw;
     --h3-size: 1.6vw;
+    --h3-small-spacing: 0.06em;
     --h4-size: 1.4vw;
 }
 
@@ -131,11 +133,11 @@ a {
     color: white;
 }
 
-
+/*our styles*/
 body {
     line-height: 1;
     font-family: var(--font-family);
-    color: var(--transparent-white);
+    color: var(--white);
     letter-spacing: 0.08em;
     font-weight: normal;
     font-size: 27px;
@@ -147,6 +149,23 @@ body {
 h1{
     letter-spacing: var(--h1-letter-spacing);
     font-size: var(--h1-size);
+}
+
+h2{
+    font-size: var(--h2-size);
+}
+
+h3{
+    font-size: var(--h3-size);
+}
+h4{
+    font-size: var(--h4-size);
+}
+
+p{
+    font-size: var(--h4-size);
+    line-height: 3.2vh;
+    letter-spacing: 0.07em;
 }
 /* Container */
 .container {
@@ -243,6 +262,9 @@ h1{
 
     line-height: 4.9vw;
     color: var(--white);
+
+    letter-spacing: var(--h1-letter-spacing);
+    font-size: var(--h1-size);
 }
 .intro_title :nth-child(2) {
     margin-left: 4.5%;
@@ -287,9 +309,9 @@ h1{
 
 /*sidebar*/
 .main_sidebar {
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 0;
+    top: -2%;
 
     height: 100vh;
 }
@@ -301,7 +323,7 @@ h1{
 .ais-info_title{
     text-align: center;
 
-    font-size: 3vw;
+    font-size: var(--h2-size);
 }
 .ais-info_content{
     margin-top: 9vh;
@@ -315,8 +337,8 @@ h1{
     display: flex;
     margin: 1.3vw 0;
 
-    font-size: 1.6vw;
-    letter-spacing: 0.06em;
+    font-size: var(--h3-size);
+    letter-spacing: var(--h3-small-spacing);
 }
 .ais-info_label::before
 {
@@ -344,7 +366,7 @@ h1{
     align-items: end;
     margin-right: 3vw;
 
-    font-size: 3.8vw;
+
     text-align: right;
 }
 .curriculum_title::after{
@@ -370,7 +392,7 @@ h1{
     background-repeat: no-repeat;
     background-size: 41vw 47vw;
 }
-.curriculum_inner :nth-child(3) /*second triangle*/
+#curriculum_triangle-2
 {
     margin: -50vh 6vw 0 auto;
     justify-content: right;
@@ -383,34 +405,25 @@ h1{
     width: 30vw;
     height: 23vh;
 
-    font-size: 1.4vw;
-    line-height: 3.2vh;
-    letter-spacing: 0.07em;
-    color: #ffffff;
 }
-.curriculum_inner :nth-child(3) p /*<p> in second triangle*/
+#curriculum_triangle-2 p
 {
-    margin-right: 1.34vw;
+    margin-right: 1.3vw;
     text-align: right;
 }
 .curriculum_details{
     margin-top: -23vh;
 
-    width: 27.5vw;
+    display: inline-block;
 
-    color: #ffffff;
 }
 .curriculum_details_label{
     width: 25.4vw;
 
-    font-size: 1.4vw;
-    line-height: 3.2vh;
-    letter-spacing: 0.07em;
 }
 .curriculum_details_subtitle{
-    font-size: 1.6vw;
-    line-height: 3.5vh;
-    letter-spacing: 0.06em;
+    font-size: var(--h3-size);
+    letter-spacing: var(--h3-small-spacing);
 }
 .curriculum_details_subtitle::before{
     content: "";
