@@ -262,9 +262,6 @@ p{
 
     line-height: 4.9vw;
     color: var(--white);
-
-    letter-spacing: var(--h1-letter-spacing);
-    font-size: var(--h1-size);
 }
 .intro_title :nth-child(2) {
     margin-left: 4.5%;
@@ -366,6 +363,7 @@ p{
     align-items: end;
     margin-right: 3vw;
 
+    font-size: var(--h1-size);
 
     text-align: right;
 }
@@ -379,47 +377,41 @@ p{
 
     background-image: url("../img/curriculum_underline.png");
     background-repeat: no-repeat;
+
+    background-size: 38vw 1vh;
 }
 .curriculum_triangle{
-    display: flex;
-    align-items: center;
+    position: relative;
     margin-top: -22vh;
-
+}
+#curriculum_triangle-2{
+    display: flex;
+    justify-content: end;
+    margin: -50vh 6vw 0;
+}
+.curriculum_triangle_img{
     width: 41vw;
     height: 47vw;
-
-    background-image: url("../img/curriculum_triangle_1.png");
-    background-repeat: no-repeat;
-    background-size: 41vw 47vw;
 }
-#curriculum_triangle-2
-{
-    margin: -50vh 6vw 0 auto;
-    justify-content: right;
-
-    background-image: url("../img/curriculum_triangle_2.png");
-}
-.curriculum_triangle p{
-    margin-left: 1.3vw;
+.curriculum_text{
+    position: absolute;
+    top: 50%;
+    left: 1.3vw;
+    transform: translateY(-50%);
 
     width: 30vw;
-    height: 23vh;
-
 }
-#curriculum_triangle-2 p
-{
-    margin-right: 1.3vw;
+#curriculum_triangle-2 .curriculum_text{
+    left: auto;
+    right: 1.3vw;
     text-align: right;
 }
 .curriculum_details{
-    margin-top: -23vh;
-
     display: inline-block;
-
+    margin-top: -23vh;
 }
 .curriculum_details_label{
     width: 25.4vw;
-
 }
 .curriculum_details_subtitle{
     font-size: var(--h3-size);
