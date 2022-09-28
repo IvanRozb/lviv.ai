@@ -486,22 +486,32 @@ p{
     margin-top: 200vh; /* TODO fix the position */
 
     height: 55vh;
-    width: 200vw;
+    width: 150vw;
+    margin-left: -25vw;
     overflow-x: hidden;
-    margin-left: -50vw;
+
     transform: rotate(16deg)
 }
 
 .sponsors_cards{
     list-style: none;
 
+    position: absolute;
+    width: 100%;
+
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
-.sponsors_cards  img{
+
+.sponsor_card  img{
+    position: relative;
     width: 15vw;
     height: auto;
 
     transform: rotate(-18deg)
 }
 
+.sponsor_card:hover{
+    transform: scale(1.2);
+}
