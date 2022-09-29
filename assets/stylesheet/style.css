@@ -152,7 +152,8 @@ h1{
 }
 
 h2{
-    font-size: var(--h2-size);
+    font-size: var(--h1-size);
+    letter-spacing: var(--h1-letter-spacing);
 }
 
 h3{
@@ -170,7 +171,14 @@ p{
 /* Container */
 .container {
     width: 89vw;
-    float: left;
+}
+
+/* colors */
+.color_letter_red{
+    color: var(--peachy);
+}
+.color_letter_orange{
+    color: #F66B24;
 }
 
 /* header */
@@ -268,9 +276,6 @@ p{
 }
 .intro_title :nth-child(3) {
     margin-left: 9%;
-}
-.color_letter{
-    color: var(--peachy);
 }
 
 .intro_label{
@@ -429,4 +434,69 @@ p{
     background-size: contain;
 
     transform: scaleY(-1);
+}
+
+/*vacancies*/
+.vacancies{
+    margin-top: 317px;
+}
+.vacancies_content{
+    margin-left: 6vw;
+}
+.vacancies_label{
+    width: 628px;
+    margin-top: 17px;
+    font-size: var(--h3-size);
+    line-height: 38px;
+    letter-spacing: var(--h3-small-spacing);
+}
+.vacancies_statistic{
+    width: 100%;
+    margin-top: 152px;
+    display: flex;
+    flex-direction: column;
+}
+.vacancies_jobs{
+    display: flex;
+    align-items: center;
+
+    height: 85px;
+}
+.vacancies_job{
+    width: 16.67%;
+    text-align: center;
+
+    font-size:28px;
+    line-height: 38px;
+    letter-spacing: var(--h3-small-spacing);
+}
+.vacancies_table{
+    height: 170px;
+
+    background: linear-gradient(90deg,
+    rgba(121, 29, 0, 0.7) 2.55%,
+    rgba(13, 35, 52, 0) 100%);
+}
+.vacancies_row{
+    display: flex;
+    align-items: center;
+    height: 50%;
+}
+.vacancies_column{
+    width: 16.67%;
+    text-align: center;
+
+    font-size: var(--h3-size);
+    line-height: 38px;
+    letter-spacing: var(--h3-small-spacing);
+}
+.vacancies_from{
+    width: 16.67%;
+    margin: 28px 0 0 auto;
+    text-align: center;
+
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
 }
