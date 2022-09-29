@@ -12,12 +12,12 @@
 
     --font-family: "Montserrat", sans-serif;
 
-    --h1-size: 3.8vw;
+    --h1-size: 3.8vw; /* 74px */
     --h1-letter-spacing: 0.08em;
-    --h2-size: 3vw;
-    --h3-size: 1.6vw;
+    --h2-size: 3vw; /* 59px */
+    --h3-size: 1.6vw; /* 30px */
     --h3-small-spacing: 0.06em;
-    --h4-size: 1.4vw;
+    --h4-size: 1.4vw; /* 27px */
 }
 
 /* zeroing style */
@@ -138,9 +138,9 @@ body {
     line-height: 1;
     font-family: var(--font-family);
     color: var(--white);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--h1-letter-spacing);
     font-weight: normal;
-    font-size: 27px;
+    font-size: var(--h4-size);
     background-color: var(--black);
     margin: 0;
 }
@@ -438,40 +438,43 @@ p{
 
 /*vacancies*/
 .vacancies{
-    margin-top: 317px;
+    margin-top: 29vh;
 }
 .vacancies_content{
     margin-left: 6vw;
 }
 .vacancies_label{
-    width: 628px;
-    margin-top: 17px;
+    width: 35vw;
+    margin-top: 1.6vh;
+
     font-size: var(--h3-size);
-    line-height: 38px;
+    line-height: 3.5vh;
     letter-spacing: var(--h3-small-spacing);
 }
 .vacancies_statistic{
     width: 100%;
-    margin-top: 152px;
+    margin-top: 14vh;
     display: flex;
     flex-direction: column;
+
+    font-size: var(--h3-size);
+    line-height: 3.5vh;
+    letter-spacing: var(--h3-small-spacing);
 }
 .vacancies_jobs{
     display: flex;
     align-items: center;
 
-    height: 85px;
+    height: 8vh;
 }
 .vacancies_job{
     width: 16.67%;
     text-align: center;
 
-    font-size:28px;
-    line-height: 38px;
-    letter-spacing: var(--h3-small-spacing);
+    font-size: var(--h4-size);
 }
 .vacancies_table{
-    height: 170px;
+    height: 16vh;
 
     background: linear-gradient(90deg,
     rgba(121, 29, 0, 0.7) 2.55%,
@@ -485,18 +488,14 @@ p{
 .vacancies_column{
     width: 16.67%;
     text-align: center;
-
-    font-size: var(--h3-size);
-    line-height: 38px;
-    letter-spacing: var(--h3-small-spacing);
 }
 .vacancies_from{
     width: 16.67%;
-    margin: 28px 0 0 auto;
+    margin: 1.4vw 0 0 auto;
     text-align: center;
 
     font-weight: 300;
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 1vw;
+    line-height: 2.4vh;
     letter-spacing: 0.05em;
 }
