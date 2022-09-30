@@ -14,10 +14,18 @@
 
     --h1-size: 3.8vw; /* 74px */
     --h1-letter-spacing: 0.08em;
+
     --h2-size: 3vw; /* 59px */
+
     --h3-size: 1.6vw; /* 30px */
     --h3-small-spacing: 0.06em;
+    --h3-line-height: 3.5vh;
     --h4-size: 1.4vw; /* 27px */
+
+    --small-size: 1vw;
+    --small-weight: 300;
+    --small-height: 2.4vh;
+    --small-letter-spacing: 0.05em;
 }
 
 /* zeroing style */
@@ -492,7 +500,7 @@ p{
     margin-top: 1.6vh;
 
     font-size: var(--h3-size);
-    line-height: 3.5vh;
+    line-height: var(--h3-line-height);
     letter-spacing: var(--h3-small-spacing);
 }
 .vacancies_statistic{
@@ -502,7 +510,7 @@ p{
     flex-direction: column;
 
     font-size: var(--h3-size);
-    line-height: 3.5vh;
+    line-height: var(--h3-line-height);
     letter-spacing: var(--h3-small-spacing);
 }
 .vacancies_jobs{
@@ -518,7 +526,6 @@ p{
     font-size: var(--h4-size);
 }
 .vacancies_table{
-    height: 16vh;
 
     background: linear-gradient(90deg,
     rgba(121, 29, 0, 0.7) 2.55%,
@@ -527,21 +534,20 @@ p{
 .vacancies_row{
     display: flex;
     align-items: center;
-    height: 50%;
+    height: 8vh;
 }
 .vacancies_column{
     width: 16.67%;
     text-align: center;
 }
 .vacancies_from{
-    width: 16.67%;
+    width: 16%;
     margin: 1.4vw 0 0 auto;
     text-align: center;
 
-    font-weight: 300;
-    font-size: 1vw;
-    line-height: 2.4vh;
-    letter-spacing: 0.05em;
+    font-size: var(--small-size);
+    line-height: var(--small-height);
+    letter-spacing: var(--small-letter-spacing);
 }
 
 /*sponsors*/
