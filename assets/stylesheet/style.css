@@ -12,12 +12,20 @@
 
     --font-family: "Montserrat", sans-serif;
 
-    --h1-size: 3.8vw;
+    --h1-size: 3.8vw; /* 74px */
     --h1-letter-spacing: 0.08em;
-    --h2-size: 3vw;
-    --h3-size: 1.6vw;
+
+    --h2-size: 3vw; /* 59px */
+
+    --h3-size: 1.6vw; /* 30px */
     --h3-small-spacing: 0.06em;
-    --h4-size: 1.4vw;
+    --h3-line-height: 3.5vh;
+    --h4-size: 1.4vw; /* 27px */
+
+    --small-size: 1vw;
+    --small-weight: 300;
+    --small-height: 2.4vh;
+    --small-letter-spacing: 0.05em;
 }
 
 /* zeroing style */
@@ -138,9 +146,9 @@ body {
     line-height: 1;
     font-family: var(--font-family);
     color: var(--white);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--h1-letter-spacing);
     font-weight: normal;
-    font-size: 27px;
+    font-size: var(--h4-size);
     background-color: var(--black);
     margin: 0;
 
@@ -155,7 +163,8 @@ h1{
 }
 
 h2{
-    font-size: var(--h2-size);
+    font-size: var(--h1-size);
+    letter-spacing: var(--h1-letter-spacing);
 }
 
 h3{
@@ -173,7 +182,14 @@ p{
 /* Container */
 .container {
     width: 89vw;
-    float: left;
+}
+
+/* colors */
+.color_letter_red{
+    color: var(--peachy);
+}
+.color_letter_orange{
+    color: #F66B24;
 }
 
 /* header */
@@ -287,9 +303,6 @@ p{
 }
 .intro_title :nth-child(3) {
     margin-left: 9%;
-}
-.color_letter{
-    color: var(--peachy);
 }
 
 .intro_label{
@@ -475,6 +488,68 @@ p{
     transform: scaleY(-1);
 }
 
+/*vacancies*/
+.vacancies{
+    margin-top: 29vh;
+}
+.vacancies_content{
+    margin-left: 6vw;
+}
+.vacancies_label{
+    width: 35vw;
+    margin-top: 1.6vh;
+
+    font-size: var(--h3-size);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-small-spacing);
+}
+.vacancies_statistic{
+    width: 100%;
+    margin-top: 14vh;
+    display: flex;
+    flex-direction: column;
+
+    font-size: var(--h3-size);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-small-spacing);
+}
+.vacancies_jobs{
+    display: flex;
+    align-items: center;
+
+    height: 8vh;
+}
+.vacancies_job{
+    width: 16.67%;
+    text-align: center;
+
+    font-size: var(--h4-size);
+}
+.vacancies_table{
+
+    background: linear-gradient(90deg,
+    rgba(121, 29, 0, 0.7) 2.55%,
+    rgba(13, 35, 52, 0) 100%);
+}
+.vacancies_row{
+    display: flex;
+    align-items: center;
+    height: 8vh;
+}
+.vacancies_column{
+    width: 16.67%;
+    text-align: center;
+}
+.vacancies_from{
+    width: 16%;
+    margin: 1.4vw 0 0 auto;
+    text-align: center;
+
+    font-size: var(--small-size);
+    line-height: var(--small-height);
+    letter-spacing: var(--small-letter-spacing);
+}
+
 /*sponsors*/
 .sponsors_inner{
     display: flex;
@@ -483,7 +558,7 @@ p{
     border-top: var(--transparent-white) 2px solid;
     border-bottom: var(--transparent-white) 2px solid;
 
-    margin-top: 200vh; /* TODO fix the position */
+    margin-top: 14vh;
 
     height: 55vh;
     width: 150vw;
@@ -515,3 +590,4 @@ p{
 .sponsor_card:hover{
     transform: scale(1.2);
 }
+
