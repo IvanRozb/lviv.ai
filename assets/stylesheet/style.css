@@ -553,16 +553,17 @@ p{
 /*sponsors*/
 .sponsors_inner{
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     border-top: var(--transparent-white) 2px solid;
     border-bottom: var(--transparent-white) 2px solid;
 
-    margin-top: 14vh;
+    margin-top: 35vh;
 
     height: 55vh;
-    width: 150vw;
-    margin-left: -25vw;
+    width: 120vw;
+    margin-left: -10vw;
     overflow-x: hidden;
 
     transform: rotate(16deg)
