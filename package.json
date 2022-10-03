@@ -1,0 +1,24 @@
+{
+  "name": "from-git",
+  "version": "1.0.0",
+  "description": "Don't move.. *BOOM* ...eh whatever",
+  "source": "src/index.html",
+  "scripts": {
+    "dev": "(parcel ./src/index.html) & parcel watch ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanRozb/lviv.ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanRozb/lviv.ai/issues"
+  },
+  "homepage": "https://github.com/IvanRozb/lviv.ai#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
