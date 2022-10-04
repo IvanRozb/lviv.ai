@@ -551,6 +551,25 @@ p{
 }
 
 /*sponsors*/
+.sponsors{
+    margin-top: 20vh;
+}
+.sponsors .container{
+    display: flex;
+    justify-content: right;
+}
+.sponsors_label{
+    text-align: right;
+    width: 50vw;
+}
+.sponsors_label > *{
+    margin-bottom: 1em;
+}
+.sponsors_paragraph{
+    width: 44vw;
+    float: right;
+}
+
 .sponsors_inner{
     display: flex;
     justify-content: space-between;
@@ -558,8 +577,6 @@ p{
 
     border-top: var(--transparent-white) 2px solid;
     border-bottom: var(--transparent-white) 2px solid;
-
-    margin-top: 35vh;
 
     height: 55vh;
     width: 120vw;
