@@ -11,8 +11,10 @@
     /* Typographies */
 
     --font-family: "Montserrat", sans-serif;
+    --font-family-second: 'Jura', sans-serif;
 
-    --h1-size: 3.8vw; /* 74px */
+    --h1-size: 4.58vw; /* 88px */
+    --h1-font-weight: bold;
     --h1-letter-spacing: 0.08em;
 
     --h2-size: 3vw; /* 59px */
@@ -27,10 +29,7 @@
     --small-height: 2.4vh;
     --small-letter-spacing: 0.05em;
 }
-body{font-family: 'Jura',
-sans-serif;
-font-family: 'Space Grotesk',
-sans-serif;}
+
 /* zeroing style */
 html,
 body,
@@ -163,6 +162,7 @@ body {
 h1{
     letter-spacing: var(--h1-letter-spacing);
     font-size: var(--h1-size);
+    font-weight: var(--h1-font-weight);
 }
 
 h2{
@@ -271,7 +271,7 @@ p{
 .nav_link.active {
     color: rgba(255, 255, 255, 0.8);
 }
-.nav_logo {
+.logo {
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
@@ -299,7 +299,6 @@ p{
     padding-left: 5%;
 
     line-height: 4.9vw;
-    color: var(--white);
 }
 .intro_title :nth-child(2) {
     margin-left: 4.5%;
@@ -560,6 +559,7 @@ p{
 .sponsors .container{
     display: flex;
     justify-content: right;
+    -webkit-justify-content: flex-end;
 }
 .sponsors_label{
     text-align: right;
@@ -613,89 +613,53 @@ p{
 
 /*footer*/
 .footer{
-    width: 100%;
-    padding-top: 373px;
+    margin-top: 30vh;
+    height: 100vh;
+
     background-image: url("../img/HandBg.png");
     background-repeat: no-repeat;
-    background-size: 99.2vw 108vh;
-    
+    background-size: cover;
+    background-position: 6vw -6vh;
+
 }
 
-.footer_container{
+.footer p{
+    font-family: var(--font-family-second);
+    font-size: var(--small-size);
+}
+
+.footer_content{
     display: flex;
     flex-direction: row;
-    margin-top: 5.8vh;
- 
+    height: 36vh;
+
+    padding-left: 17.4vw;
 }
 
-.footer_info {
-    width: 20vw;
-    margin-left: 25vw;
+.footer_col{
+    width: 14.8vw;
 }
 
-.footer_address, .footer_title1, .footer_title2{
-    font-family: 'Jura';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2.7vh;
-    line-height: 3vh;
-    letter-spacing: 0.07em;
-        
-}
-.footer_title2,.footer_icons{
-    margin-left: 2.7vw;
-}
-.footer_address{
-    margin-bottom: 1.8vh;
-    margin-left: 0.36vw;
-}
-.footer_emails{
-    width :145vw;
-    margin-top: 3vh;
-    margin-bottom: 3.9vh;
-}
-
-.footer_tel, .footer_email,.footer-ad{
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.9vh;
-    line-height: 2.6vh;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
-}
-.footer-ad {
-    width: 14vw;
-}
-.footer_tels{
-    width: 15vw;
-    margin-bottom: 3.9vh;
+.footer_info > * {
+    margin-bottom: 2.7vh;
 }
 
 .footer_net{
     display: flex;
     flex-direction: column;
-    margin-left:4vw;
+    margin-left: 7.6vw;
 }
+
 .footer_icons{
-    margin-top:3.8vh;
+    margin-top:4.5vh;
     margin-bottom: 1.18vh;
 }
 .footer_icon{
     margin-right: 0.8vw;
 }
+
 .footer_map{
-    margin-top: 11.8vh;
-    margin-bottom: 16.3vh;
-    width: 26.3vw;
-    height: 33vh;
-}
-.footer_logo{
-    position: absolute;
-    left: 46.9vw;
-    width: 3.2em;
-    -webkit-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    margin-top: 42vh;
+    width: 14.8vw;
+    height: 10vw;
+    margin-top: auto;
 }
