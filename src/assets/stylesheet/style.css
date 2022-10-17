@@ -13,18 +13,23 @@
     --font-family: "Montserrat", sans-serif;
     --font-family-second: 'Jura', sans-serif;
 
+    --h-font-weight: 600;
+
     --h1-size: 4.58vw; /* 88px */
-    --h1-font-weight: bold;
+    --h1-font-weight: 700;
     --h1-letter-spacing: 0.08em;
 
-    --h2-size: 3vw; /* 59px */
+    --h2-size: 3.9vw; /*75*/
 
-    --h3-size: 1.6vw; /* 30px */
-    --h3-small-spacing: 0.06em;
-    --h3-line-height: 3.5vh;
-    --h4-size: 1.4vw; /* 27px */
+    --h3-size: 3vw; /* 59px */
 
-    --small-size: 1vw;
+    --h4-size: 1.6vw; /* 30px */
+    --h4-small-spacing: 0.06em;
+    --h4-line-height: 3.5vh;
+
+    --h5-size: 1.4vw; /* 27px */
+
+    --small-size: 1vw; /* 20px */
     --small-weight: 300;
     --small-height: 2.4vh;
     --small-letter-spacing: 0.05em;
@@ -150,7 +155,7 @@ body {
     color: var(--white);
     letter-spacing: var(--h1-letter-spacing);
     font-weight: normal;
-    font-size: var(--h4-size);
+    font-size: var(--h5-size);
     background-color: var(--black);
     margin: 0;
 
@@ -158,6 +163,10 @@ body {
     max-width: 100vw;
 }
 
+h1, h2, h3,
+h4, h5, h6 {
+    font-weight: var(--h-font-weight);
+}
 
 h1{
     letter-spacing: var(--h1-letter-spacing);
@@ -171,14 +180,22 @@ h2{
 }
 
 h3{
-    font-size: var(--h3-size);
+    font-size: var(--h2-size);
 }
 h4{
-    font-size: var(--h4-size);
+    font-size: var(--h3-size);
 }
 
-p{
+h5{
     font-size: var(--h4-size);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-small-spacing)
+}
+h6{
+    font-size: var(--h5-size);
+}
+p{
+    font-size: var(--h5-size);
     line-height: 3.2vh;
     letter-spacing: 0.07em;
 }
@@ -190,9 +207,6 @@ p{
 /* colors */
 .color_letter_red{
     color: var(--peachy);
-}
-.color_letter_orange{
-    color: #F66B24;
 }
 
 /* header */
@@ -286,74 +300,43 @@ p{
 .intro {
     width: 100%;
     height: 100vh;
-    /*max-height: 1080px;*/
     position: relative;
 
-    background: url(../img/intro.jpg) center no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
+    /*background: url(../img/intro.svg) center no-repeat;*/
+    /*background-size: cover;*/
+    /*-moz-background-size: cover;*/
 }
-.intro_title {
-    position: relative;
-    margin-top: 12.5vw;
-    padding-left: 5%;
+.intro * {
+    font-weight: bold;
+}
+.intro_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    padding-top: 35vh;
+    padding-left: 5vw;
+}
+
+.intro_title {
     line-height: 4.9vw;
 }
+
 .intro_title :nth-child(2) {
-    margin-left: 4.5%;
+    margin-left: 4vw;
 }
 .intro_title :nth-child(3) {
-    margin-left: 9%;
+    margin-left: 8vw;
 }
-
-.intro_label{
-    width: 36vw;
-    height: 35vh;
-    position: relative;
-    margin-left: 28vw;
-    margin-top: 5.5vh;
-
-    text-align: center;
-    font-size: var(--h3-size);
-
-    background: -o-linear-gradient(
-            269deg,
-            var(--transparent-fire-brick) -3%,
-            var(--transparent-fire-brick-2) 99%
-    );
-
-    background: linear-gradient(
-            181deg,
-            var(--transparent-fire-brick) -3%,
-            var(--transparent-fire-brick-2) 99%
-    );
-
-    -webkit-backdrop-filter: blur(20px);
-
-    backdrop-filter: blur(20px);
-
-    z-index: 2;
-}
-
-.intro_label p{
-    position:absolute;
-    width:100%;
-    bottom: 0;
-    right:0;
-
-    color: var(--transparent-white);
-}
-
 
 /*sidebar*/
 .main_sidebar {
     position: fixed;
-    right: 0;
-    top: -2%;
+    right: -1vw;
+    top: 10vh;
     z-index: 1000;
 
-    height: 100vh;
+    height: 90vh;
 }
 
 /*AIS-info*/
@@ -363,7 +346,7 @@ p{
 .ais-info_title{
     text-align: center;
 
-    font-size: var(--h2-size);
+    font-size: var(--h3-size);
 }
 .ais-info_content{
     margin-top: 9vh;
@@ -379,8 +362,8 @@ p{
     display: flex;
     margin: 1.3vw 0;
 
-    font-size: var(--h3-size);
-    letter-spacing: var(--h3-small-spacing);
+    font-size: var(--h4-size);
+    letter-spacing: var(--h4-small-spacing);
 }
 .ais-info_label::before
 {
@@ -397,17 +380,14 @@ p{
 
 /*Curriculum*/
 .curriculum{
-    margin-top: 50vh;
+    margin-top: 80vh;
 }
 .curriculum_inner{
     margin-left: 6vw;
 }
 .curriculum_title{
     position: relative;
-    margin-right: 3vw;
-
-    font-size: var(--h1-size);
-
+    margin-right: 6vw;
     text-align: right;
 }
 .curriculum_title::after{
@@ -423,9 +403,10 @@ p{
     width: 38vw;
     height: 1vh;
 
-    background-image: url("../img/curriculum_underline.png");
+    background-image: url("../img/curriculum_underline.svg");
     background-repeat: no-repeat;
     background-size: 38vw 1vh;
+
 }
 .curriculum_triangle{
     position: relative;
@@ -469,8 +450,8 @@ p{
     width: 25.4vw;
 }
 .curriculum_details_subtitle{
-    font-size: var(--h3-size);
-    letter-spacing: var(--h3-small-spacing);
+    font-size: var(--h4-size);
+    letter-spacing: var(--h4-small-spacing);
 }
 .curriculum_details_subtitle::before{
     content: "";
@@ -480,7 +461,8 @@ p{
     width: 100%;
     height: 1vh;
 
-    background: url("../img/curriculum_underline.png") no-repeat;
+    background: url("../img/curriculum_underline.svg") no-repeat;
+
     background-size: contain;
 
     -webkit-transform: scaleY(-1);
@@ -492,18 +474,17 @@ p{
 
 /*vacancies*/
 .vacancies{
-    margin-top: 29vh;
+    margin-top: 100vh;
 }
 .vacancies_content{
     margin-left: 6vw;
 }
+.vacancies_title{
+    margin-bottom: 7vh;
+}
 .vacancies_label{
     width: 35vw;
     margin-top: 1.6vh;
-
-    font-size: var(--h3-size);
-    line-height: var(--h3-line-height);
-    letter-spacing: var(--h3-small-spacing);
 }
 .vacancies_statistic{
     width: 100%;
@@ -511,9 +492,9 @@ p{
     display: flex;
     flex-direction: column;
 
-    font-size: var(--h3-size);
-    line-height: var(--h3-line-height);
-    letter-spacing: var(--h3-small-spacing);
+    font-size: var(--h4-size);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-small-spacing);
 }
 .vacancies_jobs{
     display: flex;
@@ -525,13 +506,14 @@ p{
     width: 16.67%;
     text-align: center;
 
-    font-size: var(--h4-size);
+    font-size: var(--h5-size);
 }
 .vacancies_table{
 
     background: linear-gradient(90deg,
-    rgba(121, 29, 0, 0.7) 2.55%,
-    rgba(13, 35, 52, 0) 100%);
+    rgba(232, 0, 0, 0.6) 2.55%,
+    rgba(217, 125, 125, 0.446849) 23.02%,
+    rgba(182, 182, 182, 0) 82.76%);
 }
 .vacancies_row{
     display: flex;
@@ -554,7 +536,7 @@ p{
 
 /*sponsors*/
 .sponsors{
-    margin-top: 20vh;
+    margin-top: 70vh;
 }
 .sponsors .container{
     display: flex;
@@ -573,6 +555,8 @@ p{
     float: right;
 }
 .sponsors_inner{
+    margin-top: 8vh;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -580,7 +564,7 @@ p{
     border-top: var(--transparent-white) 2px solid;
     border-bottom: var(--transparent-white) 2px solid;
 
-    height: 55vh;
+    height: 75vh;
     width: 120vw;
     margin-left: -10vw;
     overflow-x: hidden;
@@ -596,12 +580,12 @@ p{
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .sponsor_card  img{
     position: relative;
-    width: 15vw;
+    width: 20vw;
     height: auto;
 
     transform: rotate(-18deg)
