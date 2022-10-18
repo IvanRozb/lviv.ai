@@ -385,28 +385,31 @@ p{
 .curriculum_inner{
     margin-left: 6vw;
 }
-.curriculum_title{
+.curriculum_title-wrapper{
     position: relative;
-    margin-right: 6vw;
-    text-align: right;
+    width: 46vw;
+    /*margin: 0 6vw 0 auto;*/
+    margin-left: auto;
 }
-.curriculum_title::after{
+.curriculum_title-wrapper::after{
     content: "";
-
-    display: inline-block;
+    display: block;
     position: absolute;
     -webkit-transform: translate(-100%,3.8vh);
     -ms-transform: translate(-100%,3.8vh);
     transform: translate(-100%,3.8vh);
     bottom: 0;
-
-    width: 38vw;
-    height: 1vh;
-
+    left: 100%;
+    width: 47vw;
+    height: 2vh;
     background-image: url("../img/curriculum_underline.svg");
     background-repeat: no-repeat;
-    background-size: 38vw 1vh;
-
+    /*background-size: 46vw 1vh;*/
+    background-position: right;
+}
+.curriculum_title{
+    position: relative;
+    text-align: center;
 }
 .curriculum_triangle{
     position: relative;
