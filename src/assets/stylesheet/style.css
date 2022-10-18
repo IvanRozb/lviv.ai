@@ -595,6 +595,48 @@ p{
     transform: scale(1.2);
 }
 
+/*apply*/
+
+.apply_content{
+    margin-top:30vh;
+    height: 30.5vh;
+    margin-bottom: 0;
+}
+.apply_button{
+    width: 30vw;
+    height: 10.5vh;
+    background: linear-gradient(89.98deg, #B41E23 0.02%, rgba(198, 91, 91, 0) 124.11%);
+    border-radius: 35px;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--h3-size);
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    cursor: pointer;
+}
+.apply_text{
+    width: 880px;
+    padding-bottom: 4.1vh;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--h2-size);
+    line-height: 7.8vh;
+    letter-spacing: var(--h1-letter-spacing);
+
+    color: #FFFFFF;
+}
+
+
 /*footer*/
 .footer{
     margin-top: 30vh;
