@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
     <title>Artificial Intelligence</title>
     <link rel="stylesheet" href="assets/stylesheet/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jura&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="header" id="header">
@@ -22,10 +20,10 @@
         </div>
         <div class="nav_lang">
             <div class="nav_item">
-                <a class="nav_link active" href="#">UA</a>
+                <a class="nav_link " href="#">UA</a>
             </div>
             <div class="nav_item">
-                <a class="nav_link" href="#">EN</a>
+                <a class="nav_link active" href="index_en.html">EN</a>
             </div>
         </div>
         <div class="nav_item">
@@ -35,7 +33,7 @@
             <a class="nav_link" href="#">СШІ</a>
         </div>
     </nav>
-    <img class="nav_logo" src="assets/img/logo.png" alt="logo">
+    <img class="logo" src="assets/img/logo.png" alt="logo">
 </header>
 
 <!--intro-->
@@ -43,28 +41,27 @@
     <div class="container">
         <div class="intro_inner">
             <h1 class="intro_title">
-                <span><span class="color_letter_red">С</span>ИСТЕМИ<br></span>
-                <span><span class="color_letter_red">Ш</span>ТУЧНОГО<br></span>
-                <span><span class="color_letter_red">І</span>НТЕЛЕКТУ</span>
+                <span>Системи<br></span>
+                <span>Штучного<br></span>
+                <span>Інтелекту</span>
             </h1>
-            <div class="intro_label">
-                <p>Майбутнє, яке вже наступило</p>
-            </div>
-            <img src="assets/img/side_navigation.png" alt="sidebar" class="main_sidebar">
+            <h4>це</h4>
+            <h5 class="intro_text">Майбутнє, яке вже наступило</h5>
+
+            <img src="assets/img/side_navigation.svg" alt="sidebar" class="main_sidebar">
+            <div class="sidebar_blur_pannel"></div>
         </div>
     </div>
 </section>
 
 <!--ais-info-->
 <section class="ais-info">
-    <h2 class="ais-info_title">
-        <span class="color_letter_red">СШІ</span> - це коли
-    </h2>
+    <h3 class="ais-info_title">СШІ - це коли</h3>
     <ol type="a" class="ais-info_content">
-        <li class="ais-info_label">Автопілот, відвезе вас у будь-яку точку на планеті</li>
-        <li class="ais-info_label">Стрічка соц мереж, наповнена лише тим, що цікаве саме вам</li>
-        <li class="ais-info_label">Боти в іграх поводяться як справжні гравці</li>
-        <li class="ais-info_label">Роботи, розуміють коли вам сумно, а коли - весело</li>
+        <li class="ais-info_label"><span class="ais_li_span">Автопілот, відвезе вас у будь-яку точку на планеті</span></li>
+        <li class="ais-info_label"><span class="ais_li_span">Стрічка соц мереж, наповнена лише тим, що цікаве саме вам</span></li>
+        <li class="ais-info_label"><span class="ais_li_span">Боти в іграх поводяться як справжні гравці</span></li>
+        <li class="ais-info_label"><span class="ais_li_span">Роботи, розуміють коли вам сумно, а коли - весело</span></li>
     </ol>
 </section>
 
@@ -72,18 +69,29 @@
 <section class="curriculum">
     <div class="container">
         <div class="curriculum_inner">
-            <h2 class="curriculum_title">Навчальна програма</h2>
+            <div class="curriculum_title-wrapper">
+                <h3 class="curriculum_title">Навчальна програма</h3>
+            </div>
             <div class="curriculum_triangle">
-                <img class="curriculum_triangle_img" src="assets/img/curriculum_triangle_1.png" alt="triangle">
-                <p class="curriculum_text">Щоб допомогти вам стати крутими спеціалістами  ми включили в  неї розробку алгоритмів, принципи ООП, роботу з базами даних, веб-технології, машинне навчання, компʼютерну графіку та лінгвістику.</p>
+                <img class="curriculum_triangle_img" src="assets/img/curriculum_triangle_1.svg" alt="triangle">
+                <p class="curriculum_text">
+                    Щоб допомогти вам стати крутими спеціалістами  ми включили в
+                    неї розробку алгоритмів, принципи ООП, роботу з базами даних, веб-технології, машинне навчання,
+                    компʼютерну графіку та лінгвістику.</p>
             </div>
             <div class="curriculum_triangle" id="curriculum_triangle-2">
-                <img class="curriculum_triangle_img" src="assets/img/curriculum_triangle_2.png" alt="triangle">
-                <p class="curriculum_text">З першого семестру студенти вчаться працювати в команді над проєктами. Уже на 2 курсі для кожної з них виділяють ментора, який є досвідченим спеціалістом.<br><br>
-                Особлива увага приділяється<br style="margin-right: 0;"> софт-скілам<br> та англійській мові</p>
+                <img class="curriculum_triangle_img" src="assets/img/curriculum_triangle_2.svg" alt="triangle">
+                <p class="curriculum_text">
+                    З першого семестру студенти вчаться працювати в команді над проєктами.
+                    Уже на 2 курсі для кожної з них виділяють ментора, який є досвідченим спеціалістом.<br><br>
+                    Особлива увага приділяється<br style="margin-right: 0;">
+                    софт-скілам<br>
+                    та англійській мові</p>
             </div>
             <div class="curriculum_details">
-                <p class="curriculum_details_label">Після закінчення кожного семестру навчальну програму оновлюють за  участі IT-фахівців, викладачів  та студентів</p>
+                <p class="curriculum_details_label">
+                    Після закінчення кожного семестру навчальну програму оновлюють
+                    за  участі IT-фахівців, викладачів  та студентів</p>
                 <p class="curriculum_details_subtitle"><a href="#">Детальніше про програму >></a></p>
             </div>
         </div>
@@ -95,9 +103,13 @@
     <div class="container">
         <div class="vacancies_inner">
             <div class="vacancies_content">
-                <h2 class="vacancies_title">Ким працювати?</h2>
-                <p class="vacancies_label">Ми надаємо можливість освоїти різні  технології,  тож напрямок обирають саме студенти.</p>
-                <p class="vacancies_label">Ось кількість <span class="color_letter_orange">вакансій</span> для професій, які є популярними серед наших випускників</p>
+                <h3 class="vacancies_title">Ким працювати?</h3>
+                <p class="vacancies_label">
+                    Ми надаємо можливість освоїти різні  технології,
+                    тож напрямок обирають саме студенти.</p>
+                <p class="vacancies_label">
+                    Ось кількість вакансій
+                    для професій, які є популярними серед наших випускників</p>
             </div>
             <div class="vacancies_statistic">
                 <div class="vacancies_jobs">
@@ -110,7 +122,7 @@
                 </div>
                 <table class="vacancies_table">
                     <tr class="vacancies_row">
-                        <th class="vacancies_column color_letter_orange">Україна</th>
+                        <th class="vacancies_column">Україна</th>
                         <th class="vacancies_column">531</th>
                         <th class="vacancies_column">143</th>
                         <th class="vacancies_column">339</th>
@@ -118,7 +130,7 @@
                         <th class="vacancies_column">193</th>
                     </tr>
                     <tr class="vacancies_row">
-                        <th class="vacancies_column color_letter_orange">Львів</th>
+                        <th class="vacancies_column">Львів</th>
                         <th class="vacancies_column">133</th>
                         <th class="vacancies_column">26</th>
                         <th class="vacancies_column">69</th>
@@ -136,54 +148,71 @@
 <section class="sponsors">
     <div class="container">
         <div class="sponsors_label">
-            <h2><span class="color_letter_orange">Компанії</span> - партнери</h2>
+            <h3>Компанії - партнери</h3>
             <p class="sponsors_paragraph">Ми співпрацюємо з найбільшими IT-компаніями України</p>
-            <p class="sponsors_paragraph">Вони пропонують безкоштовні інтенсиви з участю їхніх працівників, брендові призи за перемоги у змаганнях та додаткові лекції професійного спрямування для 2-4 курсів</p>
+            <p class="sponsors_paragraph">
+                Вони пропонують безкоштовні інтенсиви з участю їхніх працівників, брендові призи
+                за перемоги у змаганнях та додаткові лекції професійного спрямування для 2-4 курсів</p>
         </div>
     </div>
     <div class="sponsors_inner">
         <ul class="sponsors_cards">
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_GlobalLogic_plane.svg"></li>
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_N-IX_plane.svg"></li>
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_N-IX_plane.svg"></li>
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_N-IX_plane.svg"></li>
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_N-IX_plane.svg"></li>
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_N-IX_plane.svg"></li>
-            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_N-IX_plane.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_n-ix_plane_ua.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_softServe_plane_ua.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_globalLogic_plane_ua.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_amcBridge_plane_ua.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_epam_plane_ua.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_n-ix_plane_ua.svg"></li>
+            <li class="sponsor_card"><img alt="" src="assets/img/sponsors_softServe_plane_ua.svg"></li>
         </ul>
     </div>
+</section>
+<!--apply-->
+<section class="apply_section">
+    <div class="apply_content">
+        <h3 class="apply_text">Щоб подати заявку,
+            тисність сюди</h3>
+        <button class="apply_button">Тиць</button>
+    </div>
+
 </section>
 
 <!--footer-->
 <section class="footer">
-    <div class="footer_container">
-        <div class="footer_info">
-            <h4 class="footer_title1">Зв’яжіться з нами</h4>
-            <div class="footer_emails"><p class="footer_email"> <span>Email:</span> <a href="email">ikni-info@lp.edu.ua</a><span>,</span></p>
-            <p class="footer_email">dekanat.ikni@gmail.com</p>
-           </div>
-            <div class="footer_tels">
-                <p class="footer_tel">(032) 258-24-04,</p>
-                <p class="footer_tel">(032) 258-26-63</p>
+    <div class="container">
+        <div class="footer_content">
+            <div class="footer_info footer_col">
+                <h6>Зв’яжіться з нами</h6>
+                <div class="footer_emails">
+                    <p>Email:<a href="email">ikni-info@lp.edu.ua</a>,</p>
+                    <p><a href="email">dekanat.ikni@gmail.com</a></p>
+               </div>
+                <div class="footer_tels">
+                    <p>(032) 258-24-04,</p>
+                    <p>(032) 258-26-63</p>
+                </div>
+                <h6>Адреса</h6>
+                <p>м.Львів / вул. Князя Романа 5 [20-й корпус]</p>
             </div>
-            <h4 class="footer_address">Адреса</h4>
-            <p class="footer-ad">м.Львів / вул. Князя Романа 5 [20-й корпус]</p>
-        </div>
-        <div class="footer_net">
-           <h4 class="footer_title2">Наші соц-мережі</h4>
-           <div class="footer_icons"><a href="#"><img src="assets/img/icon_facebook.png" alt="Facebook" class="footer_icon"></a>
-           <a href="#"><img src="assets/img/icon_instagram.png" alt="Instagram" class="footer_icon"></a>
-            <a href="#"><img src="assets/img/icon_moodle.png" alt="Moodle" class="footer_icon"></a>
+            <div class="footer_net footer_col">
+               <h6>Наші соц-мережі</h6>
+               <div class="footer_icons">
+                   <a href="#"><img src="assets/img/icon_facebook.png" alt="Facebook" class="footer_icon"></a>
+                   <a href="#"><img src="assets/img/icon_instagram.png" alt="Instagram" class="footer_icon"></a>
+                   <a href="#"><img src="assets/img/icon_moodle.png" alt="Moodle" class="footer_icon"></a>
+                </div>
+                <div class="footer_map"></div>
             </div>
-            <div class="footer_map">
-            <a href="#"><img src="assets/img/BottomMap.png" alt="Map"></a>
-           </div>
         </div>
     </div>
-    <img src="assets/img/LogoTwo.png" alt="Logo" class="footer_logo">
 </section>
-
+<img class="logo" src="assets/img/logo.png" alt="logo">
 
 <script type="module" src="index.js"></script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl9BbTA13IMJYWf_8I8YL3iTJN0Yw7JvE&callback=initMap&v=weekly"
+        defer
+></script>
+
 </body>
 </html>
