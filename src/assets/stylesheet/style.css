@@ -548,6 +548,7 @@ button{
 /*sponsors*/
 .sponsors{
     margin-top: 70vh;
+    height: fit-content;
 }
 .sponsors .container{
     display: flex;
@@ -623,10 +624,6 @@ button{
 }
 
 /*apply*/
-.apply_section{
-    margin-top:30vh;
-    min-width: 100vw;
-}
 .apply_content{
     display: flex;
     flex-direction: column;
