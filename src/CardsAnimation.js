@@ -39,6 +39,7 @@ export class CardsAnimate{
             this.cards_container.style.left = `${this.first_block_pos}px`
         } else {
             this.first_block_pos = -this.width
+            this.cards_container2.style.zIndex = 3
         }
     }
 
@@ -49,6 +50,7 @@ export class CardsAnimate{
             this.cards_container2.style.left = `${this.second_block_pos}px`
         } else {
             this.second_block_pos = -this.width
+            this.cards_container2.style.zIndex = 1
         }
     }
 

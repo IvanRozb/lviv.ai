@@ -569,18 +569,20 @@ button{
     margin-top: 8vh;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
-    border-top: var(--transparent-white) 2px solid;
-    border-bottom: var(--transparent-white) 2px solid;
+    --cards-width: 140vw;
 
     height: 75vh;
-    width: 120vw;
-    margin-left: -10vw;
-    overflow-x: hidden;
+    width: var(--cards-width);
+    margin-left: calc((var(--cards-width) - 100vw) / -2);
+    overflow: hidden;
 
-    transform: rotate(16deg)
+    transform: rotate(16deg);
+
+    border-bottom: white 2px solid;
+    border-top: white 2px solid;
 }
 
 .sponsors_cards{
@@ -589,6 +591,7 @@ button{
     position: absolute;
     width: 100%;
 
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -604,6 +607,19 @@ button{
 
 .sponsor_card:hover{
     transform: scale(1.2);
+}
+
+.sponsors_blur_pannel{
+    position: relative;
+    left: 90vw;
+    top: -40vw;
+
+    width: 20vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    z-index: 10;
 }
 
 /*apply*/
@@ -631,9 +647,9 @@ button{
 .apply_button{
     width: 30vw;
     height: 10.5vh;
-    background: linear-gradient(89.98deg,
-                                #B41E23 0.02%,
-                                rgba(198, 91, 91, 0) 124.11%);
+    background: linear-gradient(89.98deg, #B41E23 0.02%, rgba(198, 91, 91, 0) 124.11%);
+
+    border: 0;
     border-radius: 1.8vw;
     font-size: var(--h3-size);
     letter-spacing: var(--h1-letter-spacing);
