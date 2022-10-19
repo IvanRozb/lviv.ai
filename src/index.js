@@ -15,6 +15,7 @@ function animateIntroLines(animatedBlock){
 }
 animateIntroLines()
 
+
 //Animate sponsors
 function animate(){
     const sponsors_inner = document.querySelector(".sponsors_inner")
