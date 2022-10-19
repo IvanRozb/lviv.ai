@@ -8,7 +8,7 @@ function animateIntroLines(animatedBlock){
 
     introLines.forEach((el,idx) =>{
 
-        animations.push(new CardsAnimate(el, el.childNodes[0], idx+1))
+        animations.push(new CardsAnimate(el, el.childNodes[0], (idx+1)/2))
         animations[idx].init()
     })
 
