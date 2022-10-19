@@ -684,7 +684,7 @@ button{
 .footer_content{
     display: flex;
     flex-direction: row;
-    height: 36vh;
+    min-height: 36vh;
 
     padding-left: 17.4vw;
 }
@@ -715,4 +715,9 @@ button{
     width: 14.8vw;
     height: 10vw;
     margin-top: auto;
+}
+.footer_map:hover{
+    position: relative;
+    width: 51vw;
+    height: 30vw;
 }
