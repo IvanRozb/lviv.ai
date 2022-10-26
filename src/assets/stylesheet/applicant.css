@@ -12,6 +12,7 @@
 .app_title1{
     margin-bottom:8.3vh ;
     margin-left: 10vw;
+   /* border-image: url("../img/line_main_shcho.svg");*/
 }
 
 .title_list{
@@ -69,7 +70,7 @@
 }
 .sidebar_title{
     margin-right: 6.1vw;
-    margin-bottom: 4.9vh;
+    margin-bottom: 4.5vh;
     font-size: 2.3vw;
     font-weight: 500;
 }
@@ -80,8 +81,19 @@
 .sidebar_items{
     margin-bottom: 2.7vh;
 }
-.sidebar_text{
+.sidebar_text_main, .sidebar_text1, .sidebar_text2, .sidebar_text3{
     font-weight: var(--small-weight);
+}
+.sidebar_text_main{
+    padding-top: 1.2vh;
+    padding-left: 0.1vw;
+    background: linear-gradient(90deg, rgba(217, 217, 217, 0.13) 0%, rgba(217, 217, 217, 0) 100%);
+    vertical-align: center;
+    width: 22vw;
+    height: 4.3vh;
+}
+.sidebar_text1{
+    border-image: url("../img/line_vazhlyvi.svg");
 }
 /*
 .logo{
