@@ -39,8 +39,282 @@
     z-index: 1000;
 
     height: 90vh;
+    width: 11vw;
+}
+.main_sidebar a{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+div[class*=' sidebar_line']{
+    position: absolute;
+
+    height: 0.40vh;
+
+    transition: all .5s;
+    animation-fill-mode: forwards;
 }
 
+/*Sidebar animations*/
+@keyframes rotation126 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(126deg);
+    }
+}
+
+@keyframes rotation50 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes rotation90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+/*sidebar lines colors*/
+.sidebar_red_to_transparent{
+    animation: rotation126 .5s 1 ease-out;
+    background: linear-gradient(to right,
+                                rgba(248, 75, 80, 1) 0%,
+                                rgba(248, 75, 80, 0.5) 30%,
+                                transparent 100%);
+}
+
+.sidebar_red_middle_black{
+
+    width: 10.5vh;
+
+    animation: rotation50 .5s 1 ease-out;
+
+    background: linear-gradient(to right,
+                                rgba(248, 75, 80, 1),
+                                rgba(217, 136, 136, 0),
+                                rgba(255, 155, 155, 0.31),
+                                rgba(217, 136, 136, 0));
+}
+
+.sidebar_pink_to_transparent{
+    width: 10.5vh;
+
+    animation: rotation126 .5s 1 ease-out;
+
+    background: linear-gradient(to right,
+                                rgba(255, 155, 158, 1) 50%,
+                                rgba(217, 136, 136, 0) 100%);
+}
+
+
+.sidebar_light_pink_middle_black{
+
+    width: 10.5vh;
+
+    animation: rotation90 .5s 1 ease-out;
+    background: linear-gradient(to right,
+                                rgba(255, 189, 191, 1) 30%,
+                                rgba(255, 189, 191, 0.1) 50% ,
+                                rgba(255, 189, 191, 1) 70%);
+}
+
+.sidebar_light_pink_to_transparent{
+
+    animation: rotation90 .5s 1 ease-out;
+    background: linear-gradient(to right,
+                                rgba(255, 189, 191, 1) 30%,
+                                transparent 100%);
+}
+/*sidebar lines*/
+.sidebar_line_1{
+    width: 16vh;
+
+    top: 6vh;
+    left: 5.5vh;
+}
+.sidebar_line_2{
+    width: 19vh;
+
+    top: 14vh;
+    left: 3vh;
+}
+.sidebar_line_3{
+    width: 14vh;
+
+    top: 18vh;
+    left: 7.5vh;
+}
+
+.sidebar_line_4{
+    top: 26.8vh;
+    left: 5.8vh;
+}
+
+.sidebar_line_5{
+    top: 29vh;
+    left: 3vh;
+
+    width: 8.5vh;
+}
+
+.sidebar_line_6{
+    top: 38.4vh;
+    left: 2.4vh;
+
+    width: 14vh;
+}
+
+.sidebar_line_7{
+    top: 41vh;
+    left: 6vh;
+
+    width: 11vh;
+}
+
+.sidebar_line_8{
+    top: 50.8vh;
+    left: 3.8vh;
+
+    width: 13vh;
+}
+
+.sidebar_line_9{
+    top: 51vh;
+    left: 3vh;
+
+    width: 6vh;
+    animation: rotation50 .5s 1 ease-out;
+}
+
+.sidebar_line_10{
+    top: 61vh;
+    left: 6.4vh;
+
+    width: 9vh;
+}
+
+
+.sidebar_line_11{
+    top: 62vh;
+    left: 9vh;
+
+    width: 13vh;
+}
+
+.sidebar_line_12{
+    top: 73.6vh;
+    left: 1.1vh;
+
+    width: 13vh;
+}
+
+.sidebar_line_13{
+    top: 80vh;
+    left: 0vh;
+
+    width: 23vh;
+}
+/*sidebar circles colors*/
+.sidebar_circle{
+    position: relative;
+
+    background: radial-gradient(50% 50% at 50% 50% , #000000 19.92%,
+                                rgba(19, 2, 2, 0) 68%, #AD6467 100%);
+
+
+    border-radius: 50%;
+    width: 3.5vh;
+    height: 3.5vh;
+
+    transition: all .5s;
+}
+
+.sidebar_circle:hover{
+    transform: scale(1.2);
+    cursor:pointer;
+
+    background: radial-gradient(50% 50% at 50% 50%, #000000 19.92%,
+                                rgba(19, 2, 2, 0) 68.45%, #FFC9CA 100%);
+    mix-blend-mode: exclusion;
+}
+
+.sidebar_link_visited{
+    background:radial-gradient(50% 50% at 50% 50%, #000000 19.92%,
+    rgba(19, 2, 2, 0) 68.45%, #FFC9CA 100%) !important;
+}
+/*sidebar circles */
+.sidebar_circle_1{
+    top: 20vh;
+    left: 4.8vh;
+}
+
+.sidebar_circle_2{
+    top: 26.6vh;
+    left: 13vh;
+}
+
+.sidebar_circle_3{
+    top: 36vh;
+    left: 3.2vh;
+}
+
+.sidebar_circle_4{
+    top: 44vh;
+    left: 13vh;
+}
+
+.sidebar_circle_5{
+    top: 50vh;
+    left: 5.8vh;
+}
+
+.sidebar_circle_6{
+    top: 62.6vh;
+    left: 5.8vh;
+}
+/*sidebar tooltips*/
+
+.tooltip:after {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+
+    background: rgba(0,0,0,.85);
+    z-index: 9999;
+
+    content: attr(data-title);
+    font-size: var(--small-size);
+    line-height: var(--small-height);
+    letter-spacing: var(--small-letter-spacing);
+    font-weight: normal;
+
+    padding: .5vh 1vh;
+    top: 4vh;
+    left: -8vh;
+    white-space: nowrap;
+}
+
+.tooltip.expand:after {
+    transform: scale3d(.2,.2,1);
+    transition: all .2s ease-in-out;
+}
+
+.tooltip.expand:hover:after{
+    opacity: 1;
+    transform: scale3d(1,1,1);
+}
+
+/*END of sidebar tooltips*/
 .sidebar_blur_pannel{
     position: fixed;
     right: -0vw;
