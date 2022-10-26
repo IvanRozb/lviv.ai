@@ -384,19 +384,18 @@ div[class*=' sidebar_line']{
 }
 .curriculum_title-wrapper::after{
     content: "";
-    display: block;
-    position: absolute;
-    -webkit-transform: translate(-100%,3.8vh);
-    -ms-transform: translate(-100%,3.8vh);
-    transform: translate(-100%,3.8vh);
-    bottom: 0;
-    left: 100%;
     width: 47vw;
     height: 2vh;
-    background-image: url("../img/curriculum_underline.svg");
+
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    transform: translate(-100%, 3.8vh);
+
+    background-size: 47vw 2vh;
     background-repeat: no-repeat;
-    /*background-size: 46vw 1vh;*/
-    background-position: right;
+    background-image: url("../img/curriculum_underline.svg");
 }
 .curriculum_title{
     position: relative;
