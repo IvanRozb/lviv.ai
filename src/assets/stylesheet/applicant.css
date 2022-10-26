@@ -1,1 +1,89 @@
 /*Styles for applicant*/
+.app_section{
+    display:flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 21.1vh;
+}
+.app_content{
+    width: 78vw;
+}
+.app_title1{
+    margin-bottom:8.3vh ;
+    margin-left: 10vw;
+}
+
+.title_list{
+    color: var(--peachy);
+    margin-bottom: 4vh;
+}
+.items{
+    margin-left: 2vw;
+    margin-bottom: 1vh;
+}
+.app_list1_item{
+    margin-left: 1vw;
+    font-weight: 400;
+
+}
+.app_box1{
+    margin-left: 9.3vw;
+    margin-bottom: 5vh;
+    width: 60.9vw;
+}
+/*.app_cabinet{
+    background-image: url("../img/Rectangle_cabinet.svg");
+    background-repeat: no-repeat;
+    background-size: 61.7vw 58.4vh;
+    background-position: center;
+}*/
+.cabinet{
+    margin-left: 7.2vw;
+    margin-bottom: 9vh;
+    width: 60.3vw;
+    height: 56.6vh;
+}
+.app_box2{
+    margin-left: 10vw;
+    margin-bottom: 30vh;
+    width: 58.8vw;
+}
+.items2{
+    margin-left: 2vw;
+    margin-bottom: 4vh;
+}
+.app_list2_item{
+    font-weight: 400;
+
+}
+.app_list1,.app_list2{
+    list-style: initial;
+}
+
+/*SIDEBARCHYYYK*/
+.app_sidebar {
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+.sidebar_title{
+    margin-right: 6.1vw;
+    margin-bottom: 4.9vh;
+    font-size: 2.3vw;
+    font-weight: 500;
+}
+.sidebar_list{
+    list-style: none;
+    width: 22vw;
+}
+.sidebar_items{
+    margin-bottom: 2.7vh;
+}
+.sidebar_text{
+    font-weight: var(--small-weight);
+}
+/*
+.logo{
+    margin-bottom: 7vh;
+}*/
