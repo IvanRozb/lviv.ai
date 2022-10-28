@@ -1,4 +1,40 @@
 /*Styles for applicant*/
+
+/*Applicant sidebar*/
+.app_sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    margin-top: 21.1vh;
+}
+.sidebar_title{
+    margin-right: 6.1vw;
+    margin-bottom: 4.5vh;
+    font-size: 2.3vw;
+    font-weight: 500;
+}
+.sidebar_list{
+    list-style: none;
+    width: 22vw;
+}
+.sidebar_items{
+    margin-bottom: 2.7vh;
+}
+.sidebar_list_text{
+    font-weight: var(--small-weight);
+}
+/*.sidebar_list_text_mainbg{
+    padding-top: 1.2vh;
+    padding-left: 0.1vw;
+    background: linear-gradient(90deg, rgba(217, 217, 217, 0.13) 0%, rgba(217, 217, 217, 0) 100%);
+    vertical-align: center;
+    width: 22vw;
+    height: 4.3vh;
+    !*border-image: url("../img/line_shcho.svg");*!
+}*/
+
+/*Docs content*/
 .docs_section{
 /*    display:flex;
     flex-direction: row;*/
@@ -57,36 +93,7 @@
     width: 60.3vw;
     height: 56.6vh;
 }
+.logo{
+    margin-bottom: 1000px;
+}
 
-
-/*Applicant sidebar*/
-.app_sidebar {
-    right: 0;
-    top: 0;
-    height: 100%;
-}
-.sidebar_title{
-    margin-right: 6.1vw;
-    margin-bottom: 4.5vh;
-    font-size: 2.3vw;
-    font-weight: 500;
-}
-.sidebar_list{
-    list-style: none;
-    width: 22vw;
-}
-.sidebar_items{
-    margin-bottom: 2.7vh;
-}
-.sidebar_list_text{
-    font-weight: var(--small-weight);
-}
-.sidebar_list_text_mainbg{
-    padding-top: 1.2vh;
-    padding-left: 0.1vw;
-    background: linear-gradient(90deg, rgba(217, 217, 217, 0.13) 0%, rgba(217, 217, 217, 0) 100%);
-    vertical-align: center;
-    width: 22vw;
-    height: 4.3vh;
-    /*border-image: url("../img/line_shcho.svg");*/
-}
