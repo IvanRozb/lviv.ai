@@ -9,60 +9,57 @@
 .app_content{
     width: 78vw;
 }
-.app_title1{
+.app_box{
+    margin-left: 9.3vw;
+    margin-bottom: 5vh;
+    width: 58vw;
+}
+.app_box_bottom{
+    margin-bottom: 30vh;
+}
+.app_maintitle{
     margin-bottom:8.3vh ;
     margin-left: 10vw;
    /* border-image: url("../img/line_main_shcho.svg");*/
 }
-
-.title_list{
+.app_list_title{
     color: var(--peachy);
     margin-bottom: 4vh;
 }
-.items{
+.app_list{
+    list-style: initial;
+}
+
+.app_list_items{
     margin-left: 2vw;
     margin-bottom: 1vh;
 }
-.app_list1_item{
-    margin-left: 1vw;
-    font-weight: 400;
+.app_list_items_space{
+    margin-bottom: 4vh;
+}
 
+.app_list_text{
+    font-weight: 400;
 }
-.app_box1{
-    margin-left: 9.3vw;
-    margin-bottom: 5vh;
-    width: 60.9vw;
+.app_list_text_lspace{
+    margin-left: 1vw;
 }
+
 /*.app_cabinet{
     background-image: url("../img/Rectangle_cabinet.svg");
     background-repeat: no-repeat;
     background-size: 61.7vw 58.4vh;
     background-position: center;
 }*/
-.cabinet{
-    margin-left: 7.2vw;
+.app_cabinet_img{
+    margin-left: 7vw;
     margin-bottom: 9vh;
     width: 60.3vw;
     height: 56.6vh;
 }
-.app_box2{
-    margin-left: 10vw;
-    margin-bottom: 30vh;
-    width: 58.8vw;
-}
-.items2{
-    margin-left: 2vw;
-    margin-bottom: 4vh;
-}
-.app_list2_item{
-    font-weight: 400;
 
-}
-.app_list1,.app_list2{
-    list-style: initial;
-}
 
-/*SIDEBARCHYYYK*/
+/*Applicant sidebar*/
 .app_sidebar {
     right: 0;
     top: 0;
@@ -81,21 +78,15 @@
 .sidebar_items{
     margin-bottom: 2.7vh;
 }
-.sidebar_text_main, .sidebar_text1, .sidebar_text2, .sidebar_text3{
+.sidebar_list_text{
     font-weight: var(--small-weight);
 }
-.sidebar_text_main{
+.sidebar_list_text_mainbg{
     padding-top: 1.2vh;
     padding-left: 0.1vw;
     background: linear-gradient(90deg, rgba(217, 217, 217, 0.13) 0%, rgba(217, 217, 217, 0) 100%);
     vertical-align: center;
     width: 22vw;
     height: 4.3vh;
+    /*border-image: url("../img/line_shcho.svg");*/
 }
-.sidebar_text1{
-    border-image: url("../img/line_vazhlyvi.svg");
-}
-/*
-.logo{
-    margin-bottom: 7vh;
-}*/
