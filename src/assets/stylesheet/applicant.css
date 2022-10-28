@@ -1,47 +1,47 @@
 /*Styles for applicant*/
-.app_section{
-    display:flex;
-    flex-direction: row;
+.docs_section{
+/*    display:flex;
+    flex-direction: row;*/
     width: 100vw;
     height: 100vh;
     margin-top: 21.1vh;
 }
-.app_content{
+.docs_content{
     width: 78vw;
 }
-.app_box{
+.docs_box{
     margin-left: 9.3vw;
     margin-bottom: 5vh;
     width: 58vw;
 }
-.app_box_bottom{
+.docs_box_bottom{
     margin-bottom: 30vh;
 }
-.app_maintitle{
+.docs_maintitle{
     margin-bottom:8.3vh ;
     margin-left: 10vw;
    /* border-image: url("../img/line_main_shcho.svg");*/
 }
-.app_list_title{
+.docs_list_title{
     color: var(--peachy);
     margin-bottom: 4vh;
 }
-.app_list{
+.docs_list{
     list-style: initial;
 }
 
-.app_list_items{
+.docs_list_items{
     margin-left: 2vw;
     margin-bottom: 1vh;
 }
-.app_list_items_space{
+.docs_list_items_space{
     margin-bottom: 4vh;
 }
 
-.app_list_text{
+.docs_list_text{
     font-weight: 400;
 }
-.app_list_text_lspace{
+.docs_list_text_lspace{
     margin-left: 1vw;
 }
 
@@ -51,7 +51,7 @@
     background-size: 61.7vw 58.4vh;
     background-position: center;
 }*/
-.app_cabinet_img{
+.docs_cabinet_img{
     margin-left: 7vw;
     margin-bottom: 9vh;
     width: 60.3vw;
