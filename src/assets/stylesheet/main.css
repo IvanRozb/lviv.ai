@@ -46,18 +46,15 @@
     height: 100%;
     width: 100%;
 }
-.sidebar_blur_pannel{
-    position: fixed;
-    right: -0vw;
-    top: 0vh;
+div[class*=' sidebar_line']{
+    position: absolute;
 
-    width: 10vw;
-    height: 120vh;
+    height: 0.40vh;
 
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(10px);
-    z-index: 10;
+    transition: all .5s;
+    animation-fill-mode: forwards;
 }
+
 /*Sidebar animations*/
 @keyframes rotation126 {
     from {
@@ -86,16 +83,7 @@
     }
 }
 
-/*sidebar lines*/
-div[class*=' sidebar_line']{
-    position: absolute;
-
-    height: 0.40vh;
-
-    transition: all .5s;
-    animation-fill-mode: forwards;
-}
-
+/*sidebar lines colors*/
 .sidebar_red_to_transparent{
     animation: rotation126 .5s 1 ease-out;
     background: linear-gradient(to right,
@@ -146,7 +134,7 @@ div[class*=' sidebar_line']{
                                 rgba(255, 189, 191, 1) 30%,
                                 transparent 100%);
 }
-
+/*sidebar lines*/
 .sidebar_line_1{
     width: 16vh;
 
@@ -235,8 +223,7 @@ div[class*=' sidebar_line']{
 
     width: 23vh;
 }
-
-/*sidebar circles*/
+/*sidebar circles colors*/
 .sidebar_circle{
     position: relative;
 
@@ -264,7 +251,7 @@ div[class*=' sidebar_line']{
     background:radial-gradient(50% 50% at 50% 50%, #000000 19.92%,
     rgba(19, 2, 2, 0) 68.45%, #FFC9CA 100%) !important;
 }
-
+/*sidebar circles */
 .sidebar_circle_1{
     top: 20vh;
     left: 4.8vh;
@@ -327,8 +314,19 @@ div[class*=' sidebar_line']{
     transform: scale3d(1,1,1);
 }
 
-/*END of sidebar styles*/
+/*END of sidebar tooltips*/
+.sidebar_blur_pannel{
+    position: fixed;
+    right: -0vw;
+    top: 0vh;
 
+    width: 10vw;
+    height: 120vh;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
 /*AIS-info*/
 .ais-info{
     margin-top: 18.5vh;
@@ -386,19 +384,18 @@ div[class*=' sidebar_line']{
 }
 .curriculum_title-wrapper::after{
     content: "";
-    display: block;
-    position: absolute;
-    -webkit-transform: translate(-100%,3.8vh);
-    -ms-transform: translate(-100%,3.8vh);
-    transform: translate(-100%,3.8vh);
-    bottom: 0;
-    left: 100%;
     width: 47vw;
     height: 2vh;
-    background-image: url("../img/curriculum_underline.svg");
+
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    transform: translate(-100%, 3.8vh);
+
+    background-size: 47vw 2vh;
     background-repeat: no-repeat;
-    /*background-size: 46vw 1vh;*/
-    background-position: right;
+    background-image: url("../img/curriculum_underline.svg");
 }
 .curriculum_title{
     position: relative;
