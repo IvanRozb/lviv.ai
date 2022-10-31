@@ -1,101 +1,79 @@
 /*Styles for applicant*/
-.app_section{
-    display:flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    margin-top: 21.1vh;
-}
-.app_content{
-    width: 78vw;
-}
-.app_title1{
-    margin-bottom:8.3vh ;
-    margin-left: 10vw;
-   /* border-image: url("../img/line_main_shcho.svg");*/
-}
 
-.title_list{
-    color: var(--peachy);
-    margin-bottom: 4vh;
-}
-.items{
-    margin-left: 2vw;
-    margin-bottom: 1vh;
-}
-.app_list1_item{
-    margin-left: 1vw;
-    font-weight: 400;
-
-}
-.app_box1{
-    margin-left: 9.3vw;
-    margin-bottom: 5vh;
-    width: 60.9vw;
-}
-/*.app_cabinet{
-    background-image: url("../img/Rectangle_cabinet.svg");
-    background-repeat: no-repeat;
-    background-size: 61.7vw 58.4vh;
-    background-position: center;
-}*/
-.cabinet{
-    margin-left: 7.2vw;
-    margin-bottom: 9vh;
-    width: 60.3vw;
-    height: 56.6vh;
-}
-.app_box2{
-    margin-left: 10vw;
-    margin-bottom: 30vh;
-    width: 58.8vw;
-}
-.items2{
-    margin-left: 2vw;
-    margin-bottom: 4vh;
-}
-.app_list2_item{
-    font-weight: 400;
-
-}
-.app_list1,.app_list2{
-    list-style: initial;
-}
-
-/*SIDEBARCHYYYK*/
+/*Applicant sidebar*/
 .app_sidebar {
+    position: absolute;
     right: 0;
     top: 0;
-    height: 100%;
+    height: 100vh;
+    margin-top: 21.1vh;
+    width: 22vw;
 }
 .sidebar_title{
-    margin-right: 6.1vw;
     margin-bottom: 4.5vh;
     font-size: 2.3vw;
     font-weight: 500;
 }
 .sidebar_list{
     list-style: none;
-    width: 22vw;
 }
-.sidebar_items{
+
+.sidebar_list > *{
     margin-bottom: 2.7vh;
 }
-.sidebar_text_main, .sidebar_text1, .sidebar_text2, .sidebar_text3{
+
+.sidebar_list_text{
     font-weight: var(--small-weight);
 }
-.sidebar_text_main{
-    padding-top: 1.2vh;
-    padding-left: 0.1vw;
-    background: linear-gradient(90deg, rgba(217, 217, 217, 0.13) 0%, rgba(217, 217, 217, 0) 100%);
-    vertical-align: center;
-    width: 22vw;
-    height: 4.3vh;
+
+/*Docs content*/
+.docs_section{
+    margin-top: 21.1vh;
 }
-.sidebar_text1{
-    border-image: url("../img/line_vazhlyvi.svg");
+.docs_content{
+    width: 78vw;
 }
-/*
+.docs_box{
+    margin-left: 9.3vw;
+    margin-bottom: 5vh;
+    width: 58vw;
+}
+
+.docs_maintitle{
+    margin-bottom:8.3vh ;
+    margin-left: 10vw;
+   /* border-image: url("../img/line_main_shcho.svg");*/
+}
+.docs_list_title{
+    color: var(--peachy);
+    margin-bottom: 4vh;
+    font-size: 2.3vw;
+
+    line-height: 4vh;
+    letter-spacing: var(--h4-small-spacing);
+}
+.docs_list{
+    list-style: initial;
+}
+
+.docs_list_items{
+    margin-left: 2vw;
+    margin-bottom: 1vh;
+}
+.docs_list_documents .docs_list_items{
+    margin-bottom: 4vh;
+}
+
+.docs_list_text{
+    font-weight: 400;
+}
+
+.docs_cabinet_img{
+    margin: 10vh 0 10vh 7vw;
+    width: 60.3vw;
+}
+
 .logo{
-    margin-bottom: 7vh;
-}*/
+    margin-top: 30vh;
+}
+
