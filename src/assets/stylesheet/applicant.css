@@ -28,6 +28,7 @@
 
 /*Docs content*/
 .docs_section{
+    display: none;
     margin-top: 21.1vh;
 }
 .docs_content{
@@ -77,3 +78,60 @@
     margin-top: 30vh;
 }
 
+/*Payment content*/
+.pay_section{
+    margin-top: 20vh;
+    margin-left: 10vw;
+}
+.pay_title{
+    margin-bottom: 5.9vh;
+}
+.pay_columns{
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+    height: 6vh;
+}
+.pay_column{
+    width: 8.65vw;
+    text-align: center;
+    font-size: var(--h5-size);
+    font-weight: 400;
+    margin-right: 6vw;
+    color: #FF0000;
+}
+.pay_table{
+    background: linear-gradient(90deg,
+    rgba(232, 0, 0, 0.6) 2.55%,
+    rgba(217, 125, 125, 0.446849) 23.02%,
+    rgba(182, 182, 182, 0) 82.76%);
+    width: 73vw;
+    margin-bottom: 5.2vh;
+}
+.pay_table_row{
+    display: flex;
+    align-items: center;
+    height: 7vh;
+    width: 41vw;
+}
+.pay_table_value{
+    width: 33.3%;
+}
+/*.vid{
+    text-align: left;
+    padding-left: 2.7vw;
+}*/
+.pay_link_div{
+    margin-left: 0.5vw;
+    width: 62vw;
+}
+.pay_link{
+    font-weight: var(--small-weight);
+    font-size: var(--small-size);
+}
+.pay_link_red{
+    color: #E92828;
+}
+.pay_logo{
+    margin-top: 25vh;
+}
