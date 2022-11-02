@@ -5,8 +5,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    height: 100vh;
-    margin-top: 21.1vh;
+    height: 78vh;
+    margin-top: 21vh;
     width: 22vw;
 }
 .sidebar_title{
@@ -127,5 +127,5 @@
 
 /*logo*/
 .logo{
-    margin-top: 30vh;
+    margin-top: 28vh;
 }
