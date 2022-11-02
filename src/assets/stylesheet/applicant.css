@@ -74,12 +74,11 @@
     width: 60.3vw;
 }
 
-.logo{
-    margin-top: 30vh;
-}
+
 
 /*Payment content*/
 .pay_section{
+    /*display: none;*/
     margin-top: 20vh;
     margin-left: 10vw;
 }
@@ -96,9 +95,8 @@
     width: 8.65vw;
     text-align: center;
     font-size: var(--h5-size);
-    font-weight: 400;
     margin-right: 6vw;
-    color: #FF0000;
+    color: var(--peachy);
 }
 .pay_table{
     background: linear-gradient(90deg,
@@ -117,10 +115,7 @@
 .pay_table_value{
     width: 33.3%;
 }
-/*.vid{
-    text-align: left;
-    padding-left: 2.7vw;
-}*/
+
 .pay_link_div{
     margin-left: 0.5vw;
     width: 62vw;
@@ -129,9 +124,8 @@
     font-weight: var(--small-weight);
     font-size: var(--small-size);
 }
-.pay_link_red{
-    color: #E92828;
-}
-.pay_logo{
-    margin-top: 25vh;
+
+/*logo*/
+.logo{
+    margin-top: 30vh;
 }
