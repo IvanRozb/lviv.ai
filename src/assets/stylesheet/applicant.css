@@ -14,12 +14,14 @@
     font-size: 2.3vw;
     font-weight: 500;
 }
-.sidebar_list{
-    list-style: none;
+.sidebar_list .active{
+    background: linear-gradient(90deg, #E92828 -4.17%, rgba(217, 217, 217, 0) 100%);
 }
 
 .sidebar_list > *{
     margin-bottom: 2.7vh;
+    padding: 1vh 0 1vh 0.2vw;
+    list-style: none;
 }
 
 .sidebar_list_text{
