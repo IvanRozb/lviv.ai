@@ -28,7 +28,6 @@
 
 /*Docs content*/
 .docs_section{
-    display: none;
     margin-top: 21.1vh;
 }
 .docs_content{
@@ -78,7 +77,6 @@
 
 /*Payment content*/
 .pay_section{
-    /*display: none;*/
     margin-top: 20vh;
     margin-left: 10vw;
 }
