@@ -1,3 +1,4 @@
+@import "main_keyframes.css";
 /* intro */
 .intro {
     width: 100%;
@@ -55,33 +56,7 @@ div[class*=' sidebar_line']{
     animation-fill-mode: forwards;
 }
 
-/*Sidebar animations*/
-@keyframes rotation126 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(126deg);
-    }
-}
 
-@keyframes rotation50 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(50deg);
-    }
-}
-
-@keyframes rotation90 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(90deg);
-    }
-}
 
 /*sidebar lines colors*/
 .sidebar_red_to_transparent{
@@ -327,6 +302,39 @@ div[class*=' sidebar_line']{
     backdrop-filter: blur(10px);
     z-index: 10;
 }
+
+/*Animated BG*/
+.blob_bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    filter: blur(60px);
+}
+
+div[id*='blob']{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: -2;
+}
+#blob1{
+    animation: move_blob1 180s ease forwards;
+}
+
+#blob2{
+    animation: move_blob2 50s ease-in-out forwards;
+}
+
+#blob3{
+    animation: move_blob3 100s ease-in-out forwards;
+}
+.blobSvg{
+    opacity: 0;
+    animation:  slow_opacity 6s forwards,
+                blobs_moves 18s ease-in-out infinite;
+}
 /*AIS-info*/
 .ais-info{
     margin-top: 18.5vh;
@@ -356,18 +364,6 @@ div[class*=' sidebar_line']{
     position: relative;
     width: 100vw;
 }
-/*.ais-info_label::before*/
-/*{*/
-/*    content: "";*/
-/*    display: block;*/
-/*    margin: auto 10px auto;*/
-/*    width: 6px;*/
-/*    height: 6px;*/
-
-/*    background-color: var(--transparent-white);*/
-
-/*    border-radius: 50%;*/
-/*}*/
 
 /*Curriculum*/
 .curriculum{
