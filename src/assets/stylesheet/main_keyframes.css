@@ -1,0 +1,117 @@
+/*Sidebar animations*/
+@keyframes rotation126 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(126deg);
+    }
+}
+
+@keyframes rotation50 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes rotation90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+/*Blobs keyframes*/
+
+@keyframes slow_opacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: .8;
+    }
+}
+
+@keyframes blobs_moves{
+    0%{
+        transform: scale(1.0) rotate(0deg);
+    }
+    50%{
+        transform: scale(1.2) rotate(35deg);
+    }
+    100%{
+        transform: scale(1.0) rotate(0deg);
+    }
+}
+
+@keyframes move_blob1 {
+    0%{
+        left: -10vw;
+        top: -10vh;
+    }
+
+    40%{
+        left: 60vw;
+        top: 90vh;
+    }
+
+    100%{
+        left: -10vw;
+        top: 120vh
+    }
+}
+
+@keyframes move_blob2 {
+    0%{
+        left: -10vw;
+        top: -10vh;
+    }
+
+    40%{
+        left: 60vw;
+        top: 90vh;
+    }
+
+    100%{
+        left: -10vw;
+        top: 120vh
+    }
+}
+
+@keyframes move_blob2 {
+    0%{
+        left: 50vw;
+        top: 80vh;
+    }
+
+    50%{
+        left: 30vw;
+    }
+
+    100%{
+        left: 60vw;
+        top: -10vh
+    }
+}
+
+@keyframes move_blob3 {
+    0%{
+        left: 60vw;
+        top: 500vh;
+    }
+
+    65%{
+        left: -20vw;
+        top: 670vh;
+    }
+
+    100%{
+        left: 60vw;
+        top: 740vh
+    }
+}

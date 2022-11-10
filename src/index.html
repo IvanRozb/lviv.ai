@@ -34,11 +34,11 @@
             <a class="nav_link" href="fetch.html">СШІ</a>
         </div>
     </nav>
-    <img class="logo" src="assets/img/logo.png" alt="logo">
+    <img class="logo" src="assets/img/logo.svg" alt="logo">
 </header>
 
-<!--intro-->
-<section class="intro">
+<!--intro--test-->
+<section class="intro" id="intro">
     <div class="container">
         <div class="intro_inner">
             <h1 class="intro_title">
@@ -49,14 +49,64 @@
             <h4>це</h4>
             <h5 class="intro_text">Майбутнє, яке вже наступило</h5>
 
-            <img src="assets/img/side_navigation.svg" alt="sidebar" class="main_sidebar">
-            <div class="sidebar_blur_pannel"></div>
+            <div class="main_sidebar">
+                <div class="sidebar_red_to_transparent sidebar_line_1"></div>
+                <div class="sidebar_red_to_transparent sidebar_line_2"></div>
+                <div class="sidebar_red_to_transparent sidebar_line_3"></div>
+
+                <div class="sidebar_circle sidebar_circle_1 sidebar_link_visited">
+                    <a href="#intro" class="sidebar_link tooltip expand"
+                       data-title="Інтро"></a>
+                </div>
+
+                <div class="sidebar_red_middle_black sidebar_line_4"></div>
+                <div class="sidebar_red_middle_black sidebar_line_5"></div>
+
+                <div class="sidebar_circle sidebar_circle_2">
+                    <a href="#ais-info" class="sidebar_link tooltip expand"
+                       data-title="СШІ - це"></a>
+                </div>
+
+                <div class="sidebar_red_to_transparent sidebar_line_6"></div>
+                <div class="sidebar_red_to_transparent sidebar_line_7"></div>
+
+                <div class="sidebar_circle sidebar_circle_3">
+                    <a href="#curriculum" class="sidebar_link tooltip expand"
+                       data-title="Навчальний план"></a>
+                </div>
+
+                <div class="sidebar_red_middle_black sidebar_line_8"></div>
+                <div class="sidebar_red_to_transparent sidebar_line_9"></div>
+
+                <div class="sidebar_circle sidebar_circle_4">
+                    <a href="#vacancies" class="sidebar_link tooltip expand"
+                       data-title="Професії"></a>
+                </div>
+
+                <div class="sidebar_pink_to_transparent sidebar_line_10"></div>
+                <div class="sidebar_pink_to_transparent sidebar_line_11"></div>
+
+                <div class="sidebar_circle sidebar_circle_5">
+                    <a href="#sponsors" class="sidebar_link tooltip expand"
+                       data-title="Партнери"></a>
+                </div>
+
+                <div class="sidebar_light_pink_middle_black sidebar_line_12"></div>
+                <div class="sidebar_light_pink_to_transparent sidebar_line_13"></div>
+
+                <div class="sidebar_circle sidebar_circle_6">
+                    <a href="#apply" class="sidebar_link tooltip expand"
+                       data-title="Подати заявку"></a>
+                </div>
+            </div>
+            <div class="sidebar_blur_pannel">
+            </div>
         </div>
     </div>
 </section>
 
 <!--ais-info-->
-<section class="ais-info">
+<section class="ais-info" id="ais-info">
     <h3 class="ais-info_title">СШІ - це коли</h3>
     <ol type="a" class="ais-info_content">
         <li class="ais-info_label"><span class="ais_li_span">Автопілот, відвезе вас у будь-яку точку на планеті</span></li>
@@ -67,7 +117,7 @@
 </section>
 
 <!--curriculum-->
-<section class="curriculum">
+<section class="curriculum" id="curriculum">
     <div class="container">
         <div class="curriculum_inner">
             <div class="curriculum_title-wrapper">
@@ -100,7 +150,7 @@
 </section>
 
 <!--vacancies-->
-<section class="vacancies">
+<section class="vacancies" id="vacancies">
     <div class="container">
         <div class="vacancies_inner">
             <div class="vacancies_content">
@@ -146,7 +196,7 @@
 </section>
 
 <!--sponsors-->
-<section class="sponsors">
+<section class="sponsors" id="sponsors">
     <div class="container">
         <div class="sponsors_label">
             <h3>Компанії - партнери</h3>
@@ -169,7 +219,7 @@
     </div>
 </section>
 <!--apply-->
-<section class="apply_section">
+<section class="apply_section" id="apply">
     <div class="apply_content">
         <h3 class="apply_text">Щоб подати заявку,
             тисність сюди</h3>
@@ -179,7 +229,7 @@
 </section>
 
 <!--footer-->
-<section class="footer">
+<section class="footer" id="footer">
     <div class="container">
         <div class="footer_content">
             <div class="footer_info footer_col">
@@ -207,13 +257,14 @@
         </div>
     </div>
 </section>
-<img class="logo" src="assets/img/logo.png" alt="logo">
+
+<img class="logo" src="assets/img/logo.svg" alt="logo">
 
 <script type="module" src="index.js"></script>
 <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl9BbTA13IMJYWf_8I8YL3iTJN0Yw7JvE&callback=initMap&v=weekly"
-        defer
-></script>
+        defer>
+</script>
 
 </body>
 </html>
