@@ -39,16 +39,16 @@
 <div class="app_sidebar">
     <h4 class="sidebar_title">Бакалаврат</h4>
     <ul class="sidebar_list">
-        <li><h6 class="sidebar_list_text">Що з документами?</h6></li>
-        <li><h6 class="sidebar_list_text">Важливі дати</h6></li>
-        <li><h6 class="sidebar_list_text">Таблиця сертифікатів
+        <li data-link="docs_section" class="active"><h6 class="sidebar_list_text">Що з документами?</h6></li>
+        <li data-link="calendar_section"><h6 class="sidebar_list_text">Важливі дати</h6></li>
+        <li data-link="zno_section" ><h6 class="sidebar_list_text">Таблиця сертифікатів
             ЗНО і мін. бали 2022</h6></li>
-        <li><h6 class="sidebar_list_text">Вартість навчання</h6></li>
+        <li data-link="pay_section"><h6 class="sidebar_list_text">Вартість навчання</h6></li>
     </ul>
 </div>
 
-<!--Applicant html-->
-<div class="docs_section">
+<!--Applicant docs html-->
+<section class="docs_section" style="display: none">
     <div class="docs_content">
         <h4 class="docs_maintitle">Що з документами?</h4>
         <div class="docs_box">
@@ -90,10 +90,56 @@
                     Папку на зв’язку</h6></li>
             </ul>
         </div>
-        <img class="logo" src="assets/img/logo.svg" alt="logo">
     </div>
-</div>
+</section>
+<!--Applicant calendar html-->
+<section class="calendar_section" style="display: block">
+    <h1>HI NIKKA</h1>
+    <p>This is section made by me for testing sidebar in this page.
+        If you see that then you can delete all that is inside calendar_section and continue work
+    </p>
+</section>
+<!--Applicant calendar html-->
+<section class="zno_section" style="display: none">
+    <h1>HI NIKKA</h1>
+    <p>This is section made by me for testing sidebar in this page.
+        If you see that then you can delete all that is inside zno_section and continue work
+    </p>
+</section>
+<!--Applicant payment html-->
+<section class="pay_section" style="display: none">
+    <h4 class="pay_title">Вартість навчання</h4>
+    <div class="pay_columns">
+        <div class="pay_column">Ступінь</div>
+        <div class="pay_column">Семестр</div>
+        <div class="pay_column">Обсяги</div>
+    </div>
+    <table class="pay_table">
+        <tr class="pay_table_row">
+            <th class="pay_table_value">Бакалавр</th>
+            <th class="pay_table_value">22 000</th>
+            <th class="pay_table_value">120</th>
+        </tr>
+        <tr class="pay_table_row">
+            <th class="pay_table_value ">Магістр</th>
+            <th class="pay_table_value ">23 000</th>
+            <th class="pay_table_value ">75</th>
+        </tr>
+    </table>
+    <div class="pay_link_div">
+        <p class="pay_link">*Maкcимaльнi o6cяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi
+            можна переглянути за посиланням:
+            <a class="pay_link color_letter_red" href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv">
+                тиць
+            </a>
+        </p>
+    </div>
+</section>
 
 
+
+
+<img class="logo" src="assets/img/logo.png" alt="logo">
+<script src="applicant.js"></script>
 </body>
 </html>
