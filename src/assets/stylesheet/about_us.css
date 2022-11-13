@@ -64,13 +64,13 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.5vh;
 
     height: 20vh;
 }
 .course_cards_container{
     display: flex;
-    gap: 2vw;
+    gap: 1vw;
 
     margin: 0 auto;
     width: 96vw;
@@ -81,7 +81,7 @@
 
     border: 1px solid var(--white);
 
-    padding: 4vh 8vw 8vh 1.5vw;
+    padding: 4vh 12vw 8vh 1.5vw;
 }
 
 .course_card_term{
@@ -143,14 +143,44 @@
     background: #BA7B75;
 }
 /*Course cards side hints*/
-.row_group::after{
-    position: absolute;
-    bottom: -17vh;
-    right: 5vw;
-
-    content: "природничі";
-    transform: rotate(-90deg);
+.row_group{
+    position: relative;
 }
+.row_group::before{
+    position: absolute;
+    right: -6vw;
+    top: 3.2vh;
+
+    content: attr(data-area);
+    transform: rotate(90deg);
+
+    padding: 1vw .7vh 1.2vw .7vh;
+    border-color: var(--white);
+    border-style: solid;
+    border-width: 1px 1px 0px 1px;
+}
+.single_row{
+    position: relative;
+}
+.single_row::before{
+    position: absolute;
+    content: "";
+
+    border-bottom: 1px solid var(--white);
+    right: -4vw;
+    width: 3.8vw;
+}
+.single_row::after{
+    position: absolute;
+    content: attr(data-area);
+
+    right: -12vw;
+    width: 7.5vw;
+    word-wrap: break-word;
+    text-align: left;
+
+}
+
 .bg{
     background: rgba(217, 125, 125, 0.2);
     width: 100%;
