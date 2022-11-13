@@ -1,0 +1,158 @@
+.navigation_section{
+    margin-top: 10vh;
+
+}
+
+.navigation_image{
+    width: 100vw;
+    height: 45vh;
+    object-fit: cover;
+
+    opacity: .65;
+}
+
+.navigation_buttons_container{
+    height: 20vh;
+    background: var(--peachy);
+
+}
+
+.navigation_buttons{
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    list-style: none;
+    background: transparent;
+    width: 70vw;
+}
+
+.navigation_button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.navigation_button:after {
+    content: "";
+    display: block;
+    width: 90%;
+    height: 0.15em;
+    border-radius: 3px;
+
+    margin: 10px auto 0;
+
+    -webkit-transition: background-color 0.25s linear;
+
+    -o-transition: background-color 0.25s linear;
+
+    transition: background-color 0.25s linear;
+}
+.navigation_button:hover:after {
+    background-color: var(--white);
+}
+
+/*Course Cards css*/
+.course_cards_section{
+    padding: 0 2vw 0 2vw;
+}
+.course_cards_menu{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+    height: 20vh;
+}
+.course_cards_container{
+    display: flex;
+    gap: 2vw;
+
+    margin: 0 auto;
+    width: 96vw;
+}
+.course_card{
+    width: 47vw;
+    height: 50vh;
+
+    border: 1px solid var(--white);
+
+    padding: 4vh 8vw 8vh 1.5vw;
+}
+
+.course_card_term{
+    font-weight: 300;
+}
+/*Course Card Table*/
+.course_card_table{
+
+    font-size: var(--small-size);
+    font-weight: var(--small-weight);
+    line-height: var(--small-height);
+    letter-spacing: var(--small-letter-spacing);
+
+    font-weight: 300;
+}
+.course_card_table  .table_row{
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 8fr 2fr;
+    gap: 1vw;
+    margin-bottom: 1vw;
+
+    height: 5.5vh;
+    text-align: left;
+}
+
+.course_card_table  .table_row > *{  /*be carefull this thing overrides all inside styles */
+    height: 100%;
+    display : flex;
+    align-items : center;
+}
+
+.card_table_header{
+    align-items: flex-end!important;
+    justify-content: center;
+}
+
+.card_table_subject{
+    padding-left: .8vw;
+}
+
+.card_table_credit{
+    justify-content: center;
+
+    background: var(--peachy);
+
+    font-size: var(--h5-size);
+}
+
+/*Subject dynamic bg*/
+.first_area_bg{
+    background: #D94442;
+}
+.second_area_bg{
+    background: #CA605C;
+}
+.third_area_bg{
+    background: #BA7B75;
+}
+/*Course cards side hints*/
+.row_group::after{
+    position: absolute;
+    bottom: -17vh;
+    right: 5vw;
+
+    content: "природничі";
+    transform: rotate(-90deg);
+}
+.bg{
+    background: rgba(217, 125, 125, 0.2);
+    width: 100%;
+    height: 100%;
+}
