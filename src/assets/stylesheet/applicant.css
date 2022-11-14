@@ -111,6 +111,70 @@
     width: 60vw;
 }
 
+/*Calendar content*/
+.calendar_section{
+    margin-top: 20vh;
+    margin-left: 10vw;
+}
+.clnd-maintitle{
+    margin-bottom: 10vh;
+}
+.clnd-maintable{
+    background: rgba(85, 43, 43, 0.22);
+    backdrop-filter: blur(20px);
+    border: 0.01vh solid white;
+    height: 105vh;
+    width: 61.4vw;
+}
+.clnd-row{
+    border: 0.01vh solid white;
+    width: 54.5vw;
+    height: 14.05vh;
+    margin-top: 6vh;
+    background: rgba(217, 217, 217, 0.04);
+}
+.clnd-row-cont{
+    display: flex;
+    justify-content: center;
+    /*flex-direction: column;*/
+
+    border: 0.01vh solid white;;
+    width: 54.5vw;
+    height: 14.05vh;
+    margin-top: 6vh;
+    margin-left: 3.4vw;
+}
+.clnd-row-cont-bottom{
+    margin-bottom: 6.8vh;
+}
+
+.clnd-row-text,.clnd-row-text_date{
+    top:50%;
+    left: 50%;
+    align-content: center;
+    justify-content: center;
+    padding-top: 3%;
+}
+.clnd-row-text_date{
+    padding-top: 25%;
+    text-align: center;
+}
+
+.clnd-row-date{
+    width: 15%;
+    align-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+.clnd_row_info{
+    width: 80%;
+
+    justify-content: center;
+    padding-right: 15%;
+}
+
+
 /*Payment content*/
 .pay_section{
     margin-top: 20vh;
