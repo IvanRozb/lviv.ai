@@ -60,7 +60,7 @@ class Fetch {
                                 }
                                 result+=`</table>`
                                 result+=`<div class="pay_link_div">
-                                            <p class="pay_link">*Maкcимaльнi o6cяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi
+                                            <p class="pay_link">*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi
                                                 можна переглянути за посиланням:
                                                 <a class="pay_link color_letter_red" href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv">
                                                     тиць
@@ -79,7 +79,7 @@ class Fetch {
 
                                     const value = element[key];
                                     result+=`<tr class="clnd-row">`
-                                    if(++j != len)
+                                    if(++j !== len)
                                         result+=`<td class="clnd-row-cont">`;
                                     else
                                         result+=`<td class="clnd-row-cont clnd-row-cont-bottom">`
@@ -90,9 +90,9 @@ class Fetch {
                                                     <div class="clnd_row_info">`
                                     let valueCopy = ''
                                     for (let i = 0; i < value.length; i++) {
-                                        if(value[i] == '«')
+                                        if(value[i] === '«')
                                             valueCopy+=`<span class ="color_letter_red">`;
-                                        else if(value[i] == '»')
+                                        else if(value[i] === '»')
                                             valueCopy+=`</span>`
                                         else
                                             valueCopy+=value[i];
@@ -114,17 +114,10 @@ class Fetch {
             }))
         return localStorage.getItem('applicantResult')
     }
-    //
-    // static async getApplicants() {
-    //     await this.getApplicantsAsync('ua');
-    //     debugger
-    //     // while(localStorage.getItem('applicantResult') == null);
-    //     return localStorage.getItem('applicantResult')
-    // }
-}
-// function printSentence() {
-//     console.log("Using setTimeout()")
-// }
-// setTimeout(printSentence, 100)
 
-setTimeout(async ()=>document.getElementsByTagName('body')[0].innerHTML += await Fetch.getApplicantsAsync(), 0);
+    static async getApplicants() {
+        return await this.getApplicantsAsync('ua');
+    }
+}
+
+setTimeout(async ()=>document.getElementsByTagName('body')[0].innerHTML += await Fetch.getApplicants(), 0);

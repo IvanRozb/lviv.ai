@@ -1,5 +1,7 @@
 /*Styles for applicant*/
-
+.applicant_section{
+    margin-top: 20vh;
+}
 .applicant_title::after{
     content: '';
     display: block;
@@ -65,9 +67,6 @@
 }
 
 /*Docs content*/
-.docs_section{
-    margin-top: 21.1vh;
-}
 .docs_content{
     width: 78vw;
 }
@@ -113,7 +112,6 @@
 
 /*Calendar content*/
 .calendar_section{
-    margin-top: 20vh;
     margin-left: 10vw;
 }
 .clnd-maintitle{
@@ -173,15 +171,40 @@
     justify-content: center;
     padding-right: 15%;
 }
+/* Subjects content */
+.subjects_section{
+    margin-left: 10vw;
+}
+.subjects_title{
+    margin-bottom: 4vh;
+}
+.subjects_dates{
+    display: flex;
+    margin-bottom: 2vh;
+}
+.subjects_date{
+    width: 5.5%;
+}
+.subjects_images{
+    margin-bottom: 9vh;
+}
+.subjects_notes{
+    width: 60vw;
+}
+.subjects_notes_title{
+    margin-bottom: 3vh;
 
-
+    font-weight: 300;
+}
+.subjects_note{
+    margin-bottom: 2.5vh;
+}
 /*Payment content*/
 .pay_section{
-    margin-top: 20vh;
     margin-left: 10vw;
 }
 .pay_title{
-    margin-bottom: 5.9vh;
+    margin-bottom: 6vh;
 }
 .pay_columns{
     display: flex;
