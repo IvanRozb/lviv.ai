@@ -183,6 +183,9 @@
     display: flex;
     margin-bottom: 2vh;
 }
+.subjects_dates > .active{
+    color: var(--white);
+}
 .subjects_date{
     cursor: pointer;
     width: 5.5%;
