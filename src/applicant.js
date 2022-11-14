@@ -17,7 +17,7 @@ function applicantSidebar(){
             })
 
             const links = document.querySelectorAll(`.sidebar_list > *`)
-            debugger
+            // debugger
             links.forEach((link) => {
                 if(link == e.target.parentNode){
                     link.classList.add("active")

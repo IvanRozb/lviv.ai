@@ -1,128 +1,130 @@
-function changeTagIfNeeded(tag, element) {
-    let tagCopy = tag;
-    if (tagCopy === undefined)
-        tagCopy = 'p';
-    if (tagCopy === 'p' && element.toString().substring(0, 5) === 'https') {
-        if (element.toString().substring(element.length - 3) !== 'jpg')
-            tagCopy = 'a';
-        else
-            tagCopy = 'img';
-    }
-    return tagCopy;
+if (typeof localStorage === "undefined" || localStorage === null) {
+    let LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
 }
-
 class Fetch {
-    static objTags = {
-        name: 'h3',
-        title: 'h3',
-        about: 'p',
-        description: 'p',
-        cooperation: 'p',
-        logoUrl: 'img',
-        summary: 'p',
-        video: 'a',
-    };
-
-    static async getCollection(collection, language) {
-        let result = ''
-        await fetch(`http://54.93.52.237/aiwebsite/${collection}?language=${language}`,
+    static async getApplicantsAsync(language) {
+        // if (localStorage.getItem('applicantResult') != null)
+        //     return;
+        await localStorage.setItem('applicantResult', await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
             {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 },
             })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                for (let i = 0; i < data.length; i++) {
-                    for (const name in data[i]) {
-                        console.log(data[i][name]);
-
-                        if (Array.isArray(data[i][name])) {
-                            for (const element of data[i][name]) {
-                                let tag = changeTagIfNeeded((this.objTags)[element], element);
-
-                                if (tag === 'img')
-                                    result += `<${tag} src = '${element}' style='display: block;'></${tag}>`;
-                                else if (name != 'id' && name != 'language')
-                                    result += `<${tag}>${data[i][name]}</${tag}><br>`;
-                            }
-                        } else if (typeof data[i][name] === 'object') {
-                            for (const element in data[i][name]) {
-                                let tag = changeTagIfNeeded((this.objTags)[element], element);
-                                result += `<${tag}>${element}:${data[i][name][element]}</${tag}><br>`;
-                            }
-                        } else {
-                            let tag = changeTagIfNeeded((this.objTags)[data[i][name]], data[i][name]);
-                            if (tag === 'img')
-                                result += `<${tag} src = '${data[i][name]}' style='display: block;'></${tag}>`
-                            else if (name != 'id' && name != 'language')
-                                result += `<${tag}>${data[i][name]}</${tag}><br>`
-                        }
-                    }
-                }
-            });
-        return result
-    }
-
-    static async getApplicants(language) {
-        let result = '';
-        await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                for (let i = 0; i < data.length; i++) {
-                    for (const name in data[i]) {
-                        const element = data[i][name]
-                        console.log(element)
+            .then(response => response.json())
+            .then(data => {
+                let result = '';
+                    for (const name in data[0]) {
+                        const element = data[0][name]
+                        // console.log(element)
                         switch (name){
                             case "explanations":
-                                for (const explanation in element) {
+                                result+=`<section class="docs_section" style="display: block">
+                                            <div class="docs_content">
+                                                <h4 class="docs_maintitle applicant_title">Що з документами?</h4>`
+                                for (const explanation of element) {
                                     result += `<div class="docs_box">`;
-                                    result += `<p class="docs_list_title">&{explanation.title}</p>`;
+                                    result += "<p class=\"docs_list_title\">"+explanation.title+"</p>";
                                     result += `<ul class="docs_list">`;
-                                    for (const item in explanation.items) {
-                                        result += `<li class="docs_list_items"><h6 class="docs_list_text">&{item}</h6></li>`
+                                    for (const item of explanation.items) {
+                                        result += "<li class=\"docs_list_items\"><h6 class=\"docs_list_text\">"+item+"</h6></li>"
                                     }
                                     result += `</ul>`
                                     result += `</div>`
                                     if (explanation.photo != null) {
-                                        result += ` <div class="docs_cabinet">
+                                        result += `<div class="docs_cabinet">
                                                         <img class="docs_cabinet_img" src="${explanation.photo}" alt="form">
                                                     </div>`
                                     }
                                 }
+                                result+=`</div>
+                                    </section>`
                                 break;
                             case "educationCosts":
-                                for (const row in element) {
-                                    result+=`<tr class="pay_table_row">`
-                                    result+=`<th class="pay_table_value ">&{row.degree}</th>`
-                                    result+=`<th class="pay_table_value ">&{row.term}</th>`
-                                    result+=`<th class="pay_table_value ">&{row.capacity}</th>`
-                                    result+=`</tr>`
+                                result+=`<section class="pay_section" style="display: block">`
+                                result+=`<h4 class="pay_title applicant_title">Вартість навчання</h4>
+                                <div class="pay_columns">
+                                    <div class="pay_column">Ступінь</div>
+                                    <div class="pay_column">Семестр</div>
+                                    <div class="pay_column">Обсяги</div>
+                                </div>
+                                    <table class="pay_table">`;
+                                for (const row of element) {
+                                    result+=`<tr class="pay_table_row">
+                                    <th class="pay_table_value ">${row.degree}</th>
+                                    <th class="pay_table_value ">${row.term}</th>
+                                    <th class="pay_table_value ">${row.capacity}</th>
+                                    </tr>`
                                 }
+                                result+=`</table>`
+                                result+=`<div class="pay_link_div">
+                                            <p class="pay_link">*Maкcимaльнi o6cяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi
+                                                можна переглянути за посиланням:
+                                                <a class="pay_link color_letter_red" href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv">
+                                                    тиць
+                                                </a>
+                                            </p>
+                                        </div>`
+                                result+=`</section>`
+                                break;
+                            case "dates":
+                                result+=`<section class="calendar_section" style="display: block">
+                                            <h4 class="clnd-maintitle applicant_title">Важливі дати</h4>
+                                            <table class = "clnd-maintable" >`;
+                                let j = 0;
+                                let len = Object.keys(element).length;
+                                for (const key in element) {
+
+                                    const value = element[key];
+                                    result+=`<tr class="clnd-row">`
+                                    if(++j != len)
+                                        result+=`<td class="clnd-row-cont">`;
+                                    else
+                                        result+=`<td class="clnd-row-cont clnd-row-cont-bottom">`
+                                    result+=`
+                                                    <div class="clnd-row-date">
+                                                        <p class="clnd-row-text_date color_letter_red">${key}</p>
+                                                    </div>
+                                                    <div class="clnd_row_info">`
+                                    let valueCopy = ''
+                                    for (let i = 0; i < value.length; i++) {
+                                        if(value[i] == '«')
+                                            valueCopy+=`<span class ="color_letter_red">`;
+                                        else if(value[i] == '»')
+                                            valueCopy+=`</span>`
+                                        else
+                                            valueCopy+=value[i];
+                                    }
+                                    result+=`
+                                                        <p class="clnd-row-text">${valueCopy}</p>
+                                                    </div>
+                                                </td>
+                                            </tr>`
+                                }
+                                result+=`</table></section>`
                                 break;
                             default:
                                 break;
                         }
                     }
-                }
-            });
+
+                return result + `<img class="logo" src="assets/img/logo.svg" alt="logo">`;
+            }))
+        return localStorage.getItem('applicantResult')
     }
+    //
+    // static async getApplicants() {
+    //     await this.getApplicantsAsync('ua');
+    //     debugger
+    //     // while(localStorage.getItem('applicantResult') == null);
+    //     return localStorage.getItem('applicantResult')
+    // }
 }
-//Render data
+// function printSentence() {
+//     console.log("Using setTimeout()")
+// }
+// setTimeout(printSentence, 100)
 
-let response = Fetch.getCollection("Projects", "ua")
-response.then((html) =>{
-    document.querySelector(".applicant_sponsors").insertAdjacentHTML("afterbegin",html )
-})
-
+setTimeout(async ()=>document.getElementsByTagName('body')[0].innerHTML += await Fetch.getApplicantsAsync(), 0);
