@@ -101,7 +101,7 @@ export class Fetch {
         for (const key in element) {
             const value = element[key];
             result+=`<p data-link="subjects_image-${key}" class="subjects_date color_letter_red${(flag === 0) ? " active" : ""}">${key}</p>`
-            images.push(`<img src="${value}" alt="table-${key}" class="subjects_image-${key}" style="display: ${(flag === 0) ? " block" : "none"}">`);
+            images.push(`<img class="subjects_image-${key} src="${value}" alt="table-${key}"" style="display: ${(flag === 0) ? " block" : "none"}">`);
             ++flag;
         }
         result+=`</div>`;
@@ -123,8 +123,9 @@ export class Fetch {
     }
 
     static async getApplicantsAsync(language) {
-        // if (localStorage.getItem('applicantResult') != null)
-        //     return;
+        const item = localStorage.getItem('applicantResult');
+        // if (item == null)
+        //     return item;
         await localStorage.setItem('applicantResult', await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
             {
                 method: 'GET',
