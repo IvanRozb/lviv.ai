@@ -100,9 +100,8 @@ export class Fetch {
         let images = [];
         for (const key in element) {
             const value = element[key];
-            console.log(value)
             result+=`<p data-link="subjects_image-${key}" class="subjects_date color_letter_red${(flag === 0) ? " active" : ""}">${key}</p>`
-            images.push(`<img src="assets/img/subjects_table_1.png" alt="table-${key}" class="subjects_image-${key}" style="display: ${(flag === 0) ? " block" : "none"}">`);
+            images.push(`<img src="${value}" alt="table-${key}" class="subjects_image-${key}" style="display: ${(flag === 0) ? " block" : "none"}">`);
             ++flag;
         }
         result+=`</div>`;
