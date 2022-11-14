@@ -2,7 +2,9 @@
 function applicantSidebar(){
     const sidebar = document.querySelector(`.sidebar_list`)
 
-    sidebar.childNodes.forEach(link =>{
+
+
+    sidebar.childNodes.forEach(link => {
         link.addEventListener("click", (e) => {
 
             const sections = document.querySelectorAll(`section`)
@@ -23,6 +25,7 @@ function applicantSidebar(){
                     link.classList.remove("active")
                 }
             })
+
 
         })
     })
