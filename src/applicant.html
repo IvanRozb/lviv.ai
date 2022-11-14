@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <script type="module" src="applicant.js"></script>
 </head>
 <body>
 <header class="header" id="header">
@@ -31,7 +32,7 @@
             <a class="nav_link" href="applicant.html">Абітурієнту</a>
         </div>
         <div class="nav_item">
-            <a class="nav_link" href="#">СШІ</a>
+            <a class="nav_link" href="fetch.html">СШІ</a>
         </div>
     </nav>
 </header>
@@ -47,170 +48,5 @@
     </ul>
 </div>
 
-<!--Applicant docs html-->
-<section class="docs_section applicant_section" style="display: block">
-    <div class="docs_content">
-        <h4 class="docs_maintitle applicant_title">Що з документами?</h4>
-        <div class="docs_box">
-            <p class="docs_list_title">Дані для подання заявки в особистому кабінеті:</p>
-            <ul class="docs_list">
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Заклад освіти: Національний Університет "Львівська політехніка"</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Інститут комп’ютерних наук та інформаційних технологій (ІКНІ)</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Спеціальність: 122 Комп’ютерні науки.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Освітня програма: Комп’ютерні науки (Системи штучного інтелекту)</h6></li>
-            </ul>
-        </div>
-        <div class="docs_cabinet">
-            <img class="docs_cabinet_img" src="assets/img/app_cabinet.svg" alt="form">
-        </div>
-        <div class="docs_box">
-            <p class="docs_list_title">Для зарахування вступник подає такі документи:</p>
-            <ul class="docs_list docs_list_documents">
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    копію паспорта України або копію ID-картку разом з Додатком.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    військово-облікового документа (для військовозобов’язаних - військового квитка
-                    або тимчасового посвідчення військовозобов’язаного, а для призовників - посвідчення
-                    про приписку до призовних дільниць).</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    копію документа (державного зразка) про раніше здобутий освітній (освітньо-кваліфікаційний)
-                    рівень, на основі якого здійснюється вступ, якщо інформація про нього не зберігається в
-                    Єдиній державній електронній базі з питань освіти.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    копії документів, завірені в приймальній комісії, які підтверджують право вступника
-                    на участь у конкурсі за результатами індивідуальної усної співбесіди, зарахування
-                    за квотами-1, квотами-2.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    чотири кольорові фотокартки розміром 3 х 4 см.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Папку на зв’язку</h6></li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!--Applicant calendar html-->
-<section class="calendar_section applicant_section" style="display: none">
-    <h4 class="clnd-maintitle applicant_title">Важливі дати</h4>
-    <table class="clnd-maintable">
-        <tr class="clnd-row">
-            <td class="clnd-row-cont">
-                <div class="clnd-row-date">
-                    <p class="clnd-row-text_date color_letter_red">01 Липня</p>
-                </div>
-                <div class="clnd_row_info">
-                    <p class="clnd-row-text">Початок <span class="color_letter_red">реєстрації електронних
-                        кабінетів</span> вступників і завантаження необхідних документів</p>
-                </div>
-            </td>
-        </tr>
-        <tr class="clnd-row">
-            <td class="clnd-row-cont">
-                <div class="clnd-row-date">
-                    <p class="clnd-row-text_date color_letter_red">29 Липня</p>
-                </div>
-                <div class="clnd_row_info">
-                    <p class="clnd-row-text">Приймання заяв та документів закінчується о
-                        <span class="color_letter_red">18:00 23 серпня</span> — для осіб, які
-                        вступають за результатами ЗНО/НМТ</p>
-                </div>
-            </td>
-        </tr>
-        <tr class="clnd-row">
-            <td class="clnd-row-cont">
-                <div class="clnd-row-date">
-                    <p class="clnd-row-text_date color_letter_red">29 Серпня</p>
-                </div>
-                <div class="clnd_row_info">
-                    <p class="clnd-row-text">Здійснюється <span class="color_letter_red">формування рейтингових списків
-                    </span> щодо права здобувати вищу освіту за кошти державного бюджету</p>
-                </div>
-            </td>
-        </tr>
-        <tr class="clnd-row">
-            <td class="clnd-row-cont">
-                <div class="clnd-row-date">
-                    <p class="clnd-row-text_date color_letter_red">02 Вересня</p>
-                </div>
-                <div class="clnd_row_info">
-                    <p class="clnd-row-text"><span class="color_letter_red">Подання документів</span>
-                        здійснюється до <span class="color_letter_red">18:00, 02.09</span>
-                        для вступників на <span class="color_letter_red">бюджетну</span> форму навчання</p>
-                </div>
-            </td>
-        </tr>
-        <tr class="clnd-row">
-            <td class="clnd-row-cont clnd-row-cont-bottom">
-                <div class="clnd-row-date">
-                    <p class="clnd-row-text_date color_letter_red">08 Вересня</p>
-                </div>
-                <div class="clnd_row_info">
-                    <p class="clnd-row-text"><span class="color_letter_red">Подання документів</span>
-                        здійснюється до <span class="color_letter_red">15:00, 08.09</span>
-                        для вступників на контрактну форму навчання</p>
-                </div>
-            </td>
-        </tr>
-    </table>
-
-</section>
-
-<!--Applicant calendar html-->
-<section class="subjects_section applicant_section" style="display: none">
-    <h4 class="subjects_title applicant_title">Перелік конкурсних предметів</h4>
-    <div class="subjects_dates">
-        <p data-link="subjects_image-2021" class="subjects_date color_letter_red active">2021</p>
-        <p data-link="subjects_image-2022" class="subjects_date color_letter_red">2022</p>
-    </div>
-    <div class="subjects_images">
-        <img src="assets/img/subjects_table_1.png" alt="table-2021" class="subjects_image-2021" style="display: block">
-        <img src="assets/img/subjects_table_1.png" alt="table-2022" class="subjects_image-2022" style="display: none">
-    </div>
-    <div class="subjects_notes">
-        <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
-        <div class="subjects_content">
-            <p class="subjects_note">*Замість результатів ЗНО з української мови можуть використовуватися результати ЗНО з української мови та літератури.</p>
-            <p class="subjects_note">*Вагомий коефіцієнт за успішне закінчення підготовчих курсів в Університеті = 0</p>
-            <p class="subjects_note">*Враховуйте значення <span class="color_letter_red">сільського</span> та <span class="color_letter_red">регіонального</span> коефіцієнтів, на які домножується Ваш конкурсний бал.</p>
-        </div>
-    </div>
-</section>
-
-<!--Applicant payment html-->
-<section class="pay_section applicant_section" style="display: none">
-    <h4 class="pay_title applicant_title">Вартість навчання</h4>
-    <div class="pay_columns">
-        <div class="pay_column">Ступінь</div>
-        <div class="pay_column">Семестр</div>
-        <div class="pay_column">Обсяги</div>
-    </div>
-    <table class="pay_table">
-        <tr class="pay_table_row">
-            <th class="pay_table_value">Бакалавр</th>
-            <th class="pay_table_value">22 000</th>
-            <th class="pay_table_value">120</th>
-        </tr>
-        <tr class="pay_table_row">
-            <th class="pay_table_value ">Магістр</th>
-            <th class="pay_table_value ">23 000</th>
-            <th class="pay_table_value ">75</th>
-        </tr>
-    </table>
-    <div class="pay_link_div">
-        <p class="pay_link">*Maкcимaльнi o6cяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi
-            можна переглянути за посиланням:
-            <a class="pay_link color_letter_red" href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv">
-                тиць
-            </a>
-        </p>
-    </div>
-</section>
-
-<img class="logo" src="assets/img/logo.svg" alt="logo">
-<script src="applicant.js"></script>
 </body>
 </html>
