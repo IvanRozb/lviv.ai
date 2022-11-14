@@ -63,6 +63,7 @@
 }
 
 .sidebar_list_text{
+    cursor: pointer;
     font-weight: var(--small-weight);
 }
 
@@ -183,10 +184,14 @@
     margin-bottom: 2vh;
 }
 .subjects_date{
+    cursor: pointer;
     width: 5.5%;
 }
 .subjects_images{
     margin-bottom: 9vh;
+}
+.subjects_images > img{
+    width: 66vw;
 }
 .subjects_notes{
     width: 60vw;
