@@ -1,6 +1,6 @@
 import {CardsAnimate} from "./CardsAnimation"
 import {initMap} from "./plugins"
-import {animatedBlob} from "./assets/utils"
+import {animatedBlob} from "./utils"
 
 //Sidebar behavior
 function sidebarLinks(){
