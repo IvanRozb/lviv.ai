@@ -1,4 +1,5 @@
 import {Fetch} from "./fetch";
+import {animateNavUnderlines} from "./utils";
 
 function navigationListBehavior(/*string*/containerSelector, /*string*/blocksSelector, /*string*/linksSelector){
     const sidebar = document.querySelector(containerSelector);
@@ -28,4 +29,6 @@ setTimeout(async ()=>{
 
     navigationListBehavior(`.sidebar_list`, `section`, `.sidebar_list > li`);
     navigationListBehavior(`.subjects_dates`, `.subjects_images > img`, `.subjects_date`);
+
+    animateNavUnderlines();
 }, 0);

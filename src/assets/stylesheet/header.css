@@ -253,6 +253,7 @@ button{
     -ms-flex-pack: center;
     justify-content: center;
 }
+
 .nav_lang {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -280,7 +281,7 @@ button{
     cursor: pointer;
 }
 
-.nav_item:after {
+.nav_underline {
     content: "";
     display: block;
     width: 90%;
@@ -295,13 +296,13 @@ button{
 
     transition: background-color 0.25s linear;
 }
-.nav_item:hover:after {
+.nav_item:hover > .nav_underline {
     background-color: var(--peachy);
 }
 .nav_lang :nth-child(n):hover:after {
     background-color: transparent;
 }
-.nav_item.active:after {
+.nav_item.active > .nav_underline {
     background-color: var(--peachy);
 }
 .nav_link.active {

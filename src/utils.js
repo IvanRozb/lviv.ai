@@ -9,7 +9,35 @@ let blobsShapes = [
     "M402,264Q307,278,325.5,323Q344,368,321.5,416Q299,464,263,407Q227,350,206.5,340.5Q186,331,134.5,331Q83,331,113,290.5Q143,250,91.5,199.5Q40,149,119,167Q198,185,196,96Q194,7,246,22.5Q298,38,322,84Q346,130,410.5,136Q475,142,486,196Q497,250,402,264Z",
     "M351.5,277.5Q364,305,362.5,347Q361,389,318.5,375.5Q276,362,251,359.5Q226,357,194,359Q162,361,111.5,351Q61,341,50.5,295.5Q40,250,83.5,220.5Q127,191,136,154.5Q145,118,186.5,135Q228,152,261.5,102Q295,52,315,98Q335,144,397,147Q459,150,399,200Q339,250,351.5,277.5Z"
 ]
-
+export function animateNavUnderlines(){
+    const navbar = document.querySelector(`.nav`);
+    const underlines = document.querySelectorAll(`.nav_underline`);
+    const items = document.querySelectorAll(`.nav > .nav_item`);
+    items.forEach((item)=>{
+        item.addEventListener('mouseenter', e => {
+            item.childNodes.forEach(item => {
+                if(item.className === 'nav_underline')
+                    item.style.backgroundColor = 'var(--peachy)';
+            });
+        });
+        item.addEventListener('mouseleave', e => {
+            item.childNodes.forEach(item => {
+                if(item.className === 'nav_underline')
+                    item.style.backgroundColor = 'transparent';
+            });
+        });
+    });
+    navbar.addEventListener('mouseenter', e => {
+        underlines.forEach((underline) => {
+            underline.style.backgroundColor = 'transparent';
+        });
+    });
+    navbar.addEventListener('mouseleave', e => {
+        underlines.forEach((underline) => {
+            if(underline.parentNode.classList.contains('active')) underline.style.backgroundColor = 'var(--peachy)'
+        })
+    });
+}
 export function animatedBlob(n, width){
     shuffle(blobsShapes)
     return`
