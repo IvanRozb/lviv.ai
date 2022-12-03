@@ -2,7 +2,7 @@
     /* Colors */
 
     --black: rgba(0, 5, 9, 1);
-    --peachy: rgba(233, 40, 40, 1);
+    --peachy: #FF0000;
     --transparent-fire-brick: rgba(200, 0, 0, 0.2);
     --transparent-fire-brick-2: rgba(200, 0, 0, 0);
     --transparent-white: rgba(255, 255, 255, 0.8);
@@ -19,7 +19,7 @@
     --h1-font-weight: 700;
     --h1-letter-spacing: 0.08em;
 
-    --h2-size: 3.9vw; /*75*/
+    --h2-size: 3.9vw; /*75px*/
 
     --h3-size: 3vw; /* 59px */
 
@@ -148,6 +148,9 @@ a {
     color: white;
 }
 
+button{
+    all: unset;
+}
 /*our styles*/
 html{
     scroll-behavior:smooth
@@ -250,6 +253,7 @@ button{
     -ms-flex-pack: center;
     justify-content: center;
 }
+
 .nav_lang {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -277,7 +281,7 @@ button{
     cursor: pointer;
 }
 
-.nav_item:after {
+.nav_underline {
     content: "";
     display: block;
     width: 90%;
@@ -292,13 +296,15 @@ button{
 
     transition: background-color 0.25s linear;
 }
-.nav_item:hover:after {
+.nav_item:hover > .nav_underline {
     background-color: var(--peachy);
 }
 .nav_lang :nth-child(n):hover:after {
     background-color: transparent;
 }
-
+.nav_item.active > .nav_underline {
+    background-color: var(--peachy);
+}
 .nav_link.active {
     color: rgba(255, 255, 255, 0.8);
 }

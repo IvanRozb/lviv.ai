@@ -1,12 +1,22 @@
 /*Styles for applicant*/
-
+.applicant_section{
+    margin-top: 20vh;
+}
+.applicant_title::after{
+    content: '';
+    display: block;
+    margin-top: 1.3vh;
+    width: 22vw;
+    height: 0.3vh;
+    background: linear-gradient(to right, #F84B50, #000000);
+}
 /*Applicant sidebar*/
 .app_sidebar {
     position: absolute;
     right: 0;
     top: 0;
-    height: 100vh;
-    margin-top: 21.1vh;
+    height: 78vh;
+    margin-top: 21vh;
     width: 22vw;
 }
 .sidebar_title{
@@ -14,27 +24,55 @@
     font-size: 2.3vw;
     font-weight: 500;
 }
-.sidebar_list{
-    list-style: none;
+.sidebar_title::after{
+    content: '';
+    display: block;
+    margin-top: 1vh;
+    width: 10vw;
+    height: 0.2vh;
+    background-image: url("../img/line_bakalavrat.svg");
+    background-repeat: no-repeat;
+    background-size: 10vw 0.2vh;
+}
+.sidebar_list .active{
+    background: linear-gradient(90deg, rgb(225, 46, 46), rgb(67, 15, 18));
 }
 
-.sidebar_list > *{
+.sidebar_list > li{
+    position: relative;
     margin-bottom: 2.7vh;
+    padding: 0.5vh 0 0.5vh 0.2vw;
+
+    list-style: none;
+}
+.sidebar_list :nth-child(2n)::after{
+    transform: rotateY(180deg);
+}
+.sidebar_list > li::after{
+    content: '';
+    display: block;
+
+    position: absolute;
+    bottom: -0.4vh;
+    left: 0;
+
+    width: 100%;
+    height: 0.3vh;
+
+    background: linear-gradient(to right, #F84B50, #000000);
 }
 
 .sidebar_list_text{
+    cursor: pointer;
     font-weight: var(--small-weight);
 }
 
 /*Docs content*/
-.docs_section{
-    margin-top: 21.1vh;
-}
 .docs_content{
     width: 78vw;
 }
 .docs_box{
-    margin-left: 9.3vw;
+    margin-left: 10vw;
     margin-bottom: 5vh;
     width: 58vw;
 }
@@ -49,7 +87,7 @@
     margin-bottom: 4vh;
     font-size: 2.3vw;
 
-    line-height: 4vh;
+    line-height: 5vh;
     letter-spacing: var(--h4-small-spacing);
 }
 .docs_list{
@@ -69,11 +107,151 @@
 }
 
 .docs_cabinet_img{
-    margin: 10vh 0 10vh 7vw;
-    width: 60.3vw;
+    margin: 10vh 0 10vh 10vw;
+    width: 60vw;
 }
 
+/*Calendar content*/
+.calendar_section{
+    margin-left: 10vw;
+}
+.clnd-maintitle{
+    margin-bottom: 10vh;
+}
+.clnd-maintable{
+    background: rgba(85, 43, 43, 0.22);
+    backdrop-filter: blur(20px);
+    border: 0.01vh solid white;
+    height: 105vh;
+    width: 61.4vw;
+}
+.clnd-row{
+    border: 0.01vh solid white;
+    width: 54.5vw;
+    height: 14.05vh;
+    margin-top: 6vh;
+    background: rgba(217, 217, 217, 0.04);
+}
+.clnd-row-cont{
+    display: flex;
+    justify-content: center;
+    /*flex-direction: column;*/
+
+    border: 0.01vh solid white;;
+    width: 54.5vw;
+    height: 14.05vh;
+    margin-top: 6vh;
+    margin-left: 3.4vw;
+}
+.clnd-row-cont-bottom{
+    margin-bottom: 6.8vh;
+}
+
+.clnd-row-text,.clnd-row-text_date{
+    top:50%;
+    left: 50%;
+    align-content: center;
+    justify-content: center;
+    padding-top: 3%;
+}
+.clnd-row-text_date{
+    padding-top: 25%;
+    text-align: center;
+}
+
+.clnd-row-date{
+    width: 15%;
+    align-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+.clnd_row_info{
+    width: 80%;
+
+    justify-content: center;
+    padding-right: 15%;
+}
+/* Subjects content */
+.subjects_section{
+    margin-left: 10vw;
+}
+.subjects_title{
+    margin-bottom: 4vh;
+}
+.subjects_dates{
+    display: flex;
+    margin-bottom: 2vh;
+}
+.subjects_dates > .active{
+    color: var(--white);
+}
+.subjects_date{
+    cursor: pointer;
+    width: 5.5%;
+}
+.subjects_images{
+    margin-bottom: 9vh;
+}
+.subjects_images > img{
+    width: 66vw;
+}
+.subjects_notes{
+    width: 60vw;
+}
+.subjects_notes_title{
+    margin-bottom: 3vh;
+
+    font-weight: 300;
+}
+.subjects_note{
+    margin-bottom: 2.5vh;
+}
+/*Payment content*/
+.pay_section{
+    margin-left: 10vw;
+}
+.pay_title{
+    margin-bottom: 6vh;
+}
+.pay_columns{
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+    height: 6vh;
+}
+.pay_column{
+    width: 8.65vw;
+    text-align: center;
+    font-size: var(--h5-size);
+    margin-right: 6vw;
+    color: var(--peachy);
+}
+.pay_table{
+    background: linear-gradient(90deg, rgba(232, 0, 0, 0.6) 2.55%, rgba(217, 125, 125, 0.446849) 23.02%, rgba(182, 182, 182, 0) 82.76%);
+    width: 73vw;
+    margin-bottom: 5.2vh;
+}
+.pay_table_row{
+    display: flex;
+    align-items: center;
+    height: 7vh;
+    width: 41vw;
+}
+.pay_table_value{
+    width: 33.3%;
+}
+
+.pay_link_div{
+    margin-left: 0.5vw;
+    width: 62vw;
+}
+.pay_link{
+    font-weight: var(--small-weight);
+    font-size: var(--small-size);
+}
+
+/*logo*/
 .logo{
-    margin-top: 30vh;
+    margin-top: 28vh;
 }
-

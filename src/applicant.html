@@ -9,15 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <script type="module" src="applicant.js"></script>
 </head>
 <body>
 <header class="header" id="header">
     <nav class="nav">
         <div class="nav_item">
             <a class="nav_link" href="index.html">Головна</a>
+            <div class="nav_underline"></div>
         </div>
         <div class="nav_item">
-            <a class="nav_link" href="#">Про нас</a>
+            <a class="nav_link" href="about_us.html">Про нас</a>
+            <div class="nav_underline"></div>
         </div>
         <div class="nav_lang">
             <div class="nav_item">
@@ -27,11 +30,13 @@
                 <a class="nav_link active" href="#">EN</a>
             </div>
         </div>
-        <div class="nav_item">
+        <div class="nav_item active">
             <a class="nav_link" href="applicant.html">Абітурієнту</a>
+            <div class="nav_underline"></div>
         </div>
         <div class="nav_item">
-            <a class="nav_link" href="#">СШІ</a>
+            <a class="nav_link" href="fetch.html">СШІ</a>
+            <div class="nav_underline"></div>
         </div>
     </nav>
 </header>
@@ -39,61 +44,13 @@
 <div class="app_sidebar">
     <h4 class="sidebar_title">Бакалаврат</h4>
     <ul class="sidebar_list">
-        <li><h6 class="sidebar_list_text">Що з документами?</h6></li>
-        <li><h6 class="sidebar_list_text">Важливі дати</h6></li>
-        <li><h6 class="sidebar_list_text">Таблиця сертифікатів
-            ЗНО і мін. бали 2022</h6></li>
-        <li><h6 class="sidebar_list_text">Вартість навчання</h6></li>
+        <li data-link="docs_section" class="sidebar_list_text active">Що з документами?</li>
+        <li data-link="calendar_section" class="sidebar_list_text">Важливі дати</li>
+        <li data-link="subjects_section" class="sidebar_list_text">Таблиця сертифікатів
+            ЗНО і мін. бали 2022</li>
+        <li data-link="pay_section" class="sidebar_list_text">Вартість навчання</li>
     </ul>
 </div>
-
-<!--Applicant html-->
-<div class="docs_section">
-    <div class="docs_content">
-        <h4 class="docs_maintitle">Що з документами?</h4>
-        <div class="docs_box">
-            <p class="docs_list_title">Дані для подання заявки в особистому кабінеті:</p>
-            <ul class="docs_list">
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Заклад освіти: Національний Університет "Львівська політехніка"</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Інститут комп’ютерних наук та інформаційних технологій (ІКНІ)</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Спеціальність: 122 Комп’ютерні науки.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Освітня програма: Комп’ютерні науки (Системи штучного інтелекту)</h6></li>
-            </ul>
-        </div>
-        <div class="docs_cabinet">
-            <img class="docs_cabinet_img" src="assets/img/app_cabinet.svg" alt="form">
-        </div>
-        <div class="docs_box">
-            <p class="docs_list_title">Для зарахування вступник подає такі документи:</p>
-            <ul class="docs_list docs_list_documents">
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    копію паспорта України або копію ID-картку разом з Додатком.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    військово-облікового документа (для військовозобов’язаних - військового квитка
-                    або тимчасового посвідчення військовозобов’язаного, а для призовників - посвідчення
-                    про приписку до призовних дільниць).</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    копію документа (державного зразка) про раніше здобутий освітній (освітньо-кваліфікаційний)
-                    рівень, на основі якого здійснюється вступ, якщо інформація про нього не зберігається в
-                    Єдиній державній електронній базі з питань освіти.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    копії документів, завірені в приймальній комісії, які підтверджують право вступника
-                    на участь у конкурсі за результатами індивідуальної усної співбесіди, зарахування
-                    за квотами-1, квотами-2.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    чотири кольорові фотокартки розміром 3 х 4 см.</h6></li>
-                <li class="docs_list_items"><h6 class="docs_list_text">
-                    Папку на зв’язку</h6></li>
-            </ul>
-        </div>
-        <img class="logo" src="assets/img/logo.svg" alt="logo">
-    </div>
-</div>
-
 
 </body>
 </html>

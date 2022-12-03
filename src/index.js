@@ -1,6 +1,6 @@
 import {CardsAnimate} from "./CardsAnimation"
 import {initMap} from "./plugins"
-import {animatedBlob} from "./assets/utils"
+import {animatedBlob, animateNavUnderlines} from "./utils"
 
 //Sidebar behavior
 function sidebarLinks(){
@@ -62,5 +62,5 @@ window.initMap = initMap;
 
 //On resize functions
 
-
+animateNavUnderlines();
 
