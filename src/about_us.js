@@ -53,7 +53,7 @@ function activateCarousel() {
     })
 }
 
-// const template = getCourseCardHTML()
+const template = getCourseCardHTML()
 document.querySelector(".course_cards_section").insertAdjacentHTML(
     'beforeend', localStorage.getItem('term1')
 )
