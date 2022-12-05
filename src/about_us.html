@@ -49,36 +49,41 @@
             <ul class="navigation_buttons">
                 <li class="navigation_item">
                     <button class="navigation_button">
-                        <img src="./assets/img/course_card_icon.svg">
-                        <p>карта курсів</p>
+                        <img src="./assets/img/course_card_icon.svg" alt="course_card_icon">
+                        <span>карта курсів</span>
                     </button>
                 </li>
-
                 <li class="navigation_item">
                     <button class="navigation_button">
-                        <img src="./assets/img/staff_icon.svg">
-                        <p>про викладачів</p>
+                        <img src="./assets/img/staff_icon.svg" alt="staff_icon">
+                        <span>про викладачів</span>
                     </button>
                 </li>
-
                 <li class="navigation_item">
                     <button class="navigation_button">
-                        <img src="./assets/img/universities_icon.svg">
-                        <p>навчальні програми</p>
+                        <img src="./assets/img/universities_icon.svg" alt="universities_icon">
+                        <span>навчальні програми</span>
                     </button>
                 </li>
             </ul>
+            <div class="navigation_underline" style="left: 0;"></div>
         </div>
     </section>
 
-    <section class="course_cards_section">
-        <div class="course_cards_menu">
-            <p>Бакалавр</p>
-            <p>Магістр</p>
-        </div>
-
-    </section>
-
+    <div class="carousel">
+        <section class="course_cards_section carousel_item">
+            <div class="course_cards_menu">
+                <p>Бакалавр</p>
+                <p>Магістр</p>
+            </div>
+        </section>
+        <section class="teachers_section carousel_item">
+        </section>
+        <section class="programs_section carousel_item">
+        </section>
+    </div>
+    <img class="logo" src="assets/img/logo.svg" alt="logo">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="about_us.js"></script>
 </body>
 </html>

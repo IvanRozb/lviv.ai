@@ -1,3 +1,7 @@
+body{
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 .navigation_section{
     margin-top: 10vh;
 
@@ -12,13 +16,16 @@
 }
 
 .navigation_buttons_container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+
     height: 20vh;
     background: var(--peachy);
-
 }
 
 .navigation_buttons{
-    margin: 0 auto;
+    margin: 0 auto 2.8vh;
 
     display: flex;
     justify-content: space-around;
@@ -29,6 +36,12 @@
     width: 70vw;
 }
 
+.navigation_item{
+    display: flex;
+    justify-content: center;
+    width: 18vw;
+}
+
 .navigation_button{
     display: flex;
     flex-direction: column;
@@ -37,35 +50,28 @@
     cursor: pointer;
 }
 
-.navigation_button:after {
-    content: "";
+.navigation_underline {
     display: block;
-    width: 90%;
+    position: absolute;
+
+    top: 87%;
+
+    width: 14vw;
     height: 0.15em;
+
     border-radius: 3px;
-
-    margin: 10px auto 0;
-
-    -webkit-transition: background-color 0.25s linear;
-
-    -o-transition: background-color 0.25s linear;
-
-    transition: background-color 0.25s linear;
-}
-.navigation_button:hover:after {
     background-color: var(--white);
+
+    transition: 0.28s left linear;
 }
 
 /*Course Cards css*/
-.course_cards_section{
-    padding: 0 2vw 0 2vw;
-}
 .course_cards_menu{
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 1.5vh;
-
+    margin-left: 2vw;
     height: 20vh;
 }
 .course_cards_container{
@@ -91,7 +97,6 @@
 .course_card_table{
 
     font-size: var(--small-size);
-    font-weight: var(--small-weight);
     line-height: var(--small-height);
     letter-spacing: var(--small-letter-spacing);
 
@@ -157,7 +162,7 @@
     padding: 1vw .7vh 1.2vw .7vh;
     border-color: var(--white);
     border-style: solid;
-    border-width: 1px 1px 0px 1px;
+    border-width: 1px 1px 0 1px;
 }
 .single_row{
     position: relative;
@@ -185,4 +190,29 @@
     background: rgba(217, 125, 125, 0.2);
     width: 100%;
     height: 100%;
+}
+
+.teachers_section{
+    width: 500px;
+    height: 500px;
+    background-color: indigo;
+}
+.programs_section{
+    width: 500px;
+    height: 500px;
+    background-color: darkred;
+}
+
+/* carousel */
+.carousel{
+    display: flex;
+    flex-direction: row;
+    width: 300vw;
+
+    transition: 0.28s margin-left;
+}
+
+.carousel_item{
+    width: 100vw;
+    margin-bottom: 37vh;
 }
