@@ -92,16 +92,15 @@ export class Fetch {
         result+=`</table></section>`
         return result;
     }
-    static /*string*/#getApplicantTables(element){
+    static /*string*/#getApplicantCompetitiveSubjects(element){
         let result=`<section class="subjects_section applicant_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">Перелік конкурсних предметів</h4>
                                             <div class="subjects_dates">`
         let flag = 0;
         let images = [];
-        for (const key in element) {
-            const value = element[key];
-            result+=`<p data-link="subjects_image-${key}" class="subjects_date color_letter_red${(flag === 0) ? " active" : ""}">${key}</p>`
-            images.push(`<img class="subjects_image-${key}" src="${value}" alt="table-${key}" style="display: ${(flag === 0) ? "inline-block" : "none"}">`);
+        for (const subject of element) {
+            result+=`<p data-link="subjects_image-${subject.year}" class="subjects_date color_letter_red${(flag === 0) ? " active" : ""}">${subject.year}</p>`
+            images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(flag === 0) ? "inline-block" : "none"}">`);
             ++flag;
         }
         result+=`</div>`;
@@ -112,13 +111,30 @@ export class Fetch {
         result+=`</div>`
         result+=`<div class="subjects_notes">
                                             <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
-                                            <div class="subjects_content">
-                                                <p class="subjects_note">*Замість результатів ЗНО з української мови можуть використовуватися результати ЗНО з української мови та літератури.</p>
-                                                <p class="subjects_note">*Вагомий коефіцієнт за успішне закінчення підготовчих курсів в Університеті = 0</p>
-                                                <p class="subjects_note">*Враховуйте значення <span class="color_letter_red">сільського</span> та <span class="color_letter_red">регіонального</span> коефіцієнтів, на які домножується Ваш конкурсний бал.</p>
-                                            </div>
-                                        </div>`
-        result+=`</section>`
+                                            <div class="subjects_content">`
+        const delimiterLength = '|r|'.length;
+        for (const note in element.notes) {
+            let redactedNote = '';
+            let redStarted = 0;
+            for (let i = 0; i < note.length-delimiterLength; i++) {
+                if(note.substring(i,delimiterLength) === '|r|')
+                {
+                    if(redStarted === 0) {
+                        redactedNote += `<span class="color_letter_red">`;
+                        redStarted = 1;
+                    }
+                    else{
+                        redactedNote += `</span>`;
+                        redStarted = 0;
+                    }
+                    i+=delimiterLength-1;
+                }
+                else
+                    redactedNote+=note[i];
+            }
+            result += `<p class="subjects_note">*${redactedNote}</p>`
+        }
+        result+=`</div></div></section>`
         return result;
     }
 
@@ -149,8 +165,8 @@ export class Fetch {
                             case "dates":
                                 result+=this.#getApplicantDates(element);
                                 break;
-                            case "tables":
-                                result+=this.#getApplicantTables(element);
+                            case "competitiveSubjects":
+                                result+=this.#getApplicantCompetitiveSubjects(element);
                                 break;
                             default:
                                 break;
