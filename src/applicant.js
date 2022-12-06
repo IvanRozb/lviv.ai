@@ -25,7 +25,7 @@ function navigationListBehavior(/*string*/containerSelector, /*string*/blocksSel
 
 
 setTimeout(async ()=>{
-    document.getElementsByTagName('body')[0].innerHTML += await Fetch.getApplicants();
+    document.getElementsByTagName('body')[0].innerHTML += await Fetch.getApplicantsUA();
 
     navigationListBehavior(`.sidebar_list`, `section`, `.sidebar_list > li`);
     navigationListBehavior(`.subjects_dates`, `.subjects_images > img`, `.subjects_date`);
