@@ -199,7 +199,7 @@ export class Fetch {
     static async getJobsPositions(){
         const html = localStorage.getItem('jobsPositionsResult')
         let insertedDate = localStorage.getItem("jobsPositionsInsertedTime")
-        debugger
+
         if (html != null && insertedDate != null){
             insertedDate = new Date(insertedDate)
             insertedDate.setDate(insertedDate.getDate() + 1)
