@@ -1,6 +1,7 @@
 import {CardsAnimate} from "./CardsAnimation"
 import {initMap} from "./plugins"
 import {animatedBlob, animateNavUnderlines} from "./utils"
+import {Fetch} from "./fetch"
 
 //Sidebar behavior
 function sidebarLinks(){
@@ -46,6 +47,15 @@ function animateIntroLines(animatedBlock){
 }
 animateIntroLines()
 
+// Get jobs info
+setTimeout(async () => {
+    const jobsTableContainer = document.querySelector('.vacancies_statistic')
+    console.log(jobsTableContainer)
+    jobsTableContainer.innerHTML  = await Fetch.getJobsPositions()
+    }
+, 0)
+
+
 
 //Animate sponsors
 function animateSponsors(){
@@ -61,6 +71,5 @@ animateSponsors()
 window.initMap = initMap;
 
 //On resize functions
-
 animateNavUnderlines();
 
