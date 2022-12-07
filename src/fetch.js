@@ -44,6 +44,7 @@ function /*string*/getContainer(containerSelector, container){
 }
 
 export class Fetch {
+    //Help Functions
     static /*string*/#getApplicantExplanations(element){
         let result=`<section class="docs_section applicant_section" style="display: block">
                                             <div class="docs_content">
@@ -154,6 +155,37 @@ export class Fetch {
         return result;
     }
 
+    static async /*[array, array]*/#getJobsAmounts(jobNames, cities){
+
+        async function getJobAmount(job, city, resArray){
+            await fetch(`https://jobs.dou.ua/vacancies/?search=${job}+${city}`).then(function (response) {
+                return response.text()
+            }).then(function (data) {
+                const index = data.search("<div class=\"b-inner-page-header\">")
+                const jobAmount = parseInt(data.slice(index+41, index+46))
+
+                resArray.push(jobAmount)
+            }).catch(function (err) {
+                console.warn('Something went wrong.', err)
+            })
+        }
+
+        let firstCityJobAmount = []
+        let secondCityJobAmount = []
+
+        for (const jobName of jobNames) {
+
+            await getJobAmount(jobName, cities[0], firstCityJobAmount)
+
+            await getJobAmount(jobName, cities[1], secondCityJobAmount)
+
+        }
+
+        return {firstCity: firstCityJobAmount, secondCity: secondCityJobAmount}
+
+    }
+
+    //Middle layer
     static async getApplicantsAsync(language) {
         const item = localStorage.getItem('applicantResult');
         if (item != null)
@@ -193,7 +225,91 @@ export class Fetch {
         return localStorage.getItem('applicantResult');
     }
 
-    static async getApplicants() {
+    //Implementations
+    static async getJobsPositions(){
+        const html = localStorage.getItem('jobsPositionsResult')
+        let insertedDate = localStorage.getItem("jobsPositionsInsertedTime")
+
+        if (html != null && insertedDate != null){
+            insertedDate = new Date(insertedDate)
+            insertedDate.setDate(insertedDate.getDate() + 1)
+
+            //checks if item exists in localStorage more than 1 day
+            if(insertedDate > new Date())
+                return html
+        }
+
+
+        const locations = ["Lviv", "Ukraine"]
+
+        await localStorage.setItem("jobsPositionsResult", await fetch("http://54.93.52.237/aiwebsite/jobNames?language=ua",
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(async data => {
+
+                let jobNames = data.names
+                const jobAmounts = await this.#getJobsAmounts(jobNames, locations)
+
+                return [jobAmounts, jobNames]
+            }).then(([jobAmounts, jobNames]) =>{
+
+                //Convert camel case to normal words
+                jobNames.map((name, idx) => {
+                    for (let i = 0; i < name.length; i++) {
+                        if (name[i] === name[i].toUpperCase() && name[i].match(/[a-z]/i)){
+                            name = [name.slice(0, i), " ", name.slice(i)].join('')
+                            i += 1
+                        }
+                    }
+
+                    jobNames[idx] = name.charAt(0).toUpperCase() + name.slice(1)
+
+                })
+
+                let HTML = `<div class="vacancies_jobs">
+                                    <div class="vacancies_job"></div>`
+                jobNames.forEach(name => {
+                    HTML += `<div class="vacancies_job">${name}</div>`
+                })
+
+                HTML += `</div>
+                         <table class="vacancies_table">
+                            <tr class="vacancies_row">
+                                <th class="vacancies_column">Україна</th>`
+
+
+                jobAmounts.firstCity.forEach(amount => {
+                    HTML += `<th class="vacancies_column">${amount}</th>`
+                })
+
+                HTML += `</tr>
+                     <tr class="vacancies_row">
+                         <th class="vacancies_column">Львів</th>`
+
+                jobAmounts.secondCity.forEach(amount => {
+                    HTML += `<th class="vacancies_column">${amount}</th>`
+                })
+
+                HTML += `</tr>
+                </table>`
+
+
+                return HTML
+            }))
+
+        localStorage.setItem("jobsPositionsInsertedTime", new Date().toJSON())
+
+        return localStorage.getItem('jobsPositionsResult');
+    }
+    static async getJobPositionsAsync(){
+        return await this.getJobsPositions()
+    }
+    static async getApplicantsUA() {
         return await this.getApplicantsAsync('ua');
     }
 }
