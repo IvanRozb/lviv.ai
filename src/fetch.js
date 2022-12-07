@@ -3,6 +3,46 @@ if (typeof localStorage === "undefined" || localStorage === null) {
     localStorage = new LocalStorage('./scratch');
 }
 
+function /*string*/getNoteBlock(subject, delimiterLength, isFirst){
+    console.log(isFirst)
+    let res_note_block = `<div class="subjects_notes subjects_notes-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">
+                                             <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
+                                             <div class="subjects_content">`;
+    for (const note of subject.notes) {
+        let redactedNote = '';
+        let redStarted = 0;
+        for (let i = 0; i < note.length-delimiterLength; i++) {
+            if(note.substring(i,delimiterLength+i) === '|r|')
+            {
+                if(redStarted === 0) {
+                    redactedNote += `<span class="color_letter_red">`;
+                    redStarted = 1;
+                }
+                else{
+                    redactedNote += `</span>`;
+                    redStarted = 0;
+                }
+                i+=delimiterLength-1;
+            }
+            else
+                redactedNote+=note[i];
+        }
+        redactedNote+=note.substring(note.length-delimiterLength);
+        res_note_block += `<p class="subjects_note">*${redactedNote}</p>`;
+    }
+    res_note_block += `</div></div>`;
+    return res_note_block;
+}
+
+function /*string*/getContainer(containerSelector, container){
+    let result=`<div class="${containerSelector}">`
+    for (const element of container) {
+        result+=element;
+    }
+    result+=`</div>`
+    return result;
+}
+
 export class Fetch {
     static /*string*/#getApplicantExplanations(element){
         let result=`<section class="docs_section applicant_section" style="display: block">
@@ -96,51 +136,26 @@ export class Fetch {
         let result=`<section class="subjects_section applicant_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">Перелік конкурсних предметів</h4>
                                             <div class="subjects_dates">`
-        let flag = 0;
+        let isFirst = 0;
         let images = [];
+        let notes = [];
+        const delimiterLength = '|r|'.length;
         for (const subject of element) {
-            result+=`<p data-link="subjects_image-${subject.year}" class="subjects_date color_letter_red${(flag === 0) ? " active" : ""}">${subject.year}</p>`
-            images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(flag === 0) ? "inline-block" : "none"}">`);
-            ++flag;
+            result+=`<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date color_letter_red${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
+            images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">`);
+            notes.push(getNoteBlock(subject, delimiterLength, isFirst));
+            ++isFirst;
         }
         result+=`</div>`;
-        result+=`<div class="subjects_images">`;
-        for (const image of images) {
-            result+=image;
-        }
-        result+=`</div>`
-        result+=`<div class="subjects_notes">
-                                            <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
-                                            <div class="subjects_content">`
-        const delimiterLength = '|r|'.length;
-        for (const note in element.notes) {
-            let redactedNote = '';
-            let redStarted = 0;
-            for (let i = 0; i < note.length-delimiterLength; i++) {
-                if(note.substring(i,delimiterLength) === '|r|')
-                {
-                    if(redStarted === 0) {
-                        redactedNote += `<span class="color_letter_red">`;
-                        redStarted = 1;
-                    }
-                    else{
-                        redactedNote += `</span>`;
-                        redStarted = 0;
-                    }
-                    i+=delimiterLength-1;
-                }
-                else
-                    redactedNote+=note[i];
-            }
-            result += `<p class="subjects_note">*${redactedNote}</p>`
-        }
-        result+=`</div></div></section>`
+        result+=getContainer('subjects_images', images);
+        result+=getContainer('subjects_notes_container', notes);
+        result+=`</section>`
+
         return result;
     }
 
     static async getApplicantsAsync(language) {
         const item = localStorage.getItem('applicantResult');
-        console.log(item)
         if (item != null)
             return item;
         await localStorage.setItem('applicantResult', await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
