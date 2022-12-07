@@ -4,7 +4,6 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 }
 
 function /*string*/getNoteBlock(subject, delimiterLength, isFirst){
-    console.log(isFirst)
     let res_note_block = `<div class="subjects_notes subjects_notes-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">
                                              <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
                                              <div class="subjects_content">`;
