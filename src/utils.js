@@ -164,3 +164,33 @@ export async function courseCard(cards) {
     `)
     return cards
 }
+
+//Vacancies statics
+export  function vacanciesHTML(){
+    return `<div class="vacancies_jobs">
+                    <div class="vacancies_job"></div>
+                    <div class="vacancies_job">Java Developer</div>
+                    <div class="vacancies_job">Data Science</div>
+                    <div class="vacancies_job">Python Developer</div>
+                    <div class="vacancies_job">Big Data</div>
+                    <div class="vacancies_job">C++ Developer</div>
+                </div>
+                <table class="vacancies_table">
+                    <tr class="vacancies_row">
+                        <th class="vacancies_column">Україна</th>
+                        <th class="vacancies_column">531</th>
+                        <th class="vacancies_column">143</th>
+                        <th class="vacancies_column">339</th>
+                        <th class="vacancies_column">90</th>
+                        <th class="vacancies_column">193</th>
+                    </tr>
+                    <tr class="vacancies_row">
+                        <th class="vacancies_column">Львів</th>
+                        <th class="vacancies_column">133</th>
+                        <th class="vacancies_column">26</th>
+                        <th class="vacancies_column">69</th>
+                        <th class="vacancies_column">28</th>
+                        <th class="vacancies_column">32</th>
+                    </tr>
+                </table>`
+}
