@@ -197,14 +197,22 @@ export class Fetch {
 
     //Implementations
     static async getJobsPositions(){
-        const item = localStorage.getItem('jobsPositionsResult')
+        const html = localStorage.getItem('jobsPositionsResult')
+        let insertedDate = localStorage.getItem("jobsPositionsInsertedTime")
+        debugger
+        if (html != null && insertedDate != null){
+            insertedDate = new Date(insertedDate)
+            insertedDate.setDate(insertedDate.getDate() + 1)
 
-        if (item != null)
-            return item
+            //checks if item exists in localStorage more than 1 day
+            if(insertedDate > new Date())
+                return html
+        }
+
 
         const locations = ["Lviv", "Ukraine"]
 
-        await localStorage.setItem("jobsPositionsResult", await fetch("https://localhost:7159/jobNames?language=ua",
+        await localStorage.setItem("jobsPositionsResult", await fetch("http://54.93.52.237/aiwebsite/jobNames?language=ua",
             {
                 method: 'GET',
                 headers: {
@@ -214,12 +222,24 @@ export class Fetch {
             .then(response => response.json())
             .then(async data => {
 
-                const jobNames = data.names
+                let jobNames = data.names
                 const jobAmounts = await this.#getJobsAmounts(jobNames, locations)
 
                 return [jobAmounts, jobNames]
             }).then(([jobAmounts, jobNames]) =>{
 
+                //Convert camel case to normal words
+                jobNames.map((name, idx) => {
+                    for (let i = 0; i < name.length; i++) {
+                        if (name[i] === name[i].toUpperCase() && name[i].match(/[a-z]/i)){
+                            name = [name.slice(0, i), " ", name.slice(i)].join('')
+                            i += 1
+                        }
+                    }
+
+                    jobNames[idx] = name.charAt(0).toUpperCase() + name.slice(1)
+
+                })
 
                 let HTML = `<div class="vacancies_jobs">
                                     <div class="vacancies_job"></div>`
@@ -251,6 +271,8 @@ export class Fetch {
 
                 return HTML
             }))
+
+        localStorage.setItem("jobsPositionsInsertedTime", new Date().toJSON())
 
         return localStorage.getItem('jobsPositionsResult');
     }
