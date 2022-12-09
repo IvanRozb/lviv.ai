@@ -197,10 +197,68 @@ body{
     height: 500px;
     background-color: indigo;
 }
-.programs_section{
-    width: 500px;
-    height: 500px;
-    background-color: darkred;
+
+.programs_container{
+    margin-left: 8vw;
+}
+
+.programs_title{
+    margin-top: 11vh;
+    margin-bottom: 8.6vh;
+    max-width: 54vw;
+}
+.programs_item{
+    position: relative;
+
+    width: 17vw;
+    text-align: center;
+}
+.programs_image{
+    filter: brightness(0.45) contrast(1.2);
+}
+.programs_carousel_title{
+    /*max-width: 14vw;*/
+    font-weight: 300;
+    letter-spacing: 0.07em;
+    line-height: var(--h5-line-height);
+
+    position: absolute;
+    top: -50%;
+
+    transform: translateY(-50%);
+}
+.programs_country{
+    margin-top: 3vh;
+}
+.programs_content{
+    max-width: 66vw;
+    margin-left: 3vw;
+}
+
+.programs_subtitle{
+    margin-bottom: 2vh;
+    font-size: 2.3vw;
+}
+.programs_context{
+    margin-bottom: 6.5vh;
+}
+.programs_info_title{
+    margin-bottom: 5vh;
+
+    font-weight: 400;
+}
+.programs_info_item{
+    margin-left: 1.8vw;
+    margin-bottom: 4vh;
+    line-height: 3.4vh;
+}
+.programs_link{
+    text-decoration: white;
+    text-underline-mode: line;
+}
+.programs_underline{
+    text-decoration-line: underline;
+    text-decoration-color: #ffffff;
 }
 
 /* carousel */
