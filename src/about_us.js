@@ -1,5 +1,6 @@
 import {animateNavUnderlines, getCourseCardHTML} from './utils'
 import {isNull} from "url/util";
+import $ from 'jquery'
 
 function getActiveCarouselIndex(){
     let activeIndex = localStorage.getItem('about_us_carousel_index');
@@ -60,4 +61,17 @@ document.querySelector(".course_cards_section").insertAdjacentHTML(
 
 animateNavUnderlines();
 activateCarousel();
+
+$(document).ready(function(){
+    $('.programs_carousel').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        waitForAnimate: true,
+        centerMode: true
+    })
+});
+
+
 // debugger

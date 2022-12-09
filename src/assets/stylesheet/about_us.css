@@ -207,29 +207,85 @@ body{
     margin-bottom: 8.6vh;
     max-width: 54vw;
 }
+.programs_carousel{
+    margin-left: -3.4vw;
+}
 .programs_item{
     position: relative;
 
     width: 17vw;
-    text-align: center;
+    text-align: left;
+
 }
 .programs_image{
     filter: brightness(0.45) contrast(1.2);
 }
 .programs_carousel_title{
-    /*max-width: 14vw;*/
+    max-width: 14vw;
     font-weight: 300;
+    font-size: 1.6vw;
     letter-spacing: 0.07em;
     line-height: var(--h5-line-height);
 
     position: absolute;
-    top: -50%;
+    top: 50%;
+    left: 50%;
 
-    transform: translateY(-50%);
+    transform: translate(-50%, -100%);
 }
 .programs_country{
     margin-top: 3vh;
 }
+
+/* programs_slider */
+/* Слайдер */
+.slick-slider{}
+/* Слайдер запущен */
+.slick-slider.slick-initialized{}
+/* Слайдер с точками */
+.slick-slider.slick-dotted{}
+
+/* Ограничивающая оболочка */
+.slick-list {
+    overflow-x: hidden;
+}
+/* Лента слайдов */
+.slick-track{
+    display: flex;
+}
+
+/* Слайд */
+.slick-slide{}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active{}
+/* Слайд основной */
+.slick-slide.slick-current{}
+/* Слайд по центру */
+.slick-slide.slick-center{}
+/* Клонированный слайд */
+.slick-slide.slick-cloned{}
+
+/* Стрелка */
+.slick-arrow{}
+/* Стрелка влево */
+.slick-arrow.slick-prev{}
+/* Стрелка вправо */
+.slick-arrow.slick-next{}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled{}
+
+/* Точки (булиты) */
+.slick-dots{}
+.slick-dots li{}
+/* Активная точка */
+.slick-dots li.slick-active{}
+/* Элемент точки */
+.slick-dots li button{}
+
+.programs_carousel .slick-arrow{
+    display: none !important;
+}
+
 .programs_content{
     max-width: 66vw;
     margin-left: 3vw;
