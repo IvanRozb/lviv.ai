@@ -62,9 +62,7 @@ function activateProgramsCarousel(){
     $(document).ready(function(){
         $('.programs_carousel').slick({
             slidesToShow: 5,
-            slidesToScroll: 3,
             waitForAnimate: true,
-            centerMode: true,
         })
     });
 

@@ -234,20 +234,21 @@ body{
 }
 .programs_image{
     width: 17vw;
+    /*height: 38vh;*/
     filter: brightness(0.45) contrast(1.2);
 }
 .programs_carousel_title{
-    max-width: 14vw;
+    width: 14vw;
     font-weight: 300;
     font-size: 1.6vw;
     letter-spacing: 0.07em;
     line-height: var(--h5-line-height);
 
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
 
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -60%);
 }
 .programs_country{
     margin-top: 3vh;
@@ -269,7 +270,20 @@ body{
 
     font-size: 0;
 }
+.programs_explanation{
+    position: relative;
+}
+.programs_explanation:before{
+    content: '';
+    display: block;
+    width: 42vw;
+    height: 3px;
+    background-color: #ffffff;
 
+    position: absolute;
+    top: -62px;
+    left: -8vw;
+}
 .programs_content{
     max-width: 66vw;
     margin-left: 3vw;
