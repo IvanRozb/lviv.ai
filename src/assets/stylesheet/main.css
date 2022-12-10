@@ -359,7 +359,7 @@ div[id*='blob']{
 }
 
 .ais_li{
-    --speed: 10s;
+    --speed: 40s;
     --timing-function: cubic-bezier(.1,.48,.9,.48);
 
     margin: 1.3vw 0;
