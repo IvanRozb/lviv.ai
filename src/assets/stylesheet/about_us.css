@@ -208,14 +208,14 @@ body{
     max-width: 54vw;
 }
 .programs_carousel{
-    margin-left: -3.4vw;
+    width: 1980px;
+    justify-content: start;
 }
 .programs_item{
     position: relative;
 
     width: 17vw;
-    text-align: left;
-
+    text-align: center;
 }
 .programs_image{
     filter: brightness(0.45) contrast(1.2);
@@ -239,7 +239,10 @@ body{
 
 /* programs_slider */
 /* Слайдер */
-.slick-slider{}
+.slick-slider{
+    position: relative;
+    margin: 0 0 0 -10px;
+}
 /* Слайдер запущен */
 .slick-slider.slick-initialized{}
 /* Слайдер с точками */
@@ -247,11 +250,14 @@ body{
 
 /* Ограничивающая оболочка */
 .slick-list {
+    margin: 0 -30px;
     overflow-x: hidden;
+    padding: 0 !important;
 }
 /* Лента слайдов */
 .slick-track{
     display: flex;
+    justify-content: start;
 }
 
 /* Слайд */
@@ -284,6 +290,19 @@ body{
 
 .programs_carousel .slick-arrow{
     display: none !important;
+}
+.programs_carousel .slick-next{
+    display: block !important;
+
+    height: 100%;
+    width: 17vw;
+
+    position: absolute !important;
+    top: 100%;
+    right: 10px;
+    transform: translateY(-100%);
+
+    font-size: 0;
 }
 
 .programs_content{

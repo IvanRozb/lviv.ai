@@ -25,7 +25,11 @@ function moveUnderline(targetNavElement, underlineWidth){
 function activateCarousel() {
     let activeIndex = getActiveCarouselIndex();
 
-    const userWidth = $(document).innerWidth()/document.querySelectorAll('.carousel_item').length;
+    let programs_carousel = $(`.programs_carousel`);
+    programs_carousel.css('display', `none`)
+    const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
+    programs_carousel.css('display', `block`)
+
     localStorage.setItem('about_us_carousel_index', activeIndex);
 
     const carouselNavbar = document.querySelector(`.navigation_buttons`);
@@ -65,11 +69,12 @@ activateCarousel();
 $(document).ready(function(){
     $('.programs_carousel').slick({
         slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        slidesToScroll: 3,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
         waitForAnimate: true,
-        centerMode: true
+        centerMode: true,
+        // infinite:false,
     })
 });
 
