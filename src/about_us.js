@@ -58,6 +58,28 @@ function activateCarousel() {
     })
 }
 
+function activateProgramsCarousel(){
+    $(document).ready(function(){
+        $('.programs_carousel').slick({
+            slidesToShow: 5,
+            slidesToScroll: 3,
+            waitForAnimate: true,
+            centerMode: true,
+        })
+    });
+
+    const slider = $(".programs_carousel");
+    slider.on('wheel', (function(e) {
+        e.preventDefault();
+
+        if (e.originalEvent.deltaY < 0) {
+            $(this).slick('slickNext');
+        } else {
+            $(this).slick('slickPrev');
+        }
+    }));
+}
+
 const template = getCourseCardHTML()
 document.querySelector(".course_cards_section").insertAdjacentHTML(
     'beforeend', localStorage.getItem('term1')
@@ -65,18 +87,6 @@ document.querySelector(".course_cards_section").insertAdjacentHTML(
 
 animateNavUnderlines();
 activateCarousel();
-
-$(document).ready(function(){
-    $('.programs_carousel').slick({
-        slidesToShow: 5,
-        slidesToScroll: 3,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
-        waitForAnimate: true,
-        centerMode: true,
-        // infinite:false,
-    })
-});
-
+activateProgramsCarousel();
 
 // debugger
