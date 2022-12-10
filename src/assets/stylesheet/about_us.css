@@ -208,7 +208,7 @@ body{
     max-width: 54vw;
 }
 .programs_carousel{
-    width: 1980px;
+    width: 103vw;
     justify-content: start;
 }
 .programs_item{
@@ -218,6 +218,7 @@ body{
     text-align: center;
 }
 .programs_image{
+    width: 17vw;
     filter: brightness(0.45) contrast(1.2);
 }
 .programs_carousel_title{
@@ -241,7 +242,7 @@ body{
 /* Слайдер */
 .slick-slider{
     position: relative;
-    margin: 0 0 0 -10px;
+    margin: 0 0 0 0.5vw;
 }
 /* Слайдер запущен */
 .slick-slider.slick-initialized{}
@@ -250,7 +251,7 @@ body{
 
 /* Ограничивающая оболочка */
 .slick-list {
-    margin: 0 -30px;
+    margin: 0 -2.6vw;
     overflow-x: hidden;
     padding: 0 !important;
 }
@@ -299,7 +300,7 @@ body{
 
     position: absolute !important;
     top: 100%;
-    right: 10px;
+    right: 0.5vw;
     transform: translateY(-100%);
 
     font-size: 0;
