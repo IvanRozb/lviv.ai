@@ -2,6 +2,12 @@ body{
     max-width: 100vw;
     overflow-x: hidden;
 }
+
+.underline{
+    text-decoration-line: underline;
+    text-decoration-color: #ffffff;
+}
+
 .slick-slider{
     position: relative;
     margin-right: 0.5vw;
@@ -270,6 +276,18 @@ body{
 
     font-size: 0;
 }
+.programs_underline{
+    margin-top: 2.3vh;
+
+    width: 14vw;
+    height: 8px;
+
+    background-color: var(--peachy);
+
+    border-radius: 4px;
+
+    transition: margin-left 0.1s linear;
+}
 .programs_explanation{
     position: relative;
 }
@@ -309,10 +327,6 @@ body{
 .programs_link{
     text-decoration: white;
     text-underline-mode: line;
-}
-.programs_underline{
-    text-decoration-line: underline;
-    text-decoration-color: #ffffff;
 }
 
 /* carousel */

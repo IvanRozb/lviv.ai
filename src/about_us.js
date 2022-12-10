@@ -2,8 +2,8 @@ import {animateNavUnderlines, getCourseCardHTML} from './utils'
 import {isNull} from "url/util";
 import $ from 'jquery'
 
-function getActiveCarouselIndex(){
-    let activeIndex = localStorage.getItem('about_us_carousel_index');
+function getActiveIndex(/*string*/indexName){
+    let activeIndex = localStorage.getItem(indexName);
     activeIndex = typeof activeIndex === "object"? 1 : activeIndex;
     return Number(activeIndex);
 }
@@ -23,12 +23,7 @@ function moveUnderline(targetNavElement, underlineWidth){
 }
 
 function activateCarousel() {
-    let activeIndex = getActiveCarouselIndex();
-
-    let programs_carousel = $(`.programs_carousel`);
-    programs_carousel.css('display', `none`)
-    const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
-    programs_carousel.css('display', `block`)
+    let activeIndex = getActiveIndex('about_us_carousel_index');
 
     localStorage.setItem('about_us_carousel_index', activeIndex);
 
@@ -42,7 +37,7 @@ function activateCarousel() {
     $(`.carousel`).css('margin-left', -(Math.floor(activeIndex/2))*userWidth);
 
     carouselNavbar.addEventListener("click", e => {
-        let activeIndex = getActiveCarouselIndex();
+        let activeIndex = getActiveIndex('about_us_carousel_index');
 
         let targetNavElement = getTargetCarouselItem(e);
         if(isNull(targetNavElement))
@@ -62,26 +57,42 @@ function activateProgramsCarousel(){
     $(document).ready(function(){
         $('.programs_carousel').slick({
             slidesToShow: 5,
-            waitForAnimate: true,
+            speed: 400,
+            waitForAnimate: true
         })
     });
 
     const slider = $(".programs_carousel");
+    const underlineWidth = $(`.programs_underline`).width();
+    const sliderAmountItems = document.querySelectorAll(`.programs_item`).length;
+    $('.programs_underline').css('margin-left', underlineWidth*getActiveIndex('about_us_programs_index'));
+
     slider.on('wheel', (function(e) {
         e.preventDefault();
 
+        let activeIndex = getActiveIndex('about_us_programs_index');
         if (e.originalEvent.deltaY < 0) {
             $(this).slick('slickNext');
+            activeIndex = (activeIndex+1) % sliderAmountItems;
         } else {
             $(this).slick('slickPrev');
+            activeIndex = (activeIndex-1) < 0 ? sliderAmountItems - 1 : activeIndex - 1;
         }
+        localStorage.setItem('about_us_programs_index', activeIndex);
+        $('.programs_underline').css('margin-left', underlineWidth*activeIndex);
     }));
+
 }
 
 const template = getCourseCardHTML()
 document.querySelector(".course_cards_section").insertAdjacentHTML(
     'beforeend', localStorage.getItem('term1')
 )
+
+let programs_carousel = $(`.programs_carousel`);
+programs_carousel.css('display', `none`)
+const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
+programs_carousel.css('display', `block`)
 
 animateNavUnderlines();
 activateCarousel();
