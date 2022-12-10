@@ -351,18 +351,77 @@ div[id*='blob']{
     border-bottom: var(--transparent-white) 2px solid;
 
     list-style: none;
-}
-.ais-info_label{
-    display: flex;
-    justify-content: space-around;
-    margin: 1.3vw 0;
 
+    width: 200vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.ais_li{
+    --speed: 10s;
+    --timing-function: cubic-bezier(.1,.48,.9,.48);
+
+    margin: 1.3vw 0;
     font-size: var(--h4-size);
     letter-spacing: var(--h4-small-spacing);
 }
-.ais_li_span{
-    position: relative;
-    width: 100vw;
+
+.to_right.ais_li{
+    text-align: right;
+}
+
+/*animate from left to right*/
+.to_right.ais_li:nth-child(even){
+    animation: scrolling-from-left-to-right-2 var(--speed) var(--timing-function) infinite;
+    animation-delay: calc(var(--speed) / 2);
+}
+.to_right.ais_li:nth-child(odd){
+    animation: scrolling-from-left-to-right-1 var(--speed) var(--timing-function) infinite;
+}
+
+/*animate from right to left*/
+.to_left.ais_li:nth-child(even){
+    animation: scrolling-from-right-to-left-2 var(--speed) var(--timing-function) infinite;
+    animation-delay: calc(var(--speed) /2);
+}
+.to_left.ais_li:nth-child(odd){
+    animation: scrolling-from-right-to-left-1 var(--speed) var(--timing-function) infinite;
+}
+
+/* auto scrolling text from side to side animation */
+@keyframes scrolling-from-right-to-left-1 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes scrolling-from-right-to-left-2 {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes scrolling-from-left-to-right-1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+@keyframes scrolling-from-left-to-right-2 {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 /*Curriculum*/
