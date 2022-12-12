@@ -16,33 +16,28 @@ body{
     left: 0;
 }
 
-.slick-slider{
-    position: relative;
-    margin-right: 0.5vw;
-}
-
 .slick-list {
-    margin: 0 -2.6vw;
-    overflow-x: hidden;
-    padding: 0 !important;
+    margin: 0 -4.7vw;
 }
 
 .slick-track{
+    position: relative;
     display: flex;
     justify-content: start;
+    margin-top: 15.7vh;
 }
 
-.slick-dots{
-    display: flex;
-    width: 84vw;
-    height: 0;
-    opacity: 0;
+.slick-slide{
+    opacity: 0.8;
 
-    margin-left: -0.5vw;
+    transition: all 400ms linear;
 }
-.slick-dots > li > button{
-    font-size: 0;
+
+.slick-center{
+    opacity: 1;
+    transform: scale(1.3);
 }
+
 .navigation_section{
     margin-top: 10vh;
 }
@@ -248,8 +243,8 @@ body{
     max-width: 54vw;
 }
 .programs_carousel{
-    width: 103vw;
-    justify-content: start;
+    margin-left: -8vw;
+    position: relative;
 }
 .programs_item{
     position: relative;
@@ -259,7 +254,6 @@ body{
 }
 .programs_image{
     width: 17vw;
-    /*height: 38vh;*/
     filter: brightness(0.45) contrast(1.2);
 }
 .programs_carousel_title{
@@ -280,9 +274,6 @@ body{
 }
 
 .programs_carousel .slick-arrow{
-    display: none !important;
-}
-.programs_carousel .slick-next{
     display: block !important;
 
     height: 100%;
@@ -290,10 +281,16 @@ body{
 
     position: absolute !important;
     top: 100%;
-    right: 0.5vw;
     transform: translateY(-100%);
 
     font-size: 0;
+    z-index: 100;
+}
+.programs_carousel .slick-prev{
+    left: 0;
+}
+.programs_carousel .slick-next{
+    right: 0;
 }
 .programs_underline{
     margin-top: 2.3vh;
@@ -309,6 +306,7 @@ body{
 }
 .programs_explanation{
     position: relative;
+    margin-top: 18.5vh;
 }
 .programs_explanation:before{
     content: '';

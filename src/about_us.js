@@ -53,57 +53,16 @@ function activateCarousel() {
     })
 }
 
-function setProgramsCarouselDots(){
-    let dots = $(`.slick-dots > li`);
-    const dotsAmount = dots.length;
-    dots.css('width', (100/dotsAmount).toString()+'%');
-}
-
-function moveProgramsUnderline(underline, containerMarginLeft){
-    underline.css('margin-left',
-        document.querySelectorAll('li.slick-active')[0].getBoundingClientRect().x
-        - containerMarginLeft);
-}
-
 function activateProgramsCarousel(){
     $(document).ready(function(){
-        const items = $('.programs_item');
-        const dotsAmount = items.length;
         const slider = $(".programs_carousel");
-        const slidesToShow = 5;
 
         slider.slick({
-            slidesToShow: slidesToShow,
-            speed: 400,
-            waitForAnimate: true,
-            dots: true,
-            infinite: true,
-            centerMode: dotsAmount <= slidesToShow - 1
-        })
-        setProgramsCarouselDots();
-
-        if(dotsAmount <= slidesToShow - 1) {
-            $(`.programs_underline`).css('width', 0);
-            $(`.slick-track`).css('margin-left', (($('.programs_image').width() - items.width())*2).toString()+'px')
-            return;
-        }
-
-        let underline =  $('.programs_underline');
-        const containerMarginLeft = 0.08 * userWidth;
-        slider.on('wheel', (function(e) {
-            e.preventDefault();
-
-            if (e.originalEvent.deltaY < 0) {
-                $(this).slick('slickNext');
-            } else {
-                $(this).slick('slickPrev');
-            }
-            moveProgramsUnderline(underline,containerMarginLeft);
-        }));
-
-        $('.slick-next').on('click', () => {
-            moveProgramsUnderline(underline,containerMarginLeft);
-        })
+            centerMode: true,
+            speed: 500,
+            centerMargin: '0px',
+            slidesToShow: 5
+        });
     });
 }
 
