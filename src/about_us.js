@@ -59,6 +59,12 @@ function setProgramsCarouselDots(){
     dots.css('width', (100/dotsAmount).toString()+'%');
 }
 
+function moveProgramsUnderline(underline, containerMarginLeft){
+    underline.css('margin-left',
+        document.querySelectorAll('li.slick-active')[0].getBoundingClientRect().x
+        - containerMarginLeft);
+}
+
 function activateProgramsCarousel(){
     $(document).ready(function(){
         const items = $('.programs_item');
@@ -90,10 +96,12 @@ function activateProgramsCarousel(){
             } else {
                 $(this).slick('slickPrev');
             }
-            underline.css('margin-left',
-                document.querySelectorAll('li.slick-active')[0].getBoundingClientRect().x
-                - containerMarginLeft);
+            moveProgramsUnderline(underline,containerMarginLeft);
         }));
+
+        $('.slick-next').on('click', () => {
+            moveProgramsUnderline(underline,containerMarginLeft);
+        })
     });
 }
 
