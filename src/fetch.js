@@ -239,7 +239,7 @@ export class Fetch {
         }
 
 
-        const locations = ["Lviv", "Ukraine"]
+        const locations = ["Ukraine", "Lviv"]
 
         await localStorage.setItem("jobsPositionsResult", await fetch("http://54.93.52.237/aiwebsite/jobNames?language=ua",
             {
