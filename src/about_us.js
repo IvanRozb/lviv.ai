@@ -53,32 +53,48 @@ function activateCarousel() {
     })
 }
 
+function setProgramsCarouselDots(){
+    let dots = $(`.slick-dots > li`);
+    const dotsAmount = dots.length;
+    dots.css('width', (100/dotsAmount).toString()+'%');
+}
+
 function activateProgramsCarousel(){
     $(document).ready(function(){
-        $('.programs_carousel').slick({
+        const items = $('.programs_item');
+        const dotsAmount = items.length;
+        const slider = $(".programs_carousel");
+        slider.slick({
             slidesToShow: 5,
             speed: 400,
             waitForAnimate: true,
-            dots: true
+            dots: true,
+            infinite: true,
+            centerMode: dotsAmount <= 4
         })
-    });
+        setProgramsCarouselDots();
 
-    const slider = $(".programs_carousel");
-    const containerMarginLeft = 0.08 * userWidth;
-
-    slider.on('wheel', (function(e) {
-        e.preventDefault();
-
-        if (e.originalEvent.deltaY < 0) {
-            $(this).slick('slickNext');
-        } else {
-            $(this).slick('slickPrev');
+        if(dotsAmount <= 4) {
+            $(`.programs_underline`).css('width', 0);
+            $(`.slick-track`).css('margin-left', (($('.programs_image').width() - items.width())*2).toString()+'px')
+            return;
         }
-        $('.programs_underline').css('margin-left',
-            document.querySelectorAll('li.slick-active')[0].getBoundingClientRect().x
-                - containerMarginLeft);
-    }));
 
+        let underline =  $('.programs_underline');
+        const containerMarginLeft = 0.08 * userWidth;
+        slider.on('wheel', (function(e) {
+            e.preventDefault();
+
+            if (e.originalEvent.deltaY < 0) {
+                $(this).slick('slickNext');
+            } else {
+                $(this).slick('slickPrev');
+            }
+            underline.css('margin-left',
+                document.querySelectorAll('li.slick-active')[0].getBoundingClientRect().x
+                - containerMarginLeft);
+        }));
+    });
 }
 
 const template = getCourseCardHTML()

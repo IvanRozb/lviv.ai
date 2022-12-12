@@ -40,9 +40,6 @@ body{
 
     margin-left: -0.5vw;
 }
-.slick-dots > li{
-    width: 16.7%;
-}
 .slick-dots > li > button{
     font-size: 0;
 }
