@@ -18,13 +18,14 @@ body{
 
 .slick-list {
     margin: 0 -4.7vw;
+    overflow: hidden;
 }
 
 .slick-track{
     position: relative;
     display: flex;
     justify-content: start;
-    margin-top: 15.7vh;
+    margin: 8vh 0 7vh 0;
 }
 
 .slick-slide{
@@ -285,6 +286,8 @@ body{
 
     font-size: 0;
     z-index: 100;
+
+    cursor: pointer;
 }
 .programs_carousel .slick-prev{
     left: 0;

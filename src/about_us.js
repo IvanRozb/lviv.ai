@@ -29,8 +29,7 @@ function activateCarousel() {
     const carouselNavbar = document.querySelector(`.navigation_buttons`);
     const rect = carouselNavbar.childNodes[activeIndex].getBoundingClientRect();
     const underlineWidth = document.getElementsByClassName(`navigation_underline`)[0].getBoundingClientRect().width;
-    const carousel = $('.carousel')[0];
-    let programs_carousel = $('.programs_carousel');
+    const carousel = $('.carousel');
 
     $(`.navigation_underline`).css('left',Number((rect.left + rect.right)/2)
         - underlineWidth/2);
@@ -46,11 +45,11 @@ function activateCarousel() {
         moveUnderline(targetNavElement, underlineWidth);
 
         const index = Array.from(carouselNavbar.childNodes).indexOf(targetNavElement);
-        $('.carousel').css('margin-left', (Number(document.defaultView.getComputedStyle(carousel).marginLeft.split('p')[0])
+        carousel.css('margin-left', (Number(document.defaultView.getComputedStyle(carousel[0]).marginLeft.split('p')[0])
             + userWidth * Math.abs((activeIndex - index)/2) * Math.sign(activeIndex-index)).toString()+'px');
 
         localStorage.setItem('about_us_carousel_index', index.toString());
-        programs_carousel.css('opacity', Math.ceil(index/2) !== (carousel.childNodes.length-1)/2 ? '0' : '1');
+        $('.slick-list').css('margin', Math.ceil(index/2) !== (carousel[0].childNodes.length-1)/2 ? '0' : '0 -4.7vw');
     })
 }
 
