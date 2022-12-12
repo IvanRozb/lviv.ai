@@ -201,6 +201,7 @@ div[class*=' sidebar_line']{
 /*sidebar circles colors*/
 .sidebar_circle{
     position: relative;
+    z-index: 9999;
 
     background: radial-gradient(50% 50% at 50% 50% , #000000 19.92%,
                                 rgba(19, 2, 2, 0) 68%, #AD6467 100%);
@@ -219,7 +220,6 @@ div[class*=' sidebar_line']{
 
     background: radial-gradient(50% 50% at 50% 50%, #000000 19.92%,
                                 rgba(19, 2, 2, 0) 68.45%, #FFC9CA 100%);
-    mix-blend-mode: exclusion;
 }
 
 .sidebar_link_visited{
@@ -257,7 +257,9 @@ div[class*=' sidebar_line']{
     left: 5.8vh;
 }
 /*sidebar tooltips*/
-
+.tooltip{
+    mix-blend-mode: normal;
+}
 .tooltip:after {
     display: block;
     opacity: 0;
