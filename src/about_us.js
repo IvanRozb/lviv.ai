@@ -70,17 +70,19 @@ function activateProgramsCarousel(){
         const items = $('.programs_item');
         const dotsAmount = items.length;
         const slider = $(".programs_carousel");
+        const slidesToShow = 5;
+
         slider.slick({
-            slidesToShow: 5,
+            slidesToShow: slidesToShow,
             speed: 400,
             waitForAnimate: true,
             dots: true,
             infinite: true,
-            centerMode: dotsAmount <= 4
+            centerMode: dotsAmount <= slidesToShow - 1
         })
         setProgramsCarouselDots();
 
-        if(dotsAmount <= 4) {
+        if(dotsAmount <= slidesToShow - 1) {
             $(`.programs_underline`).css('width', 0);
             $(`.slick-track`).css('margin-left', (($('.programs_image').width() - items.width())*2).toString()+'px')
             return;
