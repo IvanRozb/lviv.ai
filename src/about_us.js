@@ -24,13 +24,13 @@ function moveUnderline(targetNavElement, underlineWidth){
 
 function activateCarousel() {
     let activeIndex = getActiveIndex('about_us_carousel_index');
-
     localStorage.setItem('about_us_carousel_index', activeIndex);
 
     const carouselNavbar = document.querySelector(`.navigation_buttons`);
     const rect = carouselNavbar.childNodes[activeIndex].getBoundingClientRect();
     const underlineWidth = document.getElementsByClassName(`navigation_underline`)[0].getBoundingClientRect().width;
     const carousel = $('.carousel')[0];
+    let programs_carousel = $('.programs_carousel');
 
     $(`.navigation_underline`).css('left',Number((rect.left + rect.right)/2)
         - underlineWidth/2);
@@ -50,6 +50,7 @@ function activateCarousel() {
             + userWidth * Math.abs((activeIndex - index)/2) * Math.sign(activeIndex-index)).toString()+'px');
 
         localStorage.setItem('about_us_carousel_index', index.toString());
+        programs_carousel.css('opacity', Math.ceil(index/2) !== (carousel.childNodes.length-1)/2 ? '0' : '1');
     })
 }
 
@@ -60,7 +61,6 @@ function activateProgramsCarousel(){
         slider.slick({
             centerMode: true,
             speed: 500,
-            centerMargin: '0px',
             slidesToShow: 5
         });
     });
