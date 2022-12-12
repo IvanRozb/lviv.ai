@@ -32,6 +32,20 @@ body{
     justify-content: start;
 }
 
+.slick-dots{
+    display: flex;
+    width: 84vw;
+    height: 0;
+    opacity: 0;
+
+    margin-left: -0.5vw;
+}
+.slick-dots > li{
+    width: 16.7%;
+}
+.slick-dots > li > button{
+    font-size: 0;
+}
 .navigation_section{
     margin-top: 10vh;
 }
@@ -294,7 +308,7 @@ body{
 
     border-radius: 4px;
 
-    transition: margin-left 0.1s linear;
+    transition: margin-left 0.2s linear;
 }
 .programs_explanation{
     position: relative;

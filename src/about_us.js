@@ -58,28 +58,25 @@ function activateProgramsCarousel(){
         $('.programs_carousel').slick({
             slidesToShow: 5,
             speed: 400,
-            waitForAnimate: true
+            waitForAnimate: true,
+            dots: true
         })
     });
 
     const slider = $(".programs_carousel");
-    const underlineWidth = $(`.programs_underline`).width();
-    const sliderAmountItems = document.querySelectorAll(`.programs_item`).length;
-    $('.programs_underline').css('margin-left', underlineWidth*getActiveIndex('about_us_programs_index'));
+    const containerMarginLeft = 0.08 * userWidth;
 
     slider.on('wheel', (function(e) {
         e.preventDefault();
 
-        let activeIndex = getActiveIndex('about_us_programs_index');
         if (e.originalEvent.deltaY < 0) {
             $(this).slick('slickNext');
-            activeIndex = (activeIndex+1) % sliderAmountItems;
         } else {
             $(this).slick('slickPrev');
-            activeIndex = (activeIndex-1) < 0 ? sliderAmountItems - 1 : activeIndex - 1;
         }
-        localStorage.setItem('about_us_programs_index', activeIndex);
-        $('.programs_underline').css('margin-left', underlineWidth*activeIndex);
+        $('.programs_underline').css('margin-left',
+            document.querySelectorAll('li.slick-active')[0].getBoundingClientRect().x
+                - containerMarginLeft);
     }));
 
 }
