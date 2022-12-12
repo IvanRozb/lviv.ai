@@ -1,6 +1,45 @@
+body{
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+.underline{
+    position: relative;
+}
+.underline:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.slick-list {
+    margin: 0 -4.7vw;
+}
+
+.slick-track{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    margin-top: 15.7vh;
+}
+
+.slick-slide{
+    opacity: 0.8;
+
+    transition: all 400ms linear;
+}
+
+.slick-center{
+    opacity: 1;
+    transform: scale(1.3);
+}
+
 .navigation_section{
     margin-top: 10vh;
-
 }
 
 .navigation_image{
@@ -12,13 +51,16 @@
 }
 
 .navigation_buttons_container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+
     height: 20vh;
     background: var(--peachy);
-
 }
 
 .navigation_buttons{
-    margin: 0 auto;
+    margin: 0 auto 2.8vh;
 
     display: flex;
     justify-content: space-around;
@@ -29,6 +71,12 @@
     width: 70vw;
 }
 
+.navigation_item{
+    display: flex;
+    justify-content: center;
+    width: 18vw;
+}
+
 .navigation_button{
     display: flex;
     flex-direction: column;
@@ -37,35 +85,28 @@
     cursor: pointer;
 }
 
-.navigation_button:after {
-    content: "";
+.navigation_underline {
     display: block;
-    width: 90%;
+    position: absolute;
+
+    top: 87%;
+
+    width: 14vw;
     height: 0.15em;
+
     border-radius: 3px;
-
-    margin: 10px auto 0;
-
-    -webkit-transition: background-color 0.25s linear;
-
-    -o-transition: background-color 0.25s linear;
-
-    transition: background-color 0.25s linear;
-}
-.navigation_button:hover:after {
     background-color: var(--white);
+
+    transition: 0.28s left linear;
 }
 
 /*Course Cards css*/
-.course_cards_section{
-    padding: 0 2vw 0 2vw;
-}
 .course_cards_menu{
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 1.5vh;
-
+    margin-left: 2vw;
     height: 20vh;
 }
 .course_cards_container{
@@ -91,7 +132,6 @@
 .course_card_table{
 
     font-size: var(--small-size);
-    font-weight: var(--small-weight);
     line-height: var(--small-height);
     letter-spacing: var(--small-letter-spacing);
 
@@ -157,7 +197,7 @@
     padding: 1vw .7vh 1.2vw .7vh;
     border-color: var(--white);
     border-style: solid;
-    border-width: 1px 1px 0px 1px;
+    border-width: 1px 1px 0 1px;
 }
 .single_row{
     position: relative;
@@ -185,4 +225,137 @@
     background: rgba(217, 125, 125, 0.2);
     width: 100%;
     height: 100%;
+}
+
+.teachers_section{
+    width: 500px;
+    height: 500px;
+    background-color: indigo;
+}
+
+.programs_container{
+    margin-left: 8vw;
+}
+
+.programs_title{
+    margin-top: 11vh;
+    margin-bottom: 8.6vh;
+    max-width: 54vw;
+}
+.programs_carousel{
+    margin-left: -8vw;
+    position: relative;
+}
+.programs_item{
+    position: relative;
+
+    width: 17vw;
+    text-align: center;
+}
+.programs_image{
+    width: 17vw;
+    filter: brightness(0.45) contrast(1.2);
+}
+.programs_carousel_title{
+    width: 14vw;
+    font-weight: 300;
+    font-size: 1.6vw;
+    letter-spacing: 0.07em;
+    line-height: var(--h5-line-height);
+
+    position: absolute;
+    top: 45%;
+    left: 50%;
+
+    transform: translate(-50%, -60%);
+}
+.programs_country{
+    margin-top: 3vh;
+}
+
+.programs_carousel .slick-arrow{
+    display: block !important;
+
+    height: 100%;
+    width: 17vw;
+
+    position: absolute !important;
+    top: 100%;
+    transform: translateY(-100%);
+
+    font-size: 0;
+    z-index: 100;
+}
+.programs_carousel .slick-prev{
+    left: 0;
+}
+.programs_carousel .slick-next{
+    right: 0;
+}
+.programs_underline{
+    margin-top: 2.3vh;
+
+    width: 14vw;
+    height: 8px;
+
+    background-color: var(--peachy);
+
+    border-radius: 4px;
+
+    transition: margin-left 0.2s linear;
+}
+.programs_explanation{
+    position: relative;
+    margin-top: 18.5vh;
+}
+.programs_explanation:before{
+    content: '';
+    display: block;
+    width: 42vw;
+    height: 3px;
+    background-color: #ffffff;
+
+    position: absolute;
+    top: -62px;
+    left: -8vw;
+}
+.programs_content{
+    max-width: 66vw;
+    margin-left: 3vw;
+}
+
+.programs_subtitle{
+    margin-bottom: 2vh;
+    font-size: 2.3vw;
+}
+.programs_context{
+    margin-bottom: 6.5vh;
+}
+.programs_info_title{
+    margin-bottom: 5vh;
+
+    font-weight: 400;
+}
+.programs_info_item{
+    margin-left: 1.8vw;
+    margin-bottom: 4vh;
+    line-height: 3.4vh;
+}
+.programs_link{
+    text-decoration: white;
+    text-underline-mode: line;
+}
+
+/* carousel */
+.carousel{
+    display: flex;
+    flex-direction: row;
+    width: 300vw;
+
+    transition: 0.28s margin-left;
+}
+
+.carousel_item{
+    width: 100vw;
+    margin-bottom: 37vh;
 }
