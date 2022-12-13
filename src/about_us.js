@@ -2,6 +2,12 @@ import {animateNavUnderlines, getCourseCardHTML} from './utils'
 import {isNull} from "url/util";
 import $ from 'jquery'
 
+//Course Card
+const template = getCourseCardHTML()
+document.querySelector(".course_cards_section").insertAdjacentHTML(
+    'beforeend', localStorage.getItem('term1')
+)
+//Carousel
 function getActiveIndex(/*string*/indexName){
     let activeIndex = localStorage.getItem(indexName);
     activeIndex = typeof activeIndex === "object"? 1 : activeIndex;
@@ -107,10 +113,6 @@ function activateProgramsCarousel(){
     });
 }
 
-const template = getCourseCardHTML()
-document.querySelector(".course_cards_section").insertAdjacentHTML(
-    'beforeend', localStorage.getItem('term1')
-)
 
 let programs_carousel = $(`.programs_carousel`);
 programs_carousel.css('display', `none`)
