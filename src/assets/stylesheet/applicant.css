@@ -184,7 +184,7 @@
     margin-bottom: 2vh;
 }
 .subjects_dates > .active{
-    color: var(--white);
+    color: var(--peachy);
 }
 .subjects_date{
     cursor: pointer;
@@ -225,7 +225,7 @@
     text-align: center;
     font-size: var(--h5-size);
     margin-right: 6vw;
-    color: var(--peachy);
+    color: var(--white);
 }
 .pay_table{
     background: linear-gradient(90deg, rgba(232, 0, 0, 0.6) 2.55%, rgba(217, 125, 125, 0.446849) 23.02%, rgba(182, 182, 182, 0) 82.76%);
