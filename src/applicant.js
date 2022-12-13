@@ -13,6 +13,10 @@ function containsLink(classList, dataLink){
 function navigationListBehavior(/*string*/containerSelector, /*[string]*/blocksSelectors, /*string*/linksSelector){
     const sidebar = document.querySelector(containerSelector);
     sidebar.addEventListener("click", e => {
+        if(!e.target.dataset.link){
+            // console.log("Not a link. Maybe you clicked on underline ?")
+            return;
+        }
         let sections = Array();
         for (const selector of blocksSelectors) {
             sections.push(document.querySelectorAll(selector));
