@@ -1,4 +1,4 @@
-import {animateNavUnderlines, getCourseCardHTML} from './utils'
+import {animateNavUnderlines, getCourseCardHTML, setGroupSelectorPosition} from './utils'
 import {isNull} from "url/util";
 import $ from 'jquery'
 
@@ -72,11 +72,13 @@ function activateProgramsCarousel(){
 }
 
 
+
 let programs_carousel = $(`.programs_carousel`);
 programs_carousel.css('display', `none`)
 const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 programs_carousel.css('display', `block`)
 
+setGroupSelectorPosition(userWidth);
 animateNavUnderlines();
 activateCarousel();
 activateProgramsCarousel();

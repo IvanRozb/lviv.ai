@@ -150,7 +150,7 @@ body{
     text-align: left;
 }
 
-.course_card_table  .table_row > *{  /*be carefull this thing overrides all inside styles */
+.course_card_table .table_row > *{  /*be carefull this thing overrides all inside styles */
     height: 100%;
     display : flex;
     align-items : center;
@@ -187,15 +187,17 @@ body{
 .row_group{
     position: relative;
 }
-.row_group::before{
+.group_selector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    right: -6vw;
-    top: 3.2vh;
 
     content: attr(data-area);
     transform: rotate(90deg);
+    transform-origin: top left;
 
-    padding: 1vw .7vh 1.2vw .7vh;
+    /*padding: 1vw .7vh 1.2vw .7vh;*/
     border-color: var(--white);
     border-style: solid;
     border-width: 1px 1px 0 1px;

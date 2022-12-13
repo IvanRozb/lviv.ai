@@ -1,5 +1,7 @@
 
 //Animated BG utils
+import $ from "jquery";
+
 let blobsShapes = [
     "M410.5,280Q374,310,370.5,353Q367,396,326,399.5Q285,403,248.5,410Q212,417,189.5,385.5Q167,354,181.5,315Q196,276,139,263Q82,250,94,215.5Q106,181,131.5,157Q157,133,194,150.5Q231,168,250.5,165Q270,162,295.5,161.5Q321,161,361.5,169Q402,177,424.5,213.5Q447,250,410.5,280Z",
     "M411,279.5Q373,309,351,329Q329,349,311,394.5Q293,440,253,426Q213,412,198,373Q183,334,188,305.5Q193,277,195.5,263.5Q198,250,117.5,198.5Q37,147,75,112.5Q113,78,172.5,125.5Q232,173,250.5,170.5Q269,168,313.5,141.5Q358,115,377.5,147Q397,179,423,214.5Q449,250,411,279.5Z",
@@ -116,11 +118,18 @@ export async function courseCard(cards) {
                         <div class="card_table_header">Кредити</div>
                     </div>
                     <div class="row_group" data-area="природничі">
+<!--                        <div class="group_selector">природничі</div>-->
                         <div class="table_row">
                             <div class="card_table_subject first_area_bg">
                                 ${card.subject1.title}
                             </div>
                             <div class="card_table_credit">${card.subject1.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                 ${card.subject2.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject2.credits}</div>
                         </div>
                         <div class="table_row">
                             <div class="card_table_subject first_area_bg">
@@ -145,6 +154,7 @@ export async function courseCard(cards) {
 
 
                     <div class="row_group" data-area="гуманітарна">
+<!--                        <div class="group_selector">гуманітарна</div>-->
                         <div class="table_row">
                             <div class="card_table_subject third_area_bg">
                                 ${card.subject5.title}
@@ -163,4 +173,25 @@ export async function courseCard(cards) {
         </div>    
     `)
     return cards
+}
+
+export function setGroupSelectorPosition(userWidth){
+    let groups = document.querySelectorAll('.row_group');
+
+    /* need to get styles */
+    const borderSize = 1; /*for aligning in center*/
+    const gapWidth = 0.01*userWidth; /*for additional left margin*/
+    console.log(gapWidth)
+    for (let i = 0; i < groups.length; i++) {
+        let groupRect = groups[i].getBoundingClientRect();
+
+        groups[i].insertAdjacentHTML('afterbegin', `<div class="group_selector group_selector-${i}">11111111</div>`);
+
+        $(`.group_selector-${i}`).css({
+            'width': groupRect.height - borderSize/2,
+            'height' : '66px',
+            'left': groupRect.width + 66 + gapWidth,
+            'top': -borderSize/2
+        });
+    }
 }
