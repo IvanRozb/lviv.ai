@@ -141,7 +141,7 @@ export class Fetch {
         let notes = [];
         const delimiterLength = '|r|'.length;
         for (const subject of element) {
-            result+=`<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date color_letter_red${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
+            result+=`<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date ${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
             images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">`);
             notes.push(getNoteBlock(subject, delimiterLength, isFirst));
             ++isFirst;
