@@ -37,8 +37,10 @@
     "util": "^0.12.5"
   },
   "dependencies": {
+    "jquery": "^3.6.1",
     "mongodb": "^4.11.0",
     "mongoose": "^6.7.2",
-    "node-localstorage": "^2.2.1"
+    "node-localstorage": "^2.2.1",
+    "slick-carousel": "^1.8.1"
   }
 }

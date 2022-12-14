@@ -2,7 +2,7 @@
     /* Colors */
 
     --black: rgba(0, 5, 9, 1);
-    --peachy: #FF0000;
+    --peachy: #E92828;
     --transparent-fire-brick: rgba(200, 0, 0, 0.2);
     --transparent-fire-brick-2: rgba(200, 0, 0, 0);
     --transparent-white: rgba(255, 255, 255, 0.8);
@@ -28,7 +28,7 @@
     --h4-line-height: 3.5vh;
 
     --h5-size: 1.4vw; /* 27px */
-
+    --h5-line-height: 3vh;
     --small-size: 1vw; /* 20px */
     --small-weight: 300;
     --small-height: 2.4vh;
