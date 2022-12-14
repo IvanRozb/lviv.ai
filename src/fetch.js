@@ -279,7 +279,7 @@ export class Fetch {
                 HTML += `</div>
                          <table class="vacancies_table">
                             <tr class="vacancies_row">
-                                <th class="vacancies_column">Україна</th>`
+                                <th class="vacancies_column">Ukraine</th>`
 
 
                 jobAmounts.firstCity.forEach(amount => {
@@ -288,7 +288,7 @@ export class Fetch {
 
                 HTML += `</tr>
                      <tr class="vacancies_row">
-                         <th class="vacancies_column">Львів</th>`
+                         <th class="vacancies_column">Lviv</th>`
 
                 jobAmounts.secondCity.forEach(amount => {
                     HTML += `<th class="vacancies_column">${amount}</th>`
