@@ -7,6 +7,16 @@ const template = getCourseCardHTML()
 document.querySelector(".course_cards_section").insertAdjacentHTML(
     'beforeend', localStorage.getItem('term1')
 )
+const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
+
+setGroupSelectorPosition(userWidth);
+
+// $('.course_card').slick({
+//     infinite: true,
+//     slidesToShow: 2,
+//     slidesToScroll: 2
+// });
+
 //Carousel
 function getActiveIndex(/*string*/indexName){
     let activeIndex = localStorage.getItem(indexName);
@@ -71,14 +81,10 @@ function activateProgramsCarousel(){
     });
 }
 
-
-
 let programs_carousel = $(`.programs_carousel`);
 programs_carousel.css('display', `none`)
-const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 programs_carousel.css('display', `block`)
 
-setGroupSelectorPosition(userWidth);
 animateNavUnderlines();
 activateCarousel();
 activateProgramsCarousel();

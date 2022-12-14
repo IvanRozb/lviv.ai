@@ -106,7 +106,59 @@ export async function courseCard(cards) {
     localStorage.setItem('term1', `
     <div class="course_cards_container">
             <div class="course_card">
-                <div class="bg"></div>
+                <h6 class="course_card_term">1 семестр</h6>
+
+                <div class="course_card_table">
+                    <div class="table_row">
+                        <div class="card_table_header">Предмети</div>
+                        <div class="card_table_header">Кредити</div>
+                    </div>
+                    <div class="row_group" data-area="природничі">
+<!--                        <div class="group_selector">природничі</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                ${card.subject1.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject1.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                 ${card.subject2.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject2.credits}</div>
+                        </div>
+                        <div class="table_row" data-area="наукова">
+                        <div class="card_table_subject second_area_bg">
+                            ${card.subject3.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject3.credits}</div>
+                    </div>
+                    </div>
+
+                    <div class="table_row single_row" data-area="природничо - наукова">
+                        <div class="card_table_subject second_area_bg">
+                           ${card.subject4.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject4.credits}</div>
+                    </div>
+
+
+                    <div class="row_group" data-area="гуманітарна">
+<!--                        <div class="group_selector">гуманітарна</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject5.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject5.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject6.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject6.credits}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="course_card">
@@ -131,20 +183,14 @@ export async function courseCard(cards) {
                             </div>
                             <div class="card_table_credit">${card.subject2.credits}</div>
                         </div>
-                        <div class="table_row">
-                            <div class="card_table_subject first_area_bg">
-                                 ${card.subject2.title}
-                            </div>
-                            <div class="card_table_credit">${card.subject2.credits}</div>
-                        </div>
-                    </div>
-
-                    <div class="table_row single_row" data-area="наукова">
+                        <div class="table_row" data-area="наукова">
                         <div class="card_table_subject second_area_bg">
                             ${card.subject3.title}
                         </div>
                         <div class="card_table_credit">${card.subject3.credits}</div>
                     </div>
+                    </div>
+
                     <div class="table_row single_row" data-area="природничо - наукова">
                         <div class="card_table_subject second_area_bg">
                            ${card.subject4.title}
@@ -184,14 +230,16 @@ export function setGroupSelectorPosition(userWidth){
     console.log(gapWidth)
     for (let i = 0; i < groups.length; i++) {
         let groupRect = groups[i].getBoundingClientRect();
-
-        groups[i].insertAdjacentHTML('afterbegin', `<div class="group_selector group_selector-${i}">11111111</div>`);
+        let group_name = groups[i].getAttribute('data-area');
+        groups[i].insertAdjacentHTML('afterbegin',
+            `<div class="group_selector group_selector-${i}">${group_name}</div>`
+        );
 
         $(`.group_selector-${i}`).css({
-            'width': groupRect.height - borderSize/2,
-            'height' : '66px',
-            'left': groupRect.width + 66 + gapWidth,
-            'top': -borderSize/2
+            'width': groupRect.height - borderSize/2 + groupRect.height * 0.1,
+            'height' : '60px',
+            'left': groupRect.width + 60 + gapWidth,
+            'top': -borderSize/2 - (groupRect.height * 0.1)/2
         });
     }
 }
