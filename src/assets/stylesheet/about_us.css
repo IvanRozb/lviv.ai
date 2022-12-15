@@ -110,13 +110,6 @@ body{
     margin-left: 2vw;
     height: 20vh;
 }
-.course_cards_container{
-    display: flex;
-    gap: 1vw;
-
-    margin: 0 auto;
-    width: 96vw;
-}
 .course_card{
     width: 47vw;
     height: 50vh;
@@ -129,6 +122,49 @@ body{
 .course_card_term{
     font-weight: 300;
 }
+.term_group{
+    display: flex;
+    gap: 1vw;
+
+    margin: 0 auto;
+    width: 96vw;
+}
+
+/*Slick default dots redesign*/
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem 0;
+
+    list-style-type: none;
+}
+
+.slick-dots li {
+    margin: 0 0.25rem;
+}
+
+.slick-dots button {
+    display: block;
+    --size: 0.8rem;
+    width:var(--size);
+    height: var(--size);
+    padding: 0;
+
+    border: none;
+    border-radius: 100%;
+    background-color: var(--white);
+
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+.slick-dots li.slick-active button {
+    background-color: var(--peachy)
+}
+/*END of redesign slick dots*/
+
+
 /*Course Card Table*/
 .course_card_table{
 

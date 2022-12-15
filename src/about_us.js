@@ -11,11 +11,22 @@ const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carouse
 
 setGroupSelectorPosition(userWidth);
 
-// $('.course_card').slick({
+// $('.course_cards_container').slick({
 //     infinite: true,
 //     slidesToShow: 2,
 //     slidesToScroll: 2
 // });
+
+$('.course_cards_container').slick({
+    slidesToShow: 1,
+    dots: true,
+
+    // slidesToScroll: 1,
+    // autoplay: true,
+    // autoplaySpeed: 1500,
+
+    arrows: false
+});
 
 //Carousel
 function getActiveIndex(/*string*/indexName){

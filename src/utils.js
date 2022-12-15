@@ -105,6 +105,8 @@ export async function courseCard(cards) {
 
     localStorage.setItem('term1', `
     <div class="course_cards_container">
+        <div class="term_group">
+        
             <div class="course_card">
                 <h6 class="course_card_term">1 семестр</h6>
 
@@ -160,9 +162,9 @@ export async function courseCard(cards) {
                     </div>
                 </div>
             </div>
-
+        
             <div class="course_card">
-                <h6 class="course_card_term">1 семестр</h6>
+                <h6 class="course_card_term">2 семестр</h6>
 
                 <div class="course_card_table">
                     <div class="table_row">
@@ -216,7 +218,243 @@ export async function courseCard(cards) {
                     </div>
                 </div>
             </div>
-        </div>    
+            
+        </div>
+        
+        <div class="term_group">
+        
+            <div class="course_card">
+                <h6 class="course_card_term">2 семестр</h6>
+
+                <div class="course_card_table">
+                    <div class="table_row">
+                        <div class="card_table_header">Предмети</div>
+                        <div class="card_table_header">Кредити</div>
+                    </div>
+                    <div class="row_group" data-area="природничі">
+<!--                        <div class="group_selector">природничі</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                ${card.subject1.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject1.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                 ${card.subject2.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject2.credits}</div>
+                        </div>
+                        <div class="table_row" data-area="наукова">
+                        <div class="card_table_subject second_area_bg">
+                            ${card.subject3.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject3.credits}</div>
+                    </div>
+                    </div>
+
+                    <div class="table_row single_row" data-area="природничо - наукова">
+                        <div class="card_table_subject second_area_bg">
+                           ${card.subject4.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject4.credits}</div>
+                    </div>
+
+
+                    <div class="row_group" data-area="гуманітарна">
+<!--                        <div class="group_selector">гуманітарна</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject5.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject5.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject6.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject6.credits}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="course_card">
+                <h6 class="course_card_term">3 семестр</h6>
+
+                <div class="course_card_table">
+                    <div class="table_row">
+                        <div class="card_table_header">Предмети</div>
+                        <div class="card_table_header">Кредити</div>
+                    </div>
+                    <div class="row_group" data-area="природничі">
+<!--                        <div class="group_selector">природничі</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                ${card.subject1.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject1.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                 ${card.subject2.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject2.credits}</div>
+                        </div>
+                        <div class="table_row" data-area="наукова">
+                        <div class="card_table_subject second_area_bg">
+                            ${card.subject3.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject3.credits}</div>
+                    </div>
+                    </div>
+
+                    <div class="table_row single_row" data-area="природничо - наукова">
+                        <div class="card_table_subject second_area_bg">
+                           ${card.subject4.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject4.credits}</div>
+                    </div>
+
+
+                    <div class="row_group" data-area="гуманітарна">
+<!--                        <div class="group_selector">гуманітарна</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject5.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject5.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject6.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject6.credits}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="term_group">
+        
+            <div class="course_card">
+                <h6 class="course_card_term">5 семестр</h6>
+
+                <div class="course_card_table">
+                    <div class="table_row">
+                        <div class="card_table_header">Предмети</div>
+                        <div class="card_table_header">Кредити</div>
+                    </div>
+                    <div class="row_group" data-area="природничі">
+<!--                        <div class="group_selector">природничі</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                ${card.subject1.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject1.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                 ${card.subject2.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject2.credits}</div>
+                        </div>
+                        <div class="table_row" data-area="наукова">
+                        <div class="card_table_subject second_area_bg">
+                            ${card.subject3.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject3.credits}</div>
+                    </div>
+                    </div>
+
+                    <div class="table_row single_row" data-area="природничо - наукова">
+                        <div class="card_table_subject second_area_bg">
+                           ${card.subject4.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject4.credits}</div>
+                    </div>
+
+
+                    <div class="row_group" data-area="гуманітарна">
+<!--                        <div class="group_selector">гуманітарна</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject5.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject5.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject6.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject6.credits}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="course_card">
+                <h6 class="course_card_term">6 семестр</h6>
+
+                <div class="course_card_table">
+                    <div class="table_row">
+                        <div class="card_table_header">Предмети</div>
+                        <div class="card_table_header">Кредити</div>
+                    </div>
+                    <div class="row_group" data-area="природничі">
+<!--                        <div class="group_selector">природничі</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                ${card.subject1.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject1.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject first_area_bg">
+                                 ${card.subject2.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject2.credits}</div>
+                        </div>
+                        <div class="table_row" data-area="наукова">
+                        <div class="card_table_subject second_area_bg">
+                            ${card.subject3.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject3.credits}</div>
+                    </div>
+                    </div>
+
+                    <div class="table_row single_row" data-area="природничо - наукова">
+                        <div class="card_table_subject second_area_bg">
+                           ${card.subject4.title}
+                        </div>
+                        <div class="card_table_credit">${card.subject4.credits}</div>
+                    </div>
+
+
+                    <div class="row_group" data-area="гуманітарна">
+<!--                        <div class="group_selector">гуманітарна</div>-->
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject5.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject5.credits}</div>
+                        </div>
+                        <div class="table_row">
+                            <div class="card_table_subject third_area_bg">
+                                ${card.subject6.title}
+                            </div>
+                            <div class="card_table_credit">${card.subject6.credits}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+    </div>    
     `)
     return cards
 }
