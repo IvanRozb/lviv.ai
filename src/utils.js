@@ -465,7 +465,6 @@ export function setGroupSelectorPosition(userWidth){
     /* need to get styles */
     const borderSize = 1; /*for aligning in center*/
     const gapWidth = 0.01*userWidth; /*for additional left margin*/
-    console.log(gapWidth)
     for (let i = 0; i < groups.length; i++) {
         let groupRect = groups[i].getBoundingClientRect();
         let group_name = groups[i].getAttribute('data-area');

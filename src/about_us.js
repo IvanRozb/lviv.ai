@@ -1,9 +1,10 @@
 import {animateNavUnderlines, getCourseCardHTML, setGroupSelectorPosition} from './utils'
 import {isNull} from "url/util";
 import $ from 'jquery'
+import {Fetch} from "./fetch";
 
 //Course Card
-getCourseCardHTML()
+// getCourseCardHTML()
 document.querySelector(".course_cards_section").insertAdjacentHTML(
     'beforeend', localStorage.getItem('term1')
 )
@@ -94,7 +95,8 @@ animateNavUnderlines();
 activateCarousel();
 activateProgramsCarousel();
 
+setTimeout(async ()=> {
+    document.querySelector(`.teachers_carousel`).insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
+    activateTeacherCarousel();
+}, 0)
 
-activateTeacherCarousel();
-
-// debugger
