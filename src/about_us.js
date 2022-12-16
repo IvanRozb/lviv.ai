@@ -2,21 +2,32 @@ import {animateNavUnderlines, getCourseCardHTML, setGroupSelectorPosition} from 
 import {isNull} from "url/util";
 import $ from 'jquery'
 import {Fetch} from "./fetch";
+const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 
 //Course Card
 // getCourseCardHTML()
-document.querySelector(".course_cards_section").insertAdjacentHTML(
-    'beforeend', localStorage.getItem('term1')
-)
-const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
+const course_card_section =  document.querySelector(".course_cards_section")
 
-setGroupSelectorPosition(userWidth);
+setTimeout(async ()=>{
+    const courseCardsPage = await Fetch.getCourseCardsPageAsync("ua")
 
-$('.course_cards_container').slick({
-    slidesToShow: 1,
-    dots: true,
-    arrows: false
-});
+    document.querySelector(".course_cards_menu")
+        .insertAdjacentHTML("afterend", courseCardsPage)
+
+    setGroupSelectorPosition(userWidth)
+
+    $('.course_cards_container').slick({
+        slidesToShow: 1,
+
+        dots: true,
+        arrows: false
+    })
+
+    document.querySelector(`.teachers_carousel`)
+        .insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
+
+    activateTeacherCarousel();
+}, 0)
 
 //Carousel
 function getActiveIndex(/*string*/indexName){
@@ -95,8 +106,4 @@ animateNavUnderlines();
 activateCarousel();
 activateProgramsCarousel();
 
-setTimeout(async ()=> {
-    document.querySelector(`.teachers_carousel`).insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
-    activateTeacherCarousel();
-}, 0)
 

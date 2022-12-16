@@ -135,6 +135,111 @@ export class Fetch {
         }
         return -1;
     }
+    //About Us
+    static /*string*/#getAboutUsCourseCard(term1, term2){
+        function sortSubjectsInGroups(term){
+
+            let termGroups = {}
+
+            Object.entries(term).forEach(subject => {
+                let area = subject[1].area
+                //TODO make this if prettier
+                if(!termGroups[`${area}`]){
+                    termGroups[`${area}`] = Array()
+                }
+
+                termGroups[`${area}`].push(subject[1])
+            })
+
+            let termGroupsArray = Object.entries(termGroups)
+
+            //sort in decreasing order
+            return termGroupsArray
+                .sort( (one, other) => other[1].length - one[1].length)
+        }
+        function sortedSubjectsGroupsToHTML(sortedGroups){
+            //bg for subjects groups
+            const backgrounds = [
+                "#D94442",
+                "#CA605C",
+                "#BA7B75",
+                "#b78f8b",
+                "#9f9595",
+                "#725c5c",
+            ]
+
+            let bgIdx = 0
+            let termHTML = ""
+
+            for (const [area, subjects] of sortedGroups){
+
+                if(subjects.length === 1){
+                    termHTML += `<div class="table_row single_row" data-area="${area}">
+                                    <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}">
+                                       ${subjects[0].title}
+                                    </div>
+                                    <div class="card_table_credit">${subjects[0].credits}</div>
+                                </div>`
+                }else{
+                    termHTML += `<div class="row_group" data-area="${area}">`
+
+                    subjects.forEach(subject => {
+                        termHTML += `<div class="table_row">
+                                        <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}">
+                                            ${subject.title}
+                                        </div>
+                                        <div class="card_table_credit">${subject.credits}</div>
+                                    </div>`
+                    })
+
+                    termHTML += `</div>`
+                }
+
+                bgIdx += 1
+            }
+
+            return termHTML
+        }
+
+        let term1Groups = sortSubjectsInGroups(term1)
+        let term2Groups = sortSubjectsInGroups(term2)
+        debugger
+
+        let courseCard = `<div class="term_group">
+                           
+                                <div class="course_card">
+                                    <h6 class="course_card_term">1 семестр</h6>
+                        
+                                    <div class="course_card_table">
+                                        <div class="table_row">
+                                            <div class="card_table_header">Предмети</div>
+                                            <div class="card_table_header">Кредити</div>
+                                        </div>`
+
+
+        courseCard += sortedSubjectsGroupsToHTML(term1Groups)
+
+        courseCard += `</div>
+                        </div>
+                    
+                        <div class="course_card">
+                            <h6 class="course_card_term">2 семестр</h6>
+            
+                            <div class="course_card_table">
+                                <div class="table_row">
+                                    <div class="card_table_header">Предмети</div>
+                                    <div class="card_table_header">Кредити</div>
+                                </div>`
+
+        courseCard += sortedSubjectsGroupsToHTML(term2Groups)
+
+        courseCard += `</div>
+                    </div>
+                </div>
+               `
+
+        return courseCard
+    }
 
     /* Main methods */
     static async getApplicantsAsync(language) {
@@ -231,7 +336,40 @@ export class Fetch {
             }));
         return localStorage.getItem('teachersResult');
     }
+    static async getCourseCardsPageAsync(language){
+        const page = localStorage.getItem("courseCardsPage")
+        if(page) {
+            return page
+        }else{
+            localStorage.setItem("courseCardsPage", await fetch(`https://localhost:7159/CourseCards?language=ua`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                })
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    let HTML = `<div class="course_cards_container">`
 
+                    //TODO change to 6 subject and add all to DB
+                    for (let i = 1; i <= 4; i += 2) {
+                        let currentTerm = data[0].curriculum[`term${i}`]
+                        let nextTerm = data[0].curriculum[`term${i+1}`]
+
+                        HTML += this.#getAboutUsCourseCard(currentTerm, nextTerm)
+                    }
+
+                    HTML += "</div>"
+
+                    return HTML
+                }))
+        }
+
+        return localStorage.getItem("courseCardsPage")
+    }
     /* Async main methods */
     static async getApplicants() {
         return await this.getApplicantsAsync('ua');
