@@ -3,7 +3,7 @@ import {isNull} from "url/util";
 import $ from 'jquery'
 
 //Course Card
-const template = getCourseCardHTML()
+getCourseCardHTML()
 document.querySelector(".course_cards_section").insertAdjacentHTML(
     'beforeend', localStorage.getItem('term1')
 )
@@ -11,20 +11,9 @@ const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carouse
 
 setGroupSelectorPosition(userWidth);
 
-// $('.course_cards_container').slick({
-//     infinite: true,
-//     slidesToShow: 2,
-//     slidesToScroll: 2
-// });
-
 $('.course_cards_container').slick({
     slidesToShow: 1,
     dots: true,
-
-    // slidesToScroll: 1,
-    // autoplay: true,
-    // autoplaySpeed: 1500,
-
     arrows: false
 });
 
@@ -76,7 +65,7 @@ function activateCarousel() {
             + userWidth * Math.abs((activeIndex - index)/2) * Math.sign(activeIndex-index)).toString()+'px');
 
         localStorage.setItem('about_us_carousel_index', index.toString());
-        $('.slick-list').css('margin', Math.ceil(index/2) !== (carousel[0].childNodes.length-1)/2 ? '0' : '0 -4.7vw');
+        $('.programs_carousel').css('display', Math.ceil(index/2) === ((carousel[0].childNodes.length-1)/2-1) ? 'none' : 'block');
     })
 }
 
@@ -92,12 +81,20 @@ function activateProgramsCarousel(){
     });
 }
 
-let programs_carousel = $(`.programs_carousel`);
-programs_carousel.css('display', `none`)
-programs_carousel.css('display', `block`)
+function activateTeacherCarousel() {
+    $(document).ready(function(){
+        const slider = $(".teachers_carousel");
 
+        slider.slick({
+            dots: true
+        });
+    });
+}
 animateNavUnderlines();
 activateCarousel();
 activateProgramsCarousel();
+
+
+activateTeacherCarousel();
 
 // debugger

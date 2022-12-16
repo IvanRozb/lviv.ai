@@ -383,15 +383,21 @@ body{
 }
 
 /* Teachers section */
+.teachers_carousel{
+    width: 100%;
+}
 .teachers_item{
     margin: 13vh 2vw 0;
-}
-.teachers_row-second{
-    margin-top: 5vh;
+    min-width: 0;
 }
 .teachers_row{
     display: flex;
     justify-content: center;
+
+    margin: 0 5vw;
+}
+.teachers_row-second{
+    margin-top: 5vh;
 }
 .teachers_column{
     width: 25%;
@@ -431,6 +437,9 @@ body{
 
     font-size: var(--small-size);
     line-height: 24px;
+}
+.teachers_carousel .slick-arrow{
+    display: none !important;
 }
 
 /* carousel */
