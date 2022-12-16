@@ -266,12 +266,7 @@ body{
     height: 100%;
 }
 
-.teachers_section{
-    width: 500px;
-    height: 500px;
-    background-color: indigo;
-}
-
+/* Programs section */
 .programs_container{
     margin-left: 8vw;
 }
@@ -385,6 +380,57 @@ body{
 .programs_link{
     text-decoration: white;
     text-underline-mode: line;
+}
+
+/* Teachers section */
+.teachers_item{
+    margin: 13vh 2vw 0;
+}
+.teachers_row-second{
+    margin-top: 5vh;
+}
+.teachers_row{
+    display: flex;
+    justify-content: center;
+}
+.teachers_column{
+    width: 25%;
+
+    text-align: center;
+}
+.teachers_photo{
+    width: 15vw;
+    height: auto;
+
+    border-radius: 50%;
+}
+.teachers_full_name{
+    margin-top: 3vh;
+
+    font-weight: 400;
+    letter-spacing: 0.06em;
+}
+.teachers_position{
+    margin-top: 0.8vh;
+
+    color: var(--transparent-white);
+    letter-spacing: 0.07em;
+
+    font-size: var(--small-size);
+}
+.teachers_line{
+    margin: 1.3vh auto 0;
+
+    width: 90%;
+    height: 1px;
+
+    background-color: #ffffff;
+}
+.teachers_rank{
+    margin-top: 3vh;
+
+    font-size: var(--small-size);
+    line-height: 24px;
 }
 
 /* carousel */
