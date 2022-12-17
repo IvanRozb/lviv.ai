@@ -48,7 +48,6 @@ function animateIntroLines(animatedBlock){
 // Get jobs info
 setTimeout(async () => {
     const jobsTableContainer = document.querySelector('.vacancies_statistic')
-    console.log(jobsTableContainer)
     jobsTableContainer.innerHTML  = await Fetch.getJobsPositions()
     }
 , 0)

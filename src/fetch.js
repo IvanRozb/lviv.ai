@@ -343,7 +343,6 @@ export class Fetch {
             .then(response => response.json())
             .then(data => {
                 const headers = document.querySelector(".sidebar_list").children
-                debugger
                 let result = '';
 
                     for (const name in data[0]) {
@@ -359,7 +358,7 @@ export class Fetch {
                                 result+=this.#getApplicantCompetitiveSubjects(element, headers[2].textContent, language);
                                 break;
                             case "educationCosts":
-                                result+=this.#getApplicantEducationCosts(element, headers[3].textContent);
+                                result+=this.#getApplicantEducationCosts(element, headers[3].textContent, language);
                                 break;
                             default:
                                 break;
@@ -432,7 +431,7 @@ export class Fetch {
         const item = localStorage.getItem('universitiesResult');
         if (item != null)
             return item;
-        await localStorage.setItem('universitiesResult', await fetch(`http://54.93.52.237/aiwebsite/Universities?language${language}`,
+        await localStorage.setItem('universitiesResult', await fetch(`http://54.93.52.237/aiwebsite/Universities?language=${language}`,
             {
                 method: 'GET',
                 headers: {
