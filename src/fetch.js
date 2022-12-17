@@ -136,7 +136,7 @@ export class Fetch {
         return -1;
     }
     //About Us
-    static /*string*/#getAboutUsCourseCard(term1, term2){
+    static /*string*/#getAboutUsCourseCard(term1, term2, termCounter){
         function sortSubjectsInGroups(term){
 
             let termGroups = {}
@@ -164,8 +164,8 @@ export class Fetch {
                 "#CA605C",
                 "#BA7B75",
                 "#b78f8b",
-                "#9f9595",
-                "#725c5c",
+                "#861D13",
+                "#59130D",
             ]
 
             let bgIdx = 0
@@ -208,7 +208,7 @@ export class Fetch {
         let courseCard = `<div class="term_group">
                            
                                 <div class="course_card">
-                                    <h6 class="course_card_term">1 семестр</h6>
+                                    <h6 class="course_card_term">${termCounter} семестр</h6>
                         
                                     <div class="course_card_table">
                                         <div class="table_row">
@@ -223,7 +223,7 @@ export class Fetch {
                         </div>
                     
                         <div class="course_card">
-                            <h6 class="course_card_term">2 семестр</h6>
+                            <h6 class="course_card_term">${termCounter+1} семестр</h6>
             
                             <div class="course_card_table">
                                 <div class="table_row">
@@ -337,6 +337,7 @@ export class Fetch {
         return localStorage.getItem('teachersResult');
     }
     static async getCourseCardsPageAsync(language){
+        //TODO add links to it
         const page = localStorage.getItem("courseCardsPage")
         if(page) {
             return page
@@ -354,12 +355,11 @@ export class Fetch {
                 .then((data) => {
                     let HTML = `<div class="course_cards_container">`
 
-                    //TODO change to 6 subject and add all to DB
-                    for (let i = 1; i <= 4; i += 2) {
+                    for (let i = 1; i <= 8; i += 2) {
                         let currentTerm = data[0].curriculum[`term${i}`]
                         let nextTerm = data[0].curriculum[`term${i+1}`]
 
-                        HTML += this.#getAboutUsCourseCard(currentTerm, nextTerm)
+                        HTML += this.#getAboutUsCourseCard(currentTerm, nextTerm, i)
                     }
 
                     HTML += "</div>"

@@ -100,7 +100,34 @@ body{
 
     transition: 0.28s left linear;
 }
+/*Animated BG*/
+.animated_bg{
+    position: absolute;
+    top: 75.5vh;
+    width: 200vw;
+    height: 100vh;
 
+    z-index: -1;
+    filter: blur(60px);
+
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}
+#blob1{
+    position: relative;
+    top: 30vh;
+    left: -10vw;
+}
+
+#blob2{
+    /*position: relative;*/
+    /*top: 30vh;*/
+    /*left: -10vw;*/
+}
+
+#blob3{
+
+}
 /*Course Cards css*/
 .course_cards_menu{
     display: flex;
@@ -117,6 +144,8 @@ body{
     border: 1px solid var(--white);
 
     padding: 4vh 12vw 8vh 1.5vw;
+
+    background: rgba(0,0,0, 0.8);
 }
 
 .course_card_term{
