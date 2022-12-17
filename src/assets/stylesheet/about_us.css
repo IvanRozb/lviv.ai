@@ -361,18 +361,6 @@ body{
 .programs_carousel .slick-current{
     opacity: 1 !important;
 }
-.programs_underline{
-    margin-top: 2.3vh;
-
-    width: 14vw;
-    height: 8px;
-
-    background-color: var(--peachy);
-
-    border-radius: 4px;
-
-    transition: margin-left 0.2s linear;
-}
 .programs_explanation{
     position: relative;
     margin-top: 18.5vh;

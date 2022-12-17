@@ -1,3 +1,5 @@
+import {readyStates} from "stream-http/lib/response";
+
 if (typeof localStorage === "undefined" || localStorage === null) {
     let LocalStorage = require('node-localstorage').LocalStorage;
     localStorage = new LocalStorage('./scratch');
@@ -203,7 +205,7 @@ export class Fetch {
 
         let term1Groups = sortSubjectsInGroups(term1)
         let term2Groups = sortSubjectsInGroups(term2)
-        debugger
+        // debugger
 
         let courseCard = `<div class="term_group">
                            
@@ -244,7 +246,7 @@ export class Fetch {
     /* Main methods */
     static async getApplicantsAsync(language) {
         const item = localStorage.getItem('applicantResult');
-        console.log(item)
+        // console.log(item)
         if (item != null)
             return item;
         await localStorage.setItem('applicantResult', await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
@@ -312,8 +314,8 @@ export class Fetch {
                                     <h5 class="teachers_full_name">${this.#getEditedFullName(teacher.fullName)}</h5>
                                     <div class="teachers_position">${teacher.jobPosition}</div>
                                     <div class="teachers_line"></div>
-                                    <p class="teachers_rank">${commaPosition !== 0 ? 
-                        [teacher.degree.slice(0, commaPosition), `<br>`, teacher.degree.slice(commaPosition)].join('') 
+                                    <p class="teachers_rank">${commaPosition !== 0 ?
+                        [teacher.degree.slice(0, commaPosition), `<br>`, teacher.degree.slice(commaPosition)].join('')
                         : teacher.degree}</p>
                             </div>`;
 
@@ -335,6 +337,31 @@ export class Fetch {
                 return result;
             }));
         return localStorage.getItem('teachersResult');
+    }
+    static async getUniversitiesAsync(language) {
+        const item = localStorage.getItem('universitiesResult');
+        if (item != null)
+            return item;
+        await localStorage.setItem('universitiesResult', await fetch(`https://localhost:7159/Universities?language=${language}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                let result = '';
+                for (const university of data) {
+                    result += `<div class="programs_item">
+                        <img src="${university.photo}" class="programs_image" alt="university_photo">
+                        <h6 class="programs_carousel_title">${university.title}</h6>
+                        <p class="programs_country">${university.country}</p>
+                    </div>`;
+                }
+                return result;
+            }));
+        return localStorage.getItem('universitiesResult');
     }
     static async getCourseCardsPageAsync(language){
         //TODO add links to it
@@ -376,5 +403,8 @@ export class Fetch {
     }
     static async getTeachers() {
         return await this.getTeachersAsync('ua');
+    }
+    static async getUniversities() {
+        return await this.getUniversitiesAsync('ua');
     }
 }
