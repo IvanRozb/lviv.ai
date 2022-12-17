@@ -11,17 +11,17 @@ const blob1HTML = animatedBlob(1,100)
 
 bg_cards_section.insertAdjacentHTML("beforeend", blob1HTML)
 
-// const bg_teachers_section = document.querySelector(".bg_teachers_section")
-//
-// const blob2HTML = animatedBlob(2,120)
-//
-// bg_teachers_section.insertAdjacentHTML("beforeend", blob2HTML)
+const bg_teachers_section = document.querySelector(".bg_teachers_section")
 
-// const bg_programs_section = document.querySelector(".bg_programs_section")
-//
-// const blob3HTML = animatedBlob(3,120)
-//
-// bg_programs_section.insertAdjacentHTML("beforeend", blob3HTML)
+const blob2HTML = animatedBlob(2,120)
+
+bg_teachers_section.insertAdjacentHTML("beforeend", blob2HTML)
+
+const bg_programs_section = document.querySelector(".bg_programs_section")
+
+const blob3HTML = animatedBlob(3,120)
+
+bg_programs_section.insertAdjacentHTML("beforeend", blob3HTML)
 
 //Course Card
 const course_card_section =  document.querySelector(".course_cards_section")

@@ -104,7 +104,7 @@ body{
 .animated_bg{
     position: absolute;
     top: 75.5vh;
-    width: 200vw;
+    width: 100vw;
     height: 100vh;
 
     z-index: -1;
