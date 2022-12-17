@@ -238,7 +238,7 @@ export class Fetch {
 
         let term1Groups = sortSubjectsInGroups(term1)
         let term2Groups = sortSubjectsInGroups(term2)
-        debugger
+
 
         let courseCard = `<div class="term_group">
                            
@@ -337,7 +337,7 @@ export class Fetch {
                             result+=this.#getApplicantDates(element);
                             break;
                         case "tables":
-                            result+=this.#getApplicantTables(element);
+                            // result+=this.#getApplicantTables(element);
                             break;
                         default:
                             break;
