@@ -1,5 +1,7 @@
 
 //Animated BG utils
+import $ from "jquery";
+
 let blobsShapes = [
     "M410.5,280Q374,310,370.5,353Q367,396,326,399.5Q285,403,248.5,410Q212,417,189.5,385.5Q167,354,181.5,315Q196,276,139,263Q82,250,94,215.5Q106,181,131.5,157Q157,133,194,150.5Q231,168,250.5,165Q270,162,295.5,161.5Q321,161,361.5,169Q402,177,424.5,213.5Q447,250,410.5,280Z",
     "M411,279.5Q373,309,351,329Q329,349,311,394.5Q293,440,253,426Q213,412,198,373Q183,334,188,305.5Q193,277,195.5,263.5Q198,250,117.5,198.5Q37,147,75,112.5Q113,78,172.5,125.5Q232,173,250.5,170.5Q269,168,313.5,141.5Q358,115,377.5,147Q397,179,423,214.5Q449,250,411,279.5Z",
@@ -50,6 +52,7 @@ function shuffle(array) {
     return array;
 }
 
+
 //Side navbar
 export function animateNavUnderlines(){
     const navbar = document.querySelector(`.nav`);
@@ -80,89 +83,28 @@ export function animateNavUnderlines(){
         })
     });
 }
-export async function getCourseCardHTML(){
-    let result = ''
-    await fetch(`http://54.93.52.237/aiwebsite/CourseCards?language=ua`,
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-        .then((response) => {
-            return response.json()
-        })
-        .then((data) => {
-            return courseCard(data)
+//Course card help function
+export function setGroupSelectorPosition(userWidth){
+    let groups = document.querySelectorAll('.row_group');
+
+    /* need to get styles */
+    const borderSize = 1; /*for aligning in center*/
+    const gapWidth = 0.01*userWidth; /*for additional left margin*/
+    console.log(gapWidth)
+    for (let i = 0; i < groups.length; i++) {
+        let groupRect = groups[i].getBoundingClientRect();
+        let group_name = groups[i].getAttribute('data-area');
+        groups[i].insertAdjacentHTML('afterbegin',
+            `<div class="group_selector group_selector-${i}">${group_name}</div>`
+        );
+
+        $(`.group_selector-${i}`).css({
+            'width': groupRect.height - borderSize/2 + groupRect.height * 0.1,
+            'height' : '60px',
+            'left': groupRect.width + 60 + gapWidth,
+            'top': -borderSize/2 - (groupRect.height * 0.1)/2
         });
-}
-
-//Course cards template utils
-export async function courseCard(cards) {
-    const card = cards[0].curriculum.term1
-
-    localStorage.setItem('term1', `
-    <div class="course_cards_container">
-            <div class="course_card">
-                <div class="bg"></div>
-            </div>
-
-            <div class="course_card">
-                <h6 class="course_card_term">1 семестр</h6>
-
-                <div class="course_card_table">
-                    <div class="table_row">
-                        <div class="card_table_header">Предмети</div>
-                        <div class="card_table_header">Кредити</div>
-                    </div>
-                    <div class="row_group" data-area="природничі">
-                        <div class="table_row">
-                            <div class="card_table_subject first_area_bg">
-                                ${card.subject1.title}
-                            </div>
-                            <div class="card_table_credit">${card.subject1.credits}</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="card_table_subject first_area_bg">
-                                 ${card.subject2.title}
-                            </div>
-                            <div class="card_table_credit">${card.subject2.credits}</div>
-                        </div>
-                    </div>
-
-                    <div class="table_row single_row" data-area="наукова">
-                        <div class="card_table_subject second_area_bg">
-                            ${card.subject3.title}
-                        </div>
-                        <div class="card_table_credit">${card.subject3.credits}</div>
-                    </div>
-                    <div class="table_row single_row" data-area="природничо - наукова">
-                        <div class="card_table_subject second_area_bg">
-                           ${card.subject4.title}
-                        </div>
-                        <div class="card_table_credit">${card.subject4.credits}</div>
-                    </div>
-
-
-                    <div class="row_group" data-area="гуманітарна">
-                        <div class="table_row">
-                            <div class="card_table_subject third_area_bg">
-                                ${card.subject5.title}
-                            </div>
-                            <div class="card_table_credit">${card.subject5.credits}</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="card_table_subject third_area_bg">
-                                ${card.subject6.title}
-                            </div>
-                            <div class="card_table_credit">${card.subject6.credits}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>    
-    `)
-    return cards
+    }
 }
 
 //Vacancies statics

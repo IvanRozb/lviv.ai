@@ -1,7 +1,53 @@
-import {animateNavUnderlines, getCourseCardHTML} from './utils'
+import {animatedBlob, animateNavUnderlines, getCourseCardHTML, setGroupSelectorPosition} from './utils'
 import {isNull} from "url/util";
 import $ from 'jquery'
+import {Fetch} from "./fetch";
+const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 
+//Animate BG
+const bg_cards_section = document.querySelector(".bg_cards_section")
+
+const blob1HTML = animatedBlob(1,100)
+
+bg_cards_section.insertAdjacentHTML("beforeend", blob1HTML)
+
+const bg_teachers_section = document.querySelector(".bg_teachers_section")
+
+const blob2HTML = animatedBlob(2,120)
+
+bg_teachers_section.insertAdjacentHTML("beforeend", blob2HTML)
+
+const bg_programs_section = document.querySelector(".bg_programs_section")
+
+const blob3HTML = animatedBlob(3,120)
+
+bg_programs_section.insertAdjacentHTML("beforeend", blob3HTML)
+
+//Course Card
+const course_card_section =  document.querySelector(".course_cards_section")
+
+setTimeout(async ()=>{
+    const courseCardsPage = await Fetch.getCourseCardsPageAsync("ua")
+
+    document.querySelector(".course_cards_menu")
+        .insertAdjacentHTML("afterend", courseCardsPage)
+
+    setGroupSelectorPosition(userWidth)
+
+    $('.course_cards_container').slick({
+        slidesToShow: 1,
+
+        dots: true,
+        arrows: false
+    })
+
+    document.querySelector(`.teachers_carousel`)
+        .insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
+
+    activateTeacherCarousel();
+}, 0)
+
+//Carousel
 function getActiveIndex(/*string*/indexName){
     let activeIndex = localStorage.getItem(indexName);
     activeIndex = typeof activeIndex === "object"? 1 : activeIndex;
@@ -49,7 +95,7 @@ function activateCarousel() {
             + userWidth * Math.abs((activeIndex - index)/2) * Math.sign(activeIndex-index)).toString()+'px');
 
         localStorage.setItem('about_us_carousel_index', index.toString());
-        $('.slick-list').css('margin', Math.ceil(index/2) !== (carousel[0].childNodes.length-1)/2 ? '0' : '0 -4.7vw');
+        $('.programs_carousel').css('display', Math.ceil(index/2) === ((carousel[0].childNodes.length-1)/2-1) ? 'none' : 'block');
     })
 }
 
@@ -65,18 +111,17 @@ function activateProgramsCarousel(){
     });
 }
 
-const template = getCourseCardHTML()
-document.querySelector(".course_cards_section").insertAdjacentHTML(
-    'beforeend', localStorage.getItem('term1')
-)
+function activateTeacherCarousel() {
+    $(document).ready(function(){
+        const slider = $(".teachers_carousel");
 
-let programs_carousel = $(`.programs_carousel`);
-programs_carousel.css('display', `none`)
-const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
-programs_carousel.css('display', `block`)
-
+        slider.slick({
+            dots: true
+        });
+    });
+}
 animateNavUnderlines();
 activateCarousel();
 activateProgramsCarousel();
 
-// debugger
+
