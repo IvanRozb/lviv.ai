@@ -1,6 +1,7 @@
 import {CardsAnimate} from "./CardsAnimation"
 import {initMap} from "./plugins"
 import {animatedBlob, animateNavUnderlines} from "./utils"
+import {Fetch} from "./fetch"
 
 //Sidebar behavior
 function sidebarLinks(){
@@ -34,17 +35,24 @@ vacancies.insertAdjacentHTML("beforeend", blob3HTML)
 
 //Animate intro lines ["AIS - it's when" block]
 function animateIntroLines(animatedBlock){
-    const introLines = document.querySelectorAll(".ais-info_label")
+    const introLines = document.querySelectorAll(".ais_li")
     let animations = []
 
     introLines.forEach((el,idx) =>{
 
-        animations.push(new CardsAnimate(el, el.childNodes[0], (idx+1)/2))
-        animations[idx].init()
     })
 
 }
-animateIntroLines()
+// animateIntroLines()
+
+// Get jobs info
+setTimeout(async () => {
+    const jobsTableContainer = document.querySelector('.vacancies_statistic')
+    console.log(jobsTableContainer)
+    jobsTableContainer.innerHTML  = await Fetch.getJobsPositions()
+    }
+, 0)
+
 
 
 //Animate sponsors
@@ -61,6 +69,5 @@ animateSponsors()
 window.initMap = initMap;
 
 //On resize functions
-
 animateNavUnderlines();
 

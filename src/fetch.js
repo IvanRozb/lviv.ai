@@ -3,8 +3,49 @@ if (typeof localStorage === "undefined" || localStorage === null) {
     localStorage = new LocalStorage('./scratch');
 }
 
+function /*string*/getNoteBlock(subject, delimiterLength, isFirst){
+    let res_note_block = `<div class="subjects_notes subjects_notes-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">
+                                             <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
+                                             <div class="subjects_content">`;
+    for (const note of subject.notes) {
+        let redactedNote = '';
+        let redStarted = 0;
+        for (let i = 0; i < note.length-delimiterLength; i++) {
+            if(note.substring(i,delimiterLength+i) === '|r|')
+            {
+                if(redStarted === 0) {
+                    redactedNote += `<span class="color_letter_red">`;
+                    redStarted = 1;
+                }
+                else{
+                    redactedNote += `</span>`;
+                    redStarted = 0;
+                }
+                i+=delimiterLength-1;
+            }
+            else
+                redactedNote+=note[i];
+        }
+        redactedNote+=note.substring(note.length-delimiterLength);
+        res_note_block += `<p class="subjects_note">*${redactedNote}</p>`;
+    }
+    res_note_block += `</div></div>`;
+    return res_note_block;
+}
+
+function /*string*/getContainer(containerSelector, container){
+    let result=`<div class="${containerSelector}">`
+    for (const element of container) {
+        result+=element;
+    }
+    result+=`</div>`
+    return result;
+}
+
 export class Fetch {
-    /* Additional methods */
+
+    //Help Functions
+
     static /*string*/#getApplicantExplanations(element){
         let result=`<section class="docs_section applicant_section" style="display: block">
                                             <div class="docs_content">
@@ -93,33 +134,25 @@ export class Fetch {
         result+=`</table></section>`
         return result;
     }
-    static /*string*/#getApplicantTables(element){
+    static /*string*/#getApplicantCompetitiveSubjects(element){
         let result=`<section class="subjects_section applicant_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">Перелік конкурсних предметів</h4>
                                             <div class="subjects_dates">`
-        let flag = 0;
+        let isFirst = 0;
         let images = [];
-        for (const key in element) {
-            const value = element[key];
-            result+=`<p data-link="subjects_image-${key}" class="subjects_date color_letter_red${(flag === 0) ? " active" : ""}">${key}</p>`
-            images.push(`<img class="subjects_image-${key}" src="${value}" alt="table-${key}" style="display: ${(flag === 0) ? "inline-block" : "none"}">`);
-            ++flag;
+        let notes = [];
+        const delimiterLength = '|r|'.length;
+        for (const subject of element) {
+            result+=`<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date color_letter_red${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
+            images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">`);
+            notes.push(getNoteBlock(subject, delimiterLength, isFirst));
+            ++isFirst;
         }
         result+=`</div>`;
-        result+=`<div class="subjects_images">`;
-        for (const image of images) {
-            result+=image;
-        }
-        result+=`</div>`
-        result+=`<div class="subjects_notes">
-                                            <h5 class="subjects_notes_title color_letter_red">Примітки:</h5>
-                                            <div class="subjects_content">
-                                                <p class="subjects_note">*Замість результатів ЗНО з української мови можуть використовуватися результати ЗНО з української мови та літератури.</p>
-                                                <p class="subjects_note">*Вагомий коефіцієнт за успішне закінчення підготовчих курсів в Університеті = 0</p>
-                                                <p class="subjects_note">*Враховуйте значення <span class="color_letter_red">сільського</span> та <span class="color_letter_red">регіонального</span> коефіцієнтів, на які домножується Ваш конкурсний бал.</p>
-                                            </div>
-                                        </div>`
+        result+=getContainer('subjects_images', images);
+        result+=getContainer('subjects_notes_container', notes);
         result+=`</section>`
+
         return result;
     }
     static /*string*/#getEditedFullName(name){
@@ -243,10 +276,41 @@ export class Fetch {
         return courseCard
     }
 
-    /* Main methods */
+
+    static async /*[array, array]*/#getJobsAmounts(jobNames, cities){
+
+        async function getJobAmount(job, city, resArray){
+            await fetch(`https://jobs.dou.ua/vacancies/?search=${job}+${city}`).then(function (response) {
+                return response.text()
+            }).then(function (data) {
+                const index = data.search("<div class=\"b-inner-page-header\">")
+                const jobAmount = parseInt(data.slice(index+41, index+46))
+
+                resArray.push(jobAmount)
+            }).catch(function (err) {
+                console.warn('Something went wrong.', err)
+            })
+        }
+
+        let firstCityJobAmount = []
+        let secondCityJobAmount = []
+
+        for (const jobName of jobNames) {
+
+            await getJobAmount(jobName, cities[0], firstCityJobAmount)
+
+            await getJobAmount(jobName, cities[1], secondCityJobAmount)
+
+        }
+
+        return {firstCity: firstCityJobAmount, secondCity: secondCityJobAmount}
+
+    }
+
+    //Middle layer
+
     static async getApplicantsAsync(language) {
         const item = localStorage.getItem('applicantResult');
-        console.log(item)
         if (item != null)
             return item;
         await localStorage.setItem('applicantResult', await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
@@ -259,6 +323,7 @@ export class Fetch {
             .then(response => response.json())
             .then(data => {
                 let result = '';
+
                 for (const name in data[0]) {
                     const element = data[0][name]
                     switch (name){
@@ -379,4 +444,93 @@ export class Fetch {
     static async getTeachers() {
         return await this.getTeachersAsync('ua');
     }
+
+    //Implementations
+    static async getJobsPositions(){
+        const html = localStorage.getItem('jobsPositionsResult')
+        let insertedDate = localStorage.getItem("jobsPositionsInsertedTime")
+
+        if (html != null && insertedDate != null){
+            insertedDate = new Date(insertedDate)
+            insertedDate.setDate(insertedDate.getDate() + 1)
+
+            //checks if item exists in localStorage more than 1 day
+            if(insertedDate > new Date())
+                return html
+        }
+
+
+        const locations = ["Ukraine", "Lviv"]
+
+        await localStorage.setItem("jobsPositionsResult", await fetch("http://54.93.52.237/aiwebsite/jobNames?language=ua",
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(async data => {
+
+                let jobNames = data.names
+                const jobAmounts = await this.#getJobsAmounts(jobNames, locations)
+
+                return [jobAmounts, jobNames]
+            }).then(([jobAmounts, jobNames]) =>{
+
+                //Convert camel case to normal words
+                jobNames.map((name, idx) => {
+                    for (let i = 0; i < name.length; i++) {
+                        if (name[i] === name[i].toUpperCase() && name[i].match(/[a-z]/i)){
+                            name = [name.slice(0, i), " ", name.slice(i)].join('')
+                            i += 1
+                        }
+                    }
+
+                    jobNames[idx] = name.charAt(0).toUpperCase() + name.slice(1)
+
+                })
+
+                let HTML = `<div class="vacancies_jobs">
+                                    <div class="vacancies_job"></div>`
+                jobNames.forEach(name => {
+                    HTML += `<div class="vacancies_job">${name}</div>`
+                })
+
+                HTML += `</div>
+                         <table class="vacancies_table">
+                            <tr class="vacancies_row">
+                                <th class="vacancies_column">Ukraine</th>`
+
+
+                jobAmounts.firstCity.forEach(amount => {
+                    HTML += `<th class="vacancies_column">${amount}</th>`
+                })
+
+                HTML += `</tr>
+                     <tr class="vacancies_row">
+                         <th class="vacancies_column">Lviv</th>`
+
+                jobAmounts.secondCity.forEach(amount => {
+                    HTML += `<th class="vacancies_column">${amount}</th>`
+                })
+
+                HTML += `</tr>
+                </table>`
+
+
+                return HTML
+            }))
+
+        localStorage.setItem("jobsPositionsInsertedTime", new Date().toJSON())
+
+        return localStorage.getItem('jobsPositionsResult');
+    }
+    static async getJobPositionsAsync(){
+        return await this.getJobsPositions()
+    }
+    static async getApplicantsUA() {
+        return await this.getApplicantsAsync('ua');
+    }
+
 }
