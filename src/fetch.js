@@ -337,7 +337,7 @@ export class Fetch {
                             result+=this.#getApplicantDates(element);
                             break;
                         case "tables":
-                            result+=this.#getApplicantTables(element);
+                            // result+=this.#getApplicantTables(element);
                             break;
                         default:
                             break;
