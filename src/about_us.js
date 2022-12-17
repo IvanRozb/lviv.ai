@@ -41,10 +41,15 @@ setTimeout(async ()=>{
         arrows: false
     })
 
+    /* insert items to carousels */
     document.querySelector(`.teachers_carousel`)
         .insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
+    document.querySelector('.programs_carousel')
+        .insertAdjacentHTML("afterbegin", await Fetch.getUniversities());
 
+    /* activate sub carousels on page */
     activateTeacherCarousel();
+    activateProgramsCarousel();
 }, 0)
 
 //Carousel
@@ -122,6 +127,3 @@ function activateTeacherCarousel() {
 }
 animateNavUnderlines();
 activateCarousel();
-activateProgramsCarousel();
-
-

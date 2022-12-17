@@ -43,9 +43,7 @@ function /*string*/getContainer(containerSelector, container){
 }
 
 export class Fetch {
-
-    //Help Functions
-
+    /* Additional methods */
     static /*string*/#getApplicantExplanations(element){
         let result=`<section class="docs_section applicant_section" style="display: block">
                                             <div class="docs_content">
@@ -152,7 +150,6 @@ export class Fetch {
         result+=getContainer('subjects_images', images);
         result+=getContainer('subjects_notes_container', notes);
         result+=`</section>`
-
         return result;
     }
     static /*string*/#getEditedFullName(name){
@@ -323,7 +320,6 @@ export class Fetch {
             .then(response => response.json())
             .then(data => {
                 let result = '';
-
                 for (const name in data[0]) {
                     const element = data[0][name]
                     switch (name){
@@ -336,8 +332,8 @@ export class Fetch {
                         case "dates":
                             result+=this.#getApplicantDates(element);
                             break;
-                        case "tables":
-                            // result+=this.#getApplicantTables(element);
+                        case "competitiveSubjects":
+                            result+=this.#getApplicantCompetitiveSubjects(element);
                             break;
                         default:
                             break;
@@ -379,8 +375,8 @@ export class Fetch {
                                     <h5 class="teachers_full_name">${this.#getEditedFullName(teacher.fullName)}</h5>
                                     <div class="teachers_position">${teacher.jobPosition}</div>
                                     <div class="teachers_line"></div>
-                                    <p class="teachers_rank">${commaPosition !== 0 ? 
-                        [teacher.degree.slice(0, commaPosition), `<br>`, teacher.degree.slice(commaPosition)].join('') 
+                                    <p class="teachers_rank">${commaPosition !== 0 ?
+                        [teacher.degree.slice(0, commaPosition), `<br>`, teacher.degree.slice(commaPosition)].join('')
                         : teacher.degree}</p>
                             </div>`;
 
@@ -402,6 +398,31 @@ export class Fetch {
                 return result;
             }));
         return localStorage.getItem('teachersResult');
+    }
+    static async getUniversitiesAsync(language) {
+        const item = localStorage.getItem('universitiesResult');
+        if (item != null)
+            return item;
+        await localStorage.setItem('universitiesResult', await fetch(`https://localhost:7159/Universities?language=${language}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                let result = '';
+                for (const university of data) {
+                    result += `<div class="programs_item">
+                        <img src="${university.photo}" class="programs_image" alt="university_photo">
+                        <h6 class="programs_carousel_title">${university.title}</h6>
+                        <p class="programs_country">${university.country}</p>
+                    </div>`;
+                }
+                return result;
+            }));
+        return localStorage.getItem('universitiesResult');
     }
     static async getCourseCardsPageAsync(language){
         //TODO add links to it
@@ -532,5 +553,7 @@ export class Fetch {
     static async getApplicantsUA() {
         return await this.getApplicantsAsync('ua');
     }
-
+    static async getUniversities() {
+        return await this.getUniversitiesAsync('ua');
+    }
 }
