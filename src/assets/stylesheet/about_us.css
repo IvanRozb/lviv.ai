@@ -29,8 +29,6 @@ body{
 }
 
 .slick-slide{
-    opacity: 0.8;
-
     transition: all 400ms linear;
 }
 
@@ -357,6 +355,12 @@ body{
 .programs_carousel .slick-next{
     right: 0;
 }
+.programs_carousel .slick-slide{
+    opacity: 0.8;
+}
+.programs_carousel .slick-current{
+    opacity: 1 !important;
+}
 .programs_underline{
     margin-top: 2.3vh;
 
@@ -469,6 +473,9 @@ body{
 }
 .teachers_carousel .slick-arrow{
     display: none !important;
+}
+.teacher_carousel .slick-slide{
+    opacity: 1 !important;
 }
 
 /* carousel */
