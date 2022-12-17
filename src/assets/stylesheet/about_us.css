@@ -29,8 +29,6 @@ body{
 }
 
 .slick-slide{
-    opacity: 0.8;
-
     transition: all 400ms linear;
 }
 
@@ -100,7 +98,36 @@ body{
 
     transition: 0.28s left linear;
 }
+/*Animated BG*/
+.animated_bg{
+    position: absolute;
+    top: 75.5vh;
+    width: 100vw;
+    height: 100vh;
 
+    z-index: -1;
+    filter: blur(60px);
+
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}
+#blob1{
+    position: relative;
+    top: 30vh;
+    left: -10vw;
+}
+
+#blob2{
+    position: relative;
+    top: 30vh;
+    left: -10vw;
+}
+
+#blob3{
+    position: relative;
+    top: 50vh;
+    left: 40vw;
+}
 /*Course Cards css*/
 .course_cards_menu{
     display: flex;
@@ -110,13 +137,6 @@ body{
     margin-left: 2vw;
     height: 20vh;
 }
-.course_cards_container{
-    display: flex;
-    gap: 1vw;
-
-    margin: 0 auto;
-    width: 96vw;
-}
 .course_card{
     width: 47vw;
     height: 50vh;
@@ -124,11 +144,56 @@ body{
     border: 1px solid var(--white);
 
     padding: 4vh 12vw 8vh 1.5vw;
+
+    background: rgba(0,0,0, 0.8);
 }
 
 .course_card_term{
     font-weight: 300;
 }
+.term_group{
+    display: flex;
+    gap: 1vw;
+
+    margin: 0 auto;
+    width: 96vw;
+}
+
+/*Slick default dots redesign*/
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem 0;
+
+    list-style-type: none;
+}
+
+.slick-dots li {
+    margin: 0 0.25rem;
+}
+
+.slick-dots button {
+    display: block;
+    --size: 0.8rem;
+    width:var(--size);
+    height: var(--size);
+    padding: 0;
+
+    border: none;
+    border-radius: 100%;
+    background-color: var(--white);
+
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+.slick-dots li.slick-active button {
+    background-color: var(--peachy)
+}
+/*END of redesign slick dots*/
+
+
 /*Course Card Table*/
 .course_card_table{
 
@@ -150,7 +215,7 @@ body{
     text-align: left;
 }
 
-.course_card_table  .table_row > *{  /*be carefull this thing overrides all inside styles */
+.course_card_table .table_row > *{  /*be carefull this thing overrides all inside styles */
     height: 100%;
     display : flex;
     align-items : center;
@@ -163,6 +228,7 @@ body{
 
 .card_table_subject{
     padding-left: .8vw;
+    cursor: pointer;
 }
 
 .card_table_credit{
@@ -187,15 +253,17 @@ body{
 .row_group{
     position: relative;
 }
-.row_group::before{
+.group_selector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    right: -6vw;
-    top: 3.2vh;
 
     content: attr(data-area);
     transform: rotate(90deg);
+    transform-origin: top left;
 
-    padding: 1vw .7vh 1.2vw .7vh;
+    /*padding: 1vw .7vh 1.2vw .7vh;*/
     border-color: var(--white);
     border-style: solid;
     border-width: 1px 1px 0 1px;
@@ -228,12 +296,7 @@ body{
     height: 100%;
 }
 
-.teachers_section{
-    width: 500px;
-    height: 500px;
-    background-color: indigo;
-}
-
+/* Programs section */
 .programs_container{
     margin-left: 8vw;
 }
@@ -295,6 +358,12 @@ body{
 .programs_carousel .slick-next{
     right: 0;
 }
+.programs_carousel .slick-slide{
+    opacity: 0.8;
+}
+.programs_carousel .slick-current{
+    opacity: 1 !important;
+}
 .programs_underline{
     margin-top: 2.3vh;
 
@@ -347,6 +416,69 @@ body{
 .programs_link{
     text-decoration: white;
     text-underline-mode: line;
+}
+
+/* Teachers section */
+.teachers_carousel{
+    width: 100%;
+}
+.teachers_item{
+    margin: 13vh 2vw 0;
+    min-width: 0;
+}
+.teachers_row{
+    display: flex;
+    justify-content: center;
+
+    margin: 0 5vw;
+}
+.teachers_row-second{
+    margin-top: 5vh;
+}
+.teachers_column{
+    width: 25%;
+
+    text-align: center;
+}
+.teachers_photo{
+    width: 15vw;
+    height: auto;
+
+    border-radius: 50%;
+}
+.teachers_full_name{
+    margin-top: 3vh;
+
+    font-weight: 400;
+    letter-spacing: 0.06em;
+}
+.teachers_position{
+    margin-top: 0.8vh;
+
+    color: var(--transparent-white);
+    letter-spacing: 0.07em;
+
+    font-size: var(--small-size);
+}
+.teachers_line{
+    margin: 1.3vh auto 0;
+
+    width: 90%;
+    height: 1px;
+
+    background-color: #ffffff;
+}
+.teachers_rank{
+    margin-top: 3vh;
+
+    font-size: var(--small-size);
+    line-height: 24px;
+}
+.teachers_carousel .slick-arrow{
+    display: none !important;
+}
+.teacher_carousel .slick-slide{
+    opacity: 1 !important;
 }
 
 /* carousel */
