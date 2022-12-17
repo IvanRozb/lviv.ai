@@ -118,13 +118,15 @@ body{
 }
 
 #blob2{
-    /*position: relative;*/
-    /*top: 30vh;*/
-    /*left: -10vw;*/
+    position: relative;
+    top: 30vh;
+    left: -10vw;
 }
 
 #blob3{
-
+    position: relative;
+    top: 50vh;
+    left: 40vw;
 }
 /*Course Cards css*/
 .course_cards_menu{
@@ -226,6 +228,7 @@ body{
 
 .card_table_subject{
     padding-left: .8vw;
+    cursor: pointer;
 }
 
 .card_table_credit{

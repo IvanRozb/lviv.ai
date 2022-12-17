@@ -11,6 +11,49 @@ let blobsShapes = [
     "M402,264Q307,278,325.5,323Q344,368,321.5,416Q299,464,263,407Q227,350,206.5,340.5Q186,331,134.5,331Q83,331,113,290.5Q143,250,91.5,199.5Q40,149,119,167Q198,185,196,96Q194,7,246,22.5Q298,38,322,84Q346,130,410.5,136Q475,142,486,196Q497,250,402,264Z",
     "M351.5,277.5Q364,305,362.5,347Q361,389,318.5,375.5Q276,362,251,359.5Q226,357,194,359Q162,361,111.5,351Q61,341,50.5,295.5Q40,250,83.5,220.5Q127,191,136,154.5Q145,118,186.5,135Q228,152,261.5,102Q295,52,315,98Q335,144,397,147Q459,150,399,200Q339,250,351.5,277.5Z"
 ]
+export function animatedBlob(n, width){
+    shuffle(blobsShapes)
+    return`
+        <div class="blob_bg" style=" width: ${width}vw; left: 0vw; top:0vh;">
+            <div id="blob${n}" >
+            <svg viewBox="0 0 800 500" preserveAspectRatio="none"
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="100%" class="blobSvg">
+                <path fill="#E92828" id="path">
+                    <animate attributeName="d" dur="25000ms" repeatCount="indefinite"
+                    values="
+                        ${blobsShapes[0]};
+                        ${blobsShapes[1]};
+                        ${blobsShapes[2]};
+                        ${blobsShapes[3]};
+                        ${blobsShapes[0]};"
+                    ></animate>
+                </path>
+            </svg>
+            </div>
+    </div>
+    `
+}
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+
+//Side navbar
 export function animateNavUnderlines(){
     const navbar = document.querySelector(`.nav`);
     const underlines = document.querySelectorAll(`.nav_underline`);
@@ -40,48 +83,6 @@ export function animateNavUnderlines(){
         })
     });
 }
-export function animatedBlob(n, width){
-    shuffle(blobsShapes)
-    return`
-        <div class="blob_bg" style=" width: ${width}vw; left: 0vw; top:0vh;">
-            <div id="blob${n}" >
-            <svg viewBox="0 0 800 500" preserveAspectRatio="none"
-                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 width="100%" class="blobSvg">
-                <path fill="#E92828" id="path">
-                    <animate attributeName="d" dur="25000ms" repeatCount="indefinite"
-                    values="
-                        ${blobsShapes[0]};
-                        ${blobsShapes[1]};
-                        ${blobsShapes[2]};
-                        ${blobsShapes[3]};
-                        ${blobsShapes[0]};"
-                    ></animate>
-                </path>
-            </svg>
-            </div>
-    </div>
-    `
-}
-
-function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-
-        // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-    }
-
-    return array;
-}
-
 //Course card help function
 export function setGroupSelectorPosition(userWidth){
     let groups = document.querySelectorAll('.row_group');
@@ -104,4 +105,34 @@ export function setGroupSelectorPosition(userWidth){
             'top': -borderSize/2 - (groupRect.height * 0.1)/2
         });
     }
+}
+
+//Vacancies statics
+export  function vacanciesHTML(){
+    return `<div class="vacancies_jobs">
+                    <div class="vacancies_job"></div>
+                    <div class="vacancies_job">Java Developer</div>
+                    <div class="vacancies_job">Data Science</div>
+                    <div class="vacancies_job">Python Developer</div>
+                    <div class="vacancies_job">Big Data</div>
+                    <div class="vacancies_job">C++ Developer</div>
+                </div>
+                <table class="vacancies_table">
+                    <tr class="vacancies_row">
+                        <th class="vacancies_column">Україна</th>
+                        <th class="vacancies_column">531</th>
+                        <th class="vacancies_column">143</th>
+                        <th class="vacancies_column">339</th>
+                        <th class="vacancies_column">90</th>
+                        <th class="vacancies_column">193</th>
+                    </tr>
+                    <tr class="vacancies_row">
+                        <th class="vacancies_column">Львів</th>
+                        <th class="vacancies_column">133</th>
+                        <th class="vacancies_column">26</th>
+                        <th class="vacancies_column">69</th>
+                        <th class="vacancies_column">28</th>
+                        <th class="vacancies_column">32</th>
+                    </tr>
+                </table>`
 }
