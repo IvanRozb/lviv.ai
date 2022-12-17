@@ -175,7 +175,8 @@ export class Fetch {
 
                 if(subjects.length === 1){
                     termHTML += `<div class="table_row single_row" data-area="${area}">
-                                    <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}">
+                                    <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
+                                         onclick="location.href='${subjects[0].link}';">
                                        ${subjects[0].title}
                                     </div>
                                     <div class="card_table_credit">${subjects[0].credits}</div>
@@ -185,7 +186,8 @@ export class Fetch {
 
                     subjects.forEach(subject => {
                         termHTML += `<div class="table_row">
-                                        <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}">
+                                        <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
+                                             onclick="location.href='${subject.link}';">
                                             ${subject.title}
                                         </div>
                                         <div class="card_table_credit">${subject.credits}</div>
