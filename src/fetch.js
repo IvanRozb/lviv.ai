@@ -364,7 +364,6 @@ export class Fetch {
         return localStorage.getItem('universitiesResult');
     }
     static async getCourseCardsPageAsync(language){
-        //TODO add links to it
         const page = localStorage.getItem("courseCardsPage")
         if(page) {
             return page
@@ -380,6 +379,7 @@ export class Fetch {
                     return response.json()
                 })
                 .then((data) => {
+                    let navHTML = ``
                     let HTML = `<div class="course_cards_container">`
 
                     for (let i = 1; i <= 8; i += 2) {

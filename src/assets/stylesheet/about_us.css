@@ -130,13 +130,40 @@ body{
 }
 /*Course Cards css*/
 .course_cards_menu{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1.5vh;
+    --gap: 2vw;
+
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+
     margin-left: 2vw;
-    height: 20vh;
+    margin-top: 5vh;
+
+    height: 18vh;
+    width: 35vw;
 }
+
+.cards_menu_titles{
+    display: grid;
+    align-items: center;
+}
+.cards_menu_nav{
+    display: grid;
+}
+.degree_nav{
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--gap);
+    align-items: center;
+}
+.year_nav{
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--gap);
+}
+.degree_btn{
+    cursor: pointer;
+}
+
 .course_card{
     width: 47vw;
     height: 50vh;
