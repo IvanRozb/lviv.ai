@@ -342,7 +342,7 @@ export class Fetch {
         const item = localStorage.getItem('universitiesResult');
         if (item != null)
             return item;
-        await localStorage.setItem('universitiesResult', await fetch(`https://localhost:7159/Universities?language=${language}`,
+        await localStorage.setItem('universitiesResult', await fetch(`http://54.93.52.237/aiwebsite/Universities?language=${language}`,
             {
                 method: 'GET',
                 headers: {
@@ -369,7 +369,7 @@ export class Fetch {
         if(page) {
             return page
         }else{
-            localStorage.setItem("courseCardsPage", await fetch(`https://localhost:7159/CourseCards?language=ua`,
+            localStorage.setItem("courseCardsPage", await fetch(`http://54.93.52.237/aiwebsite/CourseCards?language=ua`,
                 {
                     method: 'GET',
                     headers: {
