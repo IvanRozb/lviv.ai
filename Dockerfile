@@ -14,6 +14,9 @@ FROM nginx:alpine
 
 WORKDIR /usr/share/nginx/html
 
+EXPOSE 443
+EXPOSE 80
+
 RUN rm -rf *
 
 COPY --from=builder /app/dist .

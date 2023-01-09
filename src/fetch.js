@@ -333,7 +333,7 @@ export class Fetch {
         if (item != null)
             return item;
 
-        localStorage.setItem(itemName, await fetch(`http://54.93.52.237/aiwebsite/Applicants?language=${language}`,
+        localStorage.setItem(itemName, await fetch(`https://aidept.com.ua/aiwebsite/Applicants?language=${language}`,
             {
                 method: 'GET',
                 headers: {
@@ -376,7 +376,7 @@ export class Fetch {
         const item = localStorage.getItem('teachersResult');
         if (item != null)
             return item;
-        await localStorage.setItem('teachersResult', await fetch(`http://54.93.52.237/aiwebsite/Employees?language=${language}`,
+        await localStorage.setItem('teachersResult', await fetch(`https://aidept.com.ua/aiwebsite/Employees?language=${language}`,
             {
                 method: 'GET',
                 headers: {
@@ -431,7 +431,7 @@ export class Fetch {
         const item = localStorage.getItem('universitiesResult');
         if (item != null)
             return item;
-        await localStorage.setItem('universitiesResult', await fetch(`http://54.93.52.237/aiwebsite/Universities?language=${language}`,
+        await localStorage.setItem('universitiesResult', await fetch(`https://aidept.com.ua/aiwebsite/Universities?language=${language}`,
             {
                 method: 'GET',
                 headers: {
@@ -458,7 +458,7 @@ export class Fetch {
         if(page) {
             return page
         }else{
-            localStorage.setItem("courseCardsPage", await fetch(`http://54.93.52.237/aiwebsite/CourseCards?language=ua`,
+            localStorage.setItem("courseCardsPage", await fetch(`https://aidept.com.ua/aiwebsite/CourseCards?language=ua`,
                 {
                     method: 'GET',
                     headers: {
@@ -512,7 +512,7 @@ export class Fetch {
 
         const locations = ["Ukraine", "Lviv"]
 
-        await localStorage.setItem("jobsPositionsResult", await fetch("http://54.93.52.237/aiwebsite/jobNames?language=ua",
+        await localStorage.setItem("jobsPositionsResult", await fetch("https://aidept.com.ua/aiwebsite/jobNames?language=ua",
             {
                 method: 'GET',
                 headers: {
