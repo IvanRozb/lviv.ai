@@ -16,27 +16,6 @@ body{
     left: 0;
 }
 
-.slick-list {
-    margin: 0 -4.7vw;
-    overflow: hidden;
-}
-
-.slick-track{
-    position: relative;
-    display: flex;
-    justify-content: start;
-    margin: 8vh 0 7vh 0;
-}
-
-.slick-slide{
-    transition: all 400ms linear;
-}
-
-.slick-center{
-    opacity: 1;
-    transform: scale(1.3);
-}
-
 .navigation_section{
     margin-top: 10vh;
 }
@@ -101,7 +80,7 @@ body{
 /*Animated BG*/
 .animated_bg{
     position: absolute;
-    top: 75.5vh;
+    top: -15.5vh;
     width: 100vw;
     height: 100vh;
 
@@ -186,7 +165,7 @@ body{
     width: 96vw;
 }
 
-/*Slick default dots redesign*/
+/*!*Slick default dots redesign*!*/
 .slick-dots {
     display: flex;
     justify-content: center;
@@ -221,7 +200,7 @@ body{
 /*END of redesign slick dots*/
 
 
-/*Course Card Table*/
+/*!*Course Card Table*!*/
 .course_card_table{
 
     font-size: var(--small-size);
@@ -294,6 +273,8 @@ body{
     border-color: var(--white);
     border-style: solid;
     border-width: 1px 1px 0 1px;
+
+    font-size: 0.9vw;
 }
 .single_row{
     position: relative;
@@ -323,7 +304,7 @@ body{
     height: 100%;
 }
 
-/* Programs section */
+/*!* Programs section *!*/
 .programs_container{
     margin-left: 8vw;
 }
@@ -334,19 +315,48 @@ body{
     max-width: 54vw;
 }
 .programs_carousel{
-    margin-left: -8vw;
+    margin-left: -5vw;
+    margin-top: 8vh;
     position: relative;
 }
+.programs_carousel_wrap{
+    margin-left: -8vw;
+
+    width: 100vw;
+    overflow: hidden !important;
+}
+.programs_carousel .slick-list {
+    margin: 0 -4.7vw;
+    overflow: visible !important;
+}
+
+.programs_carousel .slick-track{
+    display: flex;
+    margin: auto;
+}
+
+.programs_carousel .slick-slide{
+    width: 100vw;
+    transition: all 400ms linear;
+}
+
+.programs_carousel .slick-center{
+    opacity: 1;
+    transform: scale(1.3);
+}
+
 .programs_item{
     position: relative;
 
     width: 17vw;
     text-align: center;
 }
+
 .programs_image{
     width: 17vw;
     filter: brightness(0.45) contrast(1.2);
 }
+
 .programs_carousel_title{
     width: 14vw;
     font-weight: 300;
@@ -360,6 +370,7 @@ body{
 
     transform: translate(-50%, -60%);
 }
+
 .programs_country{
     margin-top: 3vh;
 }
@@ -433,7 +444,7 @@ body{
     text-underline-mode: line;
 }
 
-/* Teachers section */
+/*!* Teachers section *!*/
 .teachers_carousel{
     width: 100%;
 }
@@ -457,11 +468,17 @@ body{
 }
 .teachers_photo{
     width: 15vw;
-    height: auto;
+    height: 15vw;
+
+    object-fit: cover;
 
     border-radius: 50%;
 }
 .teachers_full_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin-top: 3vh;
 
     font-weight: 400;
@@ -474,6 +491,11 @@ body{
     letter-spacing: 0.07em;
 
     font-size: var(--small-size);
+
+    height: 3.14vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .teachers_line{
     margin: 1.3vh auto 0;
@@ -484,10 +506,15 @@ body{
     background-color: #ffffff;
 }
 .teachers_rank{
-    margin-top: 3vh;
+    margin-top: 2vh;
 
     font-size: var(--small-size);
     line-height: 24px;
+
+    height: 4.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .teachers_carousel .slick-arrow{
     display: none !important;
@@ -495,17 +522,40 @@ body{
 .teacher_carousel .slick-slide{
     opacity: 1 !important;
 }
-
-/* carousel */
-.carousel{
-    display: flex;
-    flex-direction: row;
-    width: 300vw;
-
-    transition: 0.28s margin-left;
+.teacher_carousel .slick-active button{
+    display: none;
 }
 
-.carousel_item{
+/*!* carousel *!*/
+.carousel{
     width: 100vw;
+}
+.carousel_item{
     margin-bottom: 37vh;
+}
+.carousel .slick-list {
+    overflow: hidden;
+}
+.carousel .slick-track{
+    display: flex;
+}
+.slick-arrow{
+    display: none !important;
+}
+.carousel > .slick-dots{
+    position: absolute;
+    top: 0;
+
+    padding: 0;
+}
+.carousel > .slick-dots li{
+    position: absolute;
+    margin: 0;
+
+    z-index: 1;
+    cursor: pointer;
+}
+.carousel > .slick-dots button{
+    background: transparent;
+    border-radius: 0;
 }

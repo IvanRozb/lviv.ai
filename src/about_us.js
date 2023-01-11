@@ -1,7 +1,90 @@
-import {animatedBlob, animateNavUnderlines, getCourseCardHTML, setGroupSelectorPosition} from './utils'
-import {isNull} from "url/util";
+import {animatedBlob, animateNavUnderlines, setGroupSelectorPosition} from './utils'
 import $ from 'jquery'
 import {Fetch} from "./fetch";
+
+function moveUnderline(targetNavElement, underlineWidth){
+    const rect = targetNavElement.getBoundingClientRect();
+    $('.navigation_underline').css('left', rect.x + rect.width/2 - underlineWidth/2);
+}
+
+function activateCarousel() {
+    $(document).ready(function (){
+        const slider = $(".carousel");
+
+        slider.slick({
+            speed: 500,
+            dots: true,
+            infinite: false,
+            adaptiveHeight: true
+        });
+    })
+}
+
+function activateTeacherCarousel() {
+    $(document).ready(function(){
+        const slider = $(".teachers_carousel");
+
+        slider.slick({
+            dots: true
+        });
+    });
+}
+
+function activateProgramsCarousel(){
+    $(document).ready(function(){
+        const slider = $(".programs_carousel");
+
+        slider.slick({
+            centerMode: true,
+            centerPadding: 5,
+            speed: 500,
+            slidesToShow: 5
+        });
+    });
+}
+
+function setTeachersRowFullNameHeight() {
+    let rows = document.querySelectorAll(`.teachers_row`)
+    let rowIndex = 1
+    rows.forEach(row => {
+        let max_name_height = -Infinity
+        row.childNodes.forEach(column => {
+            column.childNodes.forEach(element => {
+                if(element.classList ? element.classList.contains('teachers_full_name') : false){
+                    max_name_height = Math.max(element.getBoundingClientRect().height,max_name_height)
+                }
+            })
+        })
+
+        row.classList.add(row.classList[0]+'-' + rowIndex.toString())
+        $('.teachers_row-' + rowIndex.toString() + ' > .teachers_column > .teachers_full_name').css('height', max_name_height)
+        rowIndex++
+    })
+}
+
+function setProgramsCarouselWrapper(){
+    const itemHeight = $('.programs_item').height()
+    const coefficient = 1.3
+    const delta = itemHeight * (coefficient - 1) / 2
+
+    $('.programs_carousel_wrap').css({'height': itemHeight + 2 * delta + 30/*,'margin-top': -(itemHeight + delta)*/})
+}
+
+function setNavigationButtons(){
+    const buttons = document.getElementsByClassName('navigation_button')
+    let dots = document.querySelectorAll('.carousel > .slick-dots > li')
+    for (let i = 0; i < buttons.length; i++) {
+        const buttonRect = buttons[i].getBoundingClientRect();
+        dots[i].classList.add('navigation_element-' + (i+1).toString())
+        $('.navigation_element-' + (i+1).toString()).css({
+            top:buttonRect.y,
+            left:buttonRect.x,
+            width:buttonRect.width,
+            height:buttonRect.height
+        })
+    }
+}
+
 const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 
 //Animate BG
@@ -41,89 +124,29 @@ setTimeout(async ()=>{
         arrows: false
     })
 
-    /* insert items to carousels */
     document.querySelector(`.teachers_carousel`)
         .insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
-    document.querySelector('.programs_carousel')
-        .insertAdjacentHTML("afterbegin", await Fetch.getUniversities());
-
-    /* activate sub carousels on page */
     activateTeacherCarousel();
-    activateProgramsCarousel();
+
+    setTeachersRowFullNameHeight();
 }, 0)
 
-//Carousel
-function getActiveIndex(/*string*/indexName){
-    let activeIndex = localStorage.getItem(indexName);
-    activeIndex = typeof activeIndex === "object"? 1 : activeIndex;
-    return Number(activeIndex);
-}
+setTimeout(async ()=>{
+    document.querySelector('.programs_carousel')
+        .insertAdjacentHTML("afterbegin", await Fetch.getUniversities());
+    activateProgramsCarousel();
 
-function getTargetCarouselItem(e){
-    if(e.target.tagName === 'P' || e.target.tagName === 'IMG')
-        return e.target.parentElement.parentElement;
-    else if(e.target.tagName === 'BUTTON')
-        return e.target.parentElement;
-    else
-        return null;
-}
+    setProgramsCarouselWrapper();
+    setNavigationButtons();
 
-function moveUnderline(targetNavElement, underlineWidth){
-    const rect = targetNavElement.getBoundingClientRect();
-    $('.navigation_underline').css('left', rect.x + rect.width/2 - underlineWidth/2);
-}
-
-function activateCarousel() {
-    let activeIndex = getActiveIndex('about_us_carousel_index');
-    localStorage.setItem('about_us_carousel_index', activeIndex);
-
-    const carouselNavbar = document.querySelector(`.navigation_buttons`);
-    const rect = carouselNavbar.childNodes[activeIndex].getBoundingClientRect();
-    const underlineWidth = document.getElementsByClassName(`navigation_underline`)[0].getBoundingClientRect().width;
-    const carousel = $('.carousel');
-
-    $(`.navigation_underline`).css('left',Number((rect.left + rect.right)/2)
-        - underlineWidth/2);
-    $(`.carousel`).css('margin-left', -(Math.floor(activeIndex/2))*userWidth);
+    const underlineWidth = $('.navigation_underline').width();
+    const carouselNavbar = document.querySelector(`.carousel > .slick-dots`);
+    moveUnderline($('.navigation_element-1')[0], underlineWidth)
 
     carouselNavbar.addEventListener("click", e => {
-        let activeIndex = getActiveIndex('about_us_carousel_index');
-
-        let targetNavElement = getTargetCarouselItem(e);
-        if(isNull(targetNavElement))
-            return;
-
-        moveUnderline(targetNavElement, underlineWidth);
-
-        const index = Array.from(carouselNavbar.childNodes).indexOf(targetNavElement);
-        carousel.css('margin-left', (Number(document.defaultView.getComputedStyle(carousel[0]).marginLeft.split('p')[0])
-            + userWidth * Math.abs((activeIndex - index)/2) * Math.sign(activeIndex-index)).toString()+'px');
-
-        localStorage.setItem('about_us_carousel_index', index.toString());
-        $('.programs_carousel').css('display', Math.ceil(index/2) === ((carousel[0].childNodes.length-1)/2-1) ? 'none' : 'block');
+        moveUnderline(e.target, underlineWidth)
     })
-}
+}, 0)
 
-function activateProgramsCarousel(){
-    $(document).ready(function(){
-        const slider = $(".programs_carousel");
-
-        slider.slick({
-            centerMode: true,
-            speed: 500,
-            slidesToShow: 5
-        });
-    });
-}
-
-function activateTeacherCarousel() {
-    $(document).ready(function(){
-        const slider = $(".teachers_carousel");
-
-        slider.slick({
-            dots: true
-        });
-    });
-}
 animateNavUnderlines();
 activateCarousel();
