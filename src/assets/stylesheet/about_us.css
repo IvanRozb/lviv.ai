@@ -315,7 +315,7 @@ body{
     max-width: 54vw;
 }
 .programs_carousel{
-    margin-left: -5vw;
+    margin-left: -3vw;
     margin-top: 8vh;
     position: relative;
 }
@@ -531,7 +531,7 @@ body{
     width: 100vw;
 }
 .carousel_item{
-    margin-bottom: 37vh;
+    /*margin-bottom: 37vh;*/
 }
 .carousel .slick-list {
     overflow: hidden;

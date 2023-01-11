@@ -15,7 +15,9 @@ function activateCarousel() {
             speed: 500,
             dots: true,
             infinite: false,
-            adaptiveHeight: true
+            adaptiveHeight: true,
+            waitForAnimate: false,
+            draggable: false
         });
     })
 }
@@ -85,6 +87,16 @@ function setNavigationButtons(){
     }
 }
 
+function underlineMoving(){
+    const underlineWidth = $('.navigation_underline').width();
+    const carouselNavbar = document.querySelector(`.carousel > .slick-dots`);
+    moveUnderline($('.navigation_element-1')[0], underlineWidth)
+
+    carouselNavbar.addEventListener("click", e => {
+        moveUnderline(e.target, underlineWidth)
+    })
+}
+
 const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 
 //Animate BG
@@ -138,15 +150,10 @@ setTimeout(async ()=>{
 
     setProgramsCarouselWrapper();
     setNavigationButtons();
+    underlineMoving()
+}, 100)
 
-    const underlineWidth = $('.navigation_underline').width();
-    const carouselNavbar = document.querySelector(`.carousel > .slick-dots`);
-    moveUnderline($('.navigation_element-1')[0], underlineWidth)
-
-    carouselNavbar.addEventListener("click", e => {
-        moveUnderline(e.target, underlineWidth)
-    })
-}, 0)
+// setTimeout(underlineMoving, 1000)
 
 animateNavUnderlines();
 activateCarousel();
