@@ -1,6 +1,7 @@
-import {animatedBlob, animateNavUnderlines, setGroupSelectorPosition} from './utils'
 import $ from 'jquery'
 import {Fetch} from "./fetch";
+import {animatedBlob, animateNavUnderlines, setGroupSelectorPosition} from './utils'
+
 
 function moveUnderline(targetNavElement, underlineWidth){
     const rect = targetNavElement.getBoundingClientRect();
