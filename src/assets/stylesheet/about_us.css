@@ -526,20 +526,6 @@ body{
 .slick-arrow{
     display: none !important;
 }
-.carousel > .slick-dots{
-    position: absolute;
-    top: 0;
-
-    padding: 0;
-}
-.carousel > .slick-dots li{
-    position: absolute;
-    margin: 0;
-
-    z-index: 1;
-    cursor: pointer;
-}
-.carousel > .slick-dots button{
-    background: transparent;
-    border-radius: 0;
+.carousel > .slick-dots {
+    display: none !important;
 }

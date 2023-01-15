@@ -2,14 +2,8 @@ const timeOut = 300
 
 function setNavigationButtons(){
     const buttons = document.getElementsByClassName('navigation_button')
-    let dots = document.querySelectorAll('.carousel > .slick-dots > li')
 
     for (let i = 0; i < buttons.length; i++) {
-        if(dots[i] === undefined){
-            setTimeout(setNavigationButtons, timeOut);
-            break;
-        }
-        dots[i].classList.add('navigation_element-' + (i+1).toString())
         let element = $('.navigation_element-' + (i+1).toString())
         const buttonRect = buttons[i].getBoundingClientRect();
         element.css({
@@ -33,8 +27,8 @@ function underlineMoving(){
     // add event for clicking at nav elements
     for (let i = 0; i < 3; i++) {
         setTimeout(()=>{
-            const a = document.querySelector('.navigation_element-' + (i+1).toString())
-            a.addEventListener("click", (e) => {
+            const element = document.querySelector('.navigation_element-' + (i+1).toString())
+            element.addEventListener("click", (e) => {
                 moveUnderline(e.target, underlineWidth)
             })
         }, timeOut)
@@ -44,6 +38,7 @@ function underlineMoving(){
 function moveUnderline(targetNavElement, underlineWidth){
     const rect = targetNavElement.getBoundingClientRect();
     $('.navigation_underline').css('left', rect.x + rect.width/2 - underlineWidth/2);
+    return 0;
 }
 function navUnderlineMovement(){
     setNavigationButtons();

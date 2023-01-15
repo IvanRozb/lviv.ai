@@ -16,6 +16,13 @@ function activateCarousel() {
             waitForAnimate: false,
             draggable: false
         });
+
+        const buttons = document.getElementsByClassName('navigation_button')
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.add('navigation_element-' + (i + 1).toString())
+            const element = $('.navigation_element-' + (i+1).toString())
+            element.click(()=>slider.slick('slickGoTo',i))
+        }
     })
 }
 
