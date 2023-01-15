@@ -2,8 +2,6 @@ import $ from 'jquery'
 import {Fetch} from "./fetch";
 import {animatedBlob, animateNavUnderlines, setGroupSelectorPosition} from './utils'
 
-
-
 function activateCarousel() {
     $(document).ready(function (){
         const slider = $(".carousel");
@@ -45,7 +43,8 @@ function activateProgramsCarousel(){
             centerPadding: 5,
             speed: 500,
             slidesToShow: 5,
-            draggable: false
+            draggable: false,
+            lazyLoad: true
         });
 
         const track = document.querySelector('.programs_carousel .slick-track')
@@ -79,14 +78,13 @@ function setTeachersRowFullNameHeight() {
 }
 
 function setProgramsCarouselWrapper(){
-    const itemHeight = $('.programs_item').height()
-    const coefficient = 1.3
-    const delta = itemHeight * (coefficient - 1) / 2
-
-    $('.programs_carousel_wrap').css({'height': itemHeight + 2 * delta + 30/*,'margin-top': -(itemHeight + delta)*/})
+    const coefficient = 0.34
+    const itemHeight = userWidth*coefficient
+    $('.programs_carousel_wrap').css({'height': itemHeight})
 }
 
-const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
+const userWidth = $(document).innerWidth();
+const userHeight = window.innerHeight;
 
 //Animate BG
 const bg_cards_section = document.querySelector(".bg_cards_section")
