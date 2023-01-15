@@ -3,10 +3,6 @@ import {Fetch} from "./fetch";
 import {animatedBlob, animateNavUnderlines, setGroupSelectorPosition} from './utils'
 
 
-function moveUnderline(targetNavElement, underlineWidth){
-    const rect = targetNavElement.getBoundingClientRect();
-    $('.navigation_underline').css('left', rect.x + rect.width/2 - underlineWidth/2);
-}
 
 function activateCarousel() {
     $(document).ready(function (){
@@ -73,31 +69,6 @@ function setProgramsCarouselWrapper(){
     $('.programs_carousel_wrap').css({'height': itemHeight + 2 * delta + 30/*,'margin-top': -(itemHeight + delta)*/})
 }
 
-function setNavigationButtons(){
-    const buttons = document.getElementsByClassName('navigation_button')
-    let dots = document.querySelectorAll('.carousel > .slick-dots > li')
-    for (let i = 0; i < buttons.length; i++) {
-        const buttonRect = buttons[i].getBoundingClientRect();
-        dots[i].classList.add('navigation_element-' + (i+1).toString())
-        $('.navigation_element-' + (i+1).toString()).css({
-            top:buttonRect.y,
-            left:buttonRect.x,
-            width:buttonRect.width,
-            height:buttonRect.height
-        })
-    }
-}
-
-function underlineMoving(){
-    const underlineWidth = $('.navigation_underline').width();
-    const carouselNavbar = document.querySelector(`.carousel > .slick-dots`);
-    moveUnderline($('.navigation_element-1')[0], underlineWidth)
-
-    carouselNavbar.addEventListener("click", e => {
-        moveUnderline(e.target, underlineWidth)
-    })
-}
-
 const userWidth = ($(document).innerWidth())/document.querySelectorAll('.carousel_item').length;
 
 //Animate BG
@@ -142,19 +113,11 @@ setTimeout(async ()=>{
     activateTeacherCarousel();
 
     setTeachersRowFullNameHeight();
-}, 0)
-
-setTimeout(async ()=>{
     document.querySelector('.programs_carousel')
         .insertAdjacentHTML("afterbegin", await Fetch.getUniversities());
     activateProgramsCarousel();
-
     setProgramsCarouselWrapper();
-    setNavigationButtons();
-    underlineMoving()
-}, 100)
-
-// setTimeout(underlineMoving, 1000)
+}, 0)
 
 animateNavUnderlines();
 activateCarousel();
