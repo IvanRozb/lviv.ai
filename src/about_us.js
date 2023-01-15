@@ -44,7 +44,8 @@ function activateProgramsCarousel(){
             centerMode: true,
             centerPadding: 5,
             speed: 500,
-            slidesToShow: 5
+            slidesToShow: 5,
+            draggable: false
         });
 
         const track = document.querySelector('.programs_carousel .slick-track')

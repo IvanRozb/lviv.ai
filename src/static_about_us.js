@@ -19,19 +19,15 @@ function setNavigationButtons(){
 function underlineMoving(){
     // set default underline position
     const underlineWidth = $('.navigation_underline').width();
-    setTimeout(()=>{
-        const firstItem = document.querySelector('.navigation_element-1');
-        moveUnderline(firstItem, underlineWidth)
-    }, timeOut)
+    const firstItem = document.querySelector('.navigation_element-1');
+    moveUnderline(firstItem, underlineWidth)
 
     // add event for clicking at nav elements
     for (let i = 0; i < 3; i++) {
-        setTimeout(()=>{
-            const element = document.querySelector('.navigation_element-' + (i+1).toString())
-            element.addEventListener("click", (e) => {
-                moveUnderline(e.target, underlineWidth)
-            })
-        }, timeOut)
+        const element = document.querySelector('.navigation_element-' + (i+1).toString())
+        element.addEventListener("click", (e) => {
+            moveUnderline(e.target, underlineWidth)
+        })
     }
 }
 
