@@ -19,7 +19,8 @@ function setNavigationButtons(){
 function underlineMoving(){
     // set default underline position
     const underlineWidth = $('.navigation_underline').width();
-    const firstItem = document.querySelector('.navigation_element-1');
+    const firstItem = document.querySelector('.navigation_element-'
+        + ((Number($('.carousel > .slick-list > .slick-track > .slick-active')[0].dataset['slickIndex']))+1).toString());
     moveUnderline(firstItem, underlineWidth)
 
     // add event for clicking at nav elements
