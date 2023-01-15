@@ -39,6 +39,15 @@ function activateProgramsCarousel(){
             speed: 500,
             slidesToShow: 5
         });
+
+        const track = document.querySelector('.programs_carousel .slick-track')
+        track.addEventListener('click', (e) => {
+            let targetElement=e.target
+            if(e.target.tagName !== 'DIV')
+                targetElement = e.target.parentNode
+
+            slider.slick('slickGoTo',(targetElement.dataset['slickIndex']))
+        })
     });
 }
 

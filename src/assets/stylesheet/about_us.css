@@ -350,6 +350,8 @@ body{
 
     width: 17vw;
     text-align: center;
+
+    cursor: pointer;
 }
 
 .programs_image{
@@ -376,25 +378,7 @@ body{
 }
 
 .programs_carousel .slick-arrow{
-    display: block !important;
-
-    height: 100%;
-    width: 17vw;
-
-    position: absolute !important;
-    top: 100%;
-    transform: translateY(-100%);
-
-    font-size: 0;
-    z-index: 100;
-
-    cursor: pointer;
-}
-.programs_carousel .slick-prev{
-    left: 0;
-}
-.programs_carousel .slick-next{
-    right: 0;
+    display: none;
 }
 .programs_carousel .slick-slide{
     opacity: 0.8;
