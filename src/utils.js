@@ -1,6 +1,6 @@
 
 //Animated BG utils
-import $ from "jquery";
+import $ from "jquery"
 
 let blobsShapes = [
     "M410.5,280Q374,310,370.5,353Q367,396,326,399.5Q285,403,248.5,410Q212,417,189.5,385.5Q167,354,181.5,315Q196,276,139,263Q82,250,94,215.5Q106,181,131.5,157Q157,133,194,150.5Q231,168,250.5,165Q270,162,295.5,161.5Q321,161,361.5,169Q402,177,424.5,213.5Q447,250,410.5,280Z",
@@ -35,78 +35,78 @@ export function animatedBlob(n, width){
     `
 }
 function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length,  randomIndex
 
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
 
         // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex--
 
         // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
+            array[randomIndex], array[currentIndex]]
     }
 
-    return array;
+    return array
 }
 
 
 //Side navbar
 export function animateNavUnderlines(){
-    const navbar = document.querySelector(`.nav`);
-    const underlines = document.querySelectorAll(`.nav_underline`);
-    const items = document.querySelectorAll(`.nav > .nav_item`);
+    const navbar = document.querySelector(`.nav`)
+    const underlines = document.querySelectorAll(`.nav_underline`)
+    const items = document.querySelectorAll(`.nav > .nav_item`)
     items.forEach((item)=>{
         item.addEventListener('mouseenter', () => {
             item.childNodes.forEach(item => {
                 if(item.className === 'nav_underline')
-                    item.style.backgroundColor = 'var(--peachy)';
-            });
-        });
+                    item.style.backgroundColor = 'var(--peachy)'
+            })
+        })
         item.addEventListener('mouseleave', () => {
             item.childNodes.forEach(item => {
                 if(item.className === 'nav_underline')
-                    item.style.backgroundColor = 'transparent';
-            });
-        });
-    });
+                    item.style.backgroundColor = 'transparent'
+            })
+        })
+    })
     navbar.addEventListener('mouseenter', () => {
         underlines.forEach((underline) => {
-            underline.style.backgroundColor = 'transparent';
-        });
-    });
+            underline.style.backgroundColor = 'transparent'
+        })
+    })
     navbar.addEventListener('mouseleave', () => {
         underlines.forEach((underline) => {
             if(underline.parentNode.classList.contains('active')) underline.style.backgroundColor = 'var(--peachy)'
         })
-    });
+    })
 }
 //Course card help function
 export function setGroupSelectorPosition(userWidth){
-    let groups = document.querySelectorAll('.row_group');
+    let groups = document.querySelectorAll('.row_group')
 
     /* need to get styles */
-    const gapWidth = 0.01*userWidth; /*for additional left margin*/
+    const gapWidth = 0.01*userWidth /*for additional left margin*/
     console.log(gapWidth)
     for (let i = 0; i < groups.length; i++) {
-        let groupRect = groups[i].getBoundingClientRect();
-        let group_name = groups[i].getAttribute('data-area');
+        let groupRect = groups[i].getBoundingClientRect()
+        let group_name = groups[i].getAttribute('data-area')
         groups[i].insertAdjacentHTML('afterbegin',
             `<div class="group_selector group_selector-${i}">${group_name}</div>`
-        );
+        )
 
-        const group = $(`.group_selector-${i}`);
+        const group = $(`.group_selector-${i}`)
 
         group.css({
             'width': ((groups[i].childNodes.length-1) * 6.75).toString()+'vh',
             'height' : '3.125vw',
             'left': '111%'
-        });
+        })
         group.css({
             'top': ((groupRect.height-group.width())/2/groupRect.height*100).toString()+'%'
-        });
+        })
     }
 }
 

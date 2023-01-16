@@ -1,10 +1,10 @@
 import $ from 'jquery'
-import {Fetch} from "./fetch";
+import {Fetch} from "./fetch"
 import {animatedBlob, animateNavUnderlines, setGroupSelectorPosition} from './utils'
 
 function activateCarousel() {
     $(document).ready(function (){
-        const slider = $(".carousel");
+        const slider = $(".carousel")
 
         slider.slick({
             speed: 500,
@@ -13,22 +13,22 @@ function activateCarousel() {
             adaptiveHeight: true,
             waitForAnimate: false,
             draggable: false
-        });
+        })
 
         const buttons = document.getElementsByClassName('navigation_button')
-        let max_image_height = -1;
-        const y_offset = 2;
+        let max_image_height = -1
+        const y_offset = 2
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.add('navigation_element-' + (i + 1).toString())
             const element = $('.navigation_element-' + (i+1).toString())
             element.click(()=>slider.slick('slickGoTo',i))
 
             const images = $('.navigation_element-' + (i+1).toString() + ' img')
-            const styles = window.getComputedStyle(images[0]);
+            const styles = window.getComputedStyle(images[0])
             setTimeout(() => {
                 max_image_height = Math.max(max_image_height, (Number(styles.width.split('px')[0]) / userWidth * 100))
-                let x_offset = (userWidth <= 1460) ? 2 : (userWidth <= 1000) ? 3 : 0;
-                const imgWidth = (Number(styles.width.split('px')[0]) / userWidth * 100 - x_offset);
+                let x_offset = (userWidth <= 1460) ? 2 : (userWidth <= 1000) ? 3 : 0
+                const imgWidth = (Number(styles.width.split('px')[0]) / userWidth * 100 - x_offset)
                 images.css({'width': imgWidth.toString() + 'vw'})
             }, timeOut)
         }
@@ -44,17 +44,17 @@ function activateCarousel() {
 
 function activateTeacherCarousel() {
     $(document).ready(function(){
-        const slider = $(".teachers_carousel");
+        const slider = $(".teachers_carousel")
 
         slider.slick({
             dots: true
-        });
-    });
+        })
+    })
 }
 
 function activateProgramsCarousel(){
     $(document).ready(function(){
-        const slider = $(".programs_carousel");
+        const slider = $(".programs_carousel")
 
         slider.slick({
             centerMode: true,
@@ -63,7 +63,7 @@ function activateProgramsCarousel(){
             slidesToShow: 5,
             draggable: false,
             lazyLoad: true
-        });
+        })
 
         const track = document.querySelector('.programs_carousel .slick-track')
         track.addEventListener('click', (e) => {
@@ -73,7 +73,7 @@ function activateProgramsCarousel(){
 
             slider.slick('slickGoTo',(targetElement.dataset['slickIndex']))
         })
-    });
+    })
 }
 
 function setTeachersRowFullNameHeight() {
@@ -101,7 +101,7 @@ function setProgramsCarouselWrapper(){
     $('.programs_carousel_wrap').css({'height': itemHeight})
 }
 
-const userWidth = $(document).innerWidth();
+const userWidth = $(document).innerWidth()
 
 //Animate BG
 const bg_cards_section = document.querySelector(".bg_cards_section")
@@ -125,7 +125,7 @@ bg_programs_section.insertAdjacentHTML("beforeend", blob3HTML)
 //Course Card
 const course_card_section = document.querySelector(".course_cards_section")
 
-const timeOut = 300;
+const timeOut = 300
 
 setTimeout(async ()=>{
     const courseCardsPage = await Fetch.getCourseCardsPageAsync("ua")
@@ -143,15 +143,15 @@ setTimeout(async ()=>{
     })
 
     document.querySelector(`.teachers_carousel`)
-        .insertAdjacentHTML('afterbegin', await Fetch.getTeachers());
-    activateTeacherCarousel();
+        .insertAdjacentHTML('afterbegin', await Fetch.getTeachers())
+    activateTeacherCarousel()
 
-    setTeachersRowFullNameHeight();
+    setTeachersRowFullNameHeight()
     document.querySelector('.programs_carousel')
-        .insertAdjacentHTML("afterbegin", await Fetch.getUniversities());
-    activateProgramsCarousel();
-    setProgramsCarouselWrapper();
+        .insertAdjacentHTML("afterbegin", await Fetch.getUniversities())
+    activateProgramsCarousel()
+    setProgramsCarouselWrapper()
 }, 0)
 
-animateNavUnderlines();
-activateCarousel();
+animateNavUnderlines()
+activateCarousel()

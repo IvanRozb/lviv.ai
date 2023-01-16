@@ -1,6 +1,6 @@
 if (typeof localStorage === "undefined" || localStorage === null) {
-    let LocalStorage = require('node-localstorage').LocalStorage;
-    localStorage = new LocalStorage('./scratch');
+    let LocalStorage = require('node-localstorage').LocalStorage
+    localStorage = new LocalStorage('./scratch')
 }
 
 
@@ -16,9 +16,9 @@ export class Fetch {
                                                 ${headerText}
                                                 </h4>`
         for (const explanation of element) {
-            result += `<div class="docs_box">`;
-            result += "<p class=\"docs_list_title\">"+explanation.title+"</p>";
-            result += `<ul class="docs_list">`;
+            result += `<div class="docs_box">`
+            result += "<p class=\"docs_list_title\">"+explanation.title+"</p>"
+            result += `<ul class="docs_list">`
             for (const item of explanation.items) {
                 result += "<li class=\"docs_list_items\"><h6 class=\"docs_list_text\">"+item+"</h6></li>"
             }
@@ -32,7 +32,7 @@ export class Fetch {
         }
         result+=`</div>
                                     </section>`
-        return result;
+        return result
     }
     static /*string*/#getApplicantEducationCosts(element, headerText, language){
         let payColumnsText, payLinkText
@@ -56,7 +56,7 @@ export class Fetch {
                                     <div class="pay_column">${payColumnsText[1]}</div>
                                     <div class="pay_column">${payColumnsText[2]}</div>
                                 </div>
-                                    <table class="pay_table">`;
+                                    <table class="pay_table">`
         for (const row of element) {
             result+=`<tr class="pay_table_row">
                                     <th class="pay_table_value ">${row.degree}</th>
@@ -73,20 +73,20 @@ export class Fetch {
                                             </p>
                                         </div>`
         result+=`</section>`
-        return result;
+        return result
     }
     static /*string*/#getApplicantDates(element, headerText){
         let result=`<section class="calendar_section applicant_section" style="display: none">
                                             <h4 class="clnd-maintitle applicant_title">${headerText}</h4>
-                                            <table class = "clnd-maintable" >`;
-        let j = 0;
-        let len = Object.keys(element).length;
+                                            <table class = "clnd-maintable" >`
+        let j = 0
+        let len = Object.keys(element).length
         for (const key in element) {
 
-            const value = element[key];
+            const value = element[key]
             result+=`<tr class="clnd-row">`
             if(++j !== len)
-                result+=`<td class="clnd-row-cont">`;
+                result+=`<td class="clnd-row-cont">`
             else
                 result+=`<td class="clnd-row-cont clnd-row-cont-bottom">`
             result+=`
@@ -97,11 +97,11 @@ export class Fetch {
             let valueCopy = ''
             for (let i = 0; i < value.length; i++) {
                 if(value[i] === '«')
-                    valueCopy+=`<span class ="color_letter_red">`;
+                    valueCopy+=`<span class ="color_letter_red">`
                 else if(value[i] === '»')
                     valueCopy+=`</span>`
                 else
-                    valueCopy+=value[i];
+                    valueCopy+=value[i]
             }
             result+=`
                                                         <p class="clnd-row-text">${valueCopy}</p>
@@ -110,80 +110,80 @@ export class Fetch {
                                             </tr>`
         }
         result+=`</table></section>`
-        return result;
+        return result
     }
     static /*string*/#getApplicantCompetitiveSubjects(element, headerText, language){
         function /*string*/getNoteBlock(subject, delimiterLength, isFirst, headerText){
             let res_note_block = `<div class="subjects_notes subjects_notes-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">
                                              <h5 class="subjects_notes_title color_letter_red">${headerText}</h5>
-                                             <div class="subjects_content">`;
+                                             <div class="subjects_content">`
             for (const note of subject.notes) {
-                let redactedNote = '';
-                let redStarted = 0;
+                let redactedNote = ''
+                let redStarted = 0
                 for (let i = 0; i < note.length-delimiterLength; i++) {
                     if(note.substring(i,delimiterLength+i) === '|r|')
                     {
                         if(redStarted === 0) {
-                            redactedNote += `<span class="color_letter_red">`;
-                            redStarted = 1;
+                            redactedNote += `<span class="color_letter_red">`
+                            redStarted = 1
                         }
                         else{
-                            redactedNote += `</span>`;
-                            redStarted = 0;
+                            redactedNote += `</span>`
+                            redStarted = 0
                         }
-                        i+=delimiterLength-1;
+                        i+=delimiterLength-1
                     }
                     else
-                        redactedNote+=note[i];
+                        redactedNote+=note[i]
                 }
-                redactedNote+=note.substring(note.length-delimiterLength);
-                res_note_block += `<p class="subjects_note">*${redactedNote}</p>`;
+                redactedNote+=note.substring(note.length-delimiterLength)
+                res_note_block += `<p class="subjects_note">*${redactedNote}</p>`
             }
-            res_note_block += `</div></div>`;
-            return res_note_block;
+            res_note_block += `</div></div>`
+            return res_note_block
         }
         function /*string*/getContainer(containerSelector, container){
             let result=`<div class="${containerSelector}">`
             for (const element of container) {
-                result+=element;
+                result+=element
             }
             result+=`</div>`
-            return result;
+            return result
         }
 
         const notesHeader = language === "ua" ? "Примітки:" : "Notes:"
         let result=`<section class="subjects_section applicant_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">${headerText}</h4>
                                             <div class="subjects_dates">`
-        let isFirst = 0;
-        let images = [];
-        let notes = [];
-        const delimiterLength = '|r|'.length;
+        let isFirst = 0
+        let images = []
+        let notes = []
+        const delimiterLength = '|r|'.length
         for (const subject of element) {
             result+=`<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date ${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
-            images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">`);
-            notes.push(getNoteBlock(subject, delimiterLength, isFirst, notesHeader));
-            ++isFirst;
+            images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">`)
+            notes.push(getNoteBlock(subject, delimiterLength, isFirst, notesHeader))
+            ++isFirst
         }
-        result+=`</div>`;
-        result+=getContainer('subjects_images', images);
-        result+=getContainer('subjects_notes_container', notes);
+        result+=`</div>`
+        result+=getContainer('subjects_images', images)
+        result+=getContainer('subjects_notes_container', notes)
         result+=`</section>`
 
-        return result;
+        return result
     }
     static /*string*/#getEditedFullName(name){
-        let initials = name.split(' ');
-        return (initials[0]?initials[0] + `<br>`: '') + (initials[1]?initials[1] +' ':'')+(initials[2]?initials[2]:'');
+        let initials = name.split(' ')
+        return (initials[0]?initials[0] + `<br>`: '') + (initials[1]?initials[1] +' ':'')+(initials[2]?initials[2]:'')
     }
     static /*string*/#getDegreeComaIndex(degree){
-        let index = 0;
+        let index = 0
         for (const character of degree) {
             if(character === ',')
-                return index;
-            ++index;
+                return index
+            ++index
         }
-        return -1;
+        return -1
     }
     //About Us
     static /*string*/#getAboutUsCourseCard(term1, term2, termCounter){
@@ -329,9 +329,9 @@ export class Fetch {
     static async getApplicantsAsync(language) {
         let itemName = (language === "ua") ? "applicantResultUA" : "applicantResultEN"
 
-        const item = localStorage.getItem(itemName);
+        const item = localStorage.getItem(itemName)
         if (item != null)
-            return item;
+            return item
 
         localStorage.setItem(itemName, await fetch(`https://aidept.com.ua/aiwebsite/Applicants?language=${language}`,
             {
@@ -343,39 +343,39 @@ export class Fetch {
             .then(response => response.json())
             .then(data => {
                 const headers = document.querySelector(".sidebar_list").children
-                let result = '';
+                let result = ''
 
-                    for (const name in data[0]) {
-                        const element = data[0][name]
-                        switch (name){
-                            case "explanations":
-                                result+=this.#getApplicantExplanations(element, headers[0].textContent);
-                                break;
-                            case "dates":
-                                result+=this.#getApplicantDates(element, headers[1].textContent, language);
-                                break;
-                            case "competitiveSubjects":
-                                result+=this.#getApplicantCompetitiveSubjects(element, headers[2].textContent, language);
-                                break;
-                            case "educationCosts":
-                                result+=this.#getApplicantEducationCosts(element, headers[3].textContent, language);
-                                break;
-                            default:
-                                break;
-                        }
-
+                for (const name in data[0]) {
+                    const element = data[0][name]
+                    switch (name){
+                        case "explanations":
+                            result+=this.#getApplicantExplanations(element, headers[0].textContent)
+                            break
+                        case "dates":
+                            result+=this.#getApplicantDates(element, headers[1].textContent, language)
+                            break
+                        case "competitiveSubjects":
+                            result+=this.#getApplicantCompetitiveSubjects(element, headers[2].textContent, language)
+                            break
+                        case "educationCosts":
+                            result+=this.#getApplicantEducationCosts(element, headers[3].textContent, language)
+                            break
+                        default:
+                            break
                     }
 
+                }
 
-                return result + `<img class="logo" src="assets/img/logo.svg" alt="logo">`;
+
+                return result + `<img class="logo" src="https://bit.ly/3WeWrpK" alt="logo">`
             }))
-        return localStorage.getItem(itemName);
+        return localStorage.getItem(itemName)
     }
 
     static async getTeachersAsync(language) {
-        const item = localStorage.getItem('teachersResult');
+        const item = localStorage.getItem('teachersResult')
         if (item != null)
-            return item;
+            return item
         await localStorage.setItem('teachersResult', await fetch(`https://aidept.com.ua/aiwebsite/Employees?language=${language}`,
             {
                 method: 'GET',
@@ -385,53 +385,53 @@ export class Fetch {
             })
             .then(response => response.json())
             .then(data => {
-                const rowAmount = 4, itemAmount = rowAmount*2;
+                const rowAmount = 4, itemAmount = rowAmount*2
 
-                let result = '';
-                let amount = 0;
-                let isSecondRow = false;
+                let result = ''
+                let amount = 0
+                let isSecondRow = false
                 for (const teacher of data) {
                     if(amount%itemAmount === 0) {
-                        result += `<div class="teachers_item">`;
+                        result += `<div class="teachers_item">`
                     }
                     if(amount%rowAmount === 0){
-                        result += `<div class="teachers_row${isSecondRow?' teachers_row-second':''}">`;
+                        result += `<div class="teachers_row${isSecondRow?' teachers_row-second':''}">`
                     }
-                    const commaPosition = this.#getDegreeComaIndex(teacher.degree) + 1;
+                    const commaPosition = this.#getDegreeComaIndex(teacher.degree) + 1
                     const defaultPhotoUrl = "https://i2.wp.com/pescariusports.ro/wp-content/uploads/2018/09/male-avatar.png?ssl=1"
                     result += `<div class="teachers_column">
                                 <img class="teachers_photo" src="${teacher.photoUrl === "" ? defaultPhotoUrl : teacher.photoUrl}" alt="teacher">
                                     <h5 class="teachers_full_name">${this.#getEditedFullName(teacher.fullName)}</h5>
                                     <div class="teachers_position">${teacher.jobPosition}</div>
                                     <div class="teachers_line"></div>
-                                    <p class="teachers_rank">${commaPosition !== 0 ? 
-                        [teacher.degree.slice(0, commaPosition), `<br>`, teacher.degree.slice(commaPosition)].join('') 
+                                    <p class="teachers_rank">${commaPosition !== 0 ?
+                        [teacher.degree.slice(0, commaPosition), `<br>`, teacher.degree.slice(commaPosition)].join('')
                         : teacher.degree}</p>
-                            </div>`;
+                            </div>`
 
-                    amount++;
+                    amount++
                     if(amount%4===0){
-                        isSecondRow = !isSecondRow;
-                        result += `</div>`;
+                        isSecondRow = !isSecondRow
+                        result += `</div>`
                     }
                     if(amount > itemAmount - 1){
-                        amount = 0;
-                        result += `</div>`;
+                        amount = 0
+                        result += `</div>`
                     }
                 }
                 if(amount !== 0){
                     if(amount % rowAmount === 0)
-                        result += `</div>`;
+                        result += `</div>`
                     result += `</div>`
                 }
-                return result;
-            }));
-        return localStorage.getItem('teachersResult');
+                return result
+            }))
+        return localStorage.getItem('teachersResult')
     }
     static async getUniversitiesAsync(language) {
-        const item = localStorage.getItem('universitiesResult');
+        const item = localStorage.getItem('universitiesResult')
         if (item != null)
-            return item;
+            return item
         await localStorage.setItem('universitiesResult', await fetch(`https://aidept.com.ua/aiwebsite/Universities?language=${language}`,
             {
                 method: 'GET',
@@ -441,17 +441,17 @@ export class Fetch {
             })
             .then(response => response.json())
             .then(data => {
-                let result = '';
+                let result = ''
                 for (const university of data) {
                     result += `<div class="programs_item">
                         <img src="${university.photo}" class="programs_image" alt="university_photo">
                         <h6 class="programs_carousel_title">${university.title}</h6>
                         <p class="programs_country">${university.country}</p>
-                    </div>`;
+                    </div>`
                 }
-                return result;
-            }));
-        return localStorage.getItem('universitiesResult');
+                return result
+            }))
+        return localStorage.getItem('universitiesResult')
     }
     static async getCourseCardsPageAsync(language){
         //TODO add links to it
@@ -489,10 +489,10 @@ export class Fetch {
     }
     /* Async main methods */
     static async getApplicants() {
-        return await this.getApplicantsAsync('ua');
+        return await this.getApplicantsAsync('ua')
     }
     static async getTeachers() {
-        return await this.getTeachersAsync('ua');
+        return await this.getTeachersAsync('ua')
     }
 
     //Implementations
@@ -575,7 +575,7 @@ export class Fetch {
 
         localStorage.setItem("jobsPositionsInsertedTime", new Date().toJSON())
 
-        return localStorage.getItem('jobsPositionsResult');
+        return localStorage.getItem('jobsPositionsResult')
     }
 
     //Implementations
@@ -583,12 +583,12 @@ export class Fetch {
         return await this.getJobsPositions()
     }
     static async getApplicantsUA() {
-        return await this.getApplicantsAsync('ua');
+        return await this.getApplicantsAsync('ua')
     }
     static async getApplicantsEN() {
-        return await this.getApplicantsAsync('en');
+        return await this.getApplicantsAsync('en')
     }
     static async getUniversities() {
-        return await this.getUniversitiesAsync('ua');
+        return await this.getUniversitiesAsync('ua')
     }
 }

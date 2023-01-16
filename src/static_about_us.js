@@ -12,10 +12,10 @@ function setNavigationButtons(){
 
 function underlineMoving(){
     // set default underline position
-    const underlineWidth = $('.navigation_underline').width();
+    const underlineWidth = $('.navigation_underline').width()
     setTimeout(() => {
         const firstItem = document.querySelector('.navigation_element-'
-            + ((Number($('.carousel > .slick-list > .slick-track > .slick-active')[0].dataset['slickIndex'])) + 1).toString());
+            + ((Number($('.carousel > .slick-list > .slick-track > .slick-active')[0].dataset['slickIndex'])) + 1).toString())
         moveUnderline(firstItem, underlineWidth)
     }, timeOut)
 
@@ -31,12 +31,12 @@ function underlineMoving(){
 }
 
 function moveUnderline(targetNavElement){
-    const rect = targetNavElement.getBoundingClientRect();
-    const coordinates = rect.x + rect.width/2 - $('.nav_underline').width()/2;
-    $('.navigation_underline').css('left', (coordinates/window.innerWidth*100).toString()+'vw');
-    return 0;
+    const rect = targetNavElement.getBoundingClientRect()
+    const coordinates = rect.x + rect.width/2 - $('.nav_underline').width()/2
+    $('.navigation_underline').css('left', (coordinates/window.innerWidth*100).toString()+'vw')
+    return 0
 }
 function navUnderlineMovement(){
-    setNavigationButtons();
-    underlineMoving();
+    setNavigationButtons()
+    underlineMoving()
 }

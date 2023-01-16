@@ -65,8 +65,8 @@ function animateSponsors(){
 animateSponsors()
 
 //Set google maps
-window.initMap = initMap;
+window.initMap = initMap
 
 //On resize functions
-animateNavUnderlines();
+animateNavUnderlines()
 
