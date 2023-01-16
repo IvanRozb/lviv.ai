@@ -14,7 +14,7 @@ let blobsShapes = [
 export function animatedBlob(n, width){
     shuffle(blobsShapes)
     return`
-        <div class="blob_bg" style=" width: ${width}vw; left: 0vw; top:0vh;">
+        <div class="blob_bg" style=" width: ${width}vw; left: 0; top:0;">
             <div id="blob${n}" >
             <svg viewBox="0 0 800 500" preserveAspectRatio="none"
                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -59,25 +59,25 @@ export function animateNavUnderlines(){
     const underlines = document.querySelectorAll(`.nav_underline`);
     const items = document.querySelectorAll(`.nav > .nav_item`);
     items.forEach((item)=>{
-        item.addEventListener('mouseenter', e => {
+        item.addEventListener('mouseenter', () => {
             item.childNodes.forEach(item => {
                 if(item.className === 'nav_underline')
                     item.style.backgroundColor = 'var(--peachy)';
             });
         });
-        item.addEventListener('mouseleave', e => {
+        item.addEventListener('mouseleave', () => {
             item.childNodes.forEach(item => {
                 if(item.className === 'nav_underline')
                     item.style.backgroundColor = 'transparent';
             });
         });
     });
-    navbar.addEventListener('mouseenter', e => {
+    navbar.addEventListener('mouseenter', () => {
         underlines.forEach((underline) => {
             underline.style.backgroundColor = 'transparent';
         });
     });
-    navbar.addEventListener('mouseleave', e => {
+    navbar.addEventListener('mouseleave', () => {
         underlines.forEach((underline) => {
             if(underline.parentNode.classList.contains('active')) underline.style.backgroundColor = 'var(--peachy)'
         })
@@ -88,7 +88,6 @@ export function setGroupSelectorPosition(userWidth){
     let groups = document.querySelectorAll('.row_group');
 
     /* need to get styles */
-    const borderSize = 1; /*for aligning in center*/
     const gapWidth = 0.01*userWidth; /*for additional left margin*/
     console.log(gapWidth)
     for (let i = 0; i < groups.length; i++) {
@@ -98,11 +97,15 @@ export function setGroupSelectorPosition(userWidth){
             `<div class="group_selector group_selector-${i}">${group_name}</div>`
         );
 
-        $(`.group_selector-${i}`).css({
-            'width': groupRect.height - borderSize/2 + groupRect.height * 0.1,
-            'height' : '60px',
-            'left': groupRect.width + 60 + gapWidth,
-            'top': -borderSize/2 - (groupRect.height * 0.1)/2
+        const group = $(`.group_selector-${i}`);
+
+        group.css({
+            'width': ((groups[i].childNodes.length-1) * 6.75).toString()+'vh',
+            'height' : '3.125vw',
+            'left': '111%'
+        });
+        group.css({
+            'top': ((groupRect.height-group.width())/2/groupRect.height*100).toString()+'%'
         });
     }
 }

@@ -16,11 +16,29 @@ function activateCarousel() {
         });
 
         const buttons = document.getElementsByClassName('navigation_button')
+        let max_image_height = -1;
+        const y_offset = 2;
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.add('navigation_element-' + (i + 1).toString())
             const element = $('.navigation_element-' + (i+1).toString())
             element.click(()=>slider.slick('slickGoTo',i))
+
+            const images = $('.navigation_element-' + (i+1).toString() + ' img')
+            const styles = window.getComputedStyle(images[0]);
+            setTimeout(() => {
+                max_image_height = Math.max(max_image_height, (Number(styles.width.split('px')[0]) / userWidth * 100))
+                let x_offset = (userWidth <= 1460) ? 2 : (userWidth <= 1000) ? 3 : 0;
+                const imgWidth = (Number(styles.width.split('px')[0]) / userWidth * 100 - x_offset);
+                images.css({'width': imgWidth.toString() + 'vw'})
+            }, timeOut)
         }
+        max_image_height+=y_offset
+        const iconWrappers = $('.navigation_icon_wrapper')
+        setTimeout(() => {
+            iconWrappers.css({
+                'height': (max_image_height/100*window.innerHeight/16).toString() + 'rem'
+            })
+        }, timeOut)
     })
 }
 
@@ -84,7 +102,6 @@ function setProgramsCarouselWrapper(){
 }
 
 const userWidth = $(document).innerWidth();
-const userHeight = window.innerHeight;
 
 //Animate BG
 const bg_cards_section = document.querySelector(".bg_cards_section")
@@ -106,7 +123,9 @@ const blob3HTML = animatedBlob(3,120)
 bg_programs_section.insertAdjacentHTML("beforeend", blob3HTML)
 
 //Course Card
-const course_card_section =  document.querySelector(".course_cards_section")
+const course_card_section = document.querySelector(".course_cards_section")
+
+const timeOut = 300;
 
 setTimeout(async ()=>{
     const courseCardsPage = await Fetch.getCourseCardsPageAsync("ua")

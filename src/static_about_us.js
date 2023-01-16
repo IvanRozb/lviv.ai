@@ -5,36 +5,35 @@ function setNavigationButtons(){
 
     for (let i = 0; i < buttons.length; i++) {
         let element = $('.navigation_element-' + (i+1).toString())
-        const buttonRect = buttons[i].getBoundingClientRect();
-        element.css({
-            top:buttonRect.top,
-            left:buttonRect.left,
-            width:buttonRect.width,
-            height:buttonRect.height
-        })
-        element.click(moveUnderline(document.querySelector('.navigation_element-' + (i+1).toString()), 150))
+        setTimeout(()=>element.click(moveUnderline(document.querySelector('.navigation_element-' + (i+1).toString()))),
+            timeOut)
     }
 }
 
 function underlineMoving(){
     // set default underline position
     const underlineWidth = $('.navigation_underline').width();
-    const firstItem = document.querySelector('.navigation_element-'
-        + ((Number($('.carousel > .slick-list > .slick-track > .slick-active')[0].dataset['slickIndex']))+1).toString());
-    moveUnderline(firstItem, underlineWidth)
+    setTimeout(() => {
+        const firstItem = document.querySelector('.navigation_element-'
+            + ((Number($('.carousel > .slick-list > .slick-track > .slick-active')[0].dataset['slickIndex'])) + 1).toString());
+        moveUnderline(firstItem, underlineWidth)
+    }, timeOut)
 
     // add event for clicking at nav elements
     for (let i = 0; i < 3; i++) {
-        const element = document.querySelector('.navigation_element-' + (i+1).toString())
-        element.addEventListener("click", (e) => {
-            moveUnderline(e.target, underlineWidth)
-        })
+        setTimeout(() => {
+            const element = document.querySelector('.navigation_element-' + (i+1).toString())
+            element.addEventListener("click", (e) => {
+                moveUnderline(e.target, underlineWidth)
+            })
+        },timeOut)
     }
 }
 
-function moveUnderline(targetNavElement, underlineWidth){
+function moveUnderline(targetNavElement){
     const rect = targetNavElement.getBoundingClientRect();
-    $('.navigation_underline').css('left', rect.x + rect.width/2 - underlineWidth/2);
+    const coordinates = rect.x + rect.width/2 - $('.nav_underline').width()/2;
+    $('.navigation_underline').css('left', (coordinates/window.innerWidth*100).toString()+'vw');
     return 0;
 }
 function navUnderlineMovement(){
