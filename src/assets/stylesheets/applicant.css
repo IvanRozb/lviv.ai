@@ -30,7 +30,7 @@
     margin-top: 1vh;
     width: 10vw;
     height: 0.2vh;
-    background-image: url("../img/line_bakalavrat.svg");
+    background-image: url("../images/line_bakalavrat.svg");
     background-repeat: no-repeat;
     background-size: 10vw 0.2vh;
 }
@@ -80,7 +80,7 @@
 .docs_maintitle{
     margin-bottom:8.3vh ;
     margin-left: 10vw;
-   /* border-image: url("../img/line_main_shcho.svg");*/
+   /* border-image: url("../images/line_main_shcho.svg");*/
 }
 .docs_list_title{
     color: var(--peachy);

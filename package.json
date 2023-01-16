@@ -2,11 +2,11 @@
   "name": "from-git",
   "version": "1.0.0",
   "description": "Don't move.. *BOOM* ...eh whatever",
-  "source": "src/index.html",
+  "source": "src/pages/ua/index.html",
   "scripts": {
-    "dev": "(parcel ./src/index.html) & parcel watch ./src/index.html",
-    "test_build": "parcel build ./src/index.html --no-optimize",
-    "build": "parcel build ./src/index.html"
+    "dev": "(parcel ./src/pages/ua/index.html) & parcel watch src/pages/ua/index.html",
+    "test_build": "parcel build src/pages/ua/index.html --no-optimize",
+    "build": "parcel build src/pages/ua/index.html"
   },
   "repository": {
     "type": "git",
