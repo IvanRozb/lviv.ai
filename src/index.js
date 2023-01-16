@@ -33,18 +33,6 @@ const vacancies = document.querySelector(".vacancies")
 const blob3HTML = animatedBlob(3,90)
 vacancies.insertAdjacentHTML("beforeend", blob3HTML)
 
-//Animate intro lines ["AIS - it's when" block]
-function animateIntroLines(animatedBlock){
-    const introLines = document.querySelectorAll(".ais_li")
-    let animations = []
-
-    introLines.forEach((el,idx) =>{
-
-    })
-
-}
-// animateIntroLines()
-
 // Get jobs info
 setTimeout(async () => {
     const jobsTableContainer = document.querySelector('.vacancies_statistic')
