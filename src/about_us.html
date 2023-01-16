@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/stylesheet/header.css">
     <link rel="stylesheet" href="assets/stylesheet/about_us.css">
 </head>
-<body>
+<body onload="navUnderlineMovement()">
     <header class="header" id="header">
     <nav class="nav">
         <div class="nav_item">
@@ -49,19 +49,25 @@
             <ul class="navigation_buttons">
                 <li class="navigation_item">
                     <button class="navigation_button">
-                        <img src="./assets/img/course_card_icon.svg" alt="course_card_icon">
+                        <span class="navigation_icon_wrapper">
+                            <img src="./assets/img/course_card_icon.svg" alt="course_card_icon">
+                        </span>
                         <span>карта курсів</span>
                     </button>
                 </li>
                 <li class="navigation_item">
                     <button class="navigation_button">
-                        <img src="./assets/img/staff_icon.svg" alt="staff_icon">
+                        <span class="navigation_icon_wrapper">
+                            <img src="./assets/img/staff_icon.svg" alt="staff_icon">
+                        </span>
                         <span>про викладачів</span>
                     </button>
                 </li>
                 <li class="navigation_item">
                     <button class="navigation_button">
-                        <img src="./assets/img/universities_icon.svg" alt="universities_icon">
+                        <span class="navigation_icon_wrapper">
+                            <img src="./assets/img/universities_icon.svg" alt="universities_icon">
+                        </span>
                         <span>навчальні програми</span>
                     </button>
                 </li>
@@ -73,10 +79,26 @@
     <div class="carousel">
         <section class="course_cards_section carousel_item">
             <section class="animated_bg bg_cards_section"></section>
-            <div class="course_cards_menu">
-                <p>Бакалавр</p>
-                <p>Рік: 2022</p>
-            </div>
+                <div class="course_cards_menu">
+                    <div class="cards_menu_titles">
+                        <p class="degree_title">Ступінь: </p>
+                        <p class="year_title">Рік: </p>
+                    </div>
+
+                    <div class="cards_menu_nav">
+                        <div class="degree_nav">
+                            <button class="degree_btn degree_bachelor_btn">Бакалаврат</button>
+                            <button class="degree_btn degree_master_btn">Магістратура</button>
+                        </div>
+
+                        <div class="year_nav">
+                            <button class="year_btn">2019</button>
+                            <button class="year_btn">2022</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic course cards  -->
         </section>
         <section class="teachers_section carousel_item">
             <section class="animated_bg bg_teachers_section"></section>
@@ -87,7 +109,9 @@
             <section class="animated_bg bg_programs_section"></section>
             <div class="programs_container">
                 <h4 class="programs_title">Програми мобільності для студентів та викладачів</h4>
-                <div class="programs_carousel"></div>
+                <div class="programs_carousel_wrap">
+                    <div class="programs_carousel"></div>
+                </div>
                 <div class="programs_explanation">
                     <h4 class="programs_title">Програма Еразмус+КА1</h4>
                     <div class="programs_content">
@@ -123,5 +147,6 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="../node_modules/slick-carousel/slick/slick.min.js"></script>
     <script type="module" src="about_us.js"></script>
+    <script src="static_about_us.js"></script>
 </body>
 </html>
