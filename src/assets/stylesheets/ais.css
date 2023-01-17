@@ -11,6 +11,8 @@
     width: 75vw;
     height: 75vh;
     margin: 25vh  0;
+
+    filter: grayscale(100%);
 }
 
 .ais-content-section {
@@ -66,57 +68,34 @@
 
 .ais-subtitle {
     text-align: center;
-    font-weight: 700;
-    font-size: 88px;
-    line-height: 107px;
-    letter-spacing: 0.08em;
 
-    color: #FFFFFF;
     margin-top: 30vh;
     margin-bottom: 20vh;
 }
 
 .ais-list {
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    padding-left: 3vw;
-    padding-right: 8vw;
-}
 
-.ais-list-item {
-    width: 33%;
-    padding-right: 3%;
-    padding-left: 3%;
-    margin-bottom: 15vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5% 2%;
+
 }
 
 .ais-photo {
-    width: 26vw;
-    height: 50vh;
+    width: 100%;
+    height: 50%;
 
+    object-fit: cover;
     margin-bottom: 6.5vh;
+    border-radius: 5%;
 }
 
 .ais-item-link {
-    font-style: normal;
     font-weight: 600;
-    /*font-size: 30px;*/
-    font-size: 30px;
-    line-height: 37px;
-    letter-spacing: 0.06em;
     text-decoration-line: underline;
-
-    color: #FFFFFF;
 }
 
 .ais-item-desc {
     margin-top: 4vh;
-    font-weight: 400;
-    /*font-size: 30px;*/
-    font-size: 24px;
-    line-height: calc(37 / 30);
-    letter-spacing: 0.06em;
-
-    color: #FFFFFF;
 }
