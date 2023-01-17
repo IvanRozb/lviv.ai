@@ -128,7 +128,7 @@ const course_card_section = document.querySelector(".course_cards_section")
 const timeOut = 300
 
 setTimeout(async ()=>{
-    const courseCardsPage = await Fetch.getCourseCardsPageAsync("ua")
+    const courseCardsPage = await Fetch.getCourseCardsPageUA()
 
     document.querySelector(".course_cards_menu")
         .insertAdjacentHTML("afterend", courseCardsPage)
@@ -143,12 +143,12 @@ setTimeout(async ()=>{
     })
 
     document.querySelector(`.teachers_carousel`)
-        .insertAdjacentHTML('afterbegin', await Fetch.getTeachers())
+        .insertAdjacentHTML('afterbegin', await Fetch.getTeachersUA())
     activateTeacherCarousel()
 
     setTeachersRowFullNameHeight()
     document.querySelector('.programs_carousel')
-        .insertAdjacentHTML("afterbegin", await Fetch.getUniversities())
+        .insertAdjacentHTML("afterbegin", await Fetch.getUniversitiesUA())
     activateProgramsCarousel()
     setProgramsCarouselWrapper()
 }, 0)
