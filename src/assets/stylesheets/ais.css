@@ -1,0 +1,138 @@
+/*#poster-image {*/
+/*    background: url('./src/assets/images/ais_video.jpg') center center;*/
+/*    background-size: cover;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    opacity: 1.0;*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*    z-index: 10;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    transition: all 0.3s ease-in;*/
+/*}*/
+
+.video iframe {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:75vw;
+    height:75vh;
+    margin-top: 25vh;
+    margin-left: 12vw;
+}
+
+.ais-content{
+    margin-top: 115vh;
+}
+.ais-content-section{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10vw;
+    margin-bottom: 15vh;
+}
+.ais-info{
+    width: 70vw;
+    right: 0;
+    margin-right: 10vw;
+    /*margin-left: 5vw;*/
+}
+.info-header{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 59px;
+    line-height: 72px;
+    letter-spacing: 0.08em;
+
+    color: #FFFFFF;
+    margin-bottom: 7vh;
+}
+.info-desc{}
+.info-desc-text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: calc(37 / 30);
+    letter-spacing: 0.06em;
+
+    color: #FFFFFF;
+
+    margin-bottom: 5vh;
+}
+
+/* ГАЙС для коду нижче
+ розмір шрифту на макеті 30, але на сайті він шалено агромний виходить,
+тому підібрала 22 щоб виглядало як на макеті... не впевнена що це гуд практіс але...*/
+
+.ais-link{
+    font-weight: 400;
+    font-size: 22px;
+    line-height: calc(37 / 30);
+    letter-spacing: 0.06em;
+    text-decoration-line: underline;
+
+    color: #FFFFFF;
+}
+.ais-img{
+    margin-right: 10vw;
+}
+.param{
+    width: 25vw;
+    height: 40vh;
+}
+
+/*Instuments*/
+
+.ais-subtitle{
+    text-align: center;
+    font-weight: 700;
+    font-size: 88px;
+    line-height: 107px;
+    letter-spacing: 0.08em;
+
+    color: #FFFFFF;
+    margin-top: 30vh;
+    margin-bottom: 20vh;
+}
+.ais-list{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 3vw;
+    padding-right: 8vw;
+}
+.ais-list-item{
+    width: 33%;
+    padding-right: 3%;
+    padding-left: 3%;
+    margin-bottom: 15vh;
+}
+.ais-photo{
+    width: 26vw;
+    height: 50vh;
+
+    margin-bottom: 3vh;
+}
+.ais-item-link{
+    font-style: normal;
+    font-weight: 600;
+    /*font-size: 30px;*/
+    font-size: 30px;
+    line-height: 37px;
+    letter-spacing: 0.06em;
+    text-decoration-line: underline;
+
+    color: #FFFFFF;
+}
+.ais-item-desc{
+    margin-top: 2vh;
+    font-weight: 400;
+    /*font-size: 30px;*/
+    font-size: 24px;
+    line-height: calc(37 / 30);
+    letter-spacing: 0.06em;
+
+    color: #FFFFFF;
+}
