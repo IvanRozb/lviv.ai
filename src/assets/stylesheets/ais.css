@@ -113,7 +113,7 @@
     width: 26vw;
     height: 50vh;
 
-    margin-bottom: 3vh;
+    margin-bottom: 6.5vh;
 }
 .ais-item-link{
     font-style: normal;
@@ -127,7 +127,7 @@
     color: #FFFFFF;
 }
 .ais-item-desc{
-    margin-top: 2vh;
+    margin-top: 4vh;
     font-weight: 400;
     /*font-size: 30px;*/
     font-size: 24px;
