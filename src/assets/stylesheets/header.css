@@ -25,7 +25,8 @@
 
     --h4-size: 1.6vw; /* 30px */
     --h4-small-spacing: 0.06em;
-    --h4-line-height: 3.5vh;
+    --h4-line-height: 3.4vh;
+    --h4-font-weight: 400;
 
     --h5-size: 1.4vw; /* 27px */
     --h5-line-height: 3vh;
@@ -201,7 +202,8 @@ h4{
 h5{
     font-size: var(--h4-size);
     line-height: var(--h4-line-height);
-    letter-spacing: var(--h4-small-spacing)
+    letter-spacing: var(--h4-small-spacing);
+    font-weight: var(--h4-font-weight);
 }
 h6{
     font-size: var(--h5-size);
