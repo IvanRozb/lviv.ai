@@ -8,21 +8,22 @@ if (typeof localStorage === "undefined" || localStorage === null) {
  * @Class
  * Represent a fetch container
  * @export Fetch
-*/
+ */
 export class Fetch {
     /*
     * Main async implementation
     */
-    /*--Start page--*/
-    static async getJobsPositions(){
-        async function /*[array, array]*/getJobsAmounts(jobNames, cities){
 
-            async function getJobAmount(job, city, resArray){
+    /*--Start page--*/
+    static async getJobsPositions() {
+        async function /*[array, array]*/getJobsAmounts(jobNames, cities) {
+
+            async function getJobAmount(job, city, resArray) {
                 await fetch(`https://jobs.dou.ua/vacancies/?search=${job}+${city}`).then(function (response) {
                     return response.text()
                 }).then(function (data) {
                     const index = data.search("<div class=\"b-inner-page-header\">")
-                    const jobAmount = parseInt(data.slice(index+41, index+46))
+                    const jobAmount = parseInt(data.slice(index + 41, index + 46))
 
                     resArray.push(jobAmount)
                 }).catch(function (err) {
@@ -48,12 +49,12 @@ export class Fetch {
         const html = localStorage.getItem('jobsPositionsResult')
         let insertedDate = localStorage.getItem("jobsPositionsInsertedTime")
 
-        if (html != null && insertedDate != null){
+        if (html != null && insertedDate != null) {
             insertedDate = new Date(insertedDate)
             insertedDate.setDate(insertedDate.getDate() + 1)
 
             //checks if item exists in localStorage more than 1 day
-            if(insertedDate > new Date())
+            if (insertedDate > new Date())
                 return html
         }
 
@@ -74,11 +75,11 @@ export class Fetch {
                 const jobAmounts = await getJobsAmounts(jobNames, locations)
 
                 return [jobAmounts, jobNames]
-            }).then(([jobAmounts, jobNames]) =>{
+            }).then(([jobAmounts, jobNames]) => {
                 //Convert camel case to normal words
                 jobNames.map((name, idx) => {
                     for (let i = 0; i < name.length; i++) {
-                        if (name[i] === name[i].toUpperCase() && name[i].match(/[a-z]/i)){
+                        if (name[i] === name[i].toUpperCase() && name[i].match(/[a-z]/i)) {
                             name = [name.slice(0, i), " ", name.slice(i)].join('')
                             i += 1
                         }
@@ -122,16 +123,16 @@ export class Fetch {
     }
 
     /*--About us--*/
-    static async getCourseCardsPageAsync(language){
-        function /*string*/getAboutUsCourseCard(term1, term2, termCounter){
-            function sortSubjectsInGroups(term){
+    static async getCourseCardsPageAsync(language) {
+        function /*string*/getAboutUsCourseCard(term1, term2, termCounter) {
+            function sortSubjectsInGroups(term) {
                 Math.exp(2)
                 let termGroups = {}
 
                 Object.entries(term).forEach(subject => {
                     let area = subject[1].area
                     //TODO make this if prettier
-                    if(!termGroups[`${area}`]){
+                    if (!termGroups[`${area}`]) {
                         termGroups[`${area}`] = Array()
                     }
 
@@ -142,9 +143,10 @@ export class Fetch {
 
                 //sort in decreasing order
                 return termGroupsArray
-                    .sort( (one, other) => other[1].length - one[1].length)
+                    .sort((one, other) => other[1].length - one[1].length)
             }
-            function sortedSubjectsGroupsToHTML(sortedGroups){
+
+            function sortedSubjectsGroupsToHTML(sortedGroups) {
                 //bg for subjects groups
                 const backgrounds = [
                     "#D94442",
@@ -158,9 +160,9 @@ export class Fetch {
                 let bgIdx = 0
                 let termHTML = ""
 
-                for (const [area, subjects] of sortedGroups){
+                for (const [area, subjects] of sortedGroups) {
 
-                    if(subjects.length === 1){
+                    if (subjects.length === 1) {
                         termHTML += `<div class="table_row single_row" data-area="${area}">
                                     <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
                                          onclick="window.open('${subjects[0].link}', '_blank');">
@@ -168,7 +170,7 @@ export class Fetch {
                                     </div>
                                     <div class="card_table_credit">${subjects[0].credits}</div>
                                 </div>`
-                    }else{
+                    } else {
                         termHTML += `<div class="row_group" data-area="${area}">`
 
                         subjects.forEach(subject => {
@@ -210,7 +212,7 @@ export class Fetch {
                         </div>
                     
                         <div class="course_card">
-                            <h6 class="course_card_term">${termCounter+1} семестр</h6>
+                            <h6 class="course_card_term">${termCounter + 1} семестр</h6>
             
                             <div class="course_card_table">
                                 <div class="table_row">
@@ -229,9 +231,9 @@ export class Fetch {
         }
 
         const page = localStorage.getItem("courseCardsPage")
-        if(page) {
+        if (page) {
             return page
-        }else{
+        } else {
             localStorage.setItem("courseCardsPage", await fetch(`https://aidept.com.ua/aiwebsite/CourseCards?language=${language}`,
                 {
                     method: 'GET',
@@ -247,7 +249,7 @@ export class Fetch {
 
                     for (let i = 1; i <= 8; i += 2) {
                         let currentTerm = data[0].curriculum[`term${i}`]
-                        let nextTerm = data[0].curriculum[`term${i+1}`]
+                        let nextTerm = data[0].curriculum[`term${i + 1}`]
 
                         HTML += getAboutUsCourseCard(currentTerm, nextTerm, i)
                     }
@@ -260,15 +262,17 @@ export class Fetch {
 
         return localStorage.getItem("courseCardsPage")
     }
+
     static async getTeachersAsync(language) {
-        function /*string*/getEditedFullName(name){
+        function /*string*/getEditedFullName(name) {
             let initials = name.split(' ')
-            return (initials[0]?initials[0] + `<br>`: '') + (initials[1]?initials[1] +' ':'')+(initials[2]?initials[2]:'')
+            return (initials[0] ? initials[0] + `<br>` : '') + (initials[1] ? initials[1] + ' ' : '') + (initials[2] ? initials[2] : '')
         }
-        function /*string*/getDegreeComaIndex(degree){
+
+        function /*string*/getDegreeComaIndex(degree) {
             let index = 0
             for (const character of degree) {
-                if(character === ',')
+                if (character === ',')
                     return index
                 ++index
             }
@@ -287,17 +291,17 @@ export class Fetch {
             })
             .then(response => response.json())
             .then(data => {
-                const rowAmount = 4, itemAmount = rowAmount*2
+                const rowAmount = 4, itemAmount = rowAmount * 2
 
                 let result = ''
                 let amount = 0
                 let isSecondRow = false
                 for (const teacher of data) {
-                    if(amount%itemAmount === 0) {
+                    if (amount % itemAmount === 0) {
                         result += `<div class="teachers_item">`
                     }
-                    if(amount%rowAmount === 0){
-                        result += `<div class="teachers_row${isSecondRow?' teachers_row-second':''}">`
+                    if (amount % rowAmount === 0) {
+                        result += `<div class="teachers_row${isSecondRow ? ' teachers_row-second' : ''}">`
                     }
                     const commaPosition = getDegreeComaIndex(teacher.degree) + 1
                     const defaultPhotoUrl = "https://i2.wp.com/pescariusports.ro/wp-content/uploads/2018/09/male-avatar.png?ssl=1"
@@ -312,17 +316,17 @@ export class Fetch {
                             </div>`
 
                     amount++
-                    if(amount%4===0){
+                    if (amount % 4 === 0) {
                         isSecondRow = !isSecondRow
                         result += `</div>`
                     }
-                    if(amount > itemAmount - 1){
+                    if (amount > itemAmount - 1) {
                         amount = 0
                         result += `</div>`
                     }
                 }
-                if(amount !== 0){
-                    if(amount % rowAmount === 0)
+                if (amount !== 0) {
+                    if (amount % rowAmount === 0)
                         result += `</div>`
                     result += `</div>`
                 }
@@ -330,6 +334,7 @@ export class Fetch {
             }))
         return localStorage.getItem('teachersResult')
     }
+
     static async getUniversitiesAsync(language) {
         const item = localStorage.getItem('universitiesResult')
         if (item != null)
@@ -358,19 +363,19 @@ export class Fetch {
 
     /*--Applicant--*/
     static async getApplicantsAsync(language) {
-        function /*string*/getApplicantExplanations(element, headerText){
+        function /*string*/getApplicantExplanations(element, headerText) {
 
-            let result=`<section class="docs_section applicant_section" style="display: block">
+            let result = `<section class="docs_section applicant_section" style="display: block">
                                             <div class="docs_content">
                                                 <h4 class="docs_maintitle applicant_title">
                                                 ${headerText}
                                                 </h4>`
             for (const explanation of element) {
                 result += `<div class="docs_box">`
-                result += "<p class=\"docs_list_title\">"+explanation.title+"</p>"
+                result += "<p class=\"docs_list_title\">" + explanation.title + "</p>"
                 result += `<ul class="docs_list">`
                 for (const item of explanation.items) {
-                    result += "<li class=\"docs_list_items\"><h6 class=\"docs_list_text\">"+item+"</h6></li>"
+                    result += "<li class=\"docs_list_items\"><h6 class=\"docs_list_text\">" + item + "</h6></li>"
                 }
                 result += `</ul>`
                 result += `</div>`
@@ -380,27 +385,28 @@ export class Fetch {
                                                     </div>`
                 }
             }
-            result+=`</div>
+            result += `</div>
                                     </section>`
             return result
         }
-        function /*string*/getApplicantEducationCosts(element, headerText, language){
+
+        function /*string*/getApplicantEducationCosts(element, headerText, language) {
             let payColumnsText, payLinkText
-            if (language === "ua"){
+            if (language === "ua") {
                 payColumnsText = ["Ступінь", "Семестр", "Обсяги"]
                 payLinkText = [
                     "*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi можна переглянути за посиланням: ",
                     "тиць"
                 ]
-            }else{
+            } else {
                 payColumnsText = ["Degree", "Term", "Amount"]
                 payLinkText = [
                     "*Maximum amounts and qualifying minimum of a payment order for the year 2022 can be viewed by following the link: ",
                     "click"
                 ]
             }
-            let result=`<section class="pay_section applicant_section" style="display: none">`
-            result+=`<h4 class="pay_title applicant_title">${headerText}</h4>
+            let result = `<section class="pay_section applicant_section" style="display: none">`
+            result += `<h4 class="pay_title applicant_title">${headerText}</h4>
                                 <div class="pay_columns">
                                     <div class="pay_column">${payColumnsText[0]}</div>
                                     <div class="pay_column">${payColumnsText[1]}</div>
@@ -408,14 +414,14 @@ export class Fetch {
                                 </div>
                                     <table class="pay_table">`
             for (const row of element) {
-                result+=`<tr class="pay_table_row">
+                result += `<tr class="pay_table_row">
                                     <th class="pay_table_value ">${row.degree}</th>
                                     <th class="pay_table_value ">${row.term}</th>
                                     <th class="pay_table_value ">${row.capacity}</th>
                                     </tr>`
             }
-            result+=`</table>`
-            result+=`<div class="pay_link_div">
+            result += `</table>`
+            result += `<div class="pay_link_div">
                                             <p class="pay_link">${payLinkText[0]}
                                                 <a  class="pay_link color_letter_red" 
                                                     href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv"
@@ -424,11 +430,12 @@ export class Fetch {
                                                 </a>
                                             </p>
                                         </div>`
-            result+=`</section>`
+            result += `</section>`
             return result
         }
-        function /*string*/getApplicantDates(element, headerText){
-            let result=`<section class="calendar_section applicant_section" style="display: none">
+
+        function /*string*/getApplicantDates(element, headerText) {
+            let result = `<section class="calendar_section applicant_section" style="display: none">
                                             <h4 class="clnd-maintitle applicant_title">${headerText}</h4>
                                             <table class = "clnd-maintable" >`
             let j = 0
@@ -436,75 +443,74 @@ export class Fetch {
             for (const key in element) {
 
                 const value = element[key]
-                result+=`<tr class="clnd-row">`
-                if(++j !== len)
-                    result+=`<td class="clnd-row-cont">`
+                result += `<tr class="clnd-row">`
+                if (++j !== len)
+                    result += `<td class="clnd-row-cont">`
                 else
-                    result+=`<td class="clnd-row-cont clnd-row-cont-bottom">`
-                result+=`
+                    result += `<td class="clnd-row-cont clnd-row-cont-bottom">`
+                result += `
                                                     <div class="clnd-row-date">
                                                         <p class="clnd-row-text_date color_letter_red">${key}</p>
                                                     </div>
                                                     <div class="clnd_row_info">`
                 let valueCopy = ''
                 for (let i = 0; i < value.length; i++) {
-                    if(value[i] === '«')
-                        valueCopy+=`<span class ="color_letter_red">`
-                    else if(value[i] === '»')
-                        valueCopy+=`</span>`
+                    if (value[i] === '«')
+                        valueCopy += `<span class ="color_letter_red">`
+                    else if (value[i] === '»')
+                        valueCopy += `</span>`
                     else
-                        valueCopy+=value[i]
+                        valueCopy += value[i]
                 }
-                result+=`
+                result += `
                                                         <p class="clnd-row-text">${valueCopy}</p>
                                                     </div>
                                                 </td>
                                             </tr>`
             }
-            result+=`</table></section>`
+            result += `</table></section>`
             return result
         }
-        function /*string*/getApplicantCompetitiveSubjects(element, headerText, language){
-            function /*string*/getNoteBlock(subject, delimiterLength, isFirst, headerText){
+
+        function /*string*/getApplicantCompetitiveSubjects(element, headerText, language) {
+            function /*string*/getNoteBlock(subject, delimiterLength, isFirst, headerText) {
                 let res_note_block = `<div class="subjects_notes subjects_notes-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">
                                              <h5 class="subjects_notes_title color_letter_red">${headerText}</h5>
                                              <div class="subjects_content">`
                 for (const note of subject.notes) {
                     let redactedNote = ''
                     let redStarted = 0
-                    for (let i = 0; i < note.length-delimiterLength; i++) {
-                        if(note.substring(i,delimiterLength+i) === '|r|')
-                        {
-                            if(redStarted === 0) {
+                    for (let i = 0; i < note.length - delimiterLength; i++) {
+                        if (note.substring(i, delimiterLength + i) === '|r|') {
+                            if (redStarted === 0) {
                                 redactedNote += `<span class="color_letter_red">`
                                 redStarted = 1
-                            }
-                            else{
+                            } else {
                                 redactedNote += `</span>`
                                 redStarted = 0
                             }
-                            i+=delimiterLength-1
-                        }
-                        else
-                            redactedNote+=note[i]
+                            i += delimiterLength - 1
+                        } else
+                            redactedNote += note[i]
                     }
-                    redactedNote+=note.substring(note.length-delimiterLength)
+                    redactedNote += note.substring(note.length - delimiterLength)
                     res_note_block += `<p class="subjects_note">*${redactedNote}</p>`
                 }
                 res_note_block += `</div></div>`
                 return res_note_block
             }
-            function /*string*/getContainer(containerSelector, container){
-                let result=`<div class="${containerSelector}">`
+
+            function /*string*/getContainer(containerSelector, container) {
+                let result = `<div class="${containerSelector}">`
                 for (const element of container) {
-                    result+=element
+                    result += element
                 }
-                result+=`</div>`
+                result += `</div>`
                 return result
             }
 
             const notesHeader = language === "ua" ? "Примітки:" : "Notes:"
-            let result=`<section class="subjects_section applicant_section" style="display: none">
+            let result = `<section class="subjects_section applicant_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">${headerText}</h4>
                                             <div class="subjects_dates">`
             let isFirst = 0
@@ -512,15 +518,15 @@ export class Fetch {
             let notes = []
             const delimiterLength = '|r|'.length
             for (const subject of element) {
-                result+=`<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date ${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
+                result += `<p data-link="subjects_image-${subject.year} subjects_notes-${subject.year}" class="subjects_date ${(isFirst === 0) ? " active" : ""}">${subject.year}</p>`
                 images.push(`<img class="subjects_image-${subject.year}" src="${subject.photo}" alt="table-${subject.year}" style="display: ${(isFirst === 0) ? "block" : "none"}">`)
                 notes.push(getNoteBlock(subject, delimiterLength, isFirst, notesHeader))
                 ++isFirst
             }
-            result+=`</div>`
-            result+=getContainer('subjects_images', images)
-            result+=getContainer('subjects_notes_container', notes)
-            result+=`</section>`
+            result += `</div>`
+            result += getContainer('subjects_images', images)
+            result += getContainer('subjects_notes_container', notes)
+            result += `</section>`
 
             return result
         }
@@ -545,18 +551,18 @@ export class Fetch {
 
                 for (const name in data[0]) {
                     const element = data[0][name]
-                    switch (name){
+                    switch (name) {
                         case "explanations":
-                            result+=getApplicantExplanations(element, headers[0].textContent)
+                            result += getApplicantExplanations(element, headers[0].textContent)
                             break
                         case "dates":
-                            result+=getApplicantDates(element, headers[1].textContent, language)
+                            result += getApplicantDates(element, headers[1].textContent, language)
                             break
                         case "competitiveSubjects":
-                            result+=getApplicantCompetitiveSubjects(element, headers[2].textContent, language)
+                            result += getApplicantCompetitiveSubjects(element, headers[2].textContent, language)
                             break
                         case "educationCosts":
-                            result+=getApplicantEducationCosts(element, headers[3].textContent, language)
+                            result += getApplicantEducationCosts(element, headers[3].textContent, language)
                             break
                         default:
                             break
@@ -570,16 +576,110 @@ export class Fetch {
         return localStorage.getItem(itemName)
     }
 
+    /*--AIS Page--*/
+    static async getAISPageAsync() {
+
+        const html = localStorage.getItem('aisPageResult')
+        let insertedDate = localStorage.getItem("aisPageUAInsertedTime")
+
+        if (html != null && insertedDate != null){
+            insertedDate = new Date(insertedDate)
+            insertedDate.setDate(insertedDate.getDate() + 3)
+
+            //checks if item exists in localStorage more than 3 day
+            if(insertedDate > new Date())
+                return html
+        }
+
+        function getBigProjectCards(projects) {
+            let sectionHTML = `<section className="ais-content">`
+
+            for (const [index, project] of projects.entries()) {
+                if(index % 2 == 0){
+                    sectionHTML += `<div class="ais-content-section">
+                                        <img src="${project.imageUrl}" alt="${project.imageUrl}" class="ais-img">
+                           
+                                        <div class="ais-info">
+                                            <h4>${project.title}</h4>
+                                            <div class="info-desc">
+                                                <p class="info-desc-text">${project.descriptionUA}</p>
+                                            <a class="ais-link" href="${project.link}" target="_blank">${project.link}</a>
+                                            </div>
+                                        </div>
+                                    </div>`
+                }else{
+                    sectionHTML += `<div class="ais-content-section">
+                                        <div class="ais-info">
+                                            <h4>${project.title}</h4>
+                                            <div class="info-desc">
+                                                <p class="info-desc-text">${project.descriptionUA}</p>
+                                            <a class="ais-link" href="${project.link}" target="_blank">${project.link}</a>
+                                            </div>
+                                        </div>
+                                        
+                                        <img src="${project.imageUrl}" alt="${project.imageUrl}" class="ais-img">
+                                    </div>`
+                }
+            }
+            return sectionHTML + `</section>`
+        }
+        function getSmallProjectCards(projects) {
+            let sectionHTML = `<section >
+                                <h2 class="ais-subtitle">Інструменти</h2>
+                                <ul class="ais-list">`
+
+            projects.forEach(project =>{
+                sectionHTML += `
+                     <li class="ais-list-item">
+                        <img src="${project.imageUrl}" alt="${project.imageUrl}" class="ais-photo">
+                        <h5><a class="ais-item-link" href="${project.link}" target="_blank">${project.title}</a></h5>
+                        <p class="ais-item-desc">${project.descriptionUA}</p>
+                    </li>
+                `
+            })
+
+            return sectionHTML + `</ul>
+                                </section>`
+        }
+
+        //TODO: change to host fetch, instead of local
+        localStorage.setItem("aisPageResult", await fetch(`https://localhost:7159/AISPage`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                const {largeCards, smallCards} = data
+
+                let HTML = getBigProjectCards(largeCards)
+                HTML += getSmallProjectCards(smallCards)
+
+                return HTML
+            }))
+
+        localStorage.setItem("aisPageUAInsertedTime", new Date().toJSON())
+
+        return localStorage.getItem("aisPageResult")
+    }
+
     /*
     * Additional async implementation
     */
+
     /*--About us--*/
-    static async getCourseCardsPageUA(){
+    static async getCourseCardsPageUA() {
         return await this.getCourseCardsPageAsync('ua')
     }
+
     static async getTeachersUA() {
         return await this.getTeachersAsync('ua')
     }
+
     static async getUniversitiesUA() {
         return await this.getUniversitiesAsync('ua')
     }
@@ -588,6 +688,7 @@ export class Fetch {
     static async getApplicantsUA() {
         return await this.getApplicantsAsync('ua')
     }
+
     static async getApplicantsEN() {
         return await this.getApplicantsAsync('en')
     }
