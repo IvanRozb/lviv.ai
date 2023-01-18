@@ -163,7 +163,7 @@ export class Fetch {
                     if(subjects.length === 1){
                         termHTML += `<div class="table_row single_row" data-area="${area}">
                                     <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
-                                         onclick="location.href='${subjects[0].link}';">
+                                         onclick="window.open('${subjects[0].link}', '_blank');">
                                        ${subjects[0].title}
                                     </div>
                                     <div class="card_table_credit">${subjects[0].credits}</div>
@@ -174,7 +174,7 @@ export class Fetch {
                         subjects.forEach(subject => {
                             termHTML += `<div class="table_row">
                                         <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
-                                             onclick="location.href='${subject.link}';">
+                                             onclick="window.open('${subject.link}', '_blank');">
                                             ${subject.title}
                                         </div>
                                         <div class="card_table_credit">${subject.credits}</div>
@@ -227,7 +227,7 @@ export class Fetch {
 
             return courseCard
         }
-        //TODO add links to it
+
         const page = localStorage.getItem("courseCardsPage")
         if(page) {
             return page
@@ -417,7 +417,9 @@ export class Fetch {
             result+=`</table>`
             result+=`<div class="pay_link_div">
                                             <p class="pay_link">${payLinkText[0]}
-                                                <a class="pay_link color_letter_red" href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv">
+                                                <a  class="pay_link color_letter_red" 
+                                                    href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv"
+                                                    target="_blank">
                                                     ${payLinkText[1]}
                                                 </a>
                                             </p>
