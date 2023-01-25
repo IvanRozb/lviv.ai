@@ -194,7 +194,7 @@ div[class*=' sidebar_line']{
 
 .sidebar_line_13{
     top: 80vh;
-    left: 0vh;
+    left: 0;
 
     width: 23vh;
 }
@@ -292,10 +292,10 @@ div[class*=' sidebar_line']{
 }
 
 /*END of sidebar tooltips*/
-.sidebar_blur_pannel{
+.sidebar_blur_panel{
     position: fixed;
     right: -0vw;
-    top: 0vh;
+    top: 0;
 
     width: 10vw;
     height: 120vh;
