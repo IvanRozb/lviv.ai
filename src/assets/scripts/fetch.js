@@ -838,10 +838,6 @@ export class Fetch {
         return await this.getCourseCardsPageAsync('ua')
     }
 
-    static async getUniversitiesUA() {
-        return await this.getUniversitiesAsync('ua')
-    }
-
     /*--Applicant--*/
     static async getApplicantsUA() {
         return await this.getApplicantsAsync('ua')

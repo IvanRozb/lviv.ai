@@ -147,9 +147,6 @@ const blob3HTML = animatedBlob(3, 120)
 
 bg_programs_section.insertAdjacentHTML('beforeend', blob3HTML)
 
-//Course Card
-const course_card_section = document.querySelector('.course_cards_section')
-
 const timeOut = 300
 
 setTimeout(async () => {
