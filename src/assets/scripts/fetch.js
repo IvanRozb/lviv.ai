@@ -312,10 +312,10 @@ export class Fetch {
             return -1
         }
 
-        const item = localStorage.getItem('teachersResult')
+        const item = localStorage.getItem(`teachersResult${language}`)
         if (item != null) return item
         await localStorage.setItem(
-            'teachersResult',
+            `teachersResult${language}`,
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Employees?language=${language}`,
                 {
@@ -392,7 +392,7 @@ export class Fetch {
                     return result
                 })
         )
-        return localStorage.getItem('teachersResult')
+        return localStorage.getItem(`teachersResult${language}`)
     }
 
     static async getUniversitiesAsync(language) {
@@ -836,10 +836,6 @@ export class Fetch {
     /*--About us--*/
     static async getCourseCardsPageUA() {
         return await this.getCourseCardsPageAsync('ua')
-    }
-
-    static async getTeachersUA() {
-        return await this.getTeachersAsync('ua')
     }
 
     static async getUniversitiesUA() {

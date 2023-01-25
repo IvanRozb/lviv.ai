@@ -63,6 +63,7 @@ function activateTeacherCarousel() {
 
         slider.slick({
             dots: true,
+            draggable: false,
         })
     })
 }
@@ -152,13 +153,14 @@ const course_card_section = document.querySelector('.course_cards_section')
 const timeOut = 300
 
 setTimeout(async () => {
+    const language = document.documentElement.lang
     const courseCardsPage = await Fetch.getCourseCardsPageUA()
 
     document
         .querySelector('.course_cards_menu')
         .insertAdjacentHTML('afterend', courseCardsPage)
 
-    setGroupSelectorPosition(userWidth)
+    setGroupSelectorPosition()
 
     $('.course_cards_container').slick({
         slidesToShow: 1,
@@ -169,7 +171,10 @@ setTimeout(async () => {
 
     document
         .querySelector(`.teachers_carousel`)
-        .insertAdjacentHTML('afterbegin', await Fetch.getTeachersUA())
+        .insertAdjacentHTML(
+            'afterbegin',
+            await Fetch.getTeachersAsync(language)
+        )
     activateTeacherCarousel()
 
     setTeachersRowFullNameHeight()
