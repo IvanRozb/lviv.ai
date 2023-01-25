@@ -17,6 +17,7 @@
     height: 100%;
 
     filter: grayscale(100%);
+    border: 0;
 }
 
 .ais-content-section {

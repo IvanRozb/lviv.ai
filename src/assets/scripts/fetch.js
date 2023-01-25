@@ -577,10 +577,11 @@ export class Fetch {
     }
 
     /*--AIS Page--*/
-    static async getAISPageAsync() {
+    static async getAISPageAsync(language) {
+        language = language.toUpperCase()
 
-        const html = localStorage.getItem('aisPageResult')
-        let insertedDate = localStorage.getItem("aisPageUAInsertedTime")
+        const html = localStorage.getItem(`aisPage${language}`)
+        let insertedDate = localStorage.getItem("aisPageInsertedTime")
 
         if (html != null && insertedDate != null){
             insertedDate = new Date(insertedDate)
@@ -591,7 +592,7 @@ export class Fetch {
                 return html
         }
 
-        function getBigProjectCards(projects) {
+        function getBigProjectCards(projects, language) {
             let sectionHTML = `<section className="ais-content">`
 
             for (const [index, project] of projects.entries()) {
@@ -602,7 +603,9 @@ export class Fetch {
                                         <div class="ais-info">
                                             <h4>${project.title}</h4>
                                             <div class="info-desc">
-                                                <p class="info-desc-text">${project.descriptionUA}</p>
+                                                <p class="info-desc-text">
+                                                ${language == "ua" ? project.descriptionUA: project.descriptionEN}
+                                                </p>
                                             <a class="ais-link" href="${project.link}" target="_blank">${project.link}</a>
                                             </div>
                                         </div>
@@ -612,7 +615,9 @@ export class Fetch {
                                         <div class="ais-info">
                                             <h4>${project.title}</h4>
                                             <div class="info-desc">
-                                                <p class="info-desc-text">${project.descriptionUA}</p>
+                                                <p class="info-desc-text">
+                                                ${language == "ua" ? project.descriptionUA: project.descriptionEN}
+                                                </p>
                                             <a class="ais-link" href="${project.link}" target="_blank">${project.link}</a>
                                             </div>
                                         </div>
@@ -623,7 +628,7 @@ export class Fetch {
             }
             return sectionHTML + `</section>`
         }
-        function getSmallProjectCards(projects) {
+        function getSmallProjectCards(projects, language) {
             let sectionHTML = `<section >
                                 <h2 class="ais-subtitle">Інструменти</h2>
                                 <ul class="ais-list">`
@@ -633,7 +638,9 @@ export class Fetch {
                      <li class="ais-list-item">
                         <img src="${project.imageUrl}" alt="${project.imageUrl}" class="ais-photo">
                         <h5><a class="ais-item-link" href="${project.link}" target="_blank">${project.title}</a></h5>
-                        <p class="ais-item-desc">${project.descriptionUA}</p>
+                        <p class="ais-item-desc">
+                        ${language == "ua" ? project.descriptionUA: project.descriptionEN}
+                        </p>
                     </li>
                 `
             })
@@ -642,8 +649,17 @@ export class Fetch {
                                 </section>`
         }
 
+        function getAISPageHTML(data, language){
+            const {largeCards, smallCards} = data
+
+            let aisHTML = getBigProjectCards(largeCards, language)
+            aisHTML += getSmallProjectCards(smallCards, language)
+
+            return aisHTML
+        }
+
         //TODO: change to host fetch, instead of local
-        localStorage.setItem("aisPageResult", await fetch(`https://localhost:7159/AISPage`,
+        const [aisHTMLua, aisHTMLen]  = await fetch(`https://localhost:7159/AISPage`,
             {
                 method: 'GET',
                 headers: {
@@ -654,17 +670,19 @@ export class Fetch {
                 return response.json()
             })
             .then((data) => {
-                const {largeCards, smallCards} = data
 
-                let HTML = getBigProjectCards(largeCards)
-                HTML += getSmallProjectCards(smallCards)
+                const aisHTMLua = getAISPageHTML(data,"ua")
+                const aisHTMLen = getAISPageHTML(data,"en")
 
-                return HTML
-            }))
+                return [aisHTMLua, aisHTMLen]
+            })
 
-        localStorage.setItem("aisPageUAInsertedTime", new Date().toJSON())
+        localStorage.setItem('aisPageUA', aisHTMLua)
+        localStorage.setItem('aisPageEN', aisHTMLen)
 
-        return localStorage.getItem("aisPageResult")
+        localStorage.setItem("aisPageInsertedTime", new Date().toJSON())
+
+        return localStorage.getItem(`aisPage${language}`)
     }
 
     /*
