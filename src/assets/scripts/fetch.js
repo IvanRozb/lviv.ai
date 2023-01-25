@@ -396,10 +396,10 @@ export class Fetch {
     }
 
     static async getUniversitiesAsync(language) {
-        const item = localStorage.getItem('universitiesResult')
+        const item = localStorage.getItem(`universitiesResult${language}`)
         if (item != null) return item
         await localStorage.setItem(
-            'universitiesResult',
+            `universitiesResult${language}`,
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Universities?language=${language}`,
                 {
@@ -422,7 +422,7 @@ export class Fetch {
                     return result
                 })
         )
-        return localStorage.getItem('universitiesResult')
+        return localStorage.getItem(`universitiesResult${language}`)
     }
 
     /*--Applicant--*/

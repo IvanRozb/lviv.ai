@@ -180,7 +180,10 @@ setTimeout(async () => {
     setTeachersRowFullNameHeight()
     document
         .querySelector('.programs_carousel')
-        .insertAdjacentHTML('afterbegin', await Fetch.getUniversitiesUA())
+        .insertAdjacentHTML(
+            'afterbegin',
+            await Fetch.getUniversitiesAsync(language)
+        )
     activateProgramsCarousel()
     setProgramsCarouselWrapper()
 }, 0)
