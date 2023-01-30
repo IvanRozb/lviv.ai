@@ -57,6 +57,46 @@ function activateCarousel() {
     })
 }
 
+function addCourseCardsBtnListeners(){
+    $(".degree_btn").each(function () {
+        $(this).on("click", function () {
+            $(this).addClass("active").siblings().removeClass("active")
+
+            if($(this).hasClass("bachelor_btn")) {
+                $(".nav_bachelor").addClass("active").siblings().removeClass("active")
+            }else{
+                $(".nav_master").addClass("active").siblings().removeClass("active")
+            }
+
+        })
+    })
+
+    const yearBtns = $(".year_btn")
+
+    yearBtns.each(function () {
+        const btn = $(this)
+
+        btn.on("click", function () {
+            yearBtns.removeClass("active")
+            $(this).addClass("active")
+
+            let slider = null
+
+            btn.parent().hasClass("nav_bachelor")
+                ? slider = $(`.bachelor_${btn.data("year")}`)
+                : slider = $(`.master_${btn.data("year")}`)
+
+            slider.addClass("active").siblings().removeClass("active")
+            slider.slick({
+                slidesToShow: 1,
+
+                dots: true,
+                arrows: false,
+            })
+
+        })
+    })
+}
 function activateTeacherCarousel() {
     $(document).ready(function () {
         const slider = $('.teachers_carousel')
@@ -154,18 +194,21 @@ setTimeout(async () => {
     const courseCardsPage = await Fetch.getCourseCardsPageUA()
 
     document
-        .querySelector('.course_cards_menu')
-        .insertAdjacentHTML('afterend', courseCardsPage)
+        .querySelector('.course_cards_section')
+        .insertAdjacentHTML('beforeend', courseCardsPage)
 
     setGroupSelectorPosition()
 
-    $('.course_cards_container').slick({
-        slidesToShow: 1,
+    addCourseCardsBtnListeners()
 
-        dots: true,
-        arrows: false,
-    })
+    // Activate Bachelor by default
+    $(".bachelor_btn").addClass("active")
+    $(".nav_bachelor").addClass("active")
+    $(".year_btn").first().trigger('click')
 
+    // TODO: sort cards in backend: first bachelor with smallest createdYear field
+
+    // Teachers FETCH
     document
         .querySelector(`.teachers_carousel`)
         .insertAdjacentHTML(

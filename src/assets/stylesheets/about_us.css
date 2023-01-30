@@ -121,6 +121,14 @@ body{
     left: 40vw;
 }
 /*Course Cards css*/
+
+.course_cards_container{
+    display: none;
+}
+.course_cards_container.active{
+    display: block;
+}
+
 .course_cards_menu{
     --gap: 2vw;
 
@@ -133,7 +141,12 @@ body{
     height: 18vh;
     width: 35vw;
 }
-
+.course_cards_menu button{
+    cursor: pointer;
+}
+.course_cards_menu button.active{
+   color: var(--peachy)
+}
 .cards_menu_titles{
     display: grid;
     align-items: center;
@@ -148,14 +161,15 @@ body{
     align-items: center;
 }
 .year_nav{
+    display: none;
+}
+.year_nav.active{
     display: flex;
     justify-content: flex-start;
     gap: var(--gap);
-}
-.degree_btn{
-    cursor: pointer;
-}
 
+    color: var(--peachy);
+}
 .course_card{
     width: 47vw;
     height: 50vh;

@@ -252,6 +252,7 @@ export class Fetch {
         }
 
         const page = localStorage.getItem('courseCardsPage')
+
         if (page) {
             return page
         } else {
@@ -270,22 +271,65 @@ export class Fetch {
                         return response.json()
                     })
                     .then((data) => {
-                        let HTML = `<div class="course_cards_container">`
-
-                        for (let i = 1; i <= 8; i += 2) {
-                            let currentTerm = data[0].curriculum[`term${i}`]
-                            let nextTerm = data[0].curriculum[`term${i + 1}`]
-
-                            HTML += getAboutUsCourseCard(
-                                currentTerm,
-                                nextTerm,
-                                i
-                            )
+                        let controls = {
+                            bachelorControlsHTML: "",
+                            masterControlsHTML: ""
                         }
 
-                        HTML += '</div>'
+                        let courseCardsHTML = ""
 
-                        return HTML
+                        for (let i = 0; i < data.length; i++) {
+
+                            if(data[i].isBachelor === true) {
+                                controls.bachelorControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
+                                                                        ${data[i].createdYear}
+                                                                  </button>`
+
+                                courseCardsHTML += `<div class="course_cards_container bachelor_${data[i].createdYear}">`
+                            }else{
+                                controls.masterControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
+                                                                    ${data[i].createdYear}
+                                                                </button>`
+
+                                courseCardsHTML += `<div class="course_cards_container master_${data[i].createdYear}" >`
+                            }
+
+                            for (let j = 1; j <= 8; j += 2) {
+                                let currentTerm = data[i].curriculum[`term${j}`]
+                                let nextTerm = data[i].curriculum[`term${j + 1}`]
+
+                                courseCardsHTML += getAboutUsCourseCard(
+                                    currentTerm,
+                                    nextTerm,
+                                    j
+                                )
+                            }
+
+                            courseCardsHTML += '</div>'
+                        }
+                        let courseCardsMenuHTML = `<div class="course_cards_menu">
+                                        <div class="cards_menu_titles">
+                                            <p class="degree_title">Ступінь: </p>
+                                            <p class="year_title">Рік: </p>
+                                        </div>
+                            
+                                        <div class="cards_menu_nav">
+                                            <div class="degree_nav">
+                                                <button class="degree_btn bachelor_btn">Бакалаврат</button>
+                                                <button class="degree_btn master_btn">Магістратура</button>
+                                            </div>
+                            
+                                            <div class="year_nav nav_bachelor">
+                                                ${controls.bachelorControlsHTML}
+                                            </div>
+                                            
+                                            <div class="year_nav nav_master">
+                                                ${controls.masterControlsHTML}
+                                            </div>
+                                        </div>
+                                    </div>`
+
+                        return courseCardsMenuHTML + courseCardsHTML
                     })
             )
         }
