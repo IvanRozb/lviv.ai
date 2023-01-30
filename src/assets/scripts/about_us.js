@@ -57,43 +57,48 @@ function activateCarousel() {
     })
 }
 
-function addCourseCardsBtnListeners(){
-    $(".degree_btn").each(function () {
-        $(this).on("click", function () {
-            $(this).addClass("active").siblings().removeClass("active")
+function addCourseCardsBtnListeners() {
+    $('.degree_btn').each(function () {
+        $(this).on('click', function () {
+            $(this).addClass('active').siblings().removeClass('active')
 
-            if($(this).hasClass("bachelor_btn")) {
-                $(".nav_bachelor").addClass("active").siblings().removeClass("active")
-            }else{
-                $(".nav_master").addClass("active").siblings().removeClass("active")
+            if ($(this).hasClass('bachelor_btn')) {
+                $('.nav_bachelor')
+                    .addClass('active')
+                    .siblings()
+                    .removeClass('active')
+            } else {
+                $('.nav_master')
+                    .addClass('active')
+                    .siblings()
+                    .removeClass('active')
             }
-
         })
     })
 
-    const yearBtns = $(".year_btn")
+    const yearBtns = $('.year_btn')
 
     yearBtns.each(function () {
         const btn = $(this)
 
-        btn.on("click", function () {
-            yearBtns.removeClass("active")
-            $(this).addClass("active")
+        btn.on('click', function () {
+            yearBtns.removeClass('active')
+            $(this).addClass('active')
 
-            let slider = null
+            let slider
 
-            btn.parent().hasClass("nav_bachelor")
-                ? slider = $(`.bachelor_${btn.data("year")}`)
-                : slider = $(`.master_${btn.data("year")}`)
+            btn.parent().hasClass('nav_bachelor')
+                ? (slider = $(`.bachelor_${btn.data('year')}`))
+                : (slider = $(`.master_${btn.data('year')}`))
 
-            slider.addClass("active").siblings().removeClass("active")
-            slider.slick({
-                slidesToShow: 1,
+            slider.addClass('active').siblings().removeClass('active')
+            if (!slider.hasClass('slick-initialized'))
+                slider.slick({
+                    slidesToShow: 1,
 
-                dots: true,
-                arrows: false,
-            })
-
+                    dots: true,
+                    arrows: false,
+                })
         })
     })
 }
@@ -111,7 +116,6 @@ function activateTeacherCarousel() {
 function activateProgramsCarousel() {
     $(document).ready(function () {
         const slider = $('.programs_carousel')
-
         slider.slick({
             centerMode: true,
             centerPadding: 5,
@@ -202,9 +206,9 @@ setTimeout(async () => {
     addCourseCardsBtnListeners()
 
     // Activate Bachelor by default
-    $(".bachelor_btn").addClass("active")
-    $(".nav_bachelor").addClass("active")
-    $(".year_btn").first().trigger('click')
+    $('.bachelor_btn').addClass('active')
+    $('.nav_bachelor').addClass('active')
+    $('.year_btn').first().trigger('click')
 
     // TODO: sort cards in backend: first bachelor with smallest createdYear field
 
