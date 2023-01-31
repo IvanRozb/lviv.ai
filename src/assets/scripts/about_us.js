@@ -136,14 +136,6 @@ function setTeachersRowFullNameHeight() {
     })
 }
 
-function setProgramsCarouselWrapper() {
-    const coefficient = 0.34
-    const itemHeight = userWidth * coefficient
-    $('.programs_carousel_wrap').css({ height: itemHeight })
-}
-
-const userWidth = $(document).innerWidth()
-
 //Animate BG
 const bg_cards_section = document.querySelector('.bg_cards_section')
 
@@ -198,7 +190,6 @@ setTimeout(async () => {
             await Fetch.getUniversitiesAsync(language)
         )
     activateProgramsCarousel()
-    setProgramsCarouselWrapper()
 }, 0)
 
 animateNavUnderlines()

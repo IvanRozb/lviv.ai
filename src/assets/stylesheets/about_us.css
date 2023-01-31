@@ -359,11 +359,15 @@ body{
     margin-left: -3vw;
     margin-top: 8vh;
     position: relative;
+    min-width: 0;
 }
 .programs_carousel_wrap{
+    display: flex;
+    align-items: center;
     margin-left: -8vw;
 
     width: 100vw;
+    height: 73vh;
     overflow: hidden !important;
 }
 .programs_carousel .slick-list {
@@ -429,7 +433,6 @@ body{
 }
 .programs_explanation{
     position: relative;
-    margin-top: 18.5vh;
 }
 .programs_explanation:before{
     content: '';
