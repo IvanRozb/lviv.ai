@@ -85,12 +85,9 @@ export function animateNavUnderlines() {
     })
 }
 //Course card help function
-export function setGroupSelectorPosition(userWidth) {
+export function setGroupSelectorPosition() {
     let groups = document.querySelectorAll('.row_group')
 
-    /* need to get styles */
-    const gapWidth = 0.01 * userWidth /*for additional left margin*/
-    console.log(gapWidth)
     for (let i = 0; i < groups.length; i++) {
         let groupRect = groups[i].getBoundingClientRect()
         let group_name = groups[i].getAttribute('data-area')

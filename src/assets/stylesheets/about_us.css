@@ -41,7 +41,7 @@ body{
 }
 
 .navigation_buttons{
-    margin-bottom: 2.5vh;
+    /*margin-bottom: 2.5vh;*/
 
     display: flex;
     justify-content: space-around;
@@ -50,19 +50,34 @@ body{
     list-style: none;
     background: transparent;
     width: 70vw;
+    height: 70%;
 }
 
 .navigation_item{
     display: flex;
     justify-content: center;
-    width: 18vw;
+    width: 23vw;
+    height: 100%;
+
+    padding-bottom: 0.625rem;
 }
 
 .navigation_icon_wrapper{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
 
-    margin-bottom: 1.25vw;
+    /*margin-bottom: 1.25vw;*/
+}
+
+.navigation_icon{
+    width: 20%;
+}
+
+.navigation_icon-programs{
+    width: 27%;
 }
 
 .navigation_button{
@@ -72,14 +87,14 @@ body{
 
     cursor: pointer;
 
-    /*width: 18vw;*/
+    width: 100%;
 }
 
 .navigation_underline {
     display: block;
     position: absolute;
 
-    top: 87%;
+    top: 90%;
 
     width: 14vw;
     height: 0.15em;
@@ -121,6 +136,14 @@ body{
     left: 40vw;
 }
 /*Course Cards css*/
+
+.course_cards_container{
+    display: none;
+}
+.course_cards_container.active{
+    display: block;
+}
+
 .course_cards_menu{
     --gap: 2vw;
 
@@ -133,7 +156,12 @@ body{
     height: 18vh;
     width: 35vw;
 }
-
+.course_cards_menu button{
+    cursor: pointer;
+}
+.course_cards_menu button.active{
+   color: var(--peachy)
+}
 .cards_menu_titles{
     display: grid;
     align-items: center;
@@ -148,14 +176,15 @@ body{
     align-items: center;
 }
 .year_nav{
+    display: none;
+}
+.year_nav.active{
     display: flex;
     justify-content: flex-start;
     gap: var(--gap);
-}
-.degree_btn{
-    cursor: pointer;
-}
 
+    color: var(--peachy);
+}
 .course_card{
     width: 47vw;
     height: 50vh;
@@ -330,11 +359,15 @@ body{
     margin-left: -3vw;
     margin-top: 8vh;
     position: relative;
+    min-width: 0;
 }
 .programs_carousel_wrap{
+    display: flex;
+    align-items: center;
     margin-left: -8vw;
 
     width: 100vw;
+    height: 73vh;
     overflow: hidden !important;
 }
 .programs_carousel .slick-list {
@@ -400,7 +433,6 @@ body{
 }
 .programs_explanation{
     position: relative;
-    margin-top: 18.5vh;
 }
 .programs_explanation:before{
     content: '';
