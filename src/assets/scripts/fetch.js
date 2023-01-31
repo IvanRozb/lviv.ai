@@ -666,8 +666,7 @@ export class Fetch {
             return result
         }
 
-        let itemName =
-            language === 'ua' ? 'applicantResultUA' : 'applicantResultEN'
+        const itemName = `applicantResult${language}`
 
         const item = localStorage.getItem(itemName)
         if (item != null) return item
@@ -882,12 +881,4 @@ export class Fetch {
         return await this.getCourseCardsPageAsync('ua')
     }
 
-    /*--Applicant--*/
-    static async getApplicantsUA() {
-        return await this.getApplicantsAsync('ua')
-    }
-
-    static async getApplicantsEN() {
-        return await this.getApplicantsAsync('en')
-    }
 }

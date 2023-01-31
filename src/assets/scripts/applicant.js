@@ -45,12 +45,13 @@ function navigationListBehavior(
 }
 
 setTimeout(async () => {
+    const language = document.documentElement.lang
     if (document.documentElement.lang === 'en') {
         document.getElementsByTagName('body')[0].innerHTML +=
-            await Fetch.getApplicantsEN()
+            await Fetch.getApplicantsAsync(language)
     } else if (document.documentElement.lang === 'ua') {
         document.getElementsByTagName('body')[0].innerHTML +=
-            await Fetch.getApplicantsUA()
+            await Fetch.getApplicantsAsync(language)
     }
 
     navigationListBehavior(`.sidebar_list`, [`section`], `.sidebar_list > li`)
