@@ -6,12 +6,14 @@ import {
     setGroupSelectorPosition,
 } from './utils'
 
+function getCarouselItemIndex() {
+    const indexRef = localStorage.getItem('carousel_item_index')
+    return +(indexRef === undefined ? '0' : indexRef)
+}
+
 function activateCarousel() {
     $(document).ready(function () {
         const slider = $('.carousel')
-
-        const indexRef = localStorage.getItem('carousel_item_index')
-        const carousel_item_index = indexRef === undefined ? '0' : indexRef
 
         slider.slick({
             speed: 500,
@@ -20,7 +22,7 @@ function activateCarousel() {
             adaptiveHeight: true,
             waitForAnimate: false,
             draggable: false,
-            initialSlide: +carousel_item_index,
+            initialSlide: getCarouselItemIndex(),
         })
 
         const buttons = document.getElementsByClassName('navigation_button')
@@ -143,6 +145,49 @@ function setTeachersRowFullNameHeight() {
     })
 }
 
+function moveUnderline() {
+    const underline = document.querySelector('.navigation_underline')
+    const buttons = $('.navigation_buttons')
+
+    buttons.on('click', (event) => {
+        let item = event.target
+
+        let index
+        let isSetUpItem = false
+        if (item.classList[0] !== 'navigation_buttons') {
+            while (!item.classList.contains('navigation_item'))
+                item = item.parentNode
+
+            const item_index_class = item.classList[1]
+            index = +item_index_class[item_index_class.length - 1]
+        } else {
+            index = +localStorage.getItem('carousel_item_index')
+            isSetUpItem = true
+        }
+
+        const nav_item_width = 0.23 * window.innerWidth
+        const underlineWidth = +getComputedStyle(underline).width.replace(
+            'px',
+            ''
+        )
+
+        $(underline).css({
+            transform:
+                'translate3d(' +
+                (nav_item_width / underlineWidth) * 100 * (index - 1) +
+                '%,0,0)',
+            transition: '0.28s all linear',
+        })
+
+        if (isSetUpItem)
+            $(underline).css({
+                transition: 'none',
+            })
+    })
+
+    buttons.trigger('click')
+}
+
 //Animate BG
 const bg_cards_section = document.querySelector('.bg_cards_section')
 
@@ -201,3 +246,4 @@ setTimeout(async () => {
 
 animateNavUnderlines()
 activateCarousel()
+moveUnderline()
