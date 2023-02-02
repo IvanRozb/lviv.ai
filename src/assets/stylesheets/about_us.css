@@ -41,6 +41,8 @@ body{
 }
 
 .navigation_buttons{
+    position: relative;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -89,16 +91,24 @@ body{
 }
 
 .navigation_underline {
+    --transition-duration : .5s;
+    --number-of-elements: 3;
+
     display: block;
     position: absolute;
+    pointer-events: none;
+    bottom: -1.5vh;
+    /*half of underline width*/
+    left: calc(100% / calc(var(--number-of-elements) * 4));
 
-    top: 90%;
-
-    width: 14vw;
     height: 0.15em;
+    /*width = half of button element width*/
+    width: calc(100% / calc(var(--number-of-elements) * 2));
 
     border-radius: 3px;
     background-color: var(--white);
+
+    transition: transform var(--transition-duration) ease-in-out;
 }
 /*Animated BG*/
 .animated_bg{

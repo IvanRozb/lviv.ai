@@ -5,13 +5,9 @@ import {
     animateNavUnderlines,
     setGroupSelectorPosition,
 } from './utils'
-
-function getCarouselItemIndex() {
-    const indexRef = localStorage.getItem('carousel_item_index')
-    return +(indexRef === undefined ? '0' : indexRef)
-}
-
 function activateCarousel() {
+    const underline = $(".navigation_underline")
+
     $(document).ready(function () {
         const slider = $('.carousel')
 
@@ -21,22 +17,25 @@ function activateCarousel() {
             infinite: false,
             adaptiveHeight: true,
             waitForAnimate: false,
-            draggable: false,
-            initialSlide: getCarouselItemIndex(),
+            draggable: false
+        })
+        const buttons = $('.navigation_button')
+        const buttonsCount = buttons.length
+
+        buttons.each(function (idx) {
+            const btn = $(this)
+
+            btn.addClass('navigation_element-' + (idx + 1).toString())
+
+            btn.click(() => {
+                console.log("clicked")
+                slider.slick('slickGoTo', idx)
+                underline.css("transform", 'translate3d(' + idx * 200  + '%,0,0)')
+            })
         })
 
-        const buttons = document.getElementsByClassName('navigation_button')
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add('navigation_element-' + (i + 1).toString())
-            const element = $('.navigation_element-' + (i + 1).toString())
-            element.click(() => {
-                slider.slick('slickGoTo', i)
-                localStorage.setItem('carousel_item_index', i.toString())
-            })
-        }
     })
 }
-
 function addCourseCardsBtnListeners() {
     $('.degree_btn').each(function () {
         $(this).on('click', function () {
@@ -92,7 +91,6 @@ function activateTeacherCarousel() {
         })
     })
 }
-
 function activateProgramsCarousel() {
     $(document).ready(function () {
         const slider = $('.programs_carousel')
@@ -114,7 +112,6 @@ function activateProgramsCarousel() {
         })
     })
 }
-
 function setTeachersRowFullNameHeight() {
     let rows = document.querySelectorAll(`.teachers_row`)
     let rowIndex = 1
@@ -143,49 +140,6 @@ function setTeachersRowFullNameHeight() {
         ).css('height', max_name_height)
         rowIndex++
     })
-}
-
-function moveUnderline() {
-    const underline = document.querySelector('.navigation_underline')
-    const buttons = $('.navigation_buttons')
-
-    buttons.on('click', (event) => {
-        let item = event.target
-
-        let index
-        let isSetUpItem = false
-        if (item.classList[0] !== 'navigation_buttons') {
-            while (!item.classList.contains('navigation_item'))
-                item = item.parentNode
-
-            const item_index_class = item.classList[1]
-            index = +item_index_class[item_index_class.length - 1]
-        } else {
-            index = +localStorage.getItem('carousel_item_index')
-            isSetUpItem = true
-        }
-
-        const nav_item_width = 0.23 * window.innerWidth
-        const underlineWidth = +getComputedStyle(underline).width.replace(
-            'px',
-            ''
-        )
-
-        $(underline).css({
-            transform:
-                'translate3d(' +
-                (nav_item_width / underlineWidth) * 100 * (index - 1) +
-                '%,0,0)',
-            transition: '0.28s all linear',
-        })
-
-        if (isSetUpItem)
-            $(underline).css({
-                transition: 'none',
-            })
-    })
-
-    buttons.trigger('click')
 }
 
 //Animate BG
@@ -246,4 +200,3 @@ setTimeout(async () => {
 
 animateNavUnderlines()
 activateCarousel()
-moveUnderline()
