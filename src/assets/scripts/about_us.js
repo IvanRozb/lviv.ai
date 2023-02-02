@@ -8,7 +8,7 @@ import {
 
 // Carousel functions
 function activateCarousel() {
-    const underline = $(".navigation_underline")
+    const underline = $('.navigation_underline')
 
     $(document).ready(function () {
         const slider = $('.carousel')
@@ -19,7 +19,7 @@ function activateCarousel() {
             infinite: false,
             adaptiveHeight: true,
             waitForAnimate: false,
-            draggable: false
+            draggable: false,
         })
         const buttons = $('.navigation_button')
 
@@ -29,12 +29,13 @@ function activateCarousel() {
             btn.addClass('navigation_element-' + (idx + 1).toString())
 
             btn.click(() => {
-                console.log("clicked")
                 slider.slick('slickGoTo', idx)
-                underline.css("transform", 'translate3d(' + idx * 200  + '%,0,0)')
+                underline.css(
+                    'transform',
+                    'translate3d(' + idx * 200 + '%,0,0)'
+                )
             })
         })
-
     })
 }
 function activateTeacherCarousel() {
@@ -139,15 +140,14 @@ function setTeachersRowFullNameHeight() {
         row.classList.add(row.classList[0] + '-' + rowIndex.toString())
         $(
             '.teachers_row-' +
-            rowIndex.toString() +
-            ' > .teachers_column > .teachers_full_name'
+                rowIndex.toString() +
+                ' > .teachers_column > .teachers_full_name'
         ).css('height', max_name_height)
         rowIndex++
     })
 }
 //Animate BG
-function animateBG(){
-
+function animateBG() {
     const bg_cards_section = document.querySelector('.bg_cards_section')
 
     const blob1HTML = animatedBlob(1, 100)
@@ -179,7 +179,7 @@ setTimeout(async () => {
     setGroupSelectorPosition()
     addCourseCardsBtnListeners()
 
-        // Activate Bachelor by default
+    // Activate Bachelor by default
     $('.bachelor_btn').addClass('active')
     $('.nav_bachelor').addClass('active')
     $('.year_btn').first().trigger('click')
@@ -209,4 +209,3 @@ setTimeout(async () => {
 animateNavUnderlines()
 activateCarousel()
 animateBG()
-
