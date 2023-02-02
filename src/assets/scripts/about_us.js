@@ -5,6 +5,8 @@ import {
     animateNavUnderlines,
     setGroupSelectorPosition,
 } from './utils'
+
+// Carousel functions
 function activateCarousel() {
     const underline = $(".navigation_underline")
 
@@ -36,6 +38,39 @@ function activateCarousel() {
 
     })
 }
+function activateTeacherCarousel() {
+    $(document).ready(function () {
+        const slider = $('.teachers_carousel')
+
+        slider.slick({
+            dots: true,
+            draggable: false,
+        })
+    })
+}
+function activateProgramsCarousel() {
+    $(document).ready(function () {
+        const slider = $('.programs_carousel')
+        slider.slick({
+            centerMode: true,
+            centerPadding: 5,
+            speed: 500,
+            slidesToShow: 5,
+            draggable: false,
+            lazyLoad: true,
+        })
+
+        const track = document.querySelector('.programs_carousel .slick-track')
+        track.addEventListener('click', (e) => {
+            let targetElement = e.target
+            if (e.target.tagName !== 'DIV') targetElement = e.target.parentNode
+
+            slider.slick('slickGoTo', targetElement.dataset['slickIndex'])
+        })
+    })
+}
+
+// Course cards page functions
 function addCourseCardsBtnListeners() {
     $('.degree_btn').each(function () {
         $(this).on('click', function () {
@@ -81,37 +116,7 @@ function addCourseCardsBtnListeners() {
         })
     })
 }
-function activateTeacherCarousel() {
-    $(document).ready(function () {
-        const slider = $('.teachers_carousel')
-
-        slider.slick({
-            dots: true,
-            draggable: false,
-        })
-    })
-}
-function activateProgramsCarousel() {
-    $(document).ready(function () {
-        const slider = $('.programs_carousel')
-        slider.slick({
-            centerMode: true,
-            centerPadding: 5,
-            speed: 500,
-            slidesToShow: 5,
-            draggable: false,
-            lazyLoad: true,
-        })
-
-        const track = document.querySelector('.programs_carousel .slick-track')
-        track.addEventListener('click', (e) => {
-            let targetElement = e.target
-            if (e.target.tagName !== 'DIV') targetElement = e.target.parentNode
-
-            slider.slick('slickGoTo', targetElement.dataset['slickIndex'])
-        })
-    })
-}
+// Teachers page functions
 function setTeachersRowFullNameHeight() {
     let rows = document.querySelectorAll(`.teachers_row`)
     let rowIndex = 1
@@ -135,30 +140,32 @@ function setTeachersRowFullNameHeight() {
         row.classList.add(row.classList[0] + '-' + rowIndex.toString())
         $(
             '.teachers_row-' +
-                rowIndex.toString() +
-                ' > .teachers_column > .teachers_full_name'
+            rowIndex.toString() +
+            ' > .teachers_column > .teachers_full_name'
         ).css('height', max_name_height)
         rowIndex++
     })
 }
-
 //Animate BG
-const bg_cards_section = document.querySelector('.bg_cards_section')
+function animateBG(){
 
-const blob1HTML = animatedBlob(1, 100)
-bg_cards_section.insertAdjacentHTML('beforeend', blob1HTML)
+    const bg_cards_section = document.querySelector('.bg_cards_section')
 
-const bg_teachers_section = document.querySelector('.bg_teachers_section')
+    const blob1HTML = animatedBlob(1, 100)
+    bg_cards_section.insertAdjacentHTML('beforeend', blob1HTML)
 
-const blob2HTML = animatedBlob(2, 120)
+    const bg_teachers_section = document.querySelector('.bg_teachers_section')
 
-bg_teachers_section.insertAdjacentHTML('beforeend', blob2HTML)
+    const blob2HTML = animatedBlob(2, 120)
 
-const bg_programs_section = document.querySelector('.bg_programs_section')
+    bg_teachers_section.insertAdjacentHTML('beforeend', blob2HTML)
 
-const blob3HTML = animatedBlob(3, 120)
+    const bg_programs_section = document.querySelector('.bg_programs_section')
 
-bg_programs_section.insertAdjacentHTML('beforeend', blob3HTML)
+    const blob3HTML = animatedBlob(3, 120)
+
+    bg_programs_section.insertAdjacentHTML('beforeend', blob3HTML)
+}
 
 setTimeout(async () => {
     const language = document.documentElement.lang
@@ -200,3 +207,5 @@ setTimeout(async () => {
 
 animateNavUnderlines()
 activateCarousel()
+animateBG()
+
