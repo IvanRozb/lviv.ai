@@ -22,7 +22,6 @@ function activateCarousel() {
             draggable: false
         })
         const buttons = $('.navigation_button')
-        const buttonsCount = buttons.length
 
         buttons.each(function (idx) {
             const btn = $(this)
@@ -169,17 +168,18 @@ function animateBG(){
 
 setTimeout(async () => {
     const language = document.documentElement.lang
-    const courseCardsPage = await Fetch.getCourseCardsPageUA()
+
+    // Course Cards FETCH
+    const courseCardsPage = await Fetch.getCourseCardsPageAsync(language)
 
     document
         .querySelector('.course_cards_section')
         .insertAdjacentHTML('beforeend', courseCardsPage)
 
     setGroupSelectorPosition()
-
     addCourseCardsBtnListeners()
 
-    // Activate Bachelor by default
+        // Activate Bachelor by default
     $('.bachelor_btn').addClass('active')
     $('.nav_bachelor').addClass('active')
     $('.year_btn').first().trigger('click')
@@ -195,6 +195,7 @@ setTimeout(async () => {
         )
     activateTeacherCarousel()
 
+    // Universities FETCH
     setTeachersRowFullNameHeight()
     document
         .querySelector('.programs_carousel')
