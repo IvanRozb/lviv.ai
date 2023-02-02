@@ -6,7 +6,10 @@ import {
     setGroupSelectorPosition,
 } from './utils'
 
+// Carousel functions
 function activateCarousel() {
+    const underline = $('.navigation_underline')
+
     $(document).ready(function () {
         const slider = $('.carousel')
 
@@ -18,16 +21,56 @@ function activateCarousel() {
             waitForAnimate: false,
             draggable: false,
         })
+        const buttons = $('.navigation_button')
 
-        const buttons = document.getElementsByClassName('navigation_button')
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add('navigation_element-' + (i + 1).toString())
-            const element = $('.navigation_element-' + (i + 1).toString())
-            element.click(() => slider.slick('slickGoTo', i))
-        }
+        buttons.each(function (idx) {
+            const btn = $(this)
+
+            btn.addClass('navigation_element-' + (idx + 1).toString())
+
+            btn.click(() => {
+                slider.slick('slickGoTo', idx)
+                underline.css(
+                    'transform',
+                    'translate3d(' + idx * 200 + '%,0,0)'
+                )
+            })
+        })
+    })
+}
+function activateTeacherCarousel() {
+    $(document).ready(function () {
+        const slider = $('.teachers_carousel')
+
+        slider.slick({
+            dots: true,
+            draggable: false,
+        })
+    })
+}
+function activateProgramsCarousel() {
+    $(document).ready(function () {
+        const slider = $('.programs_carousel')
+        slider.slick({
+            centerMode: true,
+            centerPadding: 5,
+            speed: 500,
+            slidesToShow: 5,
+            draggable: false,
+            lazyLoad: true,
+        })
+
+        const track = document.querySelector('.programs_carousel .slick-track')
+        track.addEventListener('click', (e) => {
+            let targetElement = e.target
+            if (e.target.tagName !== 'DIV') targetElement = e.target.parentNode
+
+            slider.slick('slickGoTo', targetElement.dataset['slickIndex'])
+        })
     })
 }
 
+// Course cards page functions
 function addCourseCardsBtnListeners() {
     $('.degree_btn').each(function () {
         $(this).on('click', function () {
@@ -73,39 +116,7 @@ function addCourseCardsBtnListeners() {
         })
     })
 }
-function activateTeacherCarousel() {
-    $(document).ready(function () {
-        const slider = $('.teachers_carousel')
-
-        slider.slick({
-            dots: true,
-            draggable: false,
-        })
-    })
-}
-
-function activateProgramsCarousel() {
-    $(document).ready(function () {
-        const slider = $('.programs_carousel')
-        slider.slick({
-            centerMode: true,
-            centerPadding: 5,
-            speed: 500,
-            slidesToShow: 5,
-            draggable: false,
-            lazyLoad: true,
-        })
-
-        const track = document.querySelector('.programs_carousel .slick-track')
-        track.addEventListener('click', (e) => {
-            let targetElement = e.target
-            if (e.target.tagName !== 'DIV') targetElement = e.target.parentNode
-
-            slider.slick('slickGoTo', targetElement.dataset['slickIndex'])
-        })
-    })
-}
-
+// Teachers page functions
 function setTeachersRowFullNameHeight() {
     let rows = document.querySelectorAll(`.teachers_row`)
     let rowIndex = 1
@@ -135,35 +146,37 @@ function setTeachersRowFullNameHeight() {
         rowIndex++
     })
 }
-
 //Animate BG
-const bg_cards_section = document.querySelector('.bg_cards_section')
+function animateBG() {
+    const bg_cards_section = document.querySelector('.bg_cards_section')
 
-const blob1HTML = animatedBlob(1, 100)
-bg_cards_section.insertAdjacentHTML('beforeend', blob1HTML)
+    const blob1HTML = animatedBlob(1, 100)
+    bg_cards_section.insertAdjacentHTML('beforeend', blob1HTML)
 
-const bg_teachers_section = document.querySelector('.bg_teachers_section')
+    const bg_teachers_section = document.querySelector('.bg_teachers_section')
 
-const blob2HTML = animatedBlob(2, 120)
+    const blob2HTML = animatedBlob(2, 120)
 
-bg_teachers_section.insertAdjacentHTML('beforeend', blob2HTML)
+    bg_teachers_section.insertAdjacentHTML('beforeend', blob2HTML)
 
-const bg_programs_section = document.querySelector('.bg_programs_section')
+    const bg_programs_section = document.querySelector('.bg_programs_section')
 
-const blob3HTML = animatedBlob(3, 120)
+    const blob3HTML = animatedBlob(3, 120)
 
-bg_programs_section.insertAdjacentHTML('beforeend', blob3HTML)
+    bg_programs_section.insertAdjacentHTML('beforeend', blob3HTML)
+}
 
 setTimeout(async () => {
     const language = document.documentElement.lang
-    const courseCardsPage = await Fetch.getCourseCardsPageUA()
+
+    // Course Cards FETCH
+    const courseCardsPage = await Fetch.getCourseCardsPageAsync(language)
 
     document
         .querySelector('.course_cards_section')
         .insertAdjacentHTML('beforeend', courseCardsPage)
 
     setGroupSelectorPosition()
-
     addCourseCardsBtnListeners()
 
     // Activate Bachelor by default
@@ -182,6 +195,7 @@ setTimeout(async () => {
         )
     activateTeacherCarousel()
 
+    // Universities FETCH
     setTeachersRowFullNameHeight()
     document
         .querySelector('.programs_carousel')
@@ -194,3 +208,4 @@ setTimeout(async () => {
 
 animateNavUnderlines()
 activateCarousel()
+animateBG()

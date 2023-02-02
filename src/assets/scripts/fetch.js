@@ -251,13 +251,14 @@ export class Fetch {
             return courseCard
         }
 
-        const page = localStorage.getItem('courseCardsPage')
+        const pageName =  language === 'ua' ? 'courseCardsPage' : 'courseCardsPageEN'
+        const page = localStorage.getItem(pageName)
 
         if (page) {
             return page
         } else {
             localStorage.setItem(
-                'courseCardsPage',
+                pageName,
                 await fetch(
                     `https://aidept.com.ua/aiwebsite/CourseCards?language=${language}`,
                     {
@@ -309,14 +310,20 @@ export class Fetch {
                         }
                         let courseCardsMenuHTML = `<div class="course_cards_menu">
                                         <div class="cards_menu_titles">
-                                            <p class="degree_title">Ступінь: </p>
-                                            <p class="year_title">Рік: </p>
+                                            <p class="degree_title">
+                                                ${language === 'ua' ? 'Ступінь: ' : 'Degree: '}
+                                            </p>
+                                            <p class="year_title"> ${language === 'ua' ? 'Рік: ' : 'Year: '}</p>
                                         </div>
                             
                                         <div class="cards_menu_nav">
                                             <div class="degree_nav">
-                                                <button class="degree_btn bachelor_btn">Бакалаврат</button>
-                                                <button class="degree_btn master_btn">Магістратура</button>
+                                                <button class="degree_btn bachelor_btn">
+                                                    ${language === 'ua' ? 'Бакалаврат' : 'Bachelor'}
+                                                </button>
+                                                <button class="degree_btn master_btn">
+                                                    ${language === 'ua' ? 'Магістратура' : 'Master'}
+                                                </button>
                                             </div>
                             
                                             <div class="year_nav nav_bachelor">
@@ -334,7 +341,7 @@ export class Fetch {
             )
         }
 
-        return localStorage.getItem('courseCardsPage')
+        return localStorage.getItem(pageName)
     }
 
     static async getTeachersAsync(language) {
@@ -870,15 +877,6 @@ export class Fetch {
         localStorage.setItem('aisPageInsertedTime', new Date().toJSON())
 
         return localStorage.getItem(`aisPage${language}`)
-    }
-
-    /*
-     * Additional async implementation
-     */
-
-    /*--About us--*/
-    static async getCourseCardsPageUA() {
-        return await this.getCourseCardsPageAsync('ua')
     }
 
 }

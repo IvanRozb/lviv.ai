@@ -41,7 +41,7 @@ body{
 }
 
 .navigation_buttons{
-    /*margin-bottom: 2.5vh;*/
+    position: relative;
 
     display: flex;
     justify-content: space-around;
@@ -49,14 +49,14 @@ body{
 
     list-style: none;
     background: transparent;
-    width: 70vw;
+    width: 69vw;
     height: 70%;
 }
 
 .navigation_item{
     display: flex;
     justify-content: center;
-    width: 23vw;
+    width: 33.33%;
     height: 100%;
 
     padding-bottom: 0.625rem;
@@ -91,18 +91,24 @@ body{
 }
 
 .navigation_underline {
+    --transition-duration : .5s;
+    --number-of-elements: 3;
+
     display: block;
     position: absolute;
+    pointer-events: none;
+    bottom: -1.5vh;
+    /*half of underline width*/
+    left: calc(100% / calc(var(--number-of-elements) * 4));
 
-    top: 90%;
-
-    width: 14vw;
     height: 0.15em;
+    /*width = half of button element width*/
+    width: calc(100% / calc(var(--number-of-elements) * 2));
 
     border-radius: 3px;
     background-color: var(--white);
 
-    transition: 0.28s left linear;
+    transition: transform var(--transition-duration) ease-in-out;
 }
 /*Animated BG*/
 .animated_bg{
@@ -367,7 +373,7 @@ body{
     margin-left: -8vw;
 
     width: 100vw;
-    height: 73vh;
+    height: 78vh;
     overflow: hidden !important;
 }
 .programs_carousel .slick-list {
