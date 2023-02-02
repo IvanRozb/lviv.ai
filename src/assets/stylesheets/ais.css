@@ -1,6 +1,8 @@
 .page_container {
     padding: 0 10vw;
 }
+
+/*Youtube video*/
 .video{
     position: relative;
     margin: 25vh  0;
@@ -20,6 +22,7 @@
     border: 0;
 }
 
+/*Big project cards*/
 .ais-content-section {
     display: flex;
     column-gap: 10vw;
@@ -84,17 +87,18 @@
     list-style: none;
 
     display: grid;
+    grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 5%;
-
+    gap: clamp(3%, 4%, 5%);
 }
 
 .ais-photo {
-    width: 100%;
-    height: 50%;
+    aspect-ratio: 1/1;
+    width: 99%;
+
+    margin-bottom:  6.5vh;
 
     object-fit: cover;
-    margin-bottom: 6.5vh;
     border: 4px white solid;
 }
 
@@ -105,4 +109,10 @@
 
 .ais-item-desc {
     margin-top: 4vh;
+}
+
+/*Footer*/
+
+footer {
+    margin-top: 30vh;
 }
