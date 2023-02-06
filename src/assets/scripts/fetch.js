@@ -149,13 +149,16 @@ export class Fetch {
                 let termGroups = {}
 
                 Object.entries(term).forEach((subject) => {
-                    let area = subject[1].area
-                    //TODO make this if prettier
-                    if (!termGroups[`${area}`]) {
-                        termGroups[`${area}`] = Array()
-                    }
+                    const subjectObj = subject[1]
 
-                    termGroups[`${area}`].push(subject[1])
+                    if(subjectObj){
+                        let area = subjectObj.area
+
+                        if (!termGroups[`${area}`])
+                            termGroups[`${area}`] = Array()
+
+                        termGroups[`${area}`].push(subjectObj)
+                    }
                 })
 
                 let termGroupsArray = Object.entries(termGroups)
@@ -217,12 +220,18 @@ export class Fetch {
             let courseCard = `<div class="term_group">
                            
                                 <div class="course_card">
-                                    <h6 class="course_card_term">${termCounter} семестр</h6>
+                                    <h6 class="course_card_term">
+                                        ${termCounter} ${language == "ua" ? "семестр" : "term"} 
+                                    </h6>
                         
                                     <div class="course_card_table">
                                         <div class="table_row">
-                                            <div class="card_table_header">Предмети</div>
-                                            <div class="card_table_header">Кредити</div>
+                                            <div class="card_table_header">
+                                                ${language == "ua" ? "Предмети" : "Subjects"}
+                                            </div>
+                                            <div class="card_table_header">
+                                                ${language == "ua" ? "Кредити" : "Credits"}
+                                            </div>
                                         </div>`
 
             courseCard += sortedSubjectsGroupsToHTML(term1Groups)
@@ -231,14 +240,14 @@ export class Fetch {
                         </div>
                     
                         <div class="course_card">
-                            <h6 class="course_card_term">${
-                                termCounter + 1
-                            } семестр</h6>
+                            <h6 class="course_card_term">
+                                ${termCounter + 1} ${language == "ua" ? "семестр" : "term"}
+                            </h6>
             
                             <div class="course_card_table">
                                 <div class="table_row">
-                                    <div class="card_table_header">Предмети</div>
-                                    <div class="card_table_header">Кредити</div>
+                                    <div class="card_table_header">${language == "ua" ? "Предмети" : "Subjects"}</div>
+                                    <div class="card_table_header">${language == "ua" ? "Кредити" : "Credits"}</div>
                                 </div>`
 
             courseCard += sortedSubjectsGroupsToHTML(term2Groups)
