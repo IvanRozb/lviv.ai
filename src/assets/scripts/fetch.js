@@ -58,13 +58,13 @@ export class Fetch {
 
         const sectionName = `jobsPositions`
 
-        const section = checkIfSectionInStorage('ua', sectionName)
+        const section = checkIfSectionInStorage('UA', sectionName)
         if (section) return section
 
         const locations = ['Ukraine', 'Lviv']
 
         await localStorage.setItem(
-            `${sectionName}ua`,
+            `${sectionName}UA`,
             await fetch(
                 'https://aidept.com.ua/aiwebsite/jobNames?language=ua',
                 {
@@ -132,9 +132,12 @@ export class Fetch {
                 })
         )
 
-        localStorage.setItem('jobsPositionsInsertedTime', new Date().toJSON())
+        localStorage.setItem(
+            `${sectionName}InsertedTimeUA`,
+            new Date().toJSON()
+        )
 
-        return localStorage.getItem(`${sectionName}ua`)
+        return localStorage.getItem(`${sectionName}UA`)
     }
 
     /*--About us--*/
@@ -277,6 +280,7 @@ export class Fetch {
         }
 
         const sectionName = `courseCards`
+        language = language.toUpperCase()
 
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
@@ -286,7 +290,7 @@ export class Fetch {
         localStorage.setItem(
             pageName,
             await fetch(
-                `https://aidept.com.ua/aiwebsite/CourseCards?language=${language}`,
+                `https://aidept.com.ua/aiwebsite/CourseCards?language=${language.toLowerCase()}`,
                 {
                     method: 'GET',
                     headers: {
@@ -380,7 +384,10 @@ export class Fetch {
                     return courseCardsMenuHTML + courseCardsHTML
                 })
         )
-        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
+        localStorage.setItem(
+            `${sectionName}InsertedTime${language}`,
+            new Date().toJSON()
+        )
 
         return localStorage.getItem(pageName)
     }
@@ -404,6 +411,7 @@ export class Fetch {
             return -1
         }
 
+        language = language.toUpperCase()
         const sectionName = `teachersResult`
 
         const section = checkIfSectionInStorage(language, sectionName)
@@ -412,7 +420,7 @@ export class Fetch {
         await localStorage.setItem(
             `teachersResult${language}`,
             await fetch(
-                `https://aidept.com.ua/aiwebsite/Employees?language=${language}`,
+                `https://aidept.com.ua/aiwebsite/Employees?language=${language.toLowerCase()}`,
                 {
                     method: 'GET',
                     headers: {
@@ -487,11 +495,15 @@ export class Fetch {
                     return result
                 })
         )
-        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
+        localStorage.setItem(
+            `${sectionName}InsertedTime${language}`,
+            new Date().toJSON()
+        )
         return localStorage.getItem(`teachersResult${language}`)
     }
 
     static async getUniversitiesAsync(language) {
+        language = language.toUpperCase()
         const sectionName = `universitiesResult`
 
         const section = checkIfSectionInStorage(language, sectionName)
@@ -500,7 +512,7 @@ export class Fetch {
         await localStorage.setItem(
             `universitiesResult${language}`,
             await fetch(
-                `https://aidept.com.ua/aiwebsite/Universities?language=${language}`,
+                `https://aidept.com.ua/aiwebsite/Universities?language=${language.toLowerCase()}`,
                 {
                     method: 'GET',
                     headers: {
@@ -521,7 +533,10 @@ export class Fetch {
                     return result
                 })
         )
-        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
+        localStorage.setItem(
+            `${sectionName}InsertedTime${language}`,
+            new Date().toJSON()
+        )
         return localStorage.getItem(`universitiesResult${language}`)
     }
 
@@ -722,6 +737,7 @@ export class Fetch {
             return result
         }
 
+        language = language.toUpperCase()
         const sectionName = 'applicantResult'
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
@@ -729,7 +745,7 @@ export class Fetch {
         localStorage.setItem(
             `${sectionName}${language}`,
             await fetch(
-                `https://aidept.com.ua/aiwebsite/Applicants?language=${language}`,
+                `https://aidept.com.ua/aiwebsite/Applicants?language=${language.toLowerCase()}`,
                 {
                     method: 'GET',
                     headers: {
@@ -777,19 +793,23 @@ export class Fetch {
                                 break
                         }
                     }
-
+                    // console.log(data[0])
                     return (
                         result +
                         `<img class="logo" src="https://bit.ly/3WeWrpK" alt="logo">`
                     )
                 })
         )
-        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
+        localStorage.setItem(
+            `${sectionName}InsertedTime${language}`,
+            new Date().toJSON()
+        )
         return localStorage.getItem(`${sectionName}${language}`)
     }
 
     /*--AIS Page--*/
     static async getAISPageAsync(language) {
+        language = language.toUpperCase()
         const sectionName = 'aisPage'
 
         const section = checkIfSectionInStorage(language, sectionName)

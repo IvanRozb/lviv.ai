@@ -16,7 +16,7 @@ export function animatedBlob(n, width) {
         <div class="blob_bg" style=" width: ${width}vw; left: 0; top:0;">
             <div id="blob${n}" >
             <svg viewBox="0 0 800 500" preserveAspectRatio="none"
-                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xmlns="http://www.w3.org/2000/svg"
                  width="100%" class="blobSvg">
                 <path fill="#E92828" id="path">
                     <animate attributeName="d" dur="25000ms" repeatCount="indefinite"
@@ -149,7 +149,9 @@ export function checkIfSectionInStorage(language, sectionName) {
     language = language.toUpperCase()
 
     const html = localStorage.getItem(`${sectionName}${language}`)
-    let insertedDate = localStorage.getItem(`${sectionName}InsertedTime`)
+    let insertedDate = localStorage.getItem(
+        `${sectionName}InsertedTime${language}`
+    )
 
     if (html != null && insertedDate != null) {
         insertedDate = new Date(insertedDate)
