@@ -10,6 +10,27 @@
     width: 75vw;
     height: 75vh;
 }
+
+.video-loader {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-loader{
+    width: 6rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 .video iframe {
     position: absolute;
     left: 50%;

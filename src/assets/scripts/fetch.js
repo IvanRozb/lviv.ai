@@ -924,6 +924,6 @@ export class Fetch {
             new Date().toJSON()
         )
 
-        return localStorage.getItem(`aisPage${language}`)
+        return localStorage.getItem(`aisPage${language.toUpperCase()}`)
     }
 }
