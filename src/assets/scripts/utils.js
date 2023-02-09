@@ -144,3 +144,19 @@ export function vacanciesHTML() {
                     </tr>
                 </table>`
 }
+
+export function checkIfSectionInStorage(language, sectionName) {
+    language = language.toUpperCase()
+
+    const html = localStorage.getItem(`${sectionName}${language}`)
+    let insertedDate = localStorage.getItem(`${sectionName}InsertedTime`)
+
+    if (html != null && insertedDate != null) {
+        insertedDate = new Date(insertedDate)
+        insertedDate.setDate(insertedDate.getDate() + 3)
+
+        //checks if item exists in localStorage more than 3 day
+        if (insertedDate > new Date()) return html
+    }
+    return null
+}

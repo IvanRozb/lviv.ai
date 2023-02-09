@@ -1,4 +1,6 @@
 // for implementation of localStorage functionality
+import { checkIfSectionInStorage } from './utils'
+
 if (typeof localStorage === 'undefined' || localStorage === null) {
     let LocalStorage = require('node-localstorage').LocalStorage
     localStorage = new LocalStorage('./scratch')
@@ -54,21 +56,15 @@ export class Fetch {
             }
         }
 
-        const html = localStorage.getItem('jobsPositionsResult')
-        let insertedDate = localStorage.getItem('jobsPositionsInsertedTime')
+        const sectionName = `jobsPositions`
 
-        if (html != null && insertedDate != null) {
-            insertedDate = new Date(insertedDate)
-            insertedDate.setDate(insertedDate.getDate() + 1)
-
-            //checks if item exists in localStorage more than 1 day
-            if (insertedDate > new Date()) return html
-        }
+        const section = checkIfSectionInStorage('ua', sectionName)
+        if (section) return section
 
         const locations = ['Ukraine', 'Lviv']
 
         await localStorage.setItem(
-            'jobsPositionsResult',
+            `${sectionName}ua`,
             await fetch(
                 'https://aidept.com.ua/aiwebsite/jobNames?language=ua',
                 {
@@ -138,7 +134,7 @@ export class Fetch {
 
         localStorage.setItem('jobsPositionsInsertedTime', new Date().toJSON())
 
-        return localStorage.getItem('jobsPositionsResult')
+        return localStorage.getItem(`${sectionName}ua`)
     }
 
     /*--About us--*/
@@ -151,7 +147,7 @@ export class Fetch {
                 Object.entries(term).forEach((subject) => {
                     const subjectObj = subject[1]
 
-                    if(subjectObj){
+                    if (subjectObj) {
                         let area = subjectObj.area
 
                         if (!termGroups[`${area}`])
@@ -221,16 +217,26 @@ export class Fetch {
                            
                                 <div class="course_card">
                                     <h6 class="course_card_term">
-                                        ${termCounter} ${language == "ua" ? "семестр" : "term"} 
+                                        ${termCounter} ${
+                language === 'ua' ? 'семестр' : 'term'
+            } 
                                     </h6>
                         
                                     <div class="course_card_table">
                                         <div class="table_row">
                                             <div class="card_table_header">
-                                                ${language == "ua" ? "Предмети" : "Subjects"}
+                                                ${
+                                                    language === 'ua'
+                                                        ? 'Предмети'
+                                                        : 'Subjects'
+                                                }
                                             </div>
                                             <div class="card_table_header">
-                                                ${language == "ua" ? "Кредити" : "Credits"}
+                                                ${
+                                                    language === 'ua'
+                                                        ? 'Кредити'
+                                                        : 'Credits'
+                                                }
                                             </div>
                                         </div>`
 
@@ -241,13 +247,23 @@ export class Fetch {
                     
                         <div class="course_card">
                             <h6 class="course_card_term">
-                                ${termCounter + 1} ${language == "ua" ? "семестр" : "term"}
+                                ${termCounter + 1} ${
+                language === 'ua' ? 'семестр' : 'term'
+            }
                             </h6>
             
                             <div class="course_card_table">
                                 <div class="table_row">
-                                    <div class="card_table_header">${language == "ua" ? "Предмети" : "Subjects"}</div>
-                                    <div class="card_table_header">${language == "ua" ? "Кредити" : "Credits"}</div>
+                                    <div class="card_table_header">${
+                                        language === 'ua'
+                                            ? 'Предмети'
+                                            : 'Subjects'
+                                    }</div>
+                                    <div class="card_table_header">${
+                                        language === 'ua'
+                                            ? 'Кредити'
+                                            : 'Credits'
+                                    }</div>
                                 </div>`
 
             courseCard += sortedSubjectsGroupsToHTML(term2Groups)
@@ -260,78 +276,94 @@ export class Fetch {
             return courseCard
         }
 
-        const pageName =  language === 'ua' ? 'courseCardsPage' : 'courseCardsPageEN'
-        const page = localStorage.getItem(pageName)
+        const sectionName = `courseCards`
 
-        if (page) {
-            return page
-        } else {
-            localStorage.setItem(
-                pageName,
-                await fetch(
-                    `https://aidept.com.ua/aiwebsite/CourseCards?language=${language}`,
-                    {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+        const section = checkIfSectionInStorage(language, sectionName)
+        if (section) return section
+
+        const pageName = `${sectionName}${language}`
+
+        localStorage.setItem(
+            pageName,
+            await fetch(
+                `https://aidept.com.ua/aiwebsite/CourseCards?language=${language}`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            )
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    let controls = {
+                        bachelorControlsHTML: '',
+                        masterControlsHTML: '',
                     }
-                )
-                    .then((response) => {
-                        return response.json()
-                    })
-                    .then((data) => {
-                        let controls = {
-                            bachelorControlsHTML: "",
-                            masterControlsHTML: ""
-                        }
 
-                        let courseCardsHTML = ""
+                    let courseCardsHTML = ''
 
-                        for (let i = 0; i < data.length; i++) {
-
-                            if(data[i].isBachelor === true) {
-                                controls.bachelorControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
+                    for (let i = 0; i < data.length; i++) {
+                        if (data[i].isBachelor === true) {
+                            controls.bachelorControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
                                                                         ${data[i].createdYear}
                                                                   </button>`
 
-                                courseCardsHTML += `<div class="course_cards_container bachelor_${data[i].createdYear}">`
-                            }else{
-                                controls.masterControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
+                            courseCardsHTML += `<div class="course_cards_container bachelor_${data[i].createdYear}">`
+                        } else {
+                            controls.masterControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
                                                                     ${data[i].createdYear}
                                                                 </button>`
 
-                                courseCardsHTML += `<div class="course_cards_container master_${data[i].createdYear}" >`
-                            }
-
-                            for (let j = 1; j <= 8; j += 2) {
-                                let currentTerm = data[i].curriculum[`term${j}`]
-                                let nextTerm = data[i].curriculum[`term${j + 1}`]
-
-                                courseCardsHTML += getAboutUsCourseCard(
-                                    currentTerm,
-                                    nextTerm,
-                                    j
-                                )
-                            }
-
-                            courseCardsHTML += '</div>'
+                            courseCardsHTML += `<div class="course_cards_container master_${data[i].createdYear}" >`
                         }
-                        let courseCardsMenuHTML = `<div class="course_cards_menu">
+
+                        for (let j = 1; j <= 8; j += 2) {
+                            let currentTerm = data[i].curriculum[`term${j}`]
+                            let nextTerm = data[i].curriculum[`term${j + 1}`]
+
+                            courseCardsHTML += getAboutUsCourseCard(
+                                currentTerm,
+                                nextTerm,
+                                j
+                            )
+                        }
+
+                        courseCardsHTML += '</div>'
+                    }
+                    let courseCardsMenuHTML = `<div class="course_cards_menu">
                                         <div class="cards_menu_titles">
                                             <p class="degree_title">
-                                                ${language === 'ua' ? 'Ступінь: ' : 'Degree: '}
+                                                ${
+                                                    language === 'ua'
+                                                        ? 'Ступінь: '
+                                                        : 'Degree: '
+                                                }
                                             </p>
-                                            <p class="year_title"> ${language === 'ua' ? 'Рік: ' : 'Year: '}</p>
+                                            <p class="year_title"> ${
+                                                language === 'ua'
+                                                    ? 'Рік: '
+                                                    : 'Year: '
+                                            }</p>
                                         </div>
                             
                                         <div class="cards_menu_nav">
                                             <div class="degree_nav">
                                                 <button class="degree_btn bachelor_btn">
-                                                    ${language === 'ua' ? 'Бакалаврат' : 'Bachelor'}
+                                                    ${
+                                                        language === 'ua'
+                                                            ? 'Бакалаврат'
+                                                            : 'Bachelor'
+                                                    }
                                                 </button>
                                                 <button class="degree_btn master_btn">
-                                                    ${language === 'ua' ? 'Магістратура' : 'Master'}
+                                                    ${
+                                                        language === 'ua'
+                                                            ? 'Магістратура'
+                                                            : 'Master'
+                                                    }
                                                 </button>
                                             </div>
                             
@@ -345,10 +377,10 @@ export class Fetch {
                                         </div>
                                     </div>`
 
-                        return courseCardsMenuHTML + courseCardsHTML
-                    })
-            )
-        }
+                    return courseCardsMenuHTML + courseCardsHTML
+                })
+        )
+        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
 
         return localStorage.getItem(pageName)
     }
@@ -372,8 +404,11 @@ export class Fetch {
             return -1
         }
 
-        const item = localStorage.getItem(`teachersResult${language}`)
-        if (item != null) return item
+        const sectionName = `teachersResult`
+
+        const section = checkIfSectionInStorage(language, sectionName)
+        if (section) return section
+
         await localStorage.setItem(
             `teachersResult${language}`,
             await fetch(
@@ -452,12 +487,16 @@ export class Fetch {
                     return result
                 })
         )
+        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
         return localStorage.getItem(`teachersResult${language}`)
     }
 
     static async getUniversitiesAsync(language) {
-        const item = localStorage.getItem(`universitiesResult${language}`)
-        if (item != null) return item
+        const sectionName = `universitiesResult`
+
+        const section = checkIfSectionInStorage(language, sectionName)
+        if (section) return section
+
         await localStorage.setItem(
             `universitiesResult${language}`,
             await fetch(
@@ -482,6 +521,7 @@ export class Fetch {
                     return result
                 })
         )
+        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
         return localStorage.getItem(`universitiesResult${language}`)
     }
 
@@ -682,13 +722,12 @@ export class Fetch {
             return result
         }
 
-        const itemName = `applicantResult${language}`
-
-        const item = localStorage.getItem(itemName)
-        if (item != null) return item
+        const sectionName = 'applicantResult'
+        const section = checkIfSectionInStorage(language, sectionName)
+        if (section) return section
 
         localStorage.setItem(
-            itemName,
+            `${sectionName}${language}`,
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Applicants?language=${language}`,
                 {
@@ -745,23 +784,16 @@ export class Fetch {
                     )
                 })
         )
-        return localStorage.getItem(itemName)
+        localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
+        return localStorage.getItem('applicantResult')
     }
 
     /*--AIS Page--*/
     static async getAISPageAsync(language) {
-        language = language.toUpperCase()
+        const sectionName = 'aisPage'
 
-        const html = localStorage.getItem(`aisPage${language}`)
-        let insertedDate = localStorage.getItem('aisPageInsertedTime')
-
-        if (html != null && insertedDate != null) {
-            insertedDate = new Date(insertedDate)
-            insertedDate.setDate(insertedDate.getDate() + 3)
-
-            //checks if item exists in localStorage more than 3 day
-            if (insertedDate > new Date()) return html
-        }
+        const section = checkIfSectionInStorage(language, sectionName)
+        if (section) return section
 
         function getBigProjectCards(projects, language) {
             let sectionHTML = `<section class="ais-content">`
@@ -883,9 +915,15 @@ export class Fetch {
         localStorage.setItem('aisPageUA', aisHTMLua)
         localStorage.setItem('aisPageEN', aisHTMLen)
 
-        localStorage.setItem('aisPageInsertedTime', new Date().toJSON())
+        localStorage.setItem(
+            `${sectionName}InsertedTimeUA`,
+            new Date().toJSON()
+        )
+        localStorage.setItem(
+            `${sectionName}InsertedTimeEN`,
+            new Date().toJSON()
+        )
 
         return localStorage.getItem(`aisPage${language}`)
     }
-
 }
