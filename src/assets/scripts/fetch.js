@@ -528,7 +528,7 @@ export class Fetch {
     /*--Applicant--*/
     static async getApplicantsAsync(language) {
         function /*string*/ getApplicantExplanations(element, headerText) {
-            let result = `<section class="docs_section applicant_section" style="display: block">
+            let result = `<section class="docs_section" style="display: block">
                                             <div class="docs_content">
                                                 <h4 class="docs_main_title applicant_title">
                                                 ${headerText}
@@ -576,7 +576,7 @@ export class Fetch {
                     'click',
                 ]
             }
-            let result = `<section class="pay_section applicant_section" style="display: none">`
+            let result = `<section class="pay_section" style="display: none">`
             result += `<h4 class="pay_title applicant_title">${headerText}</h4>
                                 <div class="pay_columns">
                                     <div class="pay_column">${payColumnsText[0]}</div>
@@ -606,7 +606,7 @@ export class Fetch {
         }
 
         function /*string*/ getApplicantDates(element, headerText) {
-            let result = `<section class="calendar_section applicant_section" style="display: none">
+            let result = `<section class="calendar_section" style="display: none">
                                             <h4 class="calendar-main_title applicant_title">${headerText}</h4>
                                             <table class = "calendar-main_table" >`
             let j = 0
@@ -689,7 +689,7 @@ export class Fetch {
             }
 
             const notesHeader = language === 'ua' ? 'Примітки:' : 'Notes:'
-            let result = `<section class="subjects_section applicant_section" style="display: none">
+            let result = `<section class="subjects_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">${headerText}</h4>
                                             <div class="subjects_dates">`
             let isFirst = 0

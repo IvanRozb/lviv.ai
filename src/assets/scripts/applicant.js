@@ -15,6 +15,7 @@ function navigationListBehavior(
     /*string*/ linksSelector
 ) {
     const sidebar = document.querySelector(containerSelector)
+    console.log(sidebar, containerSelector)
     sidebar.addEventListener('click', (e) => {
         if (!e.target.dataset.link) {
             // console.log("Not a link. Maybe you clicked on underline ?")
@@ -46,15 +47,20 @@ function navigationListBehavior(
 
 setTimeout(async () => {
     const language = document.documentElement.lang
-    if (document.documentElement.lang === 'en') {
-        document.getElementsByTagName('body')[0].innerHTML +=
-            await Fetch.getApplicantsAsync(language)
-    } else if (document.documentElement.lang === 'ua') {
-        document.getElementsByTagName('body')[0].innerHTML +=
-            await Fetch.getApplicantsAsync(language)
-    }
+
+    const page = await Fetch.getApplicantsAsync(language)
+
+    let container = document.createElement('div')
+    container.innerHTML = `<div>${page.trim()}</div>`
+    container = container.firstChild
+
+    const section = document.getElementsByClassName('applicant_section')[0]
+
+    section.removeChild(document.getElementsByClassName('loader')[0])
+    section.appendChild(container)
 
     navigationListBehavior(`.sidebar_list`, [`section`], `.sidebar_list > li`)
+
     navigationListBehavior(
         `.subjects_dates`,
         [`.subjects_images > img`, `.subjects_notes`],
