@@ -785,7 +785,7 @@ export class Fetch {
                 })
         )
         localStorage.setItem(`${sectionName}InsertedTime`, new Date().toJSON())
-        return localStorage.getItem('applicantResult')
+        return localStorage.getItem(`${sectionName}${language}`)
     }
 
     /*--AIS Page--*/
