@@ -326,4 +326,14 @@ button{
     display: block;
     margin: auto;
     width: 6.25rem;
+    height: 6.25rem;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }

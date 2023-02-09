@@ -23,14 +23,6 @@
     width: 6rem;
 }
 
-.hidden {
-    display: none;
-}
-
-.visible {
-    display: block;
-}
-
 .video iframe {
     position: absolute;
     left: 50%;

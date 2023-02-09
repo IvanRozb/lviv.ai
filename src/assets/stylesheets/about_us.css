@@ -576,3 +576,17 @@ body{
 .carousel > .slick-dots {
     display: none !important;
 }
+
+
+/*Loader*/
+.course_card-loader{
+    margin-top: 10rem;
+}
+
+.teachers-loader{
+    margin-top: 10rem;
+}
+
+.programs-loader{
+    margin-top: 15rem;
+}
