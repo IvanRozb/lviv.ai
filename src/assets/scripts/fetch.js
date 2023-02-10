@@ -142,6 +142,8 @@ export class Fetch {
 
     /*--About us--*/
     static async getCourseCardsPageAsync(language) {
+        language = language.toUpperCase()
+
         function /*string*/ getAboutUsCourseCard(term1, term2, termCounter) {
             function sortSubjectsInGroups(term) {
                 Math.exp(2)
@@ -218,7 +220,7 @@ export class Fetch {
                                 <div class="course_card">
                                     <h6 class="course_card_term">
                                         ${termCounter} ${
-                language === 'ua' ? 'семестр' : 'term'
+                language === 'UA' ? 'семестр' : 'term'
             } 
                                     </h6>
                         
@@ -226,14 +228,14 @@ export class Fetch {
                                         <div class="table_row">
                                             <div class="card_table_header">
                                                 ${
-                language === 'ua'
+                language === 'UA'
                     ? 'Предмети'
                     : 'Subjects'
             }
                                             </div>
                                             <div class="card_table_header">
                                                 ${
-                language === 'ua'
+                language === 'UA'
                     ? 'Кредити'
                     : 'Credits'
             }
@@ -253,19 +255,19 @@ export class Fetch {
                         <div class="course_card">
                             <h6 class="course_card_term">
                                 ${termCounter + 1} ${
-                    language === 'ua' ? 'семестр' : 'term'
+                    language === 'UA' ? 'семестр' : 'term'
                 }
                             </h6>
             
                             <div class="course_card_table">
                                 <div class="table_row">
                                     <div class="card_table_header">${
-                    language === 'ua'
+                    language === 'UA'
                         ? 'Предмети'
                         : 'Subjects'
                 }</div>
                                     <div class="card_table_header">${
-                    language === 'ua'
+                    language === 'UA'
                         ? 'Кредити'
                         : 'Credits'
                 }</div>
@@ -283,7 +285,6 @@ export class Fetch {
         }
 
         const sectionName = `courseCards`
-        language = language.toUpperCase()
 
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
@@ -345,13 +346,13 @@ export class Fetch {
                                         <div class="cards_menu_titles">
                                             <p class="degree_title">
                                                 ${
-                                                    language === 'ua'
+                                                        language === 'UA'
                                                         ? 'Ступінь: '
                                                         : 'Degree: '
                                                 }
                                             </p>
                                             <p class="year_title"> ${
-                                                language === 'ua'
+                                                    language === 'UA'
                                                     ? 'Рік: '
                                                     : 'Year: '
                                             }</p>
@@ -361,14 +362,14 @@ export class Fetch {
                                             <div class="degree_nav">
                                                 <button class="degree_btn bachelor_btn">
                                                     ${
-                                                        language === 'ua'
+                                                            language === 'UA'
                                                             ? 'Бакалаврат'
                                                             : 'Bachelor'
                                                     }
                                                 </button>
                                                 <button class="degree_btn master_btn">
                                                     ${
-                                                        language === 'ua'
+                                                            language === 'UA'
                                                             ? 'Магістратура'
                                                             : 'Master'
                                                     }
@@ -397,6 +398,7 @@ export class Fetch {
     }
 
     static async getTeachersAsync(language) {
+        language = language.toUpperCase()
         function /*string*/ getEditedFullName(name) {
             let initials = name.split(' ')
             return (
@@ -415,7 +417,6 @@ export class Fetch {
             return -1
         }
 
-        language = language.toUpperCase()
         const sectionName = `teachersResult`
 
         const section = checkIfSectionInStorage(language, sectionName)
@@ -546,6 +547,7 @@ export class Fetch {
 
     /*--Applicant--*/
     static async getApplicantsAsync(language) {
+        language = language.toUpperCase()
         function /*string*/ getApplicantExplanations(element, headerText) {
             let result = `<section class="docs_section" style="display: block">
                                             <div class="docs_content">
@@ -582,7 +584,7 @@ export class Fetch {
             language
         ) {
             let payColumnsText, payLinkText
-            if (language === 'ua') {
+            if (language === 'UA') {
                 payColumnsText = ['Ступінь', 'Семестр', 'Обсяги']
                 payLinkText = [
                     '*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi можна переглянути за посиланням: ',
@@ -707,7 +709,7 @@ export class Fetch {
                 return result
             }
 
-            const notesHeader = language === 'ua' ? 'Примітки:' : 'Notes:'
+            const notesHeader = language === 'UA' ? 'Примітки:' : 'Notes:'
             let result = `<section class="subjects_section" style="display: none">
                                             <h4 class="subjects_title applicant_title">${headerText}</h4>
                                             <div class="subjects_dates">`
@@ -741,7 +743,7 @@ export class Fetch {
             return result
         }
 
-        language = language.toUpperCase()
+
         const sectionName = 'applicantResult'
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
@@ -834,7 +836,7 @@ export class Fetch {
                                             <div class="info-desc">
                                                 <p class="info-desc-text">
                                                 ${
-                                                    language === 'ua'
+                                                    language === 'UA'
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
@@ -854,7 +856,7 @@ export class Fetch {
                                             <div class="info-desc">
                                                 <p class="info-desc-text">
                                                 ${
-                                                    language === 'ua'
+                                                        language === 'UA'
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
@@ -891,7 +893,7 @@ export class Fetch {
                         }" target="_blank">${project.title}</a></h5>
                         <p class="ais-item-desc">
                         ${
-                            language === 'ua'
+                                language === 'UA'
                                 ? project.descriptionUA
                                 : project.descriptionEN
                         }
@@ -918,7 +920,7 @@ export class Fetch {
 
         //TODO: change to host fetch, instead of local
         const [aisHTMLua, aisHTMLen] = await fetch(
-            `https://localhost:7159/AISPage`,
+            `https://aidept.com.ua/aiwebsite/AISPage`,
             {
                 method: 'GET',
                 headers: {
@@ -930,8 +932,8 @@ export class Fetch {
                 return response.json()
             })
             .then((data) => {
-                const aisHTMLua = getAISPageHTML(data, 'ua')
-                const aisHTMLen = getAISPageHTML(data, 'en')
+                const aisHTMLua = getAISPageHTML(data, 'UA')
+                const aisHTMLen = getAISPageHTML(data, 'EN')
 
                 return [aisHTMLua, aisHTMLen]
             })
@@ -948,6 +950,6 @@ export class Fetch {
             new Date().toJSON()
         )
 
-        return localStorage.getItem(`aisPage${language.toUpperCase()}`)
+        return localStorage.getItem(`aisPage${language}`)
     }
 }
