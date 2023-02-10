@@ -292,16 +292,6 @@ body{
     font-size: var(--h5-size);
 }
 
-/*Subject dynamic bg*/
-.first_area_bg{
-    background: #D94442;
-}
-.second_area_bg{
-    background: #CA605C;
-}
-.third_area_bg{
-    background: #BA7B75;
-}
 /*Course cards side hints*/
 .row_group{
     position: relative;
@@ -311,6 +301,7 @@ body{
     justify-content: center;
     align-items: center;
     position: absolute;
+    text-align: center;
 
     content: attr(data-area);
     transform: rotate(90deg);

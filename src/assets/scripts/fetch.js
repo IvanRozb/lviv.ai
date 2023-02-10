@@ -210,9 +210,6 @@ export class Fetch {
                 return termHTML
             }
 
-            let term1Groups = sortSubjectsInGroups(term1)
-            let term2Groups = sortSubjectsInGroups(term2)
-
             let courseCard = `<div class="term_group">
                            
                                 <div class="course_card">
@@ -226,52 +223,58 @@ export class Fetch {
                                         <div class="table_row">
                                             <div class="card_table_header">
                                                 ${
-                                                    language === 'ua'
-                                                        ? 'Предмети'
-                                                        : 'Subjects'
-                                                }
+                language === 'ua'
+                    ? 'Предмети'
+                    : 'Subjects'
+            }
                                             </div>
                                             <div class="card_table_header">
                                                 ${
-                                                    language === 'ua'
-                                                        ? 'Кредити'
-                                                        : 'Credits'
-                                                }
+                language === 'ua'
+                    ? 'Кредити'
+                    : 'Credits'
+            }
                                             </div>
                                         </div>`
 
+            let term1Groups = sortSubjectsInGroups(term1)
+
             courseCard += sortedSubjectsGroupsToHTML(term1Groups)
 
-            courseCard += `</div>
+            if(term2){
+                let term2Groups = sortSubjectsInGroups(term2)
+
+                courseCard += `</div>
                         </div>
                     
                         <div class="course_card">
                             <h6 class="course_card_term">
                                 ${termCounter + 1} ${
-                language === 'ua' ? 'семестр' : 'term'
-            }
+                    language === 'ua' ? 'семестр' : 'term'
+                }
                             </h6>
             
                             <div class="course_card_table">
                                 <div class="table_row">
                                     <div class="card_table_header">${
-                                        language === 'ua'
-                                            ? 'Предмети'
-                                            : 'Subjects'
-                                    }</div>
+                    language === 'ua'
+                        ? 'Предмети'
+                        : 'Subjects'
+                }</div>
                                     <div class="card_table_header">${
-                                        language === 'ua'
-                                            ? 'Кредити'
-                                            : 'Credits'
-                                    }</div>
+                    language === 'ua'
+                        ? 'Кредити'
+                        : 'Credits'
+                }</div>
                                 </div>`
 
-            courseCard += sortedSubjectsGroupsToHTML(term2Groups)
+                courseCard += sortedSubjectsGroupsToHTML(term2Groups)
+
+            }
 
             courseCard += `</div>
                     </div>
-                </div>
-               `
+                </div>`
 
             return courseCard
         }
@@ -286,7 +289,7 @@ export class Fetch {
         localStorage.setItem(
             pageName,
             await fetch(
-                `https://aidept.com.ua/aiwebsite/CourseCards?language=${language}`,
+                `https://localhost:7159/CourseCards?language=${language}`,
                 {
                     method: 'GET',
                     headers: {
@@ -323,12 +326,13 @@ export class Fetch {
                         for (let j = 1; j <= 8; j += 2) {
                             let currentTerm = data[i].curriculum[`term${j}`]
                             let nextTerm = data[i].curriculum[`term${j + 1}`]
-
-                            courseCardsHTML += getAboutUsCourseCard(
-                                currentTerm,
-                                nextTerm,
-                                j
-                            )
+                            if(currentTerm || nextTerm){
+                                courseCardsHTML += getAboutUsCourseCard(
+                                    currentTerm,
+                                    nextTerm,
+                                    j
+                                )
+                            }
                         }
 
                         courseCardsHTML += '</div>'
