@@ -2,6 +2,7 @@
 .applicant_section{
     margin-top: 20vh;
 }
+
 .applicant_title::after{
     content: '';
     display: block;

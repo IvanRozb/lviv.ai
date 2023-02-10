@@ -320,3 +320,20 @@ button{
     width: 3.2em;
 }
 /*END of navigation*/
+
+/*loader*/
+.my-loader{
+    display: block;
+    margin: 0 auto;
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

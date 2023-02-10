@@ -5,11 +5,24 @@
 /*Youtube video*/
 .video{
     position: relative;
-    margin: 25vh  0;
+    margin: 25vh  auto;
 
     width: 75vw;
     height: 75vh;
 }
+
+.video-loader {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-loader{
+    width: 6rem;
+}
+
 .video iframe {
     position: absolute;
     left: 50%;

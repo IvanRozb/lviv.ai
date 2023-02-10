@@ -44,13 +44,17 @@
 </header>
 <main class="page_container">
   <div class="video">
-    <iframe class="responsive" src="https://www.youtube.com/embed/XnZH4izf_rI?autoplay=0&controls=0"
+    <div class='my-loader video-loader'>
+      <img src='../../assets/images/loader.svg' alt='loader' >
+    </div>
+    <iframe class="responsive hidden" src="https://www.youtube.com/embed/XnZH4izf_rI?autoplay=0&controls=0"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
   </div>
-
-  <!--    -->
+  <div class='my-loader main-loader'>
+    <img src='../../assets/images/loader.svg' alt='loader' >
+  </div>
 </main>
 <footer class="footer"><img class="logo" src="../../assets/images/logo.svg" alt="logo"></footer>
 </body>

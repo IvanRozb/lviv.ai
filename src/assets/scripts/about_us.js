@@ -184,19 +184,25 @@ setTimeout(async () => {
     $('.nav_bachelor').addClass('active')
     $('.year_btn').first().trigger('click')
 
-    // TODO: sort cards in backend: first bachelor with smallest createdYear field
+    const courseCardContainer = document.querySelector('.course_card-loader')
+    courseCardContainer.classList.add('hidden')
 
+    // TODO: sort cards in backend: first bachelor with smallest createdYear field
+    const teacherContainer = document.querySelector(`.teachers_carousel`)
     // Teachers FETCH
-    document
-        .querySelector(`.teachers_carousel`)
-        .insertAdjacentHTML(
-            'afterbegin',
-            await Fetch.getTeachersAsync(language)
-        )
+    teacherContainer.insertAdjacentHTML(
+        'afterbegin',
+        await Fetch.getTeachersAsync(language)
+    )
+
     activateTeacherCarousel()
 
     // Universities FETCH
     setTeachersRowFullNameHeight()
+
+    const teachersContainer = document.querySelector('.teachers-loader')
+    teachersContainer.classList.add('hidden')
+
     document
         .querySelector('.programs_carousel')
         .insertAdjacentHTML(
@@ -204,6 +210,8 @@ setTimeout(async () => {
             await Fetch.getUniversitiesAsync(language)
         )
     activateProgramsCarousel()
+    const programsContainer = document.querySelector('.programs-loader')
+    programsContainer.classList.add('hidden')
 }, 0)
 
 animateNavUnderlines()
