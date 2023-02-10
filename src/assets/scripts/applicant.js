@@ -56,7 +56,7 @@ setTimeout(async () => {
 
     const section = document.getElementsByClassName('applicant_section')[0]
 
-    section.removeChild(document.getElementsByClassName('loader')[0])
+    section.removeChild(document.getElementsByClassName('my-loader')[0])
     section.appendChild(container)
 
     navigationListBehavior(`.sidebar_list`, [`section`], `.sidebar_list > li`)

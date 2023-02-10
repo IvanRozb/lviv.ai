@@ -322,9 +322,9 @@ button{
 /*END of navigation*/
 
 /*loader*/
-.loader{
+.my-loader{
     display: block;
-    margin: auto;
+    margin: 0 auto;
     width: 6.25rem;
     height: 6.25rem;
 }

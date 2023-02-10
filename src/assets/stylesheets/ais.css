@@ -5,7 +5,7 @@
 /*Youtube video*/
 .video{
     position: relative;
-    margin: 25vh  0;
+    margin: 25vh  auto;
 
     width: 75vw;
     height: 75vh;
