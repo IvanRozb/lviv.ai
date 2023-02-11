@@ -1,3 +1,5 @@
+@import "mixins";
+
 /*Styles for applicant*/
 .applicant_section{
     margin-top: 20vh;
@@ -19,6 +21,10 @@
     height: 78vh;
     margin-top: 21vh;
     width: 22vw;
+
+    @include respond(tab-port){
+        display: none;
+    }
 }
 .sidebar_title{
     margin-bottom: 4.5vh;
@@ -71,24 +77,56 @@
 /*Docs content*/
 .docs_content{
     width: 78vw;
+
+    @include respond(tab-port){
+        width: 90vw;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    @include respond(tab-port) {
+        width: 85vw;
+    }
 }
 .docs_box{
     margin-left: 10vw;
     margin-bottom: 5vh;
     width: 58vw;
+
+    @include respond(tab-port){
+        margin-left: 0;
+        margin-bottom: 0;
+        width: 65vw;
+    }
+
+    @include respond(phone){
+        width: 100%;
+    }
 }
 
 .docs_main_title{
     margin-bottom:8.3vh ;
     margin-left: 10vw;
+
+    @include respond(tab-port){
+        margin-left: 0;
+    }
 }
 .docs_list_title{
     color: var(--peachy);
     margin-bottom: 4vh;
     font-size: 2.3vw;
 
-    line-height: 5vh;
-    letter-spacing: var(--h4-small-spacing);
+    @include respond(tab-land){
+        font-size: 2.6vw;
+    }
+
+    @include respond(tab-port){
+        font-size: 3.3vw;
+    }
 }
 .docs_list{
     list-style: initial;
@@ -109,6 +147,11 @@
 .docs_cabinet_img{
     margin: 10vh 0 10vh 10vw;
     width: 60vw;
+
+    @include respond(tab-port){
+        margin: 10vh 0;
+        width: 100%;
+    }
 }
 
 /*Calendar content*/

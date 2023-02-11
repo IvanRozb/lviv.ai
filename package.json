@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/IvanRozb/lviv.ai#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
     "assert": "^2.0.0",
     "browserify-zlib": "^0.2.0",
     "constants-browserify": "^1.0.0",
@@ -38,8 +39,6 @@
   },
   "dependencies": {
     "jquery": "^3.6.3",
-    "mongodb": "^4.11.0",
-    "mongoose": "^6.7.2",
     "node-localstorage": "^2.2.1",
     "prettier": "^2.8.3",
     "slick-carousel": "^1.8.1"
