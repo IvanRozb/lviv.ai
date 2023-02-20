@@ -20,6 +20,8 @@ function activateCarousel() {
             adaptiveHeight: true,
             waitForAnimate: false,
             draggable: false,
+            swipe: false,
+            touchMove: false,
         })
         const buttons = $('.navigation_button')
 
@@ -81,11 +83,15 @@ function addCourseCardsBtnListeners() {
                     .addClass('active')
                     .siblings()
                     .removeClass('active')
+
+                $('.year_btn').first().trigger('click')
             } else {
                 $('.nav_master')
                     .addClass('active')
                     .siblings()
                     .removeClass('active')
+
+                $('.year_btn').last().trigger('click')
             }
         })
     })
