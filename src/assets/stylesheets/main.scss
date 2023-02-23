@@ -1,4 +1,5 @@
 @import "main_keyframes";
+@import "mixins";
 /* intro */
 .intro {
     width: 100%;
@@ -41,6 +42,10 @@
 
     height: 90vh;
     width: 11vw;
+
+    @include respond(phone){
+        display: none;
+    }
 }
 .main_sidebar a{
     display: block;
@@ -303,6 +308,10 @@ div[class*=' sidebar_line']{
     background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(10px);
     z-index: 10;
+
+    @include respond(phone){
+        display: none;
+    }
 }
 
 /*Animated BG*/
