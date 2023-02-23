@@ -38,6 +38,11 @@
   --small-weight: 300;
   --small-height: 2.4vh;
   --small-letter-spacing: 0.05em;
+
+  --navbar-animation-duration: 0.3s;
+  @include respond(phone){
+    --navbar-animation-duration: 0.6s;
+  }
 }
 
 /* zeroing style */
@@ -352,11 +357,13 @@ button {
   background-color: var(--white);
   opacity: 0.6;
   margin: 6px 0;
-  transition: 0.4s;
+  transition: var(--navbar-animation-duration);
 
   @include respond(phone) {
     width: 9vw;
     height: 6px;
+
+    transition: var(--navbar-animation-duration);
   }
 }
 
@@ -405,13 +412,13 @@ button {
 
     background: var(--black);
     left: -33vw;
-    transition: 0.3s ease-in-out;
+    transition: var(--navbar-animation-duration) ease-in-out;
   }
 
   @include respond(phone) {
     left: -100vw;
     width: 100vw;
-    transition-duration: 0.6s;
+    transition-duration: var(--navbar-animation-duration);
 
     padding-top: 0;
 
