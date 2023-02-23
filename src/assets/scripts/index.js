@@ -54,10 +54,12 @@ window.initMap = initMap
 
 //On resize functions
 animateNavUnderlines()
-const menuIcon = document.querySelector('.menu-icon')
+const menuIcon = document.querySelector('.menu_icon')
+const navbar = document.querySelector(`header .nav`)
 
 menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle('change')
+    navbar.classList.toggle('expanded')
 })
 
 const toggleShevrons = document.querySelectorAll('.nav_link_wrapper')

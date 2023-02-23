@@ -325,7 +325,7 @@ button {
 }
 
 /* navigation burder menu */
-.menu-icon {
+.menu_icon {
   display: none;
 
   position: fixed;
@@ -390,7 +390,13 @@ button {
     padding-top: 12vh;
 
     background: var(--black);
+    left: -33vw;
+    transition: 0.3s ease-in-out;
   }
+}
+
+.nav.expanded{
+  left: 0;
 }
 
 .nav_lang {
@@ -487,7 +493,6 @@ button {
 
 .nav_sub_item.expanded {
   animation: expandNavSubItem 0.5s ease-in-out forwards;
-
 }
 
 .nav_sub_item::before {
