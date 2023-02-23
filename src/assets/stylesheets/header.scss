@@ -331,11 +331,12 @@ button {
   position: fixed;
   top: 15px;
   left: 25px;
+  z-index: 2;
 
   cursor: pointer;
 
   @include respond(tab-port) {
-    display: none;
+    display: block;
   }
 }
 
@@ -386,8 +387,7 @@ button {
 
     height: 100vh;
     width: 33vw;
-
-    padding-top: 9vh;
+    padding-top: 12vh;
 
     background: var(--black);
   }
@@ -426,9 +426,12 @@ button {
   font-size: 1.4vw;
 
   cursor: pointer;
+  border-radius: 5px;
 
   @include respond(tab-port) {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto 1rem;
+
     border: 1px #ffffff solid;
   }
 }
@@ -468,16 +471,29 @@ button {
 
   width: 100%;
   height: 0;
-  //height: 4rem;
 
   text-align: left;
   opacity: 0;
+
+  line-height: initial;
+
+  animation: expandNavSubItemBackwords 0.5s ease-in-out forwards;
+
+}
+
+.nav_sub_item:hover{
+  color: var(--peachy);
+}
+
+.nav_sub_item.expanded {
+  animation: expandNavSubItem 0.5s ease-in-out forwards;
+
 }
 
 .nav_sub_item::before {
   content: '';
   display: block;
-  width: 3rem;
+  width: 10%;
   height: 2px;
 
   margin-right: 1rem;
@@ -485,6 +501,9 @@ button {
   background: var(--white);
 }
 
+.nav_sub_item > span{
+  width: 90%;
+}
 
 .sub_sub_item::before {
   display: none;
@@ -519,22 +538,22 @@ button {
   }
 }
 
+.nav_link:hover{
+  color: var(--peachy);
+}
+
 .nav_shevron {
   display: none;
 
   width: 2rem;
   height: 2rem;
   margin-right: 2rem;
+  animation: rotation180to0 0.5s ease-in-out forwards;
+
 
   @include respond(tab-port) {
     display: block;
   }
-}
-.rotated{
-  animation-name: rotation180to0;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
 }
 
 .rotate {

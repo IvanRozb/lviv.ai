@@ -54,8 +54,6 @@ window.initMap = initMap
 
 //On resize functions
 animateNavUnderlines()
-
-animateNavUnderlines()
 const menuIcon = document.querySelector('.menu-icon')
 
 menuIcon.addEventListener('click', () => {
@@ -65,9 +63,17 @@ menuIcon.addEventListener('click', () => {
 const toggleShevrons = document.querySelectorAll('.nav_link_wrapper')
 toggleShevrons.forEach((toggle) => {
     const shevron = toggle.querySelector('.nav_shevron')
-    console.log(shevron)
     toggle.addEventListener('click', () => {
-        shevron.classList.toggle('rotate')
-        shevron.classList.toggle('rotated')
+        shevron?.classList.toggle('rotate')
+    })
+})
+
+const navItems = document.querySelectorAll('.nav_item')
+navItems.forEach((item) => {
+    const subItems = item.querySelectorAll('.nav_sub_item')
+    item.addEventListener('click', () => {
+        subItems?.forEach((item) => {
+            item.classList.toggle('expanded')
+        })
     })
 })
