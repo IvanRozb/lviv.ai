@@ -495,8 +495,10 @@ button {
   }
 }
 
-.nav_item.active > .nav_link_wrapper > a{
-  color: var(--peachy);
+.nav_item.active > .nav_link_wrapper > a {
+  @include respond(tab-port) {
+    color: var(--peachy);
+  }
 }
 
 .nav_underline {
