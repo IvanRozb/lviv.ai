@@ -196,6 +196,30 @@ body {
   @include respond--main-font-size;
 }
 
+.unscrollable {
+  @include respond(tab-port) {
+    overflow: auto;
+  }
+  @include respond(phone) {
+    overflow: hidden;
+  }
+}
+
+.overlapper {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.overlapper.active{
+  display: block;
+}
+
 body::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
@@ -337,7 +361,7 @@ button {
   top: 90vh;
   left: 92%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 12;
 
   cursor: pointer;
 
@@ -390,6 +414,7 @@ button {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  z-index: 11;
 
   @include respond(tab-port) {
     flex-direction: column;

@@ -32,10 +32,21 @@ function animateNavUnderlines() {
 function menuBurgerAnimation() {
     const menuIcon = document.querySelector('.menu_icon')
     const navbar = document.querySelector(`header .nav`)
+    const overlapper = document.querySelector('.overlapper')
 
-    menuIcon?.addEventListener('click', () => {
+    const toggleAnimation = () => {
         menuIcon.classList.toggle('change')
         navbar.classList.toggle('expanded')
+        document.body.classList.toggle('unscrollable')
+        overlapper.classList.toggle('active')
+    }
+
+    overlapper.addEventListener('click', () => {
+        toggleAnimation()
+    })
+
+    menuIcon?.addEventListener('click', () => {
+        toggleAnimation()
     })
 
     const toggleShevrons = document.querySelectorAll('.nav_link_wrapper')
