@@ -15,7 +15,6 @@ function navigationListBehavior(
     /*string*/ linksSelector
 ) {
     const sidebar = document.querySelector(containerSelector)
-    console.log(sidebar, containerSelector)
     sidebar.addEventListener('click', (e) => {
         if (!e.target.dataset.link) {
             // console.log("Not a link. Maybe you clicked on underline ?")
