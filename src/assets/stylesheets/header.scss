@@ -329,8 +329,8 @@ button {
   display: none;
 
   position: fixed;
-  top: 15px;
-  left: 25px;
+  top: 2vh;
+  left: 2vw;
   z-index: 2;
 
   cursor: pointer;
@@ -341,8 +341,7 @@ button {
 }
 
 .bar1, .bar2, .bar3 {
-  display: block;
-  width: 35px;
+  display: block;  width: 5vw;
   height: 5px;
   background-color: var(--white);
   opacity: 0.6;
@@ -465,10 +464,14 @@ button {
 }
 
 .nav_sub {
+  display: none;
   width: 93%;
   margin-left: 7%;
   margin-bottom: 0;
-  //margin-bottom: 1rem;
+  
+  @include respond(tab-port){
+    display: block;
+  }
 }
 
 .nav_sub_item {
