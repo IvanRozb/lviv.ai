@@ -3,6 +3,9 @@
 /*Styles for applicant*/
 .applicant_section{
     margin-top: 20vh;
+    @include respond(phone){
+        margin-top: 16vh;
+    }
 }
 
 .applicant_title::after{
@@ -218,13 +221,47 @@
 /* Subjects content */
 .subjects_section{
     margin-left: 10vw;
+
+    @include respond(tab-port){
+
+        width: 85vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
 }
 .subjects_title{
     margin-bottom: 4vh;
+    @include respond(tab-port){
+        width: 85vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.subjects_title::after {
+    @include respond(tab-port){
+        height: 0.2vh;
+        margin-top: 1vh;
+        margin-right: auto;
+        margin-left: 7vw;
+    }
+    @include respond(phone){
+        margin-left: 0.5vw;
+    }
 }
 .subjects_dates{
     display: flex;
     margin-bottom: 2vh;
+    @include respond(tab-port){
+
+        justify-content: center;
+        gap: 2vw;
+        margin-bottom: 1.5vh;
+    }
+
 }
 .subjects_dates > .active{
     color: var(--peachy);
@@ -232,12 +269,26 @@
 .subjects_date{
     cursor: pointer;
     width: 5.5%;
+    @include respond(tab-port){
+        font-size: 1.6vw;
+    }
+    @include respond(phone){
+        font-size: 1.9vw;
+    }
 }
 .subjects_images{
     margin-bottom: 9vh;
+
+    @include respond(tab-land){
+        overflow: auto;
+        margin-bottom: 5vh;
+    }
 }
 .subjects_images > img{
     width: 66vw;
+    @include respond(tab-port){
+        width: 85vw;
+    }
 }
 .subjects_notes{
     width: 60vw;
@@ -246,9 +297,25 @@
     margin-bottom: 3vh;
 
     font-weight: 300;
+    @include respond(tab-land){
+        font-size: 2vw;
+    }
+    @include respond(tab-port){
+        font-size: 2.5vw;
+        margin-bottom: 2vh;
+    }
 }
 .subjects_note{
     margin-bottom: 2.5vh;
+    @include respond(tab-land){
+        font-size: 1.8vw;
+        width: 80vw;
+    }
+    @include respond(phone){
+        width: 66vw;
+        line-height: 3vw;
+        font-size: 2vw;
+    }
 }
 /*Payment content*/
 .pay_section{
@@ -256,12 +323,42 @@
 }
 .pay_title{
     margin-bottom: 6vh;
+    @include respond(tab-port){
+        width: 85vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //margin-bottom: 4.5vh;
+    }
+    @include respond(phone) {
+        //margin-bottom: 3vh;
+    }
+}
+.pay_title::after {
+    @include respond(tab-port) {
+        height: 0.2vh;
+        margin-top: 1vh;
+        margin-right: auto;
+        margin-left: 24vw;
+    }
+    @include respond(phone) {
+        margin-left: 21vw;
+    }
 }
 .pay_columns{
     display: flex;
     align-items: center;
     margin-left: 2vw;
     height: 6vh;
+    //@include respond(tab-port) {
+    //    display: flex;
+    //    justify-content: center;
+    //    margin-left: 0px;
+    //}
+    @include respond(phone) {
+        height: 5vh;
+    }
 }
 .pay_column{
     width: 8.65vw;
@@ -269,20 +366,42 @@
     font-size: var(--h5-size);
     margin-right: 6vw;
     color: var(--peachy);
+    @include respond(tab-port) {
+        font-size: 1.6vw;
+        margin-left: 2vw;
+    }
+    @include respond(phone) {
+        font-size: 1.8vw;
+    }
 }
 .pay_table{
     background: linear-gradient(90deg, rgba(232, 0, 0, 0.6) 2.55%, rgba(217, 125, 125, 0.446849) 23.02%, rgba(182, 182, 182, 0) 82.76%);
     width: 73vw;
     margin-bottom: 5.2vh;
+    @include respond(phone) {
+        margin-bottom: 4vh;
+        //background: radial-gradient(
+        //        circle at bottom left,rgba(232, 0, 0, 0.6) 8%, rgba(217, 125, 125, 0.446849) 30%, rgba(182, 182, 182, 0) 55%);
+    }
 }
 .pay_table_row{
     display: flex;
     align-items: center;
     height: 7vh;
     width: 41vw;
+    @include respond(tab-port) {
+        width: 50vw;
+        height: 5vh;
+    }
+    @include respond(phone) {
+        height: 4vh;
+    }
 }
 .pay_table_value{
     width: 33.3%;
+    @include respond(tab-port) {
+        font-size: 1.6vw;
+    }
 }
 
 .pay_link_div{
@@ -292,9 +411,24 @@
 .pay_link{
     font-weight: var(--small-weight);
     font-size: var(--small-size);
+
+    @include respond(tab-land) {
+        font-size: 1.2vw;
+    }
+    @include respond(tab-port) {
+        font-size: 1.4vw;
+    }
+    @include respond(phone) {
+        font-size: 1.5vw;
+        line-height: 3vw;
+        width: 67vw;
+    }
 }
 
 /*logo*/
 .logo{
     margin-top: 28vh;
+    @include respond(tab-land){
+        margin-top: 10vh;
+    }
 }
