@@ -1,6 +1,6 @@
 import { CardsAnimate } from './CardsAnimation'
 import { initMap } from './plugins'
-import { animatedBlob, animateNavUnderlines } from './utils'
+import { animatedBlob } from './utils'
 import { Fetch } from './fetch'
 
 //Sidebar behavior
@@ -16,6 +16,7 @@ function sidebarLinks() {
         })
     })
 }
+
 sidebarLinks()
 
 //Animate BG
@@ -47,35 +48,8 @@ function animateSponsors() {
     const animation = new CardsAnimate(sponsors_inner, sponsors_container, 1)
     animation.init()
 }
+
 animateSponsors()
 
 //Set google maps
 window.initMap = initMap
-
-//On resize functions
-animateNavUnderlines()
-const menuIcon = document.querySelector('.menu_icon')
-const navbar = document.querySelector(`header .nav`)
-
-menuIcon.addEventListener('click', () => {
-    menuIcon.classList.toggle('change')
-    navbar.classList.toggle('expanded')
-})
-
-const toggleShevrons = document.querySelectorAll('.nav_link_wrapper')
-toggleShevrons.forEach((toggle) => {
-    const shevron = toggle.querySelector('.nav_shevron')
-    toggle.addEventListener('click', () => {
-        shevron?.classList.toggle('rotate')
-    })
-})
-
-const navItems = document.querySelectorAll('.nav_item')
-navItems.forEach((item) => {
-    const subItems = item.querySelectorAll('.nav_sub_item')
-    item.addEventListener('click', () => {
-        subItems?.forEach((item) => {
-            item.classList.toggle('expanded')
-        })
-    })
-})
