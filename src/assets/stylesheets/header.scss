@@ -216,7 +216,7 @@ body {
   z-index: 10;
 }
 
-.overlapper.active{
+.overlapper.active {
   display: block;
 }
 
@@ -427,12 +427,12 @@ button {
     padding-top: 12vh;
 
     background: var(--black);
-    left: -33vw;
+    right: -33vw;
     transition: var(--navbar-animation-duration) ease-in-out;
   }
 
   @include respond(phone) {
-    left: -100vw;
+    right: -100vw;
     width: 100vw;
     transition-duration: var(--navbar-animation-duration);
 
@@ -443,7 +443,7 @@ button {
 }
 
 .nav.expanded {
-  left: 0;
+  right: 0;
 }
 
 .nav_lang {
