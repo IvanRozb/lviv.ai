@@ -228,17 +228,17 @@ export class Fetch {
                                         <div class="table_row">
                                             <div class="card_table_header">
                                                 ${
-                language === 'UA'
-                    ? 'Предмети'
-                    : 'Subjects'
-            }
+                                                    language === 'UA'
+                                                        ? 'Предмети'
+                                                        : 'Subjects'
+                                                }
                                             </div>
                                             <div class="card_table_header">
                                                 ${
-                language === 'UA'
-                    ? 'Кредити'
-                    : 'Credits'
-            }
+                                                    language === 'UA'
+                                                        ? 'Кредити'
+                                                        : 'Credits'
+                                                }
                                             </div>
                                         </div>`
 
@@ -246,7 +246,7 @@ export class Fetch {
 
             courseCard += sortedSubjectsGroupsToHTML(term1Groups)
 
-            if(term2){
+            if (term2) {
                 let term2Groups = sortSubjectsInGroups(term2)
 
                 courseCard += `</div>
@@ -262,19 +262,18 @@ export class Fetch {
                             <div class="course_card_table">
                                 <div class="table_row">
                                     <div class="card_table_header">${
-                    language === 'UA'
-                        ? 'Предмети'
-                        : 'Subjects'
-                }</div>
+                                        language === 'UA'
+                                            ? 'Предмети'
+                                            : 'Subjects'
+                                    }</div>
                                     <div class="card_table_header">${
-                    language === 'UA'
-                        ? 'Кредити'
-                        : 'Credits'
-                }</div>
+                                        language === 'UA'
+                                            ? 'Кредити'
+                                            : 'Credits'
+                                    }</div>
                                 </div>`
 
                 courseCard += sortedSubjectsGroupsToHTML(term2Groups)
-
             }
 
             courseCard += `</div>
@@ -331,7 +330,7 @@ export class Fetch {
                         for (let j = 1; j <= 8; j += 2) {
                             let currentTerm = data[i].curriculum[`term${j}`]
                             let nextTerm = data[i].curriculum[`term${j + 1}`]
-                            if(currentTerm || nextTerm){
+                            if (currentTerm || nextTerm) {
                                 courseCardsHTML += getAboutUsCourseCard(
                                     currentTerm,
                                     nextTerm,
@@ -346,13 +345,13 @@ export class Fetch {
                                         <div class="cards_menu_titles">
                                             <p class="degree_title">
                                                 ${
-                                                        language === 'UA'
+                                                    language === 'UA'
                                                         ? 'Ступінь: '
                                                         : 'Degree: '
                                                 }
                                             </p>
                                             <p class="year_title"> ${
-                                                    language === 'UA'
+                                                language === 'UA'
                                                     ? 'Рік: '
                                                     : 'Year: '
                                             }</p>
@@ -362,14 +361,14 @@ export class Fetch {
                                             <div class="degree_nav">
                                                 <button class="degree_btn bachelor_btn">
                                                     ${
-                                                            language === 'UA'
+                                                        language === 'UA'
                                                             ? 'Бакалаврат'
                                                             : 'Bachelor'
                                                     }
                                                 </button>
                                                 <button class="degree_btn master_btn">
                                                     ${
-                                                            language === 'UA'
+                                                        language === 'UA'
                                                             ? 'Магістратура'
                                                             : 'Master'
                                                     }
@@ -420,7 +419,7 @@ export class Fetch {
         const sectionName = `teachersResult`
 
         const section = checkIfSectionInStorage(language, sectionName)
-        if (section) return section
+        if (!section) return section
 
         await localStorage.setItem(
             `teachersResult${language}`,
@@ -435,21 +434,8 @@ export class Fetch {
             )
                 .then((response) => response.json())
                 .then((data) => {
-                    const rowAmount = 4,
-                        itemAmount = rowAmount * 2
-
                     let result = ''
-                    let amount = 0
-                    let isSecondRow = false
                     for (const teacher of data) {
-                        if (amount % itemAmount === 0) {
-                            result += `<div class="teachers_item">`
-                        }
-                        if (amount % rowAmount === 0) {
-                            result += `<div class="teachers_row${
-                                isSecondRow ? ' teachers_row-second' : ''
-                            }">`
-                        }
                         const commaPosition =
                             getDegreeComaIndex(teacher.degree) + 1
                         const defaultPhotoUrl =
@@ -482,20 +468,6 @@ export class Fetch {
                                             : teacher.degree
                                     }</p>
                             </div>`
-
-                        amount++
-                        if (amount % 4 === 0) {
-                            isSecondRow = !isSecondRow
-                            result += `</div>`
-                        }
-                        if (amount > itemAmount - 1) {
-                            amount = 0
-                            result += `</div>`
-                        }
-                    }
-                    if (amount !== 0) {
-                        if (amount % rowAmount === 0) result += `</div>`
-                        result += `</div>`
                     }
                     return result
                 })
@@ -743,7 +715,6 @@ export class Fetch {
             return result
         }
 
-
         const sectionName = 'applicantResult'
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
@@ -856,7 +827,7 @@ export class Fetch {
                                             <div class="info-desc">
                                                 <p class="info-desc-text">
                                                 ${
-                                                        language === 'UA'
+                                                    language === 'UA'
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
@@ -893,7 +864,7 @@ export class Fetch {
                         }" target="_blank">${project.title}</a></h5>
                         <p class="ais-item-desc">
                         ${
-                                language === 'UA'
+                            language === 'UA'
                                 ? project.descriptionUA
                                 : project.descriptionEN
                         }
