@@ -13,35 +13,72 @@
     <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.svg">
 </head>
 <body>
-<header class="header" id="header">
-    <nav class="nav">
-        <div class="nav_item">
-            <a class="nav_link" href="index.html">Головна</a>
-            <div class="nav_underline"></div>
-        </div>
-        <div class="nav_item active">
-            <a class="nav_link" href="#">Про нас</a>
-            <div class="nav_underline"></div>
-        </div>
-        <div class="nav_lang">
-            <div class="nav_item">
-                <a class="nav_link " href="#">UA</a>
-            </div>
-            <div class="nav_item">
-                <a class="nav_link active" href="en/about_us.html">EN</a>
-            </div>
-        </div>
-        <div class="nav_item">
-            <a class="nav_link" href="applicant.html">Абітурієнту</a>
-            <div class="nav_underline"></div>
-        </div>
-        <div class="nav_item">
-            <a class="nav_link" href="ais.html">СШІ</a>
-            <div class="nav_underline"></div>
-        </div>
-    </nav>
-</header>
+<header class='header' id='header'>
+    <div class='overlapper'></div>
+    <div class='menu_icon'>
+        <span class='bar1'></span>
+        <span class='bar2'></span>
+        <span class='bar3'></span>
+    </div>
 
+    <nav>
+        <ul class='nav'>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='index.html'>Головна</a>
+                </div>
+                <div class='nav_underline'></div>
+            </li>
+            <li class='nav_item active'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='#'>Про нас</a>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
+                         stroke='currentColor' class='nav_shevron'>
+                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                    </svg>
+                </div>
+                <div class='nav_underline'></div>
+                <ul class='nav_sub'>
+                    <li class='nav_sub_item'>карта курсів</li>
+                    <li class='nav_sub_item'>про викладачів</li>
+                    <li class='nav_sub_item'>навчальні програми</li>
+                </ul>
+            </li>
+            <li class='nav_lang'>
+                <div class='nav_item'>
+                    <a class='nav_link active' href='#'>UA</a>
+                </div>
+                <div class='nav_item'>
+                    <a class='nav_link' href='en/index.html'>EN</a>
+                </div>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='applicant.html'>Абітурієнту</a>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
+                         stroke='currentColor' class='nav_shevron'>
+                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                    </svg>
+                </div>
+                <div class='nav_underline'></div>
+                <ul class='nav_sub'>
+                    <li class='nav_sub_item'>Що з документами?</li>
+                    <li class='nav_sub_item'>Важливі дати</li>
+                    <li class='nav_sub_item'><span>Перелік конкурсних предметів ЗНО</span></li>
+                    <li class='nav_sub_item'>Вартість навчання</li>
+                </ul>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='ais.html'>СШІ</a>
+                </div>
+                <div class='nav_underline'></div>
+            </li>
+        </ul>
+    </nav>
+
+    <img class='logo' src='../../assets/images/logo.svg' alt='logo'>
+</header>
 <section class='navigation_section'>
 
     <img class='navigation_image' src='../../assets/images/about_us_bg.png' alt='Graduation image'>
@@ -139,5 +176,6 @@
 <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module" src="../../../node_modules/slick-carousel/slick/slick.min.js"></script>
 <script type="module" src="../../assets/scripts/about_us.js"></script>
+<script src='../../assets/scripts/header.js'></script>
 </body>
 </html>

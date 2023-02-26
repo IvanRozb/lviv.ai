@@ -53,37 +53,6 @@ function shuffle(array) {
     return array
 }
 
-//Side navbar
-export function animateNavUnderlines() {
-    const navbar = document.querySelector(`.nav`)
-    const underlines = document.querySelectorAll(`.nav_underline`)
-    const items = document.querySelectorAll(`.nav > .nav_item`)
-    items.forEach((item) => {
-        item.addEventListener('mouseenter', () => {
-            item.childNodes.forEach((item) => {
-                if (item.className === 'nav_underline')
-                    item.style.backgroundColor = 'var(--peachy)'
-            })
-        })
-        item.addEventListener('mouseleave', () => {
-            item.childNodes.forEach((item) => {
-                if (item.className === 'nav_underline')
-                    item.style.backgroundColor = 'transparent'
-            })
-        })
-    })
-    navbar.addEventListener('mouseenter', () => {
-        underlines.forEach((underline) => {
-            underline.style.backgroundColor = 'transparent'
-        })
-    })
-    navbar.addEventListener('mouseleave', () => {
-        underlines.forEach((underline) => {
-            if (underline.parentNode.classList.contains('active'))
-                underline.style.backgroundColor = 'var(--peachy)'
-        })
-    })
-}
 //Course card help function
 export function setGroupSelectorPosition() {
     let groups = document.querySelectorAll('.row_group')

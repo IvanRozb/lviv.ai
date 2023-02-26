@@ -1,5 +1,4 @@
 import { Fetch } from './fetch'
-import { animateNavUnderlines } from './utils'
 
 function containsLink(classList, dataLink) {
     let links = dataLink.split(' ')
@@ -65,6 +64,4 @@ setTimeout(async () => {
         [`.subjects_images > img`, `.subjects_notes`],
         `.subjects_date`
     )
-
-    animateNavUnderlines()
 }, 0)
