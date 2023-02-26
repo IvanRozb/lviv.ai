@@ -456,7 +456,43 @@ button {
   justify-content: center;
 
   @include respond(tab-port) {
-    display: none;
+    display: flex;
+    width: 40%;
+    flex-direction: row;
+
+    position: absolute;
+    right: 0;
+    top: 2vh;
+
+    .nav_item {
+      border: none;
+      border-radius: 0;
+      margin: 0;
+
+      width: 30%;
+
+      &:first-child {
+        margin: 0;
+        border-right: 0.5px solid #b7b4b4;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+
+      & .active {
+        color: var(--peachy);
+      }
+    }
+  }
+
+  @include respond(phone) {
+    top: 4vh;
+    right: -6vw;
+
+    .nav_item {
+      font-size: 180%;
+    }
   }
 }
 
