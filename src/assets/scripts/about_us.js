@@ -42,6 +42,25 @@ function activateTeacherCarousel() {
         slider.slick({
             dots: true,
             draggable: false,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            rows: 2,
+            responsive: [
+                {
+                    breakpoint: 900 + 1,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    },
+                },
+                {
+                    breakpoint: 600 + 1,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    },
+                },
+            ],
         })
     })
 }
@@ -115,37 +134,6 @@ function addCourseCardsBtnListeners() {
     })
 }
 
-// Teachers page functions
-function setTeachersRowFullNameHeight() {
-    let rows = document.querySelectorAll(`.teachers_row`)
-    let rowIndex = 1
-    rows.forEach((row) => {
-        let max_name_height = -Infinity
-        row.childNodes.forEach((column) => {
-            column.childNodes.forEach((element) => {
-                if (
-                    element.classList
-                        ? element.classList.contains('teachers_full_name')
-                        : false
-                ) {
-                    max_name_height = Math.max(
-                        element.getBoundingClientRect().height,
-                        max_name_height
-                    )
-                }
-            })
-        })
-
-        row.classList.add(row.classList[0] + '-' + rowIndex.toString())
-        $(
-            '.teachers_row-' +
-                rowIndex.toString() +
-                ' > .teachers_column > .teachers_full_name'
-        ).css('height', max_name_height)
-        rowIndex++
-    })
-}
-
 //Animate BG
 function animateBG() {
     const bg_cards_section = document.querySelector('.bg_cards_section')
@@ -197,12 +185,10 @@ setTimeout(async () => {
 
     activateTeacherCarousel()
 
-    // Universities FETCH
-    setTeachersRowFullNameHeight()
-
     const teachersContainer = document.querySelector('.teachers-loader')
     teachersContainer.classList.add('hidden')
 
+    // Universities FETCH
     document
         .querySelector('.programs_carousel')
         .insertAdjacentHTML(
