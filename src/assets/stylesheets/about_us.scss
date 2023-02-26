@@ -374,6 +374,14 @@ body {
   margin-top: 11vh;
   margin-bottom: 8.6vh;
   max-width: 54vw;
+
+  @include respond(tab-land){
+    margin-top: 7vh;
+    margin-bottom: 6vh;
+
+    font-size: 5vw;
+    max-width: 78vw;
+  }
 }
 
 .programs_carousel {
@@ -381,6 +389,10 @@ body {
   margin-top: 8vh;
   position: relative;
   min-width: 0;
+
+  @include respond(tab-land) {
+    margin-top: 0;
+  }
 }
 
 .programs_carousel_wrap {
@@ -391,6 +403,18 @@ body {
   width: 100vw;
   height: 78vh;
   overflow: hidden !important;
+
+  @include respond(tab-land) {
+    height: 55vh;
+  }
+
+  @include respond(tab-port) {
+    height: 30vh;
+  }
+
+  @include respond(phone) {
+    height: 33vh;
+  }
 }
 
 .programs_carousel .slick-list {
@@ -425,6 +449,10 @@ body {
 .programs_image {
   width: 17vw;
   filter: brightness(0.45) contrast(1.2);
+
+  @include respond(phone){
+    width: 27vw;
+  }
 }
 
 .programs_carousel_title {
@@ -439,10 +467,23 @@ body {
   left: 50%;
 
   transform: translate(-50%, -60%);
+
+  @include respond(tab-port) {
+    line-height:initial;
+  }
+
+  @include respond(phone){
+    font-size: 2.5vw;
+    width: 50%;
+  }
 }
 
 .programs_country {
   margin-top: 3vh;
+
+  @include respond(tab-port){
+    margin-top: 1.5vh;
+  }
 }
 
 .programs_carousel .slick-arrow {
@@ -510,12 +551,15 @@ body {
   text-align: center;
   height: 66vh;
 
-  @include respond(tab-land){
+  @include respond(tab-land) {
     height: 60vh;
   }
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     height: 55vh;
+  }
+  @include respond(phone) {
+    height: 41vh;
   }
 }
 
@@ -527,12 +571,12 @@ body {
 
   border-radius: 50%;
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     width: 21vw;
     height: 21vw;
   }
 
-  @include respond(phone){
+  @include respond(phone) {
     width: 35vw;
     height: 35vw;
   }
@@ -556,11 +600,11 @@ body {
     margin: 0;
   }
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     font-size: 2.3vw;
   }
 
-  @include respond(phone){
+  @include respond(phone) {
     font-size: 3.8vw;
   }
 }
@@ -582,12 +626,12 @@ body {
     margin: 0;
   }
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     margin-top: 1.6vh;
     font-size: 1.5vw;
   }
 
-  @include respond(phone){
+  @include respond(phone) {
     font-size: 3vw;
   }
 }
@@ -622,11 +666,11 @@ body {
     }
   }
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     font-size: 1.5vw;
   }
 
-  @include respond(phone){
+  @include respond(phone) {
     font-size: 2.6vw;
   }
 }

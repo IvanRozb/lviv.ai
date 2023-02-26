@@ -75,6 +75,15 @@ function activateProgramsCarousel() {
             slidesToShow: 5,
             draggable: false,
             lazyLoad: true,
+            responsive: [
+                {
+                    breakpoint: 600 + 1,
+                    settings: {
+                        slidesToShow: 3,
+                        centerPadding: 5,
+                    },
+                },
+            ],
         })
 
         const track = document.querySelector('.programs_carousel .slick-track')
