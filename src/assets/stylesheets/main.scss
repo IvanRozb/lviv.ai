@@ -43,6 +43,9 @@
     height: 90vh;
     width: 11vw;
 
+    @include respond(tab-land){
+        right: 4vw;
+    }
     @include respond(tab-port){
         display: none;
     }
@@ -309,6 +312,10 @@ div[class*=' sidebar_line']{
     backdrop-filter: blur(10px);
     z-index: 10;
 
+    @include respond(tab-land){
+        width: 15vw;
+    }
+
     @include respond(tab-port){
         display: none;
     }
@@ -322,6 +329,10 @@ div[class*=' sidebar_line']{
     z-index: -1;
 
     filter: blur(60px);
+
+    @include respond(tab-port){
+        display: none;
+    }
 }
 
 div[id*='blob']{
@@ -606,6 +617,14 @@ div[id*='blob']{
 .sponsors_label{
     text-align: right;
     width: 50vw;
+
+    @include respond(tab-land){
+        margin-right: 5vw;
+    }
+    @include respond(tab-port){
+        margin-right: 0;
+    }
+
 }
 .sponsors_label > *{
     margin-bottom: 1em;
@@ -632,6 +651,10 @@ div[id*='blob']{
 
     border-bottom: white 2px solid;
     border-top: white 2px solid;
+
+    @include respond(tab-port){
+        height: 50vh;
+    }
 }
 
 .sponsors_cards{
@@ -663,20 +686,22 @@ div[id*='blob']{
     margin-top: 30vh;
 }
 .apply_content{
-    display: flex;
+    @include flex-center;
     flex-direction: column;
-    justify-content: center;
-    height: 30.5vh;
-    align-items: center;
 }
 
 .apply_text{
     width: 46vw;
     padding-bottom: 4.1vh;
     margin: 0 auto;
-    font-weight: 400;
     text-align: center;
+
+    font-weight: 400;
     line-height: 7.8vh;
+
+    @include respond(tab-port){
+        line-height: 5vh;
+    }
 }
 
 .apply_button{
@@ -693,6 +718,10 @@ div[id*='blob']{
     text-align: center;
     margin: 0 auto;
     cursor: pointer;
+
+    @include respond(tab-port){
+        height: 7vh;
+    }
 }
 
 
@@ -704,14 +733,24 @@ div[id*='blob']{
 
     background-image: url("../images/HandBg.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: 6vw -6vh;
 
+    @include respond(tab-port){
+        margin-top: 20vh;
+        height: 50vh;
+    }
+
+    @include respond(phone){
+        background-size: cover;
+    }
 }
 
 .footer p{
     font-family: var(--font-family-second);
     font-size: var(--small-size);
+
+    @include respond--main-font-size;
 }
 
 .footer_content{
@@ -720,10 +759,29 @@ div[id*='blob']{
     min-height: 36vh;
 
     padding-left: 17.4vw;
+
+    @include respond(tab-port){
+        min-height: 25vh;
+    }
+
+    @include respond(phone){
+        text-align: center;
+        flex-direction: column;
+
+        padding-left: 10vw;
+    }
 }
 
 .footer_col{
     width: 14.8vw;
+
+    @include respond(tab-land){
+        width: 30vw;
+    }
+
+    @include respond(phone){
+        width: 80vw;
+    }
 }
 
 .footer_info > * {
@@ -734,6 +792,10 @@ div[id*='blob']{
     display: flex;
     flex-direction: column;
     margin-left: 7.6vw;
+
+    @include respond(phone){
+        margin-left: 0;
+    }
 }
 
 .footer_icons{
@@ -748,8 +810,30 @@ div[id*='blob']{
     width: 14.8vw;
     height: 10vw;
     margin-top: auto;
+
+    @include respond(tab-land){
+        width: 25vw;
+        height: 15vw;
+    }
+
+    @include respond(phone){
+        margin-top: 5vh;
+        width: 100%;
+        height: 20vh;
+    }
 }
-.footer_map:hover{
+.footer_map:focus-within{
     width: 51vw;
     height: 30vw;
+
+    @include respond(tab-land){
+        transform: translateX(-50%);
+    }
+
+    @include respond(phone){
+        margin-top: 5vh;
+        width: 100%;
+        height: 20vh;
+        transform: translateX(0);
+    }
 }
