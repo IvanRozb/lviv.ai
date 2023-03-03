@@ -1,5 +1,16 @@
+@import "mixins";
 .page_container {
     padding: 0 10vw;
+
+    @include respond(tab-port) {
+        padding: 0 0 0 10vw ;
+    }
+
+
+    @include respond(phone) {
+        padding: 0 0 0 10vw ;
+    }
+
 }
 
 /*Youtube video*/
@@ -9,6 +20,23 @@
 
     width: 75vw;
     height: 75vh;
+
+    @include respond(tab-land) {
+        margin-bottom: 20vh;
+        width: 70vw;
+        height: 50vh;
+    }
+    @include respond(tab-port) {
+        margin: 17vh  auto;
+        width: 80vw;
+        height: 45vh;
+
+    }
+    @include respond(phone) {
+        margin: 12vh  auto;
+        width: 92vw;
+        height: 30vh;
+    }
 }
 
 .video-loader {
@@ -17,10 +45,30 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    //@include respond(tab-land) {
+    //
+    //}
+    //@include respond(tab-port) {
+    //
+    //}
+    //@include respond(phone) {
+    //
+    //}
 }
 
 .main-loader{
     width: 6rem;
+    //
+    //@include respond(tab-land) {
+    //
+    //}
+    //@include respond(tab-port) {
+    //
+    //}
+    //@include respond(phone) {
+    //
+    //}
 }
 
 .video iframe {
@@ -41,12 +89,26 @@
     column-gap: 10vw;
 
     margin-bottom: 35vh;
+
+    @include respond(tab-land) {
+        margin-bottom: 30vh;
+    }
+    @include respond(tab-port) {
+        margin-bottom: 20vh;
+    }
+    @include respond(phone) {
+        margin-bottom: 15vh;
+    }
 }
 
 .ais-info {
     display: grid;
 
     row-gap: 5vh;
+
+    @include respond(phone) {
+        row-gap: 3vh;
+    }
 }
 
 .info-desc {
@@ -55,11 +117,44 @@
 
     font-size: 1.15vw;
 }
+.info-desc-text {
+    display: grid;
+    column-gap: 5vh;
+
+    font-size: 1.15vw;
+
+    @include respond(tab-land) {
+        font-size: 1.3vw;
+    }
+
+    @include respond(tab-port) {
+        line-height: 3.3vw;
+        font-size: 1.7vw;
+    }
+
+
+    @include respond(phone) {
+        font-size: 2vw;
+    }
+}
 
 .ais-link {
     margin-top: 4vh;
     text-decoration-line: underline;
     position: relative;
+
+    @include respond(tab-land) {
+        font-size: 1.3vw;
+    }
+
+    @include respond(tab-port) {
+        font-size: 1.6vw;
+    }
+
+
+    @include respond(phone) {
+        font-size: 1.8vw;
+    }
 }
 
 .ais-link:after{
@@ -77,6 +172,15 @@
     border-top: 3px solid white;
 
     transform: rotate(45deg) translateY(50%);
+
+    @include respond(tab-port) {
+        right: 9vw;
+        --size: .9vw;
+    }
+
+    @include respond(phone) {
+        right: 6.5vw;
+    }
 }
 
 .ais-img {
@@ -85,6 +189,16 @@
 
     object-fit: contain;
     object-position: top;
+
+    @include respond(tab-port) {
+        width: 35vw;
+        height: 35vw;
+    }
+
+
+    @include respond(phone) {
+        line-height: 4vw;
+    }
 }
 
 /*Instuments*/
@@ -94,6 +208,16 @@
 
     margin-top: 30vh;
     margin-bottom: 20vh;
+
+    @include respond(tab-port) {
+        margin-top: 20vh;
+        margin-bottom: 15vh;
+    }
+
+    @include respond(phone) {
+        margin-top: 15vh;
+        margin-bottom: 10vh;
+    }
 }
 
 .ais-list {
@@ -129,3 +253,11 @@
 footer {
     margin-top: 30vh;
 }
+//.logo {
+//
+//    @include respond(phone) {
+//        display: block;
+//        left: 60%;
+//        width: 4.5em;
+//    }
+//}
