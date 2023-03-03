@@ -1,16 +1,6 @@
 @import "mixins";
 .page_container {
     padding: 0 10vw;
-
-    @include respond(tab-port) {
-        padding: 0 0 0 10vw ;
-    }
-
-
-    @include respond(phone) {
-        padding: 0 0 0 10vw ;
-    }
-
 }
 
 /*Youtube video*/
@@ -34,7 +24,7 @@
     }
     @include respond(phone) {
         margin: 12vh  auto;
-        width: 92vw;
+        width: 80vw;
         height: 30vh;
     }
 }
@@ -45,30 +35,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    //@include respond(tab-land) {
-    //
-    //}
-    //@include respond(tab-port) {
-    //
-    //}
-    //@include respond(phone) {
-    //
-    //}
 }
 
 .main-loader{
     width: 6rem;
-    //
-    //@include respond(tab-land) {
-    //
-    //}
-    //@include respond(tab-port) {
-    //
-    //}
-    //@include respond(phone) {
-    //
-    //}
 }
 
 .video iframe {
@@ -132,7 +102,6 @@
         font-size: 1.7vw;
     }
 
-
     @include respond(phone) {
         font-size: 2vw;
     }
@@ -150,7 +119,6 @@
     @include respond(tab-port) {
         font-size: 1.6vw;
     }
-
 
     @include respond(phone) {
         font-size: 1.8vw;
@@ -195,7 +163,6 @@
         height: 35vw;
     }
 
-
     @include respond(phone) {
         line-height: 4vw;
     }
@@ -227,9 +194,18 @@
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: clamp(3%, 4%, 5%);
+
+    @include respond(phone) {
+        //grid-template-columns: 1fr 1fr;  // for 2 small cards
+
+        gap: 3.5%;                         //just for 1 small card
+        grid-template-columns: 1fr;
+    }
 }
 
 .ais-photo {
+    display: flex;
+    justify-content: center;
     aspect-ratio: 1/1;
     width: 99%;
 
@@ -237,15 +213,55 @@
 
     object-fit: cover;
     border: 4px white solid;
+    @include respond(tab-land) {
+        width: 23.5vw;
+        margin-bottom: 3.5vh;
+    }
+    @include respond(tab-port) {
+        margin-bottom: 2vh;
+    }
+    @include respond(phone) {
+        //width: 35vw;       // for 2 small cards
+        margin-bottom: 3vh;  // for 1 small card
+        margin-left: auto;
+        margin-right: auto;
+        width: 55vw;
+    }
 }
 
 .ais-item-link {
     font-weight: 600;
     text-decoration-line: underline;
+    @include respond(tab-land) {
+        font-size: 1.8vw;
+    }
+    @include respond(phone) {
+        display: flex;
+        justify-content: center;
+        font-size: 3.5vw;
+        //font-size: 2.5vw;    //  for 2 small cards
+    }
 }
+
 
 .ais-item-desc {
     margin-top: 4vh;
+
+    @include respond(tab-land) {
+        margin-top: 3vh;
+    }
+
+    @include respond(tab-port) {
+        margin-top: 2vh;
+    }
+    @include respond(phone) {
+        line-height: 4vw;
+        width: 55vw;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 2.5vw;
+        //text-align: center; //tut hz treba chy ni
+    }
 }
 
 /*Footer*/
@@ -253,11 +269,4 @@
 footer {
     margin-top: 30vh;
 }
-//.logo {
-//
-//    @include respond(phone) {
-//        display: block;
-//        left: 60%;
-//        width: 4.5em;
-//    }
-//}
+
