@@ -73,7 +73,7 @@ function activateProgramsCarousel() {
             centerPadding: 5,
             speed: 500,
             slidesToShow: 5,
-            draggable: false,
+            draggable: true,
             lazyLoad: true,
             responsive: [
                 {
