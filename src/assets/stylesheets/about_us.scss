@@ -22,6 +22,10 @@ body {
 
 .navigation_section {
   margin-top: 10vh;
+
+  @include respond(tab-port) {
+    display: none;
+  }
 }
 
 .navigation_image {
@@ -168,6 +172,14 @@ body {
 
   height: 18vh;
   width: 35vw;
+
+  @include respond(tab-port) {
+    height: 10vh;
+    margin-bottom: 5vh;
+    margin-left: 5vw;
+
+    width: 70vw;
+  }
 }
 
 .course_cards_menu button {
@@ -215,6 +227,26 @@ body {
   padding: 4vh 12vw 8vh 1.5vw;
 
   background: rgba(0, 0, 0, 0.8);
+
+  @include respond(tab-port) {
+    width: 70vw;
+    height: 35vh;
+
+    padding: 2vw;
+    &:not(:last-child) {
+      margin-bottom: 2vh;
+    }
+  }
+
+  @include respond(phone) {
+    width: 90vw;
+    height: 40vh;
+
+    padding: 2vw;
+    &:not(:last-child) {
+      margin-bottom: 2vh;
+    }
+  }
 }
 
 .course_card_term {
@@ -227,9 +259,18 @@ body {
 
   margin: 0 auto;
   width: 96vw !important;
+
+  @include respond(tab-port) {
+    @include flex-center;
+    flex-direction: column;
+  }
 }
 
 /*!*Slick default dots redesign*!*/
+.slick-slider {
+  position: relative;
+}
+
 .slick-dots {
   display: flex;
   justify-content: center;
@@ -237,6 +278,13 @@ body {
   padding: 1rem 0;
 
   list-style-type: none;
+
+  @include respond(tab-port) {
+    position: absolute;
+    left: 50%;
+    top: -4vh;
+    transform: translateX(-50%);
+  }
 }
 
 .slick-dots li {
@@ -279,19 +327,22 @@ body {
   line-height: var(--small-height);
   letter-spacing: var(--small-letter-spacing);
 
+
   font-weight: 300;
+
+  @include respond--main-font-size;
 }
 
 .course_card_table .table_row {
-  display: grid;
-  align-items: center;
-  justify-content: space-between;
-  grid-template-columns: 8fr 2fr;
-  gap: 1vw;
-  margin-bottom: 1vw;
-
   height: 5.5vh;
   text-align: left;
+
+  @include respond(tab-port) {
+    height: 3.5vh;
+  }
+  @include respond(phone) {
+    height: 5vh;
+  }
 }
 
 .course_card_table .table_row > * { /*be carefully, because this thing overrides all inside styles */
@@ -314,8 +365,6 @@ body {
   justify-content: center;
 
   background: var(--peachy);
-
-  font-size: var(--h5-size);
 }
 
 /*Course cards side hints*/
@@ -334,25 +383,34 @@ body {
   transform: rotate(90deg);
   transform-origin: top left;
 
-  /*padding: 1vw .7vh 1.2vw .7vh;*/
-  border-color: var(--white);
-  border-style: solid;
-  border-width: 1px 1px 0 1px;
-
   font-size: 1.6vh;
+
+  @include respond(tab-port) {
+    display: none;
+  }
 }
 
 .single_row {
   position: relative;
+  border-bottom: 1px solid var(--white);
+  right: -4vw;
+  width: 3.8vw;
+}
+
+@include respond(tab-port) {
+  display: none;
 }
 
 .single_row::before {
   position: absolute;
   content: "";
-
   border-bottom: 1px solid var(--white);
   right: -4vw;
   width: 3.8vw;
+
+  @include respond(tab-port) {
+    display: none;
+  }
 }
 
 .single_row::after {
@@ -597,6 +655,24 @@ body {
   text-align: center;
 
   cursor: pointer;
+}
+
+/*!* Teachers section *!*/
+.teachers_carousel {
+  width: 100%;
+
+  @include respond(tab-port) {
+    margin-top: 10vh;
+  }
+}
+
+.teachers_item {
+  margin: 13vh 2vw 0;
+  min-width: 0;
+
+  @include respond(tab-port) {
+    margin: 0 2vw;
+  }
 }
 
 .programs_image {
