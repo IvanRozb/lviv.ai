@@ -1,275 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <title>Artificial Intelligence</title>
-  <link rel="stylesheet" href="../../../assets/stylesheets/header.css">
-  <link rel="stylesheet" href="../../../assets/stylesheets/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.ico">
+    <meta charset='UTF-8'>
+    <title>Artificial Intelligence</title>
+    <meta name='viewport' content='width=device-width minimum-scale=1 initial-scale=1'>
+    <link rel='stylesheet' href='../../../assets/stylesheets/header.scss'>
+    <link rel='stylesheet' href='../../../assets/stylesheets/main.scss'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Jura&display=swap' rel='stylesheet'>
+    <link rel='icon' type='image/x-icon' href='../../../assets/images/favicon.ico'>
 </head>
 <body>
-<header class="header" id="header">
-  <nav class="nav">
-    <div class="nav_item active">
-      <a class="nav_link" href="#">Main</a>
-      <div class="nav_underline"></div>
+<header class='header' id='header'>
+    <div class='overlapper'></div>
+    <div class='menu_icon'>
+        <span class='bar1'></span>
+        <span class='bar2'></span>
+        <span class='bar3'></span>
     </div>
-    <div class="nav_item">
-      <a class="nav_link" href="about_us.html">About us</a>
-      <div class="nav_underline"></div>
-    </div>
-    <div class="nav_lang">
-      <div class="nav_item">
-        <a class="nav_link active" href="../index.html">UA</a>
-      </div>
-      <div class="nav_item">
-        <a class="nav_link" href="#">EN</a>
-      </div>
-    </div>
-    <div class="nav_item">
-      <a class="nav_link" href="applicant.html">For applicant</a>
-      <div class="nav_underline"></div>
-    </div>
-    <div class="nav_item">
-      <a class="nav_link" href="ais.html">AIS</a>
-      <div class="nav_underline"></div>
-    </div>
-  </nav>
 
-  <img class="logo" src="../../../assets/images/logo.svg" alt="logo">
+    <nav>
+        <ul class='nav'>
+            <li class='nav_item active'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='#'>Main</a>
+                </div>
+                <div class='nav_underline'></div>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='about_us.html'>About us</a>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
+                         stroke='currentColor' class='nav_shevron'>
+                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                    </svg>
+                </div>
+                <div class='nav_underline'></div>
+                <ul class='nav_sub'>
+                    <li class='nav_sub_item'>course map</li>
+                    <li class='nav_sub_item'>about teachers</li>
+                    <li class='nav_sub_item'>educational programms</li>
+                </ul>
+            </li>
+            <li class='nav_lang'>
+                <div class='nav_item'>
+                    <a class='nav_link ' href='../index.html'>UA</a>
+                </div>
+                <div class='nav_item active'>
+                    <a class='nav_link active' href='#'>EN</a>
+                </div>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='applicant.html'>For applicant</a>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
+                         stroke='currentColor' class='nav_shevron'>
+                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                    </svg>
+                </div>
+                <div class='nav_underline'></div>
+                <ul class='nav_sub'>
+                    <li class='nav_sub_item'>Docs?</li>
+                    <li class='nav_sub_item'>Important dates</li>
+                    <li class='nav_sub_item'><span>List of competitive subjects of ZNO</span></li>
+                    <li class='nav_sub_item'>Cost of education</li>
+                </ul>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='ais.html'>AIS</a>
+                </div>
+                <div class='nav_underline'></div>
+            </li>
+        </ul>
+    </nav>
+
+    <img class='logo' src='../../../assets/images/logo.svg' alt='logo'>
 </header>
 
 <!--intro--test-->
-<section class="intro" id="intro">
-  <div class="container">
-    <div class="intro_inner">
-      <h1 class="intro_title">
-        <span>Artificial<br></span>
-        <span>Intelligence<br></span>
-        <span>Systems</span>
-      </h1>
-      <h4>It is</h4>
-      <h5 class="intro_text">The future that has already come</h5>
+<section class='intro' id='intro'>
+    <div class='container'>
+        <div class='intro_inner'>
+            <h1 class='intro_title'>
+                <span>Artificial<br></span>
+                <span>Intelligence<br></span>
+                <span>Systems</span>
+            </h1>
+            <h4>It is</h4>
+            <h5 class='intro_text'>The future that has already come</h5>
 
-      <div class="main_sidebar">
-        <div class="sidebar_red_to_transparent sidebar_line_1"></div>
-        <div class="sidebar_red_to_transparent sidebar_line_2"></div>
-        <div class="sidebar_red_to_transparent sidebar_line_3"></div>
+            <div class='main_sidebar'>
+                <div class='sidebar_red_to_transparent sidebar_line_1'></div>
+                <div class='sidebar_red_to_transparent sidebar_line_2'></div>
+                <div class='sidebar_red_to_transparent sidebar_line_3'></div>
 
-        <div class="sidebar_circle sidebar_circle_1 sidebar_link_visited">
-          <a href="#intro" class="sidebar_link tooltip expand"
-             data-title="Intro"></a>
+                <div class='sidebar_circle sidebar_circle_1 sidebar_link_visited'>
+                    <a href='#intro' class='sidebar_link tooltip expand'
+                       data-title='Intro'></a>
+                </div>
+
+                <div class='sidebar_red_middle_black sidebar_line_4'></div>
+                <div class='sidebar_red_middle_black sidebar_line_5'></div>
+
+                <div class='sidebar_circle sidebar_circle_2'>
+                    <a href='#ais-info' class='sidebar_link tooltip expand'
+                       data-title="AIS - it's.."></a>
+                </div>
+
+                <div class='sidebar_red_to_transparent sidebar_line_6'></div>
+                <div class='sidebar_red_to_transparent sidebar_line_7'></div>
+
+                <div class='sidebar_circle sidebar_circle_3'>
+                    <a href='#curriculum' class='sidebar_link tooltip expand'
+                       data-title='Curriculum'></a>
+                </div>
+
+                <div class='sidebar_red_middle_black sidebar_line_8'></div>
+                <div class='sidebar_red_to_transparent sidebar_line_9'></div>
+
+                <div class='sidebar_circle sidebar_circle_4'>
+                    <a href='#vacancies' class='sidebar_link tooltip expand'
+                       data-title='Vacancies'></a>
+                </div>
+
+                <div class='sidebar_pink_to_transparent sidebar_line_10'></div>
+                <div class='sidebar_pink_to_transparent sidebar_line_11'></div>
+
+                <div class='sidebar_circle sidebar_circle_5'>
+                    <a href='#partners' class='sidebar_link tooltip expand'
+                       data-title='Partners'></a>
+                </div>
+
+                <div class='sidebar_light_pink_middle_black sidebar_line_12'></div>
+                <div class='sidebar_light_pink_to_transparent sidebar_line_13'></div>
+
+                <div class='sidebar_circle sidebar_circle_6'>
+                    <a href='#apply' class='sidebar_link tooltip expand'
+                       data-title='Apply here'></a>
+                </div>
+            </div>
+            <div class='sidebar_blur_panel'>
+            </div>
         </div>
-
-        <div class="sidebar_red_middle_black sidebar_line_4"></div>
-        <div class="sidebar_red_middle_black sidebar_line_5"></div>
-
-        <div class="sidebar_circle sidebar_circle_2">
-          <a href="#ais-info" class="sidebar_link tooltip expand"
-             data-title="AIS - it's.."></a>
-        </div>
-
-        <div class="sidebar_red_to_transparent sidebar_line_6"></div>
-        <div class="sidebar_red_to_transparent sidebar_line_7"></div>
-
-        <div class="sidebar_circle sidebar_circle_3">
-          <a href="#curriculum" class="sidebar_link tooltip expand"
-             data-title="Curriculum"></a>
-        </div>
-
-        <div class="sidebar_red_middle_black sidebar_line_8"></div>
-        <div class="sidebar_red_to_transparent sidebar_line_9"></div>
-
-        <div class="sidebar_circle sidebar_circle_4">
-          <a href="#vacancies" class="sidebar_link tooltip expand"
-             data-title="Vacancies"></a>
-        </div>
-
-        <div class="sidebar_pink_to_transparent sidebar_line_10"></div>
-        <div class="sidebar_pink_to_transparent sidebar_line_11"></div>
-
-        <div class="sidebar_circle sidebar_circle_5">
-          <a href="#partners" class="sidebar_link tooltip expand"
-             data-title="Partners"></a>
-        </div>
-
-        <div class="sidebar_light_pink_middle_black sidebar_line_12"></div>
-        <div class="sidebar_light_pink_to_transparent sidebar_line_13"></div>
-
-        <div class="sidebar_circle sidebar_circle_6">
-          <a href="#apply" class="sidebar_link tooltip expand"
-             data-title="Apply here"></a>
-        </div>
-      </div>
-      <div class="sidebar_blur_panel">
-      </div>
     </div>
-  </div>
 </section>
 
 <!--ais-info-->
-<section class="ais-info" id="ais-info">
-  <h3 class="ais-info_title">AIS - it`s when</h3>
-  <ol type="a" class="ais-info_content">
+<section class='ais-info' id='ais-info'>
+    <h3 class='ais-info_title'>AIS - it`s when</h3>
+    <ol type='a' class='ais-info_content'>
 
-    <li class="ais_li to_left">Autopilot takes you anywhere on the planet</li>
-    <li class="ais_li to_left">Autopilot takes you anywhere on the planet</li>
+        <li class='ais_li to_left'>Autopilot takes you anywhere on the planet</li>
+        <li class='ais_li to_left'>Autopilot takes you anywhere on the planet</li>
 
-    <li class="ais_li to_right">A feed of social networks, filled only with what interests you</li>
-    <li class="ais_li to_right">A feed of social networks, filled only with what interests you</li>
+        <li class='ais_li to_right'>A feed of social networks, filled only with what interests you</li>
+        <li class='ais_li to_right'>A feed of social networks, filled only with what interests you</li>
 
-    <li class="ais_li to_left">Bots in games behave like real players</li>
-    <li class="ais_li to_left">Bots in games behave like real players</li>
+        <li class='ais_li to_left'>Bots in games behave like real players</li>
+        <li class='ais_li to_left'>Bots in games behave like real players</li>
 
-    <li class="ais_li to_right">Robots understand when you are sad and when you are happy</li>
-    <li class="ais_li to_right">Robots understand when you are sad and when you are happy</li>
+        <li class='ais_li to_right'>Robots understand when you are sad and when you are happy</li>
+        <li class='ais_li to_right'>Robots understand when you are sad and when you are happy</li>
 
-  </ol>
+    </ol>
 </section>
 
 <!--curriculum-->
-<section class="curriculum" id="curriculum">
-  <div class="container">
-    <div class="curriculum_inner">
-      <div class="curriculum_title-wrapper">
-        <h3 class="curriculum_title">Curriculum</h3>
-      </div>
-      <div class="curriculum_triangle">
-        <img class="curriculum_triangle_img" src="../../../assets/images/curriculum_triangle_1.svg" alt="triangle">
-        <p class="curriculum_text">
-          We've included algorithm design, OOP principles, databases,
-          web technologies, machine learning, computer graphics,
-          and linguistics to help you become a cool professional.</p>
-      </div>
-      <div class="curriculum_triangle" id="curriculum_triangle-2">
-        <img class="curriculum_triangle_img" src="../../../assets/images/curriculum_triangle_2.svg" alt="triangle">
-        <p class="curriculum_text">
-          From the first term, students learn <br>
-          to work in a team on projects. Already in the 2nd year, each of <br>
-          them is assigned a mentor who is <br>
-          an experienced specialist.
-          <br><br>
-          Special attention is paid to <br>the English language<br>and soft skills.</p>
-      </div>
-      <div class="curriculum_details">
-        <p class="curriculum_details_label">
-          After the end of each semester, the curriculum is updated with the participation of IT specialists,
-          teachers and students</p>
-        <p class="curriculum_details_subtitle">
-          <a href="../about_us.html">More about the program >></a>
-        </p>
-      </div>
+<section class='curriculum' id='curriculum'>
+    <div class='container'>
+        <div class='curriculum_inner'>
+            <div class='curriculum_title-wrapper'>
+                <h3 class='curriculum_title'>Curriculum</h3>
+            </div>
+            <div class='curriculum_triangle'>
+                <img class='curriculum_triangle_img' src='../../../assets/images/curriculum_triangle_1.svg'
+                     alt='triangle'>
+                <p class='curriculum_text'>
+                    We've included algorithm design, OOP principles, databases,
+                    web technologies, machine learning, computer graphics,
+                    and linguistics to help you become a cool professional.</p>
+            </div>
+            <div class='curriculum_triangle' id='curriculum_triangle-2'>
+                <img class='curriculum_triangle_img' src='../../../assets/images/curriculum_triangle_2.svg'
+                     alt='triangle'>
+                <p class='curriculum_text'>
+                    From the first term, students learn <br>
+                    to work in a team on projects. Already in the 2nd year, each of <br>
+                    them is assigned a mentor who is <br>
+                    an experienced specialist.
+                    <br><br>
+                    Special attention is paid to <br>the English language<br>and soft skills.</p>
+            </div>
+            <div class='curriculum_details'>
+                <p class='curriculum_details_label'>
+                    After the end of each semester, the curriculum is updated with the participation of IT specialists,
+                    teachers and students</p>
+                <p class='curriculum_details_subtitle'>
+                    <a href='../about_us.html'>More about the program >></a>
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--vacancies-->
-<section class="vacancies" id="vacancies">
-  <div class="container">
-    <div class="vacancies_inner">
-      <div class="vacancies_content">
-        <h3 class="vacancies_title">Who will you can be?</h3>
-        <p class="vacancies_label">
-          We provide an opportunity to master other technologies,
-          so the direction is chosen by students.</p>
-        <p class="vacancies_label">
-          Here are the number of vacancies
-          for professions that are popular with our graduates</p>
-      </div>
-      <div class="vacancies_statistic">
+<section class='vacancies' id='vacancies'>
+    <div class='container'>
+        <div class='vacancies_inner'>
+            <div class='vacancies_content'>
+                <h3 class='vacancies_title'>Who will you can be?</h3>
+                <p class='vacancies_label'>
+                    We provide an opportunity to master other technologies,
+                    so the direction is chosen by students.</p>
+                <p class='vacancies_label'>
+                    Here are the number of vacancies
+                    for professions that are popular with our graduates</p>
+            </div>
+            <div class='vacancies_statistic'>
 
-      </div>
-      <p class="vacancies_from">
-        <a href="https://jobs.dou.ua/" target="_blank">* from jobs.dou.ua</a>
-      </p>
+            </div>
+            <p class='vacancies_from'>
+                <a href='https://jobs.dou.ua/' target='_blank'>* from jobs.dou.ua</a>
+            </p>
+        </div>
     </div>
-  </div>
 </section>
 
 <!--sponsors-->
-<section class="sponsors" id="partners">
-  <div class="container">
-    <div class="sponsors_label">
-      <h3>Partner companies</h3>
-      <p class="sponsors_paragraph">We cooperate with the largest IT companies of Ukraine</p>
-      <p class="sponsors_paragraph">
-        They offer free intensives with the participation of their employees,
-        branded prizes for winning competitions and additional vocational lectures for 2-4 years</p>
-    </div>s
-  </div>
-  <div class="sponsors_inner">
-    <ul class="sponsors_cards">
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_n-ix_plane.svg"></li>
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_softServe_plane.svg"></li>
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_globalLogic_plane.svg"></li>
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_amcBridge_plane.svg"></li>
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_epam_plane.svg"></li>
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_embrox_plane.svg"></li>
-      <li class="sponsor_card"><img alt="" src="../../../assets/images/sponsors_blackThorn_plane.svg"></li>
-    </ul>
-  </div>
+<section class='sponsors' id='partners'>
+    <div class='container'>
+        <div class='sponsors_label'>
+            <h3>Partner companies</h3>
+            <p class='sponsors_paragraph'>We cooperate with the largest IT companies of Ukraine</p>
+            <p class='sponsors_paragraph'>
+                They offer free intensives with the participation of their employees,
+                branded prizes for winning competitions and additional vocational lectures for 2-4 years</p>
+        </div>
+        s
+    </div>
+    <div class='sponsors_inner'>
+        <ul class='sponsors_cards'>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_n-ix_plane.svg'></li>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_softServe_plane.svg'></li>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_globalLogic_plane.svg'></li>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_amcBridge_plane.svg'></li>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_epam_plane.svg'></li>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_embrox_plane.svg'></li>
+            <li class='sponsor_card'><img alt='' src='../../../assets/images/sponsors_blackThorn_plane.svg'></li>
+        </ul>
+    </div>
 </section>
 <!--apply-->
-<section class="apply_section" id="apply">
-  <div class="apply_content">
-    <h3 class="apply_text">To apply click here:</h3>
-    <button class="apply_button"
-            onclick="window.open('https://vstup.edbo.gov.ua', '_blank');">click
-    </button>
-  </div>
+<section class='apply_section' id='apply'>
+    <div class='apply_content'>
+        <h3 class='apply_text'>To apply click here:</h3>
+        <button class='apply_button'
+                onclick="window.open('https://vstup.edbo.gov.ua', '_blank');">click
+        </button>
+    </div>
 
 </section>
 
 <!--footer-->
-<section class="footer" id="footer">
-  <div class="container">
-    <div class="footer_content">
-      <div class="footer_info footer_col">
-        <h6>Contact with us</h6>
-        <div class="footer_emails">
-          <p>Email: <a href="#">ikni-info@lp.edu.ua</a>,</p>
-          <p><a href="#">dekanat.ikni@gmail.com</a></p>
+<section class='footer' id='footer'>
+    <div class='container'>
+        <div class='footer_content'>
+            <div class='footer_info footer_col'>
+                <h6>Contact with us</h6>
+                <div class='footer_emails'>
+                    <p>Email: <a href='#'>ikni-info@lp.edu.ua</a>,</p>
+                    <p><a href='#'>dekanat.ikni@gmail.com</a></p>
+                </div>
+                <div class='footer_tels'>
+                    <p>(032) 258-24-04,</p>
+                    <p>(032) 258-26-63</p>
+                </div>
+                <h6>Адреса</h6>
+                <p>city of Lviv / str. Knyazya Romana 5 [20th Building]</p>
+            </div>
+            <div class='footer_net footer_col'>
+                <h6>Social networks</h6>
+                <div class='footer_icons'>
+                    <a href='https://www.facebook.com/ai.lviv.ua' target='_blank'>
+                        <img src='../../../assets/images/icon_facebook.svg' alt='Facebook' class='footer_icon'>
+                    </a>
+                    <a href='https://www.instagram.com/ai_lpnu/' target='_blank'>
+                        <img src='../../../assets/images/icon_instagram.svg' alt='Instagram' class='footer_icon'>
+                    </a>
+                    <a href='https://www.youtube.com/@user-zm9cd1jv9g/featured' target='_blank'>
+                        <img src='../../../assets/images/icon_youtube.svg' alt='Youtube' class='footer_icon'>
+                    </a>
+                    <a href='https://t.me/ai_lpnu' target='_blank'>
+                        <img src='../../../assets/images/icon_telegram.svg' alt='Telegram' class='footer_icon'>
+                    </a>
+                </div>
+                <div class='footer_map'></div>
+            </div>
         </div>
-        <div class="footer_tels">
-          <p>(032) 258-24-04,</p>
-          <p>(032) 258-26-63</p>
-        </div>
-        <h6>Адреса</h6>
-        <p>city of Lviv / str. Knyazya Romana 5 [20th Building]</p>
-      </div>
-      <div class="footer_net footer_col">
-        <h6>Social networks</h6>
-        <div class="footer_icons">
-          <a href="https://www.facebook.com/ai.lviv.ua" target="_blank">
-            <img src="../../../assets/images/icon_facebook.svg" alt="Facebook" class="footer_icon">
-          </a>
-          <a href="https://www.instagram.com/ai_lpnu/" target="_blank">
-            <img src="../../../assets/images/icon_instagram.svg" alt="Instagram" class="footer_icon">
-          </a>
-          <a href="https://www.youtube.com/@user-zm9cd1jv9g/featured" target="_blank">
-            <img src="../../../assets/images/icon_youtube.svg" alt="Youtube" class="footer_icon">
-          </a>
-          <a href="https://t.me/ai_lpnu" target="_blank">
-            <img src="../../../assets/images/icon_telegram.svg" alt="Telegram" class="footer_icon">
-          </a>
-        </div>
-        <div class="footer_map"></div>
-      </div>
     </div>
-  </div>
 </section>
 
-<img class="logo" src="../../../assets/images/logo.svg" alt="logo">
+<img class='logo' src='../../../assets/images/logo.svg' alt='logo'>
 
-<script type="module" src="../../../assets/scripts/index.js"></script>
+<script type='module' src='../../../assets/scripts/index.js'></script>
 <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl9BbTA13IMJYWf_8I8YL3iTJN0Yw7JvE&callback=initMap&v=weekly"
-        defer>
+    src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAl9BbTA13IMJYWf_8I8YL3iTJN0Yw7JvE&callback=initMap&v=weekly'
+    defer>
 </script>
-
+<script src='../../../assets/scripts/header.js'></script>
 </body>
 </html>

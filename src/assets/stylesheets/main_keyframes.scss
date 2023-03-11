@@ -26,6 +26,25 @@
     }
 }
 
+@keyframes rotation180 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotation180to0 {
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
 /*Blobs keyframes*/
 
 @keyframes slow_opacity{
@@ -113,5 +132,28 @@
     100%{
         left: 60vw;
         top: 740vh
+    }
+}
+
+/* Animations for expanded blocks */
+@keyframes expandNavSubItem {
+    0%{
+        height: 0;
+        opacity: 0;
+    }
+    100%{
+        height: 4rem;
+        opacity: 1;
+    }
+}
+
+@keyframes expandNavSubItemBackwords {
+    0%{
+        height: 4rem;
+        opacity: 1;
+    }
+    100%{
+        height: 0;
+        opacity: 0;
     }
 }

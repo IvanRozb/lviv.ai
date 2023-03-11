@@ -1,0 +1,448 @@
+@import "mixins";
+
+/*Styles for applicant*/
+.applicant_section{
+    margin-top: 20vh;
+    @include respond(phone){
+        margin-top: 16vh;
+    }
+}
+
+.applicant_title::after{
+    content: '';
+    display: block;
+    margin-top: 1.3vh;
+    width: 22vw;
+    height: 0.3vh;
+    background: linear-gradient(to right, #F84B50, #000000);
+}
+/*Applicant sidebar*/
+.app_sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 78vh;
+    margin-top: 21vh;
+    width: 22vw;
+
+    @include respond(tab-port){
+        display: none;
+    }
+}
+.sidebar_title{
+    margin-bottom: 4.5vh;
+    font-size: 2.3vw;
+    font-weight: 500;
+}
+.sidebar_title::after{
+    content: '';
+    display: block;
+    margin-top: 1vh;
+    width: 10vw;
+    height: 0.2vh;
+    background-image: url("../images/line_bakalavrat.svg");
+    background-repeat: no-repeat;
+    background-size: 10vw 0.2vh;
+}
+.sidebar_list .active{
+    background: linear-gradient(90deg, rgb(225, 46, 46), rgb(67, 15, 18));
+}
+
+.sidebar_list > li{
+    position: relative;
+    margin-bottom: 2.7vh;
+    padding: 0.5vh 0 0.5vh 0.2vw;
+
+    list-style: none;
+}
+.sidebar_list :nth-child(2n)::after{
+    transform: rotateY(180deg);
+}
+.sidebar_list > li::after{
+    content: '';
+    display: block;
+
+    position: absolute;
+    bottom: -0.4vh;
+    left: 0;
+
+    width: 100%;
+    height: 0.3vh;
+
+    background: linear-gradient(to right, #F84B50, #000000);
+}
+
+.sidebar_list_text{
+    cursor: pointer;
+    font-weight: var(--small-weight);
+}
+
+/*Docs content*/
+.docs_content{
+    width: 78vw;
+
+    @include respond(tab-port){
+        width: 90vw;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    @include respond(tab-port) {
+        width: 85vw;
+    }
+}
+.docs_box{
+    margin-left: 10vw;
+    margin-bottom: 5vh;
+    width: 58vw;
+
+    @include respond(tab-port){
+        margin-left: 0;
+        margin-bottom: 0;
+        width: 65vw;
+    }
+
+    @include respond(phone){
+        width: 100%;
+    }
+}
+
+.docs_main_title{
+    margin-bottom:8.3vh ;
+    margin-left: 10vw;
+
+    @include respond(tab-port){
+        margin-left: 0;
+    }
+}
+.docs_list_title{
+    color: var(--peachy);
+    margin-bottom: 4vh;
+    font-size: 2.3vw;
+
+    @include respond(tab-land){
+        font-size: 2.6vw;
+    }
+
+    @include respond(tab-port){
+        font-size: 3.3vw;
+    }
+}
+.docs_list{
+    list-style: initial;
+}
+
+.docs_list_items{
+    margin-left: 2vw;
+    margin-bottom: 1vh;
+}
+.docs_list_documents .docs_list_items{
+    margin-bottom: 4vh;
+}
+
+.docs_list_text{
+    font-weight: 400;
+}
+
+.docs_cabinet_img{
+    margin: 10vh 0 10vh 10vw;
+    width: 60vw;
+
+    @include respond(tab-port){
+        margin: 10vh 0;
+        width: 100%;
+    }
+}
+
+/*Calendar content*/
+.calendar_section{
+    margin-left: 10vw;
+}
+.calendar-main_title{
+    margin-bottom: 10vh;
+
+    @include respond(tab-port){
+        margin-bottom: 5vh;
+    }
+}
+.calendar-main_table{
+    background: rgba(85, 43, 43, 0.22);
+    backdrop-filter: blur(20px);
+    border: 0.01vh solid white;
+    width: 61.4vw;
+
+    @include respond(tab-port){
+        width: 80vw;
+    }
+}
+.calendar-row{
+    background: rgba(217, 217, 217, 0.04);
+}
+.calendar-row-cont{
+    display: flex;
+    justify-content: center;
+
+    border: 0.01vh solid white;
+    width: 54.5vw;
+    min-height: 20vh;
+    margin-top: 6vh;
+    margin-left: 3.4vw;
+
+    @include respond(tab-port){
+        min-height: 10vh;
+        width: 72.3vw;
+    }
+}
+
+.calendar-row-cont-bottom{
+    margin-bottom: 6.8vh;
+}
+
+.calendar-row-text,.calendar-row-text_date{
+    align-content: center;
+    justify-content: center;
+    padding:0 3%;
+}
+
+.calendar-row-text_date{
+    margin: auto 0;
+    height: 50%;
+
+    text-align: center;
+    @include flex-center;
+}
+
+.calendar-row-date{
+    width: 15%;
+    display: flex;
+    align-content: center;
+
+    padding: 0 2%;
+    margin: 0 2%;
+}
+.calendar_row_info{
+    width: 80%;
+
+    @include flex-center;
+    padding-right: 10%;
+}
+
+/* Subjects content */
+.subjects_section{
+    margin-left: 10vw;
+
+    @include respond(tab-port){
+
+        width: 85vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+.subjects_title{
+    margin-bottom: 4vh;
+    @include respond(tab-port){
+        width: 85vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.subjects_title::after {
+    @include respond(tab-port){
+        height: 0.2vh;
+        margin-top: 1vh;
+        margin-right: auto;
+        margin-left: 7vw;
+    }
+    @include respond(phone){
+        margin-left: 0.5vw;
+    }
+}
+.subjects_dates{
+    display: flex;
+    margin-bottom: 2vh;
+    @include respond(tab-port){
+
+        justify-content: center;
+        gap: 2vw;
+        margin-bottom: 1.5vh;
+    }
+
+}
+.subjects_dates > .active{
+    color: var(--peachy);
+}
+.subjects_date{
+    cursor: pointer;
+    width: 5.5%;
+    @include respond(tab-port){
+        font-size: 1.6vw;
+    }
+    @include respond(phone){
+        font-size: 1.9vw;
+    }
+}
+.subjects_images{
+    margin-bottom: 9vh;
+
+    @include respond(tab-land){
+        overflow: auto;
+        margin-bottom: 5vh;
+    }
+}
+.subjects_images > img{
+    width: 66vw;
+    @include respond(tab-port){
+        width: 85vw;
+    }
+}
+.subjects_notes{
+    width: 60vw;
+}
+.subjects_notes_title{
+    margin-bottom: 3vh;
+
+    font-weight: 300;
+    @include respond(tab-land){
+        font-size: 2vw;
+    }
+    @include respond(tab-port){
+        font-size: 2.5vw;
+        margin-bottom: 2vh;
+    }
+}
+.subjects_note{
+    margin-bottom: 2.5vh;
+    @include respond(tab-land){
+        font-size: 1.8vw;
+        width: 80vw;
+    }
+    @include respond(phone){
+        width: 66vw;
+        line-height: 3vw;
+        font-size: 2vw;
+    }
+}
+/*Payment content*/
+.pay_section{
+    margin-left: 10vw;
+}
+.pay_title{
+    margin-bottom: 6vh;
+    @include respond(tab-port){
+        width: 85vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.pay_title::after {
+    @include respond(tab-port) {
+        height: 0.2vh;
+        margin-top: 1vh;
+        margin-right: auto;
+        margin-left: 24vw;
+    }
+    @include respond(phone) {
+        margin-left: 21vw;
+    }
+}
+.pay_columns{
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+    height: 6vh;
+
+    @include respond(tab-port) {
+        width: 80vw;
+    }
+
+    @include respond(phone) {
+        height: 5vh;
+    }
+}
+.pay_column{
+    width: 8.65vw;
+    text-align: center;
+    font-size: var(--h5-size);
+    margin-right: 6vw;
+    color: var(--peachy);
+
+    @include respond(tab-port) {
+        width: 30vw;
+        font-size: 1.6vw;
+        margin-left: 2vw;
+    }
+    @include respond(phone) {
+        font-size: 1.8vw;
+    }
+}
+.pay_table{
+    background: linear-gradient(90deg, rgba(232, 0, 0, 0.6) 2.55%, rgba(217, 125, 125, 0.446849) 23.02%, rgba(182, 182, 182, 0) 82.76%);
+    width: 73vw;
+    margin-bottom: 5.2vh;
+
+    @include respond(tab-port){
+        background: linear-gradient(90deg, rgba(232, 0, 0, 0.6) 5%, rgba(217, 125, 125, 0.446849) 40%, rgba(182, 182, 182, 0) 90%);
+
+    }
+    @include respond(phone) {
+        margin-bottom: 4vh;
+    }
+}
+.pay_table_row{
+    display: flex;
+    align-items: center;
+    height: 7vh;
+    width: 41vw;
+
+    @include respond(tab-port) {
+        width: 80vw;
+        height: 5vh;
+    }
+    @include respond(phone) {
+        height: 4vh;
+    }
+}
+.pay_table_value{
+    width: 33.3%;
+    @include respond(tab-port) {
+        font-size: 1.6vw;
+    }
+}
+
+.pay_link_div{
+    margin-left: 0.5vw;
+    width: 62vw;
+}
+.pay_link{
+    font-weight: var(--small-weight);
+    font-size: var(--small-size);
+
+    @include respond(tab-land) {
+        font-size: 1.2vw;
+    }
+    @include respond(tab-port) {
+        font-size: 1.4vw;
+    }
+    @include respond(phone) {
+        font-size: 1.5vw;
+        line-height: 3vw;
+        width: 67vw;
+    }
+}
+
+/*logo*/
+.logo{
+    margin-top: 28vh;
+    @include respond(tab-land){
+        margin-top: 10vh;
+    }
+}

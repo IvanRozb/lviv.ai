@@ -557,7 +557,7 @@ export class Fetch {
             for (const explanation of element) {
                 result += `<div class="docs_box">`
                 result +=
-                    '<p class="docs_list_title">' + explanation.title + '</p>'
+                    '<h5 class="docs_list_title">' + explanation.title + '</h5>'
                 result += `<ul class="docs_list">`
                 for (const item of explanation.items) {
                     result +=

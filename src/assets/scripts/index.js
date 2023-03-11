@@ -1,6 +1,6 @@
 import { CardsAnimate } from './CardsAnimation'
 import { initMap } from './plugins'
-import { animatedBlob, animateNavUnderlines } from './utils'
+import { animatedBlob } from './utils'
 import { Fetch } from './fetch'
 
 //Sidebar behavior
@@ -16,6 +16,7 @@ function sidebarLinks() {
         })
     })
 }
+
 sidebarLinks()
 
 //Animate BG
@@ -47,10 +48,8 @@ function animateSponsors() {
     const animation = new CardsAnimate(sponsors_inner, sponsors_container, 1)
     animation.init()
 }
+
 animateSponsors()
 
 //Set google maps
 window.initMap = initMap
-
-//On resize functions
-animateNavUnderlines()

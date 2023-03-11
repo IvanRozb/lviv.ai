@@ -1,10 +1,6 @@
 import $ from 'jquery'
 import { Fetch } from './fetch'
-import {
-    animatedBlob,
-    animateNavUnderlines,
-    setGroupSelectorPosition,
-} from './utils'
+import { animatedBlob, setGroupSelectorPosition } from './utils'
 
 // Carousel functions
 function activateCarousel() {
@@ -40,6 +36,7 @@ function activateCarousel() {
         })
     })
 }
+
 function activateTeacherCarousel() {
     $(document).ready(function () {
         const slider = $('.teachers_carousel')
@@ -50,6 +47,7 @@ function activateTeacherCarousel() {
         })
     })
 }
+
 function activateProgramsCarousel() {
     $(document).ready(function () {
         const slider = $('.programs_carousel')
@@ -122,6 +120,7 @@ function addCourseCardsBtnListeners() {
         })
     })
 }
+
 // Teachers page functions
 function setTeachersRowFullNameHeight() {
     let rows = document.querySelectorAll(`.teachers_row`)
@@ -152,6 +151,7 @@ function setTeachersRowFullNameHeight() {
         rowIndex++
     })
 }
+
 //Animate BG
 function animateBG() {
     const bg_cards_section = document.querySelector('.bg_cards_section')
@@ -220,6 +220,5 @@ setTimeout(async () => {
     programsContainer.classList.add('hidden')
 }, 0)
 
-animateNavUnderlines()
 activateCarousel()
 animateBG()

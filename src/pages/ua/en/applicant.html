@@ -1,62 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <title>Artificial Intelligence</title>
-  <link rel="stylesheet" href="../../../assets/stylesheets/header.css">
-  <link rel="stylesheet" href="../../../assets/stylesheets/applicant.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg">
-  <script type="module" src="../../../assets/scripts/applicant.js"></script>
+    <meta charset='UTF-8'>
+    <title>Artificial Intelligence</title>
+    <meta name='viewport' content='width=device-width'>
+    <link rel='stylesheet' href='../../../assets/stylesheets/header.scss'>
+    <link rel='stylesheet' href='../../../assets/stylesheets/applicant.scss'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Jura&display=swap' rel='stylesheet'>
+    <link rel='icon' type='image/x-icon' href='../../../assets/images/favicon.svg'>
+    <script type='module' src='../../../assets/scripts/applicant.js'></script>
 </head>
 <body>
-  <header class="header" id="header">
-  <nav class="nav">
-    <div class="nav_item">
-      <a class="nav_link" href="index.html">Main</a>
-      <div class="nav_underline"></div>
+<header class='header' id='header'>
+    <div class='overlapper'></div>
+    <div class='menu_icon'>
+        <span class='bar1'></span>
+        <span class='bar2'></span>
+        <span class='bar3'></span>
     </div>
-    <div class="nav_item">
-      <a class="nav_link" href="about_us.html">About us</a>
-      <div class="nav_underline"></div>
-    </div>
-    <div class="nav_lang">
-      <div class="nav_item">
-        <a class="nav_link active" href="../applicant.html">UA</a>
-      </div>
-      <div class="nav_item">
-        <a class="nav_link" href="#">EN</a>
-      </div>
-    </div>
-    <div class="nav_item active">
-      <a class="nav_link" href="#">For applicant</a>
-      <div class="nav_underline"></div>
-    </div>
-    <div class="nav_item">
-      <a class="nav_link" href="ais.html">AIS</a>
-      <div class="nav_underline"></div>
-    </div>
-  </nav>
+
+    <nav>
+        <ul class='nav'>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='index.html'>Main</a>
+                </div>
+                <div class='nav_underline'></div>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='about_us.html'>About us</a>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
+                         stroke='currentColor' class='nav_shevron'>
+                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                    </svg>
+                </div>
+                <div class='nav_underline'></div>
+                <ul class='nav_sub'>
+                    <li class='nav_sub_item'>course map</li>
+                    <li class='nav_sub_item'>about teachers</li>
+                    <li class='nav_sub_item'>educational programms</li>
+                </ul>
+            </li>
+            <li class='nav_lang'>
+                <div class='nav_item'>
+                    <a class='nav_link ' href='../applicant.html'>UA</a>
+                </div>
+                <div class='nav_item'>
+                    <a class='nav_link active' href='#'>EN</a>
+                </div>
+            </li>
+            <li class='nav_item active'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='#'>For applicant</a>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
+                         stroke='currentColor' class='nav_shevron'>
+                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
+                    </svg>
+                </div>
+                <div class='nav_underline'></div>
+                <ul class='nav_sub'>
+                    <li class='nav_sub_item'>Docs?</li>
+                    <li class='nav_sub_item'>Important dates</li>
+                    <li class='nav_sub_item'><span>List of competitive subjects of ZNO</span></li>
+                    <li class='nav_sub_item'>Cost of education</li>
+                </ul>
+            </li>
+            <li class='nav_item'>
+                <div class='nav_link_wrapper'>
+                    <a class='nav_link' href='ais.html'>AIS</a>
+                </div>
+                <div class='nav_underline'></div>
+            </li>
+        </ul>
+    </nav>
+
 </header>
 
-  <div class="app_sidebar">
-    <h4 class="sidebar_title">Bachelor</h4>
-    <ul class="sidebar_list">
-      <li data-link="docs_section" class="sidebar_list_text active">Docs?</li>
-      <li data-link="calendar_section" class="sidebar_list_text">Important dates</li>
-      <li data-link="subjects_section" class="sidebar_list_text">List of competitive subjects of ZNO</li>
-      <li data-link="pay_section" class="sidebar_list_text">Cost of education</li>
+<div class='app_sidebar'>
+    <h4 class='sidebar_title'>Bachelor</h4>
+    <ul class='sidebar_list'>
+        <li data-link='docs_section' class='sidebar_list_text active'>Docs?</li>
+        <li data-link='calendar_section' class='sidebar_list_text'>Important dates</li>
+        <li data-link='subjects_section' class='sidebar_list_text'>List of competitive subjects of ZNO</li>
+        <li data-link='pay_section' class='sidebar_list_text'>Cost of education</li>
     </ul>
-  </div>
+</div>
 
-  <div class='applicant_section'>
+<div class='applicant_section'>
     <div class='my-loader'>
-      <img src='../../../assets/images/loader.svg' alt='loader' >
+        <img src='../../../assets/images/loader.svg' alt='loader'>
     </div>
-  </div>
+</div>
+<script src='../../../assets/scripts/header.js'></script>
 
 </body>
 </html>

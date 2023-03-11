@@ -1,5 +1,4 @@
 import { Fetch } from './fetch'
-import { animateNavUnderlines } from './utils'
 
 function containsLink(classList, dataLink) {
     let links = dataLink.split(' ')
@@ -15,7 +14,6 @@ function navigationListBehavior(
     /*string*/ linksSelector
 ) {
     const sidebar = document.querySelector(containerSelector)
-    console.log(sidebar, containerSelector)
     sidebar.addEventListener('click', (e) => {
         if (!e.target.dataset.link) {
             // console.log("Not a link. Maybe you clicked on underline ?")
@@ -66,6 +64,4 @@ setTimeout(async () => {
         [`.subjects_images > img`, `.subjects_notes`],
         `.subjects_date`
     )
-
-    animateNavUnderlines()
 }, 0)
