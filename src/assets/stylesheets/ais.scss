@@ -1,6 +1,10 @@
 @import "mixins";
 .page_container {
     padding: 0 10vw;
+
+    @include respond(phone) {
+        padding-left: 8vw;
+    }
 }
 
 /*Youtube video*/
@@ -104,7 +108,7 @@
     }
 
     @include respond(phone) {
-        font-size: 2.3vw;
+        font-size: 2.2vw;
     }
 }
 
@@ -122,7 +126,7 @@
     }
 
     @include respond(phone) {
-        font-size: 1.75vw;
+        font-size: 2.2vw;
     }
 }
 
@@ -149,7 +153,7 @@
     }
 
     @include respond(phone) {
-        right: -1.5vw;
+        right: -2vw;
     }
 }
 
