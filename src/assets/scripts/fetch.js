@@ -1,9 +1,9 @@
 // for implementation of localStorage functionality
-import { checkIfSectionInStorage } from './utils'
+import { checkIfSectionInStorage } from "./utils"
 
-if (typeof localStorage === 'undefined' || localStorage === null) {
-    let LocalStorage = require('node-localstorage').LocalStorage
-    localStorage = new LocalStorage('./scratch')
+if (typeof localStorage === "undefined" || localStorage === null) {
+    let LocalStorage = require("node-localstorage").LocalStorage
+    localStorage = new LocalStorage("./scratch")
 }
 
 /**
@@ -37,7 +37,7 @@ export class Fetch {
                         resArray.push(jobAmount)
                     })
                     .catch(function (err) {
-                        console.warn('Something went wrong.', err)
+                        console.warn("Something went wrong.", err)
                     })
             }
 
@@ -58,19 +58,19 @@ export class Fetch {
 
         const sectionName = `jobsPositions`
 
-        const section = checkIfSectionInStorage('UA', sectionName)
+        const section = checkIfSectionInStorage("UA", sectionName)
         if (section) return section
 
-        const locations = ['Ukraine', 'Lviv']
+        const locations = ["Ukraine", "Lviv"]
 
         await localStorage.setItem(
             `${sectionName}UA`,
             await fetch(
-                'https://aidept.com.ua/aiwebsite/jobNames?language=ua',
+                "https://aidept.com.ua/aiwebsite/jobNames?language=ua",
                 {
-                    method: 'GET',
+                    method: "GET",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                 }
             )
@@ -91,9 +91,9 @@ export class Fetch {
                             ) {
                                 name = [
                                     name.slice(0, i),
-                                    ' ',
+                                    " ",
                                     name.slice(i),
-                                ].join('')
+                                ].join("")
                                 i += 1
                             }
                         }
@@ -102,27 +102,27 @@ export class Fetch {
                             name.charAt(0).toUpperCase() + name.slice(1)
                     })
 
-                    let HTML = `<div class="vacancies_jobs">
-                                    <div class="vacancies_job"></div>`
+                    let HTML = `<div class='vacancies_jobs'>
+                                    <div class='vacancies_job'></div>`
                     jobNames.forEach((name) => {
-                        HTML += `<div class="vacancies_job">${name}</div>`
+                        HTML += `<div class='vacancies_job'>${name}</div>`
                     })
 
                     HTML += `</div>
-                         <table class="vacancies_table">
-                            <tr class="vacancies_row">
-                                <th class="vacancies_column">Ukraine</th>`
+                         <table class='vacancies_table'>
+                            <tr class='vacancies_row'>
+                                <th class='vacancies_column'>Ukraine</th>`
 
                     jobAmounts.firstCity.forEach((amount) => {
-                        HTML += `<th class="vacancies_column">${amount}</th>`
+                        HTML += `<th class='vacancies_column'>${amount}</th>`
                     })
 
                     HTML += `</tr>
-                     <tr class="vacancies_row">
-                         <th class="vacancies_column">Lviv</th>`
+                     <tr class='vacancies_row'>
+                         <th class='vacancies_column'>Lviv</th>`
 
                     jobAmounts.secondCity.forEach((amount) => {
-                        HTML += `<th class="vacancies_column">${amount}</th>`
+                        HTML += `<th class='vacancies_column'>${amount}</th>`
                     })
 
                     HTML += `</tr>
@@ -173,36 +173,36 @@ export class Fetch {
             function sortedSubjectsGroupsToHTML(sortedGroups) {
                 //bg for subjects groups
                 const backgrounds = [
-                    '#D94442',
-                    '#CA605C',
-                    '#BA7B75',
-                    '#b78f8b',
-                    '#861D13',
-                    '#59130D',
+                    "#D94442",
+                    "#CA605C",
+                    "#BA7B75",
+                    "#b78f8b",
+                    "#861D13",
+                    "#59130D",
                 ]
 
                 let bgIdx = 0
-                let termHTML = ''
+                let termHTML = ""
 
                 for (const [area, subjects] of sortedGroups) {
                     if (subjects.length === 1) {
-                        termHTML += `<div class="table_row single_row" data-area="${area}">
-                                    <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
+                        termHTML += `<div class='table_row single_row' data-area='${area}'>
+                                    <div class='card_table_subject' style='background: ${backgrounds[bgIdx]}'
                                          onclick="window.open('${subjects[0].link}', '_blank');">
                                        ${subjects[0].title}
                                     </div>
-                                    <div class="card_table_credit">${subjects[0].credits}</div>
+                                    <div class='card_table_credit'>${subjects[0].credits}</div>
                                 </div>`
                     } else {
-                        termHTML += `<div class="row_group" data-area="${area}">`
+                        termHTML += `<div class='row_group' data-area='${area}'>`
 
                         subjects.forEach((subject) => {
-                            termHTML += `<div class="table_row">
-                                        <div class="card_table_subject" style="background: ${backgrounds[bgIdx]}"
+                            termHTML += `<div class='table_row'>
+                                        <div class='card_table_subject' style='background: ${backgrounds[bgIdx]}'
                                              onclick="window.open('${subject.link}', '_blank');">
                                             ${subject.title}
                                         </div>
-                                        <div class="card_table_credit">${subject.credits}</div>
+                                        <div class='card_table_credit'>${subject.credits}</div>
                                     </div>`
                         })
 
@@ -215,30 +215,30 @@ export class Fetch {
                 return termHTML
             }
 
-            let courseCard = `<div class="term_group">
+            let courseCard = `<div class='term_group'>
                            
-                                <div class="course_card">
-                                    <h6 class="course_card_term">
+                                <div class='course_card'>
+                                    <h6 class='course_card_term'>
                                         ${termCounter} ${
-                language === 'UA' ? 'семестр' : 'term'
+                language === "UA" ? "семестр" : "term"
             } 
                                     </h6>
                         
-                                    <div class="course_card_table">
-                                        <div class="table_row">
-                                            <div class="card_table_header">
+                                    <div class='course_card_table'>
+                                        <div class='table_row'>
+                                            <div class='card_table_header'>
                                                 ${
-                language === 'UA'
-                    ? 'Предмети'
-                    : 'Subjects'
-            }
+                                                    language === "UA"
+                                                        ? "Предмети"
+                                                        : "Subjects"
+                                                }
                                             </div>
-                                            <div class="card_table_header">
+                                            <div class='card_table_header'>
                                                 ${
-                language === 'UA'
-                    ? 'Кредити'
-                    : 'Credits'
-            }
+                                                    language === "UA"
+                                                        ? "Кредити"
+                                                        : "Credits"
+                                                }
                                             </div>
                                         </div>`
 
@@ -246,35 +246,34 @@ export class Fetch {
 
             courseCard += sortedSubjectsGroupsToHTML(term1Groups)
 
-            if(term2){
+            if (term2) {
                 let term2Groups = sortSubjectsInGroups(term2)
 
                 courseCard += `</div>
                         </div>
                     
-                        <div class="course_card">
-                            <h6 class="course_card_term">
+                        <div class='course_card'>
+                            <h6 class='course_card_term'>
                                 ${termCounter + 1} ${
-                    language === 'UA' ? 'семестр' : 'term'
+                    language === "UA" ? "семестр" : "term"
                 }
                             </h6>
             
-                            <div class="course_card_table">
-                                <div class="table_row">
-                                    <div class="card_table_header">${
-                    language === 'UA'
-                        ? 'Предмети'
-                        : 'Subjects'
-                }</div>
-                                    <div class="card_table_header">${
-                    language === 'UA'
-                        ? 'Кредити'
-                        : 'Credits'
-                }</div>
+                            <div class='course_card_table'>
+                                <div class='table_row'>
+                                    <div class='card_table_header'>${
+                                        language === "UA"
+                                            ? "Предмети"
+                                            : "Subjects"
+                                    }</div>
+                                    <div class='card_table_header'>${
+                                        language === "UA"
+                                            ? "Кредити"
+                                            : "Credits"
+                                    }</div>
                                 </div>`
 
                 courseCard += sortedSubjectsGroupsToHTML(term2Groups)
-
             }
 
             courseCard += `</div>
@@ -296,9 +295,9 @@ export class Fetch {
             await fetch(
                 `https://aidept.com.ua/aiwebsite/CourseCards?language=${language.toLowerCase()}`,
                 {
-                    method: 'GET',
+                    method: "GET",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                 }
             )
@@ -307,31 +306,31 @@ export class Fetch {
                 })
                 .then((data) => {
                     let controls = {
-                        bachelorControlsHTML: '',
-                        masterControlsHTML: '',
+                        bachelorControlsHTML: "",
+                        masterControlsHTML: "",
                     }
 
-                    let courseCardsHTML = ''
+                    let courseCardsHTML = ""
 
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].isBachelor === true) {
-                            controls.bachelorControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
+                            controls.bachelorControlsHTML += `<button class='year_btn' data-year='${data[i].createdYear}'>
                                                                         ${data[i].createdYear}
                                                                   </button>`
 
-                            courseCardsHTML += `<div class="course_cards_container bachelor_${data[i].createdYear}">`
+                            courseCardsHTML += `<div class='course_cards_container bachelor_${data[i].createdYear}'>`
                         } else {
-                            controls.masterControlsHTML += `<button class="year_btn" data-year="${data[i].createdYear}">
+                            controls.masterControlsHTML += `<button class='year_btn' data-year='${data[i].createdYear}'>
                                                                     ${data[i].createdYear}
                                                                 </button>`
 
-                            courseCardsHTML += `<div class="course_cards_container master_${data[i].createdYear}" >`
+                            courseCardsHTML += `<div class='course_cards_container master_${data[i].createdYear}' >`
                         }
 
                         for (let j = 1; j <= 8; j += 2) {
                             let currentTerm = data[i].curriculum[`term${j}`]
                             let nextTerm = data[i].curriculum[`term${j + 1}`]
-                            if(currentTerm || nextTerm){
+                            if (currentTerm || nextTerm) {
                                 courseCardsHTML += getAboutUsCourseCard(
                                     currentTerm,
                                     nextTerm,
@@ -340,47 +339,47 @@ export class Fetch {
                             }
                         }
 
-                        courseCardsHTML += '</div>'
+                        courseCardsHTML += "</div>"
                     }
-                    let courseCardsMenuHTML = `<div class="course_cards_menu">
-                                        <div class="cards_menu_titles">
-                                            <p class="degree_title">
+                    let courseCardsMenuHTML = `<div class='course_cards_menu'>
+                                        <div class='cards_menu_titles'>
+                                            <p class='degree_title'>
                                                 ${
-                                                        language === 'UA'
-                                                        ? 'Ступінь: '
-                                                        : 'Degree: '
+                                                    language === "UA"
+                                                        ? "Ступінь: "
+                                                        : "Degree: "
                                                 }
                                             </p>
-                                            <p class="year_title"> ${
-                                                    language === 'UA'
-                                                    ? 'Рік: '
-                                                    : 'Year: '
+                                            <p class='year_title'> ${
+                                                language === "UA"
+                                                    ? "Рік: "
+                                                    : "Year: "
                                             }</p>
                                         </div>
                             
-                                        <div class="cards_menu_nav">
-                                            <div class="degree_nav">
-                                                <button class="degree_btn bachelor_btn">
+                                        <div class='cards_menu_nav'>
+                                            <div class='degree_nav'>
+                                                <button class='degree_btn bachelor_btn'>
                                                     ${
-                                                            language === 'UA'
-                                                            ? 'Бакалаврат'
-                                                            : 'Bachelor'
+                                                        language === "UA"
+                                                            ? "Бакалаврат"
+                                                            : "Bachelor"
                                                     }
                                                 </button>
-                                                <button class="degree_btn master_btn">
+                                                <button class='degree_btn master_btn'>
                                                     ${
-                                                            language === 'UA'
-                                                            ? 'Магістратура'
-                                                            : 'Master'
+                                                        language === "UA"
+                                                            ? "Магістратура"
+                                                            : "Master"
                                                     }
                                                 </button>
                                             </div>
                             
-                                            <div class="year_nav nav_bachelor">
+                                            <div class='year_nav nav_bachelor'>
                                                 ${controls.bachelorControlsHTML}
                                             </div>
                                             
-                                            <div class="year_nav nav_master">
+                                            <div class='year_nav nav_master'>
                                                 ${controls.masterControlsHTML}
                                             </div>
                                         </div>
@@ -399,19 +398,20 @@ export class Fetch {
 
     static async getTeachersAsync(language) {
         language = language.toUpperCase()
+
         function /*string*/ getEditedFullName(name) {
-            let initials = name.split(' ')
+            let initials = name.split(" ")
             return (
-                (initials[0] ? initials[0] + `<br>` : '') +
-                (initials[1] ? initials[1] + ' ' : '') +
-                (initials[2] ? initials[2] : '')
+                (initials[0] ? initials[0] + `<br>` : "") +
+                (initials[1] ? initials[1] + " " : "") +
+                (initials[2] ? initials[2] : "")
             )
         }
 
         function /*string*/ getDegreeComaIndex(degree) {
             let index = 0
             for (const character of degree) {
-                if (character === ',') return index
+                if (character === ",") return index
                 ++index
             }
             return -1
@@ -420,54 +420,41 @@ export class Fetch {
         const sectionName = `teachersResult`
 
         const section = checkIfSectionInStorage(language, sectionName)
-        if (section) return section
+        if (!section) return section
 
         await localStorage.setItem(
             `teachersResult${language}`,
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Employees?language=${language.toLowerCase()}`,
                 {
-                    method: 'GET',
+                    method: "GET",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                 }
             )
                 .then((response) => response.json())
                 .then((data) => {
-                    const rowAmount = 4,
-                        itemAmount = rowAmount * 2
-
-                    let result = ''
-                    let amount = 0
-                    let isSecondRow = false
+                    let result = ""
                     for (const teacher of data) {
-                        if (amount % itemAmount === 0) {
-                            result += `<div class="teachers_item">`
-                        }
-                        if (amount % rowAmount === 0) {
-                            result += `<div class="teachers_row${
-                                isSecondRow ? ' teachers_row-second' : ''
-                            }">`
-                        }
                         const commaPosition =
                             getDegreeComaIndex(teacher.degree) + 1
                         const defaultPhotoUrl =
-                            'https://i2.wp.com/pescariusports.ro/wp-content/uploads/2018/09/male-avatar.png?ssl=1'
-                        result += `<div class="teachers_column">
-                                <img class="teachers_photo" src="${
-                                    teacher.photoUrl === ''
+                            "https://i2.wp.com/pescariusports.ro/wp-content/uploads/2018/09/male-avatar.png?ssl=1"
+                        result += `<div class='teachers_column'>
+                                <img class='teachers_photo' src='${
+                                    teacher.photoUrl === ""
                                         ? defaultPhotoUrl
                                         : teacher.photoUrl
-                                }" alt="teacher">
-                                    <h5 class="teachers_full_name">${getEditedFullName(
+                                }' alt='teacher'>
+                                    <h5 class='teachers_full_name'>${getEditedFullName(
                                         teacher.fullName
                                     )}</h5>
-                                    <div class="teachers_position">${
+                                    <div class='teachers_position'>${
                                         teacher.jobPosition
                                     }</div>
-                                    <div class="teachers_line"></div>
-                                    <p class="teachers_rank">${
+                                    <div class='teachers_line'></div>
+                                    <p class='teachers_rank'>${
                                         commaPosition !== 0
                                             ? [
                                                   teacher.degree.slice(
@@ -478,24 +465,10 @@ export class Fetch {
                                                   teacher.degree.slice(
                                                       commaPosition
                                                   ),
-                                              ].join('')
+                                              ].join("")
                                             : teacher.degree
                                     }</p>
                             </div>`
-
-                        amount++
-                        if (amount % 4 === 0) {
-                            isSecondRow = !isSecondRow
-                            result += `</div>`
-                        }
-                        if (amount > itemAmount - 1) {
-                            amount = 0
-                            result += `</div>`
-                        }
-                    }
-                    if (amount !== 0) {
-                        if (amount % rowAmount === 0) result += `</div>`
-                        result += `</div>`
                     }
                     return result
                 })
@@ -519,20 +492,20 @@ export class Fetch {
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Universities?language=${language.toLowerCase()}`,
                 {
-                    method: 'GET',
+                    method: "GET",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                 }
             )
                 .then((response) => response.json())
                 .then((data) => {
-                    let result = ''
+                    let result = ""
                     for (const university of data) {
-                        result += `<div class="programs_item">
-                        <img src="${university.photo}" class="programs_image" alt="university_photo">
-                        <h6 class="programs_carousel_title">${university.title}</h6>
-                        <p class="programs_country">${university.country}</p>
+                        result += `<div class='programs_item'>
+                        <img src='${university.photo}' class='programs_image' alt='university_photo'>
+                        <h6 class='programs_carousel_title'>${university.title}</h6>
+                        <p class='programs_country'>${university.country}</p>
                     </div>`
                     }
                     return result
@@ -548,28 +521,29 @@ export class Fetch {
     /*--Applicant--*/
     static async getApplicantsAsync(language) {
         language = language.toUpperCase()
+
         function /*string*/ getApplicantExplanations(element, headerText) {
-            let result = `<section class="docs_section" style="display: block">
-                                            <div class="docs_content">
-                                                <h4 class="docs_main_title applicant_title">
+            let result = `<section class='docs_section' style='display: block'>
+                                            <div class='docs_content'>
+                                                <h4 class='docs_main_title applicant_title'>
                                                 ${headerText}
                                                 </h4>`
             for (const explanation of element) {
-                result += `<div class="docs_box">`
+                result += `<div class='docs_box'>`
                 result +=
-                    '<h5 class="docs_list_title">' + explanation.title + '</h5>'
-                result += `<ul class="docs_list">`
+                    '<h5 class="docs_list_title">' + explanation.title + "</h5>"
+                result += `<ul class='docs_list'>`
                 for (const item of explanation.items) {
                     result +=
                         '<li class="docs_list_items"><h6 class="docs_list_text">' +
                         item +
-                        '</h6></li>'
+                        "</h6></li>"
                 }
                 result += `</ul>`
                 result += `</div>`
                 if (explanation.photo != null) {
-                    result += `<div class="docs_cabinet">
-                                                        <img class="docs_cabinet_img" src="${explanation.photo}" alt="form">
+                    result += `<div class='docs_cabinet'>
+                                                        <img class='docs_cabinet_img' src='${explanation.photo}' alt='form'>
                                                     </div>`
                 }
             }
@@ -584,40 +558,40 @@ export class Fetch {
             language
         ) {
             let payColumnsText, payLinkText
-            if (language === 'UA') {
-                payColumnsText = ['Ступінь', 'Семестр', 'Обсяги']
+            if (language === "UA") {
+                payColumnsText = ["Ступінь", "Семестр", "Обсяги"]
                 payLinkText = [
-                    '*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi можна переглянути за посиланням: ',
-                    'тиць',
+                    "*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi можна переглянути за посиланням: ",
+                    "тиць",
                 ]
             } else {
-                payColumnsText = ['Degree', 'Term', 'Amount']
+                payColumnsText = ["Degree", "Term", "Amount"]
                 payLinkText = [
-                    '*Maximum amounts and qualifying minimum of a payment order for the year 2022 can be viewed by following the link: ',
-                    'click',
+                    "*Maximum amounts and qualifying minimum of a payment order for the year 2022 can be viewed by following the link: ",
+                    "click",
                 ]
             }
-            let result = `<section class="pay_section" style="display: none">`
-            result += `<h4 class="pay_title applicant_title">${headerText}</h4>
-                                <div class="pay_columns">
-                                    <div class="pay_column">${payColumnsText[0]}</div>
-                                    <div class="pay_column">${payColumnsText[1]}</div>
-                                    <div class="pay_column">${payColumnsText[2]}</div>
+            let result = `<section class='pay_section' style='display: none'>`
+            result += `<h4 class='pay_title applicant_title'>${headerText}</h4>
+                                <div class='pay_columns'>
+                                    <div class='pay_column'>${payColumnsText[0]}</div>
+                                    <div class='pay_column'>${payColumnsText[1]}</div>
+                                    <div class='pay_column'>${payColumnsText[2]}</div>
                                 </div>
-                                    <table class="pay_table">`
+                                    <table class='pay_table'>`
             for (const row of element) {
-                result += `<tr class="pay_table_row">
-                                    <th class="pay_table_value ">${row.degree}</th>
-                                    <th class="pay_table_value ">${row.term}</th>
-                                    <th class="pay_table_value ">${row.capacity}</th>
+                result += `<tr class='pay_table_row'>
+                                    <th class='pay_table_value '>${row.degree}</th>
+                                    <th class='pay_table_value '>${row.term}</th>
+                                    <th class='pay_table_value '>${row.capacity}</th>
                                     </tr>`
             }
             result += `</table>`
-            result += `<div class="pay_link_div">
-                                            <p class="pay_link">${payLinkText[0]}
-                                                <a  class="pay_link color_letter_red" 
-                                                    href="https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv"
-                                                    target="_blank">
+            result += `<div class='pay_link_div'>
+                                            <p class='pay_link'>${payLinkText[0]}
+                                                <a  class='pay_link color_letter_red' 
+                                                    href='https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv'
+                                                    target='_blank'>
                                                     ${payLinkText[1]}
                                                 </a>
                                             </p>
@@ -627,31 +601,31 @@ export class Fetch {
         }
 
         function /*string*/ getApplicantDates(element, headerText) {
-            let result = `<section class="calendar_section" style="display: none">
-                                            <h4 class="calendar-main_title applicant_title">${headerText}</h4>
-                                            <table class = "calendar-main_table" >`
+            let result = `<section class='calendar_section' style='display: none'>
+                                            <h4 class='calendar-main_title applicant_title'>${headerText}</h4>
+                                            <table class = 'calendar-main_table' >`
             let j = 0
             let len = Object.keys(element).length
             for (const key in element) {
                 const value = element[key]
-                result += `<tr class="calendar-row">`
-                if (++j !== len) result += `<td class="calendar-row-cont">`
+                result += `<tr class='calendar-row'>`
+                if (++j !== len) result += `<td class='calendar-row-cont'>`
                 else
-                    result += `<td class="calendar-row-cont calendar-row-cont-bottom">`
+                    result += `<td class='calendar-row-cont calendar-row-cont-bottom'>`
                 result += `
-                                                    <div class="calendar-row-date">
-                                                        <p class="calendar-row-text_date color_letter_red">${key}</p>
+                                                    <div class='calendar-row-date'>
+                                                        <p class='calendar-row-text_date color_letter_red'>${key}</p>
                                                     </div>
-                                                    <div class="calendar_row_info">`
-                let valueCopy = ''
+                                                    <div class='calendar_row_info'>`
+                let valueCopy = ""
                 for (let i = 0; i < value.length; i++) {
-                    if (value[i] === '«')
-                        valueCopy += `<span class ="color_letter_red">`
-                    else if (value[i] === '»') valueCopy += `</span>`
+                    if (value[i] === "«")
+                        valueCopy += `<span class ='color_letter_red'>`
+                    else if (value[i] === "»") valueCopy += `</span>`
                     else valueCopy += value[i]
                 }
                 result += `
-                                                        <p class="calendar-row-text">${valueCopy}</p>
+                                                        <p class='calendar-row-text'>${valueCopy}</p>
                                                     </div>
                                                 </td>
                                             </tr>`
@@ -671,18 +645,18 @@ export class Fetch {
                 isFirst,
                 headerText
             ) {
-                let res_note_block = `<div class="subjects_notes subjects_notes-${
+                let res_note_block = `<div class='subjects_notes subjects_notes-${
                     subject.year
-                }" style="display: ${isFirst === 0 ? 'block' : 'none'}">
-                                             <h5 class="subjects_notes_title color_letter_red">${headerText}</h5>
-                                             <div class="subjects_content">`
+                }' style='display: ${isFirst === 0 ? "block" : "none"}'>
+                                             <h5 class='subjects_notes_title color_letter_red'>${headerText}</h5>
+                                             <div class='subjects_content'>`
                 for (const note of subject.notes) {
-                    let redactedNote = ''
+                    let redactedNote = ""
                     let redStarted = 0
                     for (let i = 0; i < note.length - delimiterLength; i++) {
-                        if (note.substring(i, delimiterLength + i) === '|r|') {
+                        if (note.substring(i, delimiterLength + i) === "|r|") {
                             if (redStarted === 0) {
-                                redactedNote += `<span class="color_letter_red">`
+                                redactedNote += `<span class='color_letter_red'>`
                                 redStarted = 1
                             } else {
                                 redactedNote += `</span>`
@@ -694,14 +668,14 @@ export class Fetch {
                     redactedNote += note.substring(
                         note.length - delimiterLength
                     )
-                    res_note_block += `<p class="subjects_note">*${redactedNote}</p>`
+                    res_note_block += `<p class='subjects_note'>*${redactedNote}</p>`
                 }
                 res_note_block += `</div></div>`
                 return res_note_block
             }
 
             function /*string*/ getContainer(containerSelector, container) {
-                let result = `<div class="${containerSelector}">`
+                let result = `<div class='${containerSelector}'>`
                 for (const element of container) {
                     result += element
                 }
@@ -709,26 +683,26 @@ export class Fetch {
                 return result
             }
 
-            const notesHeader = language === 'UA' ? 'Примітки:' : 'Notes:'
-            let result = `<section class="subjects_section" style="display: none">
-                                            <h4 class="subjects_title applicant_title">${headerText}</h4>
-                                            <div class="subjects_dates">`
+            const notesHeader = language === "UA" ? "Примітки:" : "Notes:"
+            let result = `<section class='subjects_section' style='display: none'>
+                                            <h4 class='subjects_title applicant_title'>${headerText}</h4>
+                                            <div class='subjects_dates'>`
             let isFirst = 0
             let images = []
             let notes = []
-            const delimiterLength = '|r|'.length
+            const delimiterLength = "|r|".length
             for (const subject of element) {
-                result += `<p data-link="subjects_image-${
+                result += `<p data-link='subjects_image-${
                     subject.year
-                } subjects_notes-${subject.year}" class="subjects_date ${
-                    isFirst === 0 ? ' active' : ''
-                }">${subject.year}</p>`
+                } subjects_notes-${subject.year}' class='subjects_date ${
+                    isFirst === 0 ? " active" : ""
+                }'>${subject.year}</p>`
                 images.push(
-                    `<img class="subjects_image-${subject.year}" src="${
+                    `<img class='subjects_image-${subject.year}' src='${
                         subject.photo
-                    }" alt="table-${subject.year}" style="display: ${
-                        isFirst === 0 ? 'block' : 'none'
-                    }">`
+                    }' alt='table-${subject.year}' style='display: ${
+                        isFirst === 0 ? "block" : "none"
+                    }'>`
                 )
                 notes.push(
                     getNoteBlock(subject, delimiterLength, isFirst, notesHeader)
@@ -736,15 +710,14 @@ export class Fetch {
                 ++isFirst
             }
             result += `</div>`
-            result += getContainer('subjects_images', images)
-            result += getContainer('subjects_notes_container', notes)
+            result += getContainer("subjects_images", images)
+            result += getContainer("subjects_notes_container", notes)
             result += `</section>`
 
             return result
         }
 
-
-        const sectionName = 'applicantResult'
+        const sectionName = "applicantResult"
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
 
@@ -753,42 +726,42 @@ export class Fetch {
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Applicants?language=${language.toLowerCase()}`,
                 {
-                    method: 'GET',
+                    method: "GET",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                 }
             )
                 .then((response) => response.json())
                 .then((data) => {
                     const headers =
-                        document.querySelector('.sidebar_list').children
-                    let result = ''
+                        document.querySelector(".sidebar_list").children
+                    let result = ""
 
                     for (const name in data[0]) {
                         const element = data[0][name]
                         switch (name) {
-                            case 'explanations':
+                            case "explanations":
                                 result += getApplicantExplanations(
                                     element,
                                     headers[0].textContent
                                 )
                                 break
-                            case 'dates':
+                            case "dates":
                                 result += getApplicantDates(
                                     element,
                                     headers[1].textContent,
                                     language
                                 )
                                 break
-                            case 'competitiveSubjects':
+                            case "competitiveSubjects":
                                 result += getApplicantCompetitiveSubjects(
                                     element,
                                     headers[2].textContent,
                                     language
                                 )
                                 break
-                            case 'educationCosts':
+                            case "educationCosts":
                                 result += getApplicantEducationCosts(
                                     element,
                                     headers[3].textContent,
@@ -802,7 +775,7 @@ export class Fetch {
                     // console.log(data[0])
                     return (
                         result +
-                        `<img class="logo" src="https://bit.ly/3WeWrpK" alt="logo">`
+                        `<img class='logo' src='https://bit.ly/3WeWrpK' alt='logo'>`
                     )
                 })
         )
@@ -816,84 +789,85 @@ export class Fetch {
     /*--AIS Page--*/
     static async getAISPageAsync(language) {
         language = language.toUpperCase()
-        const sectionName = 'aisPage'
+        const sectionName = "aisPage"
 
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
 
         function getBigProjectCards(projects, language) {
-            let sectionHTML = `<section class="ais-content">`
+            let sectionHTML = `<section class='ais-content'>`
 
             for (const [index, project] of projects.entries()) {
                 if (index % 2 === 0) {
-                    sectionHTML += `<div class="ais-content-section">
-                                        <img src="${project.imageUrl}" alt="${
+                    sectionHTML += `<div class='ais-content-section'>
+                                        <img src='${project.imageUrl}' alt='${
                         project.imageUrl
-                    }" class="ais-img">
+                    }' class='ais-img'>
                            
-                                        <div class="ais-info">
+                                        <div class='ais-info'>
                                             <h4>${project.title}</h4>
-                                            <div class="info-desc">
-                                                <p class="info-desc-text">
+                                            <div class='info-desc'>
+                                                <p class='info-desc-text'>
                                                 ${
-                                                    language === 'UA'
+                                                    language === "UA"
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
                                                 </p>
-                                            <a class="ais-link" href="${
+                                            <a class='ais-link' href='${
                                                 project.link
-                                            }" target="_blank">${
+                                            }' target='_blank'>${
                         project.link
                     }</a>
                                             </div>
                                         </div>
                                     </div>`
                 } else {
-                    sectionHTML += `<div class="ais-content-section">
-                                        <div class="ais-info">
+                    sectionHTML += `<div class='ais-content-section'>
+                                        <div class='ais-info'>
                                             <h4>${project.title}</h4>
-                                            <div class="info-desc">
-                                                <p class="info-desc-text">
+                                            <div class='info-desc'>
+                                                <p class='info-desc-text'>
                                                 ${
-                                                        language === 'UA'
+                                                    language === "UA"
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
                                                 </p>
-                                            <a class="ais-link" href="${
+                                            <a class='ais-link' href='${
                                                 project.link
-                                            }" target="_blank">${
+                                            }' target='_blank'>${
                         project.link
                     }</a>
                                             </div>
                                         </div>
                                         
-                                        <img src="${project.imageUrl}" alt="${
+                                        <img src='${project.imageUrl}' alt='${
                         project.imageUrl
-                    }" class="ais-img">
+                    }' class='ais-img'>
                                     </div>`
                 }
             }
             return sectionHTML + `</section>`
         }
+
         function getSmallProjectCards(projects, language) {
             let sectionHTML = `<section >
-                                <h2 class="ais-subtitle">Інструменти</h2>
-                                <ul class="ais-list">`
+                                <h2 class='ais-subtitle'>Інструменти</h2>
+                                <ul class='ais-list'>`
 
             projects.forEach((project) => {
                 sectionHTML += `
-                     <li class="ais-list-item">
-                        <img src="${project.imageUrl}" alt="${
+                     <li class='ais-list-item'>
+                        <img src='${project.imageUrl}' alt='${
                     project.imageUrl
-                }" class="ais-photo">
-                        <h5><a class="ais-item-link" href="${
+                }' class='ais-photo'>
+                        <h5><a class='ais-item-link' href='${
                             project.link
-                        }" target="_blank">${project.title}</a></h5>
-                        <p class="ais-item-desc">
+                        }' target='_blank'>${project.title}</a></h5>
+                        <p class='ais-item-desc'>
                         ${
-                                language === 'UA'
+                            language === "UA"
                                 ? project.descriptionUA
                                 : project.descriptionEN
                         }
@@ -922,9 +896,9 @@ export class Fetch {
         const [aisHTMLua, aisHTMLen] = await fetch(
             `https://aidept.com.ua/aiwebsite/AISPage`,
             {
-                method: 'GET',
+                method: "GET",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
             }
         )
@@ -932,14 +906,14 @@ export class Fetch {
                 return response.json()
             })
             .then((data) => {
-                const aisHTMLua = getAISPageHTML(data, 'UA')
-                const aisHTMLen = getAISPageHTML(data, 'EN')
+                const aisHTMLua = getAISPageHTML(data, "UA")
+                const aisHTMLen = getAISPageHTML(data, "EN")
 
                 return [aisHTMLua, aisHTMLen]
             })
 
-        localStorage.setItem('aisPageUA', aisHTMLua)
-        localStorage.setItem('aisPageEN', aisHTMLen)
+        localStorage.setItem("aisPageUA", aisHTMLua)
+        localStorage.setItem("aisPageEN", aisHTMLen)
 
         localStorage.setItem(
             `${sectionName}InsertedTimeUA`,
