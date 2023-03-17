@@ -89,6 +89,7 @@
 .info-desc {
     display: grid;
     column-gap: 5vh;
+    position: relative;
 
     font-size: 1.15vw;
 }
@@ -114,8 +115,13 @@
 
 .ais-link {
     margin-top: 4vh;
+    padding-bottom: 0;
     text-decoration-line: underline;
-    position: relative;
+    margin-bottom: 0;
+
+    width: 18vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     @include respond(tab-land) {
         font-size: 1.3vw;
@@ -123,20 +129,23 @@
 
     @include respond(tab-port) {
         font-size: 1.6vw;
+        width: 25vw;
     }
 
     @include respond(phone) {
         font-size: 2.2vw;
+        width: 30vw;
     }
 }
 
 .ais-link:after{
     content: "";
     position: absolute;
-    top: -0.3vh;
-    right: 12vw;
+    bottom: 1.5vh; //0.5vh
+    right: 20vw;
 
     --size: .8vw;
+    overflow: visible;
 
     width: var(--size);
     height: var(--size);
@@ -147,13 +156,19 @@
 
     transform: rotate(45deg) translateY(50%);
 
-    @include respond(tab-port) {
-        right: 2vw;
-        --size: .9vw;
+    @include respond(tab-land) {
+        bottom: 0.8vh;
     }
 
+    @include respond(tab-port) {
+        bottom: 0.5vh;
+        --size: .9vw;
+        right: 8vw;
+    }
     @include respond(phone) {
-        right: -2vw;
+        right: 6vw;
+        border-right: 2px solid white;
+        border-top: 2px solid white;
     }
 }
 
@@ -262,6 +277,7 @@
 
 .ais-item-desc {
     margin-top: 4vh;
+    font-size: 1.3vw;
 
     @include respond(tab-land) {
         margin-top: 3vh;
@@ -269,6 +285,7 @@
 
     @include respond(tab-port) {
         margin-top: 2vh;
+        font-size: 1.4vw;
     }
     @include respond(phone) {
         line-height: 4vw;
