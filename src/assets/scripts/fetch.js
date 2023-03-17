@@ -1,9 +1,9 @@
 // for implementation of localStorage functionality
-import { checkIfSectionInStorage } from "./utils"
+import { checkIfSectionInStorage } from './utils'
 
-if (typeof localStorage === "undefined" || localStorage === null) {
-    let LocalStorage = require("node-localstorage").LocalStorage
-    localStorage = new LocalStorage("./scratch")
+if (typeof localStorage === 'undefined' || localStorage === null) {
+    let LocalStorage = require('node-localstorage').LocalStorage
+    localStorage = new LocalStorage('./scratch')
 }
 
 /**
@@ -37,7 +37,7 @@ export class Fetch {
                         resArray.push(jobAmount)
                     })
                     .catch(function (err) {
-                        console.warn("Something went wrong.", err)
+                        console.warn('Something went wrong.', err)
                     })
             }
 
@@ -58,19 +58,19 @@ export class Fetch {
 
         const sectionName = `jobsPositions`
 
-        const section = checkIfSectionInStorage("UA", sectionName)
+        const section = checkIfSectionInStorage('UA', sectionName)
         if (section) return section
 
-        const locations = ["Ukraine", "Lviv"]
+        const locations = ['Ukraine', 'Lviv']
 
         await localStorage.setItem(
             `${sectionName}UA`,
             await fetch(
-                "https://aidept.com.ua/aiwebsite/jobNames?language=ua",
+                'https://aidept.com.ua/aiwebsite/jobNames?language=ua',
                 {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
@@ -91,9 +91,9 @@ export class Fetch {
                             ) {
                                 name = [
                                     name.slice(0, i),
-                                    " ",
+                                    ' ',
                                     name.slice(i),
-                                ].join("")
+                                ].join('')
                                 i += 1
                             }
                         }
@@ -173,16 +173,16 @@ export class Fetch {
             function sortedSubjectsGroupsToHTML(sortedGroups) {
                 //bg for subjects groups
                 const backgrounds = [
-                    "#D94442",
-                    "#CA605C",
-                    "#BA7B75",
-                    "#b78f8b",
-                    "#861D13",
-                    "#59130D",
+                    '#D94442',
+                    '#CA605C',
+                    '#BA7B75',
+                    '#b78f8b',
+                    '#861D13',
+                    '#59130D',
                 ]
 
                 let bgIdx = 0
-                let termHTML = ""
+                let termHTML = ''
 
                 for (const [area, subjects] of sortedGroups) {
                     if (subjects.length === 1) {
@@ -220,7 +220,7 @@ export class Fetch {
                                 <div class='course_card'>
                                     <h6 class='course_card_term'>
                                         ${termCounter} ${
-                language === "UA" ? "семестр" : "term"
+                language === 'UA' ? 'семестр' : 'term'
             } 
                                     </h6>
                         
@@ -228,16 +228,16 @@ export class Fetch {
                                         <div class='table_row'>
                                             <div class='card_table_header'>
                                                 ${
-                                                    language === "UA"
-                                                        ? "Предмети"
-                                                        : "Subjects"
+                                                    language === 'UA'
+                                                        ? 'Предмети'
+                                                        : 'Subjects'
                                                 }
                                             </div>
                                             <div class='card_table_header'>
                                                 ${
-                                                    language === "UA"
-                                                        ? "Кредити"
-                                                        : "Credits"
+                                                    language === 'UA'
+                                                        ? 'Кредити'
+                                                        : 'Credits'
                                                 }
                                             </div>
                                         </div>`
@@ -255,21 +255,21 @@ export class Fetch {
                         <div class='course_card'>
                             <h6 class='course_card_term'>
                                 ${termCounter + 1} ${
-                    language === "UA" ? "семестр" : "term"
+                    language === 'UA' ? 'семестр' : 'term'
                 }
                             </h6>
             
                             <div class='course_card_table'>
                                 <div class='table_row'>
                                     <div class='card_table_header'>${
-                                        language === "UA"
-                                            ? "Предмети"
-                                            : "Subjects"
+                                        language === 'UA'
+                                            ? 'Предмети'
+                                            : 'Subjects'
                                     }</div>
                                     <div class='card_table_header'>${
-                                        language === "UA"
-                                            ? "Кредити"
-                                            : "Credits"
+                                        language === 'UA'
+                                            ? 'Кредити'
+                                            : 'Credits'
                                     }</div>
                                 </div>`
 
@@ -295,9 +295,9 @@ export class Fetch {
             await fetch(
                 `https://aidept.com.ua/aiwebsite/CourseCards?language=${language.toLowerCase()}`,
                 {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
@@ -306,11 +306,11 @@ export class Fetch {
                 })
                 .then((data) => {
                     let controls = {
-                        bachelorControlsHTML: "",
-                        masterControlsHTML: "",
+                        bachelorControlsHTML: '',
+                        masterControlsHTML: '',
                     }
 
-                    let courseCardsHTML = ""
+                    let courseCardsHTML = ''
 
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].isBachelor === true) {
@@ -339,21 +339,21 @@ export class Fetch {
                             }
                         }
 
-                        courseCardsHTML += "</div>"
+                        courseCardsHTML += '</div>'
                     }
                     let courseCardsMenuHTML = `<div class='course_cards_menu'>
                                         <div class='cards_menu_titles'>
                                             <p class='degree_title'>
                                                 ${
-                                                    language === "UA"
-                                                        ? "Ступінь: "
-                                                        : "Degree: "
+                                                    language === 'UA'
+                                                        ? 'Ступінь: '
+                                                        : 'Degree: '
                                                 }
                                             </p>
                                             <p class='year_title'> ${
-                                                language === "UA"
-                                                    ? "Рік: "
-                                                    : "Year: "
+                                                language === 'UA'
+                                                    ? 'Рік: '
+                                                    : 'Year: '
                                             }</p>
                                         </div>
                             
@@ -361,16 +361,16 @@ export class Fetch {
                                             <div class='degree_nav'>
                                                 <button class='degree_btn bachelor_btn'>
                                                     ${
-                                                        language === "UA"
-                                                            ? "Бакалаврат"
-                                                            : "Bachelor"
+                                                        language === 'UA'
+                                                            ? 'Бакалаврат'
+                                                            : 'Bachelor'
                                                     }
                                                 </button>
                                                 <button class='degree_btn master_btn'>
                                                     ${
-                                                        language === "UA"
-                                                            ? "Магістратура"
-                                                            : "Master"
+                                                        language === 'UA'
+                                                            ? 'Магістратура'
+                                                            : 'Master'
                                                     }
                                                 </button>
                                             </div>
@@ -400,18 +400,18 @@ export class Fetch {
         language = language.toUpperCase()
 
         function /*string*/ getEditedFullName(name) {
-            let initials = name.split(" ")
+            let initials = name.split(' ')
             return (
-                (initials[0] ? initials[0] + `<br>` : "") +
-                (initials[1] ? initials[1] + " " : "") +
-                (initials[2] ? initials[2] : "")
+                (initials[0] ? initials[0] + `<br>` : '') +
+                (initials[1] ? initials[1] + ' ' : '') +
+                (initials[2] ? initials[2] : '')
             )
         }
 
         function /*string*/ getDegreeComaIndex(degree) {
             let index = 0
             for (const character of degree) {
-                if (character === ",") return index
+                if (character === ',') return index
                 ++index
             }
             return -1
@@ -420,30 +420,30 @@ export class Fetch {
         const sectionName = `teachersResult`
 
         const section = checkIfSectionInStorage(language, sectionName)
-        if (!section) return section
+        if (section) return section
 
         await localStorage.setItem(
             `teachersResult${language}`,
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Employees?language=${language.toLowerCase()}`,
                 {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
                 .then((response) => response.json())
                 .then((data) => {
-                    let result = ""
+                    let result = ''
                     for (const teacher of data) {
                         const commaPosition =
                             getDegreeComaIndex(teacher.degree) + 1
                         const defaultPhotoUrl =
-                            "https://i2.wp.com/pescariusports.ro/wp-content/uploads/2018/09/male-avatar.png?ssl=1"
+                            'https://i2.wp.com/pescariusports.ro/wp-content/uploads/2018/09/male-avatar.png?ssl=1'
                         result += `<div class='teachers_column'>
                                 <img class='teachers_photo' src='${
-                                    teacher.photoUrl === ""
+                                    teacher.photoUrl === ''
                                         ? defaultPhotoUrl
                                         : teacher.photoUrl
                                 }' alt='teacher'>
@@ -465,7 +465,7 @@ export class Fetch {
                                                   teacher.degree.slice(
                                                       commaPosition
                                                   ),
-                                              ].join("")
+                                              ].join('')
                                             : teacher.degree
                                     }</p>
                             </div>`
@@ -492,15 +492,15 @@ export class Fetch {
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Universities?language=${language.toLowerCase()}`,
                 {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
                 .then((response) => response.json())
                 .then((data) => {
-                    let result = ""
+                    let result = ''
                     for (const university of data) {
                         result += `<div class='programs_item'>
                         <img src='${university.photo}' class='programs_image' alt='university_photo'>
@@ -519,89 +519,71 @@ export class Fetch {
     }
 
     /*--Applicant--*/
-    static async getApplicantsAsync(language) {
+    static async getApplicantsAsync(activeSection, language) {
         language = language.toUpperCase()
-
-        function /*string*/ getApplicantExplanations(element, headerText) {
-            let result = `<section class='docs_section' style='display: block'>
-                                            <div class='docs_content'>
-                                                <h4 class='docs_main_title applicant_title'>
-                                                ${headerText}
-                                                </h4>`
+        const getApplicantExplanations = (element, headerText, isActive) => {
+            let result = `<section class='docs_section${
+                isActive ? ' active' : ''
+            }' id='docs_section'><div class='docs_content'><h4 class='docs_main_title applicant_title'>${headerText}</h4>`
             for (const explanation of element) {
-                result += `<div class='docs_box'>`
-                result +=
-                    '<h5 class="docs_list_title">' + explanation.title + "</h5>"
-                result += `<ul class='docs_list'>`
+                result += `<div class='docs_box'><h5 class='docs_list_title'>${explanation.title}</h5><ul class='docs_list'>`
                 for (const item of explanation.items) {
-                    result +=
-                        '<li class="docs_list_items"><h6 class="docs_list_text">' +
-                        item +
-                        "</h6></li>"
+                    result += `<li class='docs_list_items'><h6 class='docs_list_text'>${item}</h6></li>`
                 }
-                result += `</ul>`
-                result += `</div>`
+                result += `</ul></div>`
                 if (explanation.photo != null) {
-                    result += `<div class='docs_cabinet'>
-                                                        <img class='docs_cabinet_img' src='${explanation.photo}' alt='form'>
-                                                    </div>`
+                    result += `<div class='docs_cabinet'><img class='docs_cabinet_img' src='${explanation.photo}' alt='form'></div>`
                 }
             }
-            result += `</div>
-                                    </section>`
+            result += `</div></section>`
             return result
         }
 
-        function /*string*/ getApplicantEducationCosts(
+        const getApplicantEducationCosts = (
             element,
             headerText,
-            language
-        ) {
-            let payColumnsText, payLinkText
-            if (language === "UA") {
-                payColumnsText = ["Ступінь", "Семестр", "Обсяги"]
-                payLinkText = [
-                    "*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi можна переглянути за посиланням: ",
-                    "тиць",
-                ]
-            } else {
-                payColumnsText = ["Degree", "Term", "Amount"]
-                payLinkText = [
-                    "*Maximum amounts and qualifying minimum of a payment order for the year 2022 can be viewed by following the link: ",
-                    "click",
-                ]
-            }
-            let result = `<section class='pay_section' style='display: none'>`
-            result += `<h4 class='pay_title applicant_title'>${headerText}</h4>
-                                <div class='pay_columns'>
-                                    <div class='pay_column'>${payColumnsText[0]}</div>
-                                    <div class='pay_column'>${payColumnsText[1]}</div>
-                                    <div class='pay_column'>${payColumnsText[2]}</div>
-                                </div>
-                                    <table class='pay_table'>`
+            language,
+            isActive
+        ) => {
+            const payColumnsText =
+                language === 'UA'
+                    ? ['Ступінь', 'Семестр', 'Обсяги']
+                    : ['Degree', 'Term', 'Amount']
+            const payLinkText =
+                language === 'UA'
+                    ? [
+                          '*Maкcимaльнi oбcяги тa квaлiфiкaцiйний мiнiмyм дepжaвнoгo зaмoвлeння нa пpийoм y 2022 poцi можна переглянути за посиланням: ',
+                          'тиць',
+                      ]
+                    : [
+                          '*Maximum amounts and qualifying minimum of a payment order for the year 2022 can be viewed by following the link: ',
+                          'click',
+                      ]
+            let result = `<section class='pay_section${
+                isActive ? ' active' : ''
+            }' id='pay_section'><h4 class='pay_title applicant_title'>${headerText}</h4><div class='pay_columns'><div class='pay_column'>${
+                payColumnsText[0]
+            }</div><div class='pay_column'>${
+                payColumnsText[1]
+            }</div><div class='pay_column'>${
+                payColumnsText[2]
+            }</div></div><table class='pay_table'>`
             for (const row of element) {
-                result += `<tr class='pay_table_row'>
-                                    <th class='pay_table_value '>${row.degree}</th>
-                                    <th class='pay_table_value '>${row.term}</th>
-                                    <th class='pay_table_value '>${row.capacity}</th>
-                                    </tr>`
+                result += `<tr class='pay_table_row'><th class='pay_table_value'>${row.degree}</th><th class='pay_table_value'>${row.term}</th><th class='pay_table_value'>${row.capacity}</th></tr>`
             }
-            result += `</table>`
-            result += `<div class='pay_link_div'>
-                                            <p class='pay_link'>${payLinkText[0]}
-                                                <a  class='pay_link color_letter_red' 
-                                                    href='https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv'
-                                                    target='_blank'>
-                                                    ${payLinkText[1]}
-                                                </a>
-                                            </p>
-                                        </div>`
-            result += `</section>`
+            result += `</table><div class='pay_link_div'><p class='pay_link'>${payLinkText[0]}<a class='pay_link color_letter_red' href='https://lpnu.ua/vstupnyku/umovy-vstupu-dlia-bakalavriv' target='_blank'>${payLinkText[1]}</a></p></div></section>`
             return result
         }
 
-        function /*string*/ getApplicantDates(element, headerText) {
-            let result = `<section class='calendar_section' style='display: none'>
+        function /*string*/ getApplicantDates(
+            element,
+            headerText,
+            language,
+            isActive
+        ) {
+            let result = `<section class='calendar_section${
+                isActive ? ' active' : ''
+            }' id='calendar_section'>
                                             <h4 class='calendar-main_title applicant_title'>${headerText}</h4>
                                             <table class = 'calendar-main_table' >`
             let j = 0
@@ -617,11 +599,11 @@ export class Fetch {
                                                         <p class='calendar-row-text_date color_letter_red'>${key}</p>
                                                     </div>
                                                     <div class='calendar_row_info'>`
-                let valueCopy = ""
+                let valueCopy = ''
                 for (let i = 0; i < value.length; i++) {
-                    if (value[i] === "«")
+                    if (value[i] === '«')
                         valueCopy += `<span class ='color_letter_red'>`
-                    else if (value[i] === "»") valueCopy += `</span>`
+                    else if (value[i] === '»') valueCopy += `</span>`
                     else valueCopy += value[i]
                 }
                 result += `
@@ -637,142 +619,134 @@ export class Fetch {
         function /*string*/ getApplicantCompetitiveSubjects(
             element,
             headerText,
-            language
+            language,
+            isActive
         ) {
-            function /*string*/ getNoteBlock(
-                subject,
-                delimiterLength,
-                isFirst,
-                headerText
-            ) {
-                let res_note_block = `<div class='subjects_notes subjects_notes-${
+            const notesHeader = language === 'UA' ? 'Примітки:' : 'Notes:'
+            const delimiter = '|r|'
+
+            function getNoteBlock(subject) {
+                return `<div class='subjects_notes subjects_notes-${
                     subject.year
-                }' style='display: ${isFirst === 0 ? "block" : "none"}'>
-                                             <h5 class='subjects_notes_title color_letter_red'>${headerText}</h5>
-                                             <div class='subjects_content'>`
-                for (const note of subject.notes) {
-                    let redactedNote = ""
-                    let redStarted = 0
-                    for (let i = 0; i < note.length - delimiterLength; i++) {
-                        if (note.substring(i, delimiterLength + i) === "|r|") {
-                            if (redStarted === 0) {
-                                redactedNote += `<span class='color_letter_red'>`
-                                redStarted = 1
-                            } else {
-                                redactedNote += `</span>`
-                                redStarted = 0
-                            }
-                            i += delimiterLength - 1
-                        } else redactedNote += note[i]
-                    }
-                    redactedNote += note.substring(
-                        note.length - delimiterLength
-                    )
-                    res_note_block += `<p class='subjects_note'>*${redactedNote}</p>`
-                }
-                res_note_block += `</div></div>`
-                return res_note_block
+                }'>
+      <h5 class='subjects_notes_title color_letter_red'>${notesHeader}</h5>
+      <div class='subjects_content'>
+        ${subject.notes
+            .map((note) => {
+                const redactedNote = note.replace(
+                    new RegExp(`${delimiter}(.+?)${delimiter}`, 'g'),
+                    "<span class='color_letter_red'>$1</span>"
+                )
+                return `<p class='subjects_note'>*${redactedNote}</p>`
+            })
+            .join('')}
+      </div>
+    </div>`
             }
 
-            function /*string*/ getContainer(containerSelector, container) {
-                let result = `<div class='${containerSelector}'>`
-                for (const element of container) {
-                    result += element
-                }
-                result += `</div>`
-                return result
+            function getContainer(selector, content) {
+                return `<div class='${selector}'>${content.join('')}</div>`
             }
 
-            const notesHeader = language === "UA" ? "Примітки:" : "Notes:"
-            let result = `<section class='subjects_section' style='display: none'>
-                                            <h4 class='subjects_title applicant_title'>${headerText}</h4>
-                                            <div class='subjects_dates'>`
-            let isFirst = 0
-            let images = []
-            let notes = []
-            const delimiterLength = "|r|".length
-            for (const subject of element) {
-                result += `<p data-link='subjects_image-${
-                    subject.year
-                } subjects_notes-${subject.year}' class='subjects_date ${
-                    isFirst === 0 ? " active" : ""
-                }'>${subject.year}</p>`
-                images.push(
+            const images = element.map(
+                (subject, index) =>
                     `<img class='subjects_image-${subject.year}' src='${
                         subject.photo
                     }' alt='table-${subject.year}' style='display: ${
-                        isFirst === 0 ? "block" : "none"
-                    }'>`
-                )
-                notes.push(
-                    getNoteBlock(subject, delimiterLength, isFirst, notesHeader)
-                )
-                ++isFirst
-            }
-            result += `</div>`
-            result += getContainer("subjects_images", images)
-            result += getContainer("subjects_notes_container", notes)
-            result += `</section>`
+                        index > 0 ? 'none' : 'block'
+                    };'>`
+            )
 
-            return result
+            const notes = element.map((subject, index) =>
+                getNoteBlock(subject, index === 0)
+            )
+
+            const dates = element
+                .map(
+                    (subject, index) =>
+                        `<p data-link='subjects_image-${
+                            subject.year
+                        } subjects_notes-${subject.year}' class='subjects_date${
+                            index === 0 ? ' active' : ''
+                        }'>${subject.year}</p>`
+                )
+                .join('')
+
+            const imagesContainer = getContainer('subjects_images', images)
+            const notesContainer = getContainer(
+                'subjects_notes_container',
+                notes
+            )
+
+            return `<section class='subjects_section${
+                isActive ? ' active' : ''
+            }' id='subjects_section'>
+                        <h4 class='subjects_title applicant_title'>${headerText}</h4>
+                        <div class='subjects_dates'>${dates}</div>
+                        ${imagesContainer}
+                        ${notesContainer}
+                      </section>`
         }
 
-        const sectionName = "applicantResult"
+        const sectionName = 'applicantResult'
         const section = checkIfSectionInStorage(language, sectionName)
-        if (section) return section
+        if (!section) return section
 
         localStorage.setItem(
             `${sectionName}${language}`,
             await fetch(
                 `https://aidept.com.ua/aiwebsite/Applicants?language=${language.toLowerCase()}`,
                 {
-                    method: "GET",
+                    method: 'GET',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
                 .then((response) => response.json())
                 .then((data) => {
                     const headers =
-                        document.querySelector(".sidebar_list").children
-                    let result = ""
+                        document.querySelector('.sidebar_list').children
+                    let result = ''
 
                     for (const name in data[0]) {
                         const element = data[0][name]
                         switch (name) {
-                            case "explanations":
+                            case 'explanations':
                                 result += getApplicantExplanations(
                                     element,
-                                    headers[0].textContent
+                                    headers[0].textContent,
+                                    'docs_section' === activeSection
                                 )
                                 break
-                            case "dates":
+                            case 'dates':
                                 result += getApplicantDates(
                                     element,
                                     headers[1].textContent,
-                                    language
+                                    language,
+                                    'calendar_section' === activeSection
                                 )
                                 break
-                            case "competitiveSubjects":
+                            case 'competitiveSubjects':
                                 result += getApplicantCompetitiveSubjects(
                                     element,
                                     headers[2].textContent,
-                                    language
+                                    language,
+                                    'subjects_section' === activeSection
                                 )
                                 break
-                            case "educationCosts":
+                            case 'educationCosts':
                                 result += getApplicantEducationCosts(
                                     element,
                                     headers[3].textContent,
-                                    language
+                                    language,
+                                    'pay_section' === activeSection
                                 )
                                 break
                             default:
                                 break
                         }
                     }
-                    // console.log(data[0])
                     return (
                         result +
                         `<img class='logo' src='https://bit.ly/3WeWrpK' alt='logo'>`
@@ -789,7 +763,7 @@ export class Fetch {
     /*--AIS Page--*/
     static async getAISPageAsync(language) {
         language = language.toUpperCase()
-        const sectionName = "aisPage"
+        const sectionName = 'aisPage'
 
         const section = checkIfSectionInStorage(language, sectionName)
         if (section) return section
@@ -809,7 +783,7 @@ export class Fetch {
                                             <div class='info-desc'>
                                                 <p class='info-desc-text'>
                                                 ${
-                                                    language === "UA"
+                                                    language === 'UA'
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
@@ -829,7 +803,7 @@ export class Fetch {
                                             <div class='info-desc'>
                                                 <p class='info-desc-text'>
                                                 ${
-                                                    language === "UA"
+                                                    language === 'UA'
                                                         ? project.descriptionUA
                                                         : project.descriptionEN
                                                 }
@@ -867,7 +841,7 @@ export class Fetch {
                         }' target='_blank'>${project.title}</a></h5>
                         <p class='ais-item-desc'>
                         ${
-                            language === "UA"
+                            language === 'UA'
                                 ? project.descriptionUA
                                 : project.descriptionEN
                         }
@@ -896,9 +870,9 @@ export class Fetch {
         const [aisHTMLua, aisHTMLen] = await fetch(
             `https://aidept.com.ua/aiwebsite/AISPage`,
             {
-                method: "GET",
+                method: 'GET',
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                 },
             }
         )
@@ -906,14 +880,14 @@ export class Fetch {
                 return response.json()
             })
             .then((data) => {
-                const aisHTMLua = getAISPageHTML(data, "UA")
-                const aisHTMLen = getAISPageHTML(data, "EN")
+                const aisHTMLua = getAISPageHTML(data, 'UA')
+                const aisHTMLen = getAISPageHTML(data, 'EN')
 
                 return [aisHTMLua, aisHTMLen]
             })
 
-        localStorage.setItem("aisPageUA", aisHTMLua)
-        localStorage.setItem("aisPageEN", aisHTMLen)
+        localStorage.setItem('aisPageUA', aisHTMLua)
+        localStorage.setItem('aisPageEN', aisHTMLen)
 
         localStorage.setItem(
             `${sectionName}InsertedTimeUA`,

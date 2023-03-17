@@ -711,3 +711,7 @@ button {
 .visible {
   display: block;
 }
+
+.nav_sub > .active{
+  color: var(--peachy);
+}

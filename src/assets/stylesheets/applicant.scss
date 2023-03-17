@@ -1,5 +1,13 @@
 @import "mixins";
 
+section {
+    display: none;
+}
+
+section.active{
+  display: block;
+}
+
 /*Styles for applicant*/
 .applicant_section{
     margin-top: 20vh;
