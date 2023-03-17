@@ -109,7 +109,7 @@ function addCourseCardsBtnListeners() {
                     slidesToShow: 1,
 
                     dots: true,
-                    arrows: false,
+                    arrows: true,
                 })
         })
     })

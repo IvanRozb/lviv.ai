@@ -6,9 +6,9 @@
     height: 100vh;
     position: relative;
 
-    /*background: url(../images/intro.svg) center no-repeat;*/
-    /*background-size: cover;*/
-    /*-moz-background-size: cover;*/
+   @include respond(tab-port){
+       height: 80vh;
+   }
 }
 .intro * {
     font-weight: bold;
@@ -20,6 +20,28 @@
 
     padding-top: 35vh;
     padding-left: 5vw;
+
+    @include respond(tab-port){
+        padding-top: 25vh;
+        padding-left: 5.5vw;
+
+        display: block;
+
+        & > * {
+            margin-bottom: 8vh;
+        }
+    }
+}
+.intro_text{
+
+    @include respond(tab-land){
+        max-width: 30vw;
+    }
+
+    @include respond(tab-port){
+        float: right;
+    }
+
 }
 
 .intro_title {
@@ -32,7 +54,11 @@
 .intro_title :nth-child(3) {
     margin-left: 8vw;
 }
-
+.intro_text_connector{
+    @include respond(tab-port){
+       @include flex-center;
+    }
+}
 /*sidebar*/
 .main_sidebar {
     position: fixed;
@@ -360,6 +386,9 @@ div[id*='blob']{
 /*AIS-info*/
 .ais-info{
     margin-top: 18.5vh;
+    @include respond(tab-port){
+        margin-top: 35vh;
+    }
 }
 .ais-info_title{
     text-align: center;
@@ -387,6 +416,10 @@ div[id*='blob']{
     margin: 1.3vw 0;
     font-size: var(--h4-size);
     letter-spacing: var(--h4-small-spacing);
+
+    @include respond(tab-port){
+        margin: 2vw 0;
+    }
 }
 
 .to_right.ais_li{
@@ -449,6 +482,10 @@ div[id*='blob']{
 /*Curriculum*/
 .curriculum{
     margin-top: 80vh;
+
+    @include respond(tab-port){
+        margin-top: 60vh;
+    }
 }
 .curriculum_inner{
     margin-left: 6vw;
@@ -481,6 +518,11 @@ div[id*='blob']{
 .curriculum_triangle{
     position: relative;
     margin-top: -22vh;
+
+    @include  respond(tab-port){
+        margin-top: 0;
+    }
+
 }
 #curriculum_triangle-2{
     display: block;
@@ -488,11 +530,26 @@ div[id*='blob']{
     float: right;
 
     width: 100%;
+
+    @include respond(tab-port){
+        margin: -10vh 6vw 0;
+    }
 }
 .curriculum_triangle_img{
-    width: 41vw;
-    height: 47vw;
+    width: 52vw;
+    height: 59vw;
+
+    @include respond(tab-port){
+        width: 55vw;
+        height: auto;
+    }
+
+    @include respond(phone){
+        width: 70vw;
+        height: auto;
+    }
 }
+
 #curriculum_triangle-2 img {
     float: right;
 }
@@ -505,6 +562,11 @@ div[id*='blob']{
     transform: translateY(-50%);
 
     width: 30vw;
+
+    @include respond(phone){
+        width: 45vw;
+    }
+
 }
 #curriculum_triangle-2 .curriculum_text{
     left: auto;
@@ -515,6 +577,10 @@ div[id*='blob']{
 .curriculum_details{
     display: inline-block;
     margin-top: -23vh;
+
+    @include respond(phone){
+        margin-top: -10vh;
+    }
 }
 .curriculum_details_label{
     width: 25.4vw;
