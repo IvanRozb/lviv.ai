@@ -802,6 +802,9 @@ div[id*='blob']{
     background-size: contain;
     background-position: 6vw -6vh;
 
+    .logo{
+        margin-top: 10vh;
+    }
     @include respond(tab-port){
         margin-top: 20vh;
         height: 50vh;
@@ -810,6 +813,8 @@ div[id*='blob']{
     @include respond(phone){
         background-size: cover;
     }
+
+
 }
 
 .footer p{

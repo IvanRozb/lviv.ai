@@ -680,7 +680,7 @@ button {
 
 .logo {
   position: absolute;
-  left: 50%;
+  left: 50vw;
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
@@ -690,7 +690,6 @@ button {
   @include respond(tab-port) {
     width: 5em;
     margin-top: 2vh;
-
   }
 }
 
