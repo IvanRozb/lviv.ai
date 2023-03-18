@@ -299,7 +299,7 @@ p {
   @include respond--main-font-size;
 
   @include respond(phone) {
-    line-height: 5vw;
+    line-height: 4vw;
   }
 
 }
@@ -359,9 +359,9 @@ button {
 
   position: fixed;
   top: 90vh;
-  left: 92%;
+  right: 5%;
   transform: translateY(-50%);
-  z-index: 12;
+  z-index: 999;
 
   cursor: pointer;
 
@@ -680,7 +680,7 @@ button {
 
 .logo {
   position: absolute;
-  left: 50%;
+  left: 50vw;
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
@@ -688,7 +688,8 @@ button {
   width: 3.2em;
 
   @include respond(tab-port) {
-    display: none;
+    width: 5em;
+    margin-top: 2vh;
   }
 }
 
@@ -709,4 +710,8 @@ button {
 
 .visible {
   display: block;
+}
+
+.nav_sub > .active{
+  color: var(--peachy);
 }

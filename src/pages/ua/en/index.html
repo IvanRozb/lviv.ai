@@ -39,9 +39,9 @@
                 </div>
                 <div class='nav_underline'></div>
                 <ul class='nav_sub'>
-                    <li class='nav_sub_item'>course map</li>
-                    <li class='nav_sub_item'>about teachers</li>
-                    <li class='nav_sub_item'>educational programms</li>
+                    <li class='nav_sub_item'>Course map</li>
+                    <li class='nav_sub_item'>About teachers</li>
+                    <li class='nav_sub_item'>Educational programms</li>
                 </ul>
             </li>
             <li class='nav_lang'>
@@ -61,12 +61,12 @@
                     </svg>
                 </div>
                 <div class='nav_underline'></div>
-                <ul class='nav_sub'>
-                    <li class='nav_sub_item'>Docs?</li>
-                    <li class='nav_sub_item'>Important dates</li>
-                    <li class='nav_sub_item'><span>List of competitive subjects of ZNO</span></li>
-                    <li class='nav_sub_item'>Cost of education</li>
-                </ul>
+                <div class='nav_sub'>
+                    <a href='applicant.html#docs_section'><span class='nav_sub_item'>Docs?</span></a>
+                    <a href='applicant.html#calendar_section'><span class='nav_sub_item'>Important dates</span></a>
+                    <a href='applicant.html#subjects_section'><span class='nav_sub_item'>List of competitive subjects of ZNO</span></a>
+                    <a href='applicant.html#pay_section'><span class='nav_sub_item'>Cost of education</span></a>
+                </div>
             </li>
             <li class='nav_item'>
                 <div class='nav_link_wrapper'>
@@ -89,7 +89,7 @@
                 <span>Intelligence<br></span>
                 <span>Systems</span>
             </h1>
-            <h4>It is</h4>
+            <h4 class="intro_text_connector">It is</h4>
             <h5 class='intro_text'>The future that has already come</h5>
 
             <div class='main_sidebar'>
@@ -301,15 +301,16 @@
             </div>
         </div>
     </div>
+    <img class='logo' src='../../../assets/images/logo.svg' alt='logo'>
 </section>
 
-<img class='logo' src='../../../assets/images/logo.svg' alt='logo'>
+
 
 <script type='module' src='../../../assets/scripts/index.js'></script>
 <script
     src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAl9BbTA13IMJYWf_8I8YL3iTJN0Yw7JvE&callback=initMap&v=weekly'
     defer>
 </script>
-<script src='../../../assets/scripts/header.js'></script>
+<script type='module' src='../../../assets/scripts/header.js'></script>
 </body>
 </html>

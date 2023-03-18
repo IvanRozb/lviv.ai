@@ -10,22 +10,23 @@ let blobsShapes = [
     'M402,264Q307,278,325.5,323Q344,368,321.5,416Q299,464,263,407Q227,350,206.5,340.5Q186,331,134.5,331Q83,331,113,290.5Q143,250,91.5,199.5Q40,149,119,167Q198,185,196,96Q194,7,246,22.5Q298,38,322,84Q346,130,410.5,136Q475,142,486,196Q497,250,402,264Z',
     'M351.5,277.5Q364,305,362.5,347Q361,389,318.5,375.5Q276,362,251,359.5Q226,357,194,359Q162,361,111.5,351Q61,341,50.5,295.5Q40,250,83.5,220.5Q127,191,136,154.5Q145,118,186.5,135Q228,152,261.5,102Q295,52,315,98Q335,144,397,147Q459,150,399,200Q339,250,351.5,277.5Z',
 ]
+
 export function animatedBlob(n, width) {
     shuffle(blobsShapes)
     return `
-        <div class="blob_bg" style=" width: ${width}vw; left: 0; top:0;">
-            <div id="blob${n}" >
-            <svg viewBox="0 0 800 500" preserveAspectRatio="none"
-                 xmlns="http://www.w3.org/2000/svg"
-                 width="100%" class="blobSvg">
-                <path fill="#E92828" id="path">
-                    <animate attributeName="d" dur="25000ms" repeatCount="indefinite"
-                    values="
+        <div class='blob_bg' style=' width: ${width}vw; left: 0; top:0;'>
+            <div id='blob${n}' >
+            <svg viewBox='0 0 800 500' preserveAspectRatio='none'
+                 xmlns='http://www.w3.org/2000/svg'
+                 width='100%' class='blobSvg'>
+                <path fill='#E92828' id='path'>
+                    <animate attributeName='d' dur='25000ms' repeatCount='indefinite'
+                    values='
                         ${blobsShapes[0]};
                         ${blobsShapes[1]};
                         ${blobsShapes[2]};
                         ${blobsShapes[3]};
-                        ${blobsShapes[0]};"
+                        ${blobsShapes[0]};'
                     ></animate>
                 </path>
             </svg>
@@ -33,6 +34,7 @@ export function animatedBlob(n, width) {
     </div>
     `
 }
+
 function shuffle(array) {
     let currentIndex = array.length,
         randomIndex
@@ -62,7 +64,7 @@ export function setGroupSelectorPosition() {
         let group_name = groups[i].getAttribute('data-area')
         groups[i].insertAdjacentHTML(
             'afterbegin',
-            `<div class="group_selector group_selector-${i}">${group_name}</div>`
+            `<div class='group_selector group_selector-${i}'>${group_name}</div>`
         )
 
         const group = $(`.group_selector-${i}`)
@@ -86,30 +88,30 @@ export function setGroupSelectorPosition() {
 
 //Vacancies statics
 export function vacanciesHTML() {
-    return `<div class="vacancies_jobs">
-                    <div class="vacancies_job"></div>
-                    <div class="vacancies_job">Java Developer</div>
-                    <div class="vacancies_job">Data Science</div>
-                    <div class="vacancies_job">Python Developer</div>
-                    <div class="vacancies_job">Big Data</div>
-                    <div class="vacancies_job">C++ Developer</div>
+    return `<div class='vacancies_jobs'>
+                    <div class='vacancies_job'></div>
+                    <div class='vacancies_job'>Java Developer</div>
+                    <div class='vacancies_job'>Data Science</div>
+                    <div class='vacancies_job'>Python Developer</div>
+                    <div class='vacancies_job'>Big Data</div>
+                    <div class='vacancies_job'>C++ Developer</div>
                 </div>
-                <table class="vacancies_table">
-                    <tr class="vacancies_row">
-                        <th class="vacancies_column">Україна</th>
-                        <th class="vacancies_column">531</th>
-                        <th class="vacancies_column">143</th>
-                        <th class="vacancies_column">339</th>
-                        <th class="vacancies_column">90</th>
-                        <th class="vacancies_column">193</th>
+                <table class='vacancies_table'>
+                    <tr class='vacancies_row'>
+                        <th class='vacancies_column'>Україна</th>
+                        <th class='vacancies_column'>531</th>
+                        <th class='vacancies_column'>143</th>
+                        <th class='vacancies_column'>339</th>
+                        <th class='vacancies_column'>90</th>
+                        <th class='vacancies_column'>193</th>
                     </tr>
-                    <tr class="vacancies_row">
-                        <th class="vacancies_column">Львів</th>
-                        <th class="vacancies_column">133</th>
-                        <th class="vacancies_column">26</th>
-                        <th class="vacancies_column">69</th>
-                        <th class="vacancies_column">28</th>
-                        <th class="vacancies_column">32</th>
+                    <tr class='vacancies_row'>
+                        <th class='vacancies_column'>Львів</th>
+                        <th class='vacancies_column'>133</th>
+                        <th class='vacancies_column'>26</th>
+                        <th class='vacancies_column'>69</th>
+                        <th class='vacancies_column'>28</th>
+                        <th class='vacancies_column'>32</th>
                     </tr>
                 </table>`
 }
@@ -130,4 +132,38 @@ export function checkIfSectionInStorage(language, sectionName) {
         if (insertedDate > new Date()) return html
     }
     return null
+}
+
+export function navigationListBehavior(
+    containerSelector,
+    blocksSelectors,
+    linksSelector
+) {
+    const containsLink = (classList, dataLink) =>
+        dataLink.split(' ').some((link) => classList.contains(link))
+    const sidebar = document.querySelector(containerSelector)
+    sidebar.addEventListener('click', (e) => {
+        const targetLink = e.target.dataset.link
+        if (!targetLink) {
+            // console.log("Not a link. Maybe you clicked on underline ?");
+            return
+        }
+        const sections = []
+        for (const selector of blocksSelectors) {
+            const elems = document.querySelectorAll(selector)
+            sections.push(...elems)
+        }
+        for (const section of sections) {
+            const hasLink = containsLink(section.classList, targetLink)
+            section.style.display = hasLink ? 'block' : 'none'
+        }
+        const links = document.querySelectorAll(linksSelector)
+        for (const link of links) {
+            if (link === e.target) {
+                link.classList.add('active')
+            } else {
+                link.classList.remove('active')
+            }
+        }
+    })
 }

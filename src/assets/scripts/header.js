@@ -1,3 +1,5 @@
+import { navigationListBehavior } from './utils'
+
 function animateNavUnderlines() {
     const navbar = document.querySelector(`.nav`)
     const underlines = document.querySelectorAll(`.nav_underline`)
@@ -74,3 +76,4 @@ function animateHeader() {
 }
 
 animateHeader()
+navigationListBehavior('.nav', ['section'], '.nav_sub_item')
