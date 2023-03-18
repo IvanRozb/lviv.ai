@@ -565,6 +565,13 @@ button {
   margin-left: 7%;
   margin-bottom: 0;
 
+  a {
+    pointer-events: none;
+  }
+  a.active{
+    pointer-events: auto;
+  }
+
   @include respond(tab-port) {
     display: block;
   }
@@ -584,6 +591,10 @@ button {
 
   animation: expandNavSubItemBackwords 0.5s ease-in-out forwards;
 
+}
+
+.nav_sub_item.active{
+  color: var(--peachy);
 }
 
 .nav_sub_item:hover {
@@ -712,6 +723,6 @@ button {
   display: block;
 }
 
-.nav_sub > .active{
+.nav_sub .nav_sub_item.active{
   color: var(--peachy);
 }

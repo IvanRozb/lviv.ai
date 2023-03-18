@@ -33,41 +33,37 @@ function animateNavUnderlines() {
 
 function menuBurgerAnimation() {
     const menuIcon = document.querySelector('.menu_icon')
-    const navbar = document.querySelector(`header .nav`)
+    const navbar = document.querySelector('header .nav')
     const overlapper = document.querySelector('.overlapper')
+    const toggleShevrons = document.querySelectorAll('.nav_link_wrapper')
+    const navItems = document.querySelectorAll('.nav_item')
 
-    const toggleAnimation = () => {
+    function toggleAnimation() {
         menuIcon.classList.toggle('change')
         navbar.classList.toggle('expanded')
         document.body.classList.toggle('unscrollable')
         overlapper.classList.toggle('active')
     }
 
-    overlapper.addEventListener('click', () => {
-        toggleAnimation()
-    })
+    function toggleShevronRotation() {
+        const shevron = this.querySelector('.nav_shevron')
+        shevron?.classList.toggle('rotate')
+    }
 
-    menuIcon?.addEventListener('click', () => {
-        toggleAnimation()
-    })
+    function toggleSubItems() {
+        const subLinks = this.querySelectorAll('.nav_sub > a')
+        subLinks?.forEach((item) => item.classList.toggle('active'))
 
-    const toggleShevrons = document.querySelectorAll('.nav_link_wrapper')
-    toggleShevrons.forEach((toggle) => {
-        const shevron = toggle.querySelector('.nav_shevron')
-        toggle.addEventListener('click', () => {
-            shevron?.classList.toggle('rotate')
-        })
-    })
+        const subItems = this.querySelectorAll('.nav_sub_item')
+        subItems?.forEach((item) => item.classList.toggle('expanded'))
+    }
 
-    const navItems = document.querySelectorAll('.nav_item')
-    navItems.forEach((item) => {
-        const subItems = item.querySelectorAll('.nav_sub_item')
-        item.addEventListener('click', () => {
-            subItems?.forEach((item) => {
-                item.classList.toggle('expanded')
-            })
-        })
-    })
+    overlapper.addEventListener('click', toggleAnimation)
+    menuIcon?.addEventListener('click', toggleAnimation)
+    toggleShevrons.forEach((toggle) =>
+        toggle.addEventListener('click', toggleShevronRotation)
+    )
+    navItems.forEach((item) => item.addEventListener('click', toggleSubItems))
 }
 
 function animateHeader() {
