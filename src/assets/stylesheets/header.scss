@@ -332,16 +332,11 @@ button {
 
 /* header */
 .header {
-  margin-top: 25px;
   width: 80%;
 
-  position: absolute;
-  left: 50%;
+  position: relative;
   top: 0;
-  -webkit-transform: translate(-50%, 0);
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
-
+  margin: 15px auto 0 !important;
   z-index: 1;
 
   @include respond(tab-port) {
@@ -568,7 +563,8 @@ button {
   a {
     pointer-events: none;
   }
-  a.active{
+
+  a.active {
     pointer-events: auto;
   }
 
@@ -593,7 +589,7 @@ button {
 
 }
 
-.nav_sub_item.active{
+.nav_sub_item.active {
   color: var(--peachy);
 }
 
@@ -723,6 +719,6 @@ button {
   display: block;
 }
 
-.nav_sub .nav_sub_item.active{
+.nav_sub .nav_sub_item.active {
   color: var(--peachy);
 }
