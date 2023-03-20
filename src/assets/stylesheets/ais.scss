@@ -89,7 +89,6 @@
 .info-desc {
     display: grid;
     column-gap: 5vh;
-    position: relative;
 
     font-size: 1.15vw;
 }
@@ -114,14 +113,12 @@
 }
 
 .ais-link {
+    position: relative;
     margin-top: 4vh;
     padding-bottom: 0;
     text-decoration-line: underline;
     margin-bottom: 0;
-
-    width: 18vw;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    //width: 20vw;
 
     @include respond(tab-land) {
         font-size: 1.3vw;
@@ -129,23 +126,20 @@
 
     @include respond(tab-port) {
         font-size: 1.6vw;
-        width: 25vw;
     }
 
     @include respond(phone) {
         font-size: 2.2vw;
-        width: 30vw;
     }
 }
 
 .ais-link:after{
     content: "";
     position: absolute;
-    bottom: 1.5vh; //0.5vh
-    right: 20vw;
+    top:-0.3vh;
+    right: 21vw;
 
     --size: .8vw;
-    overflow: visible;
 
     width: var(--size);
     height: var(--size);
@@ -157,18 +151,18 @@
     transform: rotate(45deg) translateY(50%);
 
     @include respond(tab-land) {
-        bottom: 0.8vh;
+        right: 19vw;
     }
 
     @include respond(tab-port) {
-        bottom: 0.5vh;
         --size: .9vw;
-        right: 8vw;
+        right: 10vw;
     }
     @include respond(phone) {
-        right: 6vw;
         border-right: 2px solid white;
         border-top: 2px solid white;
+        top: 0;
+        right: 5vw;
     }
 }
 

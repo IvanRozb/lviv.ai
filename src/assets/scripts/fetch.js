@@ -791,7 +791,7 @@ export class Fetch {
                                             <a class='ais-link' href='${
                                                 project.link
                                             }' target='_blank'>${
-                        project.link
+                        project.link.slice(0,20)+"..."
                     }</a>
                                             </div>
                                         </div>
@@ -811,7 +811,7 @@ export class Fetch {
                                             <a class='ais-link' href='${
                                                 project.link
                                             }' target='_blank'>${
-                        project.link
+                        project.link.slice(0,20)+"..."
                     }</a>
                                             </div>
                                         </div>
