@@ -142,6 +142,7 @@ export function navigationListBehavior(
     const containsLink = (classList, dataLink) =>
         dataLink.split(' ').some((link) => classList.contains(link))
     const sidebar = document.querySelector(containerSelector)
+
     sidebar.addEventListener('click', (e) => {
         const targetLink = e.target.dataset.link
         if (!targetLink) {
@@ -154,16 +155,29 @@ export function navigationListBehavior(
             sections.push(...elems)
         }
         for (const section of sections) {
-            const hasLink = containsLink(section.classList, targetLink)
+            let hasLink = containsLink(section.classList, targetLink)
+            if (e.target.classList.contains('expanded')) {
+                continue
+            }
             section.style.display = hasLink ? 'block' : 'none'
         }
         const links = document.querySelectorAll(linksSelector)
         for (const link of links) {
+            if (e.target.classList.contains('expanded')) {
+                continue
+            }
             if (link === e.target) {
                 link.classList.add('active')
             } else {
                 link.classList.remove('active')
             }
         }
+    })
+}
+
+export function setDefaultSection(activeSection) {
+    const blocks = document.querySelectorAll('[data-link]')
+    blocks.forEach((block) => {
+        block.classList.toggle('active', block.dataset.link === activeSection)
     })
 }

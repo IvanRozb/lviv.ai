@@ -690,7 +690,7 @@ export class Fetch {
 
         const sectionName = 'applicantResult'
         const section = checkIfSectionInStorage(language, sectionName)
-        if (!section) return section
+        if (section) return section
 
         localStorage.setItem(
             `${sectionName}${language}`,

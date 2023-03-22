@@ -5,6 +5,13 @@ body {
   overflow-x: hidden;
 }
 
+.navigation_section{
+  display: block !important;
+  @include respond(tab-port){
+    display: none !important;
+  }
+}
+
 .underline {
   position: relative;
 }
@@ -609,7 +616,7 @@ body {
   }
 
   @include respond(phone) {
-    height: 32rem;
+    height: 43rem;
 
     margin-left: -4vw;
   }

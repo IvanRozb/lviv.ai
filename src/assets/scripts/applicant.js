@@ -1,12 +1,5 @@
 import { Fetch } from './fetch'
-import { navigationListBehavior } from './utils'
-
-function setDefaultSection(activeSection) {
-    const blocks = document.querySelectorAll('[data-link]')
-    blocks.forEach((block) => {
-        block.classList.toggle('active', block.dataset.link === activeSection)
-    })
-}
+import { navigationListBehavior, setDefaultSection } from './utils'
 
 setTimeout(async () => {
     let activeSection = window.location.href.split('#')[1] || 'docs_section'
