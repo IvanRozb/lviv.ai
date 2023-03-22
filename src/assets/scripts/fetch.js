@@ -772,6 +772,7 @@ export class Fetch {
             let sectionHTML = `<section class='ais-content'>`
 
             for (const [index, project] of projects.entries()) {
+                // project.link=project.link.slice(0,20)+"..."
                 if (index % 2 === 0) {
                     sectionHTML += `<div class='ais-content-section'>
                                         <img src='${project.imageUrl}' alt='${
