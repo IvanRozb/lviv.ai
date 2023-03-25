@@ -270,47 +270,6 @@ body {
 	position: relative;
 }
 
-.slick-dots {
-	display: flex;
-	justify-content: center;
-	margin: 0;
-	padding: 1rem 0;
-
-	list-style-type: none;
-}
-
-.slick-dots li {
-	margin: 0 0.25rem;
-	@include respond(tab-port) {
-		margin: 3rem 0.75rem 0;
-	}
-	@include respond(tab-port) {
-		margin-top: 0;
-	}
-}
-
-.slick-dots button {
-	display: block;
-	--size: 0.8rem;
-	width: var(--size);
-	height: var(--size);
-	padding: 0;
-
-	border: none;
-	border-radius: 100%;
-	background-color: var(--white);
-
-	text-indent: -9999px;
-	cursor: pointer;
-	@include respond(tab-port) {
-		--size: 2.3rem;
-	}
-}
-
-.slick-dots li.slick-active button {
-	background-color: var(--peachy);
-}
-
 /*END of redesign slick dots*/
 
 /*!*Course Card Table*!*/

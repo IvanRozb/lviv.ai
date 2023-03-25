@@ -65,15 +65,12 @@ export class Fetch {
 
 		await localStorage.setItem(
 			`${sectionName}UA`,
-			await fetch(
-				'https://aidept.com.ua/aiwebsite/jobNames?language=ua',
-				{
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
+			await fetch('https://localhost:7159/jobNames?language=ua', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
 				}
-			)
+			})
 				.then(response => response.json())
 				.then(async data => {
 					let jobNames = data.names
@@ -293,7 +290,7 @@ export class Fetch {
 		localStorage.setItem(
 			pageName,
 			await fetch(
-				`https://aidept.com.ua/aiwebsite/CourseCards?language=${language.toLowerCase()}`,
+				`https://localhost:7159/CourseCards?language=${language.toLowerCase()}`,
 				{
 					method: 'GET',
 					headers: {
@@ -425,7 +422,7 @@ export class Fetch {
 		await localStorage.setItem(
 			`teachersResult${language}`,
 			await fetch(
-				`https://aidept.com.ua/aiwebsite/Employees?language=${language.toLowerCase()}`,
+				`https://localhost:7159/Employees?language=${language.toLowerCase()}`,
 				{
 					method: 'GET',
 					headers: {
@@ -490,7 +487,7 @@ export class Fetch {
 		await localStorage.setItem(
 			`universitiesResult${language}`,
 			await fetch(
-				`https://aidept.com.ua/aiwebsite/Universities?language=${language.toLowerCase()}`,
+				`https://localhost:7159/Universities?language=${language.toLowerCase()}`,
 				{
 					method: 'GET',
 					headers: {
@@ -695,7 +692,7 @@ export class Fetch {
 		localStorage.setItem(
 			`${sectionName}${language}`,
 			await fetch(
-				`https://aidept.com.ua/aiwebsite/Applicants?language=${language.toLowerCase()}`,
+				`https://localhost:7159/Applicants?language=${language.toLowerCase()}`,
 				{
 					method: 'GET',
 					headers: {
@@ -766,7 +763,7 @@ export class Fetch {
 		const sectionName = 'aisPage'
 
 		const section = checkIfSectionInStorage(language, sectionName)
-		if (section) return section
+		if (!section) return section
 
 		function getBigProjectCards(projects, language) {
 			let sectionHTML = `<section class='ais-content'>`
@@ -869,7 +866,7 @@ export class Fetch {
 
 		//TODO: change to host fetch, instead of local
 		const [aisHTMLua, aisHTMLen] = await fetch(
-			`https://aidept.com.ua/aiwebsite/AISPage`,
+			`https://localhost:7159/AISPage`,
 			{
 				method: 'GET',
 				headers: {
