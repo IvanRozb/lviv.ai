@@ -1,46 +1,46 @@
 {
-  "name": "from-git",
-  "version": "1.0.0",
-  "description": "Don't move.. *BOOM* ...eh whatever",
-  "source": "src/pages/ua/index.html",
-  "scripts": {
-    "dev": "(parcel ./src/pages/ua/index.html) & parcel watch src/pages/ua/index.html",
-    "test_build": "parcel build src/pages/ua/index.html --no-optimize",
-    "build": "parcel build src/pages/ua/index.html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IvanRozb/lviv.ai.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IvanRozb/lviv.ai/issues"
-  },
-  "homepage": "https://github.com/IvanRozb/lviv.ai#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.3",
-    "assert": "^2.0.0",
-    "browserify-zlib": "^0.2.0",
-    "constants-browserify": "^1.0.0",
-    "crypto-browserify": "^3.12.0",
-    "events": "^3.3.0",
-    "os-browserify": "^0.3.0",
-    "parcel": "^2.7.0",
-    "path-browserify": "^1.0.1",
-    "process": "^0.11.10",
-    "querystring-es3": "^0.2.1",
-    "stream-browserify": "^3.0.0",
-    "stream-http": "^3.2.0",
-    "timers-browserify": "^2.0.12",
-    "url": "^0.11.0",
-    "util": "^0.12.5"
-  },
-  "dependencies": {
-    "jquery": "^3.6.3",
-    "node-localstorage": "^2.2.1",
-    "prettier": "^2.8.3",
-    "slick-carousel": "^1.8.1"
-  }
+	"name": "from-git",
+	"version": "1.0.0",
+	"description": "Don't move.. *BOOM* ...eh whatever",
+	"source": "src/pages/ua/index.html",
+	"scripts": {
+		"dev": "(parcel ./src/pages/ua/index.html) & parcel watch src/pages/ua/index.html",
+		"test_build": "parcel build src/pages/ua/index.html --no-optimize",
+		"build": "parcel build src/pages/ua/index.html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IvanRozb/lviv.ai.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/IvanRozb/lviv.ai/issues"
+	},
+	"homepage": "https://github.com/IvanRozb/lviv.ai#readme",
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.8.3",
+		"assert": "^2.0.0",
+		"browserify-zlib": "^0.2.0",
+		"constants-browserify": "^1.0.0",
+		"crypto-browserify": "^3.12.0",
+		"events": "^3.3.0",
+		"os-browserify": "^0.3.0",
+		"parcel": "^2.7.0",
+		"path-browserify": "^1.0.1",
+		"process": "^0.11.10",
+		"querystring-es3": "^0.2.1",
+		"stream-browserify": "^3.0.0",
+		"stream-http": "^3.2.0",
+		"timers-browserify": "^2.0.12",
+		"url": "^0.11.0",
+		"util": "^0.12.5"
+	},
+	"dependencies": {
+		"jquery": "^3.6.3",
+		"node-localstorage": "^2.2.1",
+		"prettier": "^2.8.3",
+		"slick-carousel": "^1.8.1"
+	}
 }
