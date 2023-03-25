@@ -1,4 +1,5 @@
 @import 'mixins';
+
 .page_container {
 	padding: 0 10vw;
 
@@ -91,6 +92,7 @@
 
 	font-size: 1.15vw;
 }
+
 .info-desc-text {
 	display: grid;
 	column-gap: 5vh;
@@ -181,6 +183,7 @@
 
 	transition: transform 800ms ease;
 }
+
 .ais-img:hover,
 .ais-img:focus {
 	transform: scale(1.2);
@@ -205,20 +208,33 @@
 	}
 }
 
+.slick-track {
+	display: flex;
+}
+
+.slick-list {
+	overflow: hidden;
+	height: auto !important;
+}
+
+.slick-arrow {
+	display: none !important;
+}
+
+.slick-slide > div {
+	height: inherit !important;
+}
+.slick-slide > div {
+	//height: 1px ;
+}
+
 .ais-list {
 	list-style: none;
+}
 
-	display: grid;
-	grid-auto-rows: 1fr;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: clamp(3%, 4%, 5%);
-
-	@include respond(phone) {
-		//grid-template-columns: 1fr 1fr;  // for 2 small cards
-
-		gap: 3.5%; //just for 1 small card
-		grid-template-columns: 1fr;
-	}
+.ais-list-item {
+	padding: 0 1rem;
+	margin-bottom: 3rem;
 }
 
 .ais-photo {
@@ -230,10 +246,10 @@
 	margin-bottom: 6.5vh;
 
 	object-fit: cover;
-	border: 4px white solid;
 	@include respond(tab-land) {
 		width: 23.5vw;
 		margin-bottom: 3.5vh;
+		border: 4px white solid;
 	}
 	@include respond(tab-port) {
 		margin-bottom: 2vh;
@@ -248,6 +264,7 @@
 
 	transition: transform 300ms ease;
 }
+
 .ais-photo:hover,
 .ais-photo:focus {
 	transform: scale(1.05);
