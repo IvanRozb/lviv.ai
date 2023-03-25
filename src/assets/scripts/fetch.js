@@ -766,7 +766,7 @@ export class Fetch {
 		const sectionName = 'aisPage'
 
 		const section = checkIfSectionInStorage(language, sectionName)
-		if (!section) return section
+		if (section) return section
 
 		function getBigProjectCards(projects, language) {
 			let sectionHTML = `<section class='ais-content'>`
