@@ -19,7 +19,8 @@ function activateCarousel() {
 			infinite: false,
 			adaptiveHeight: true,
 			waitForAnimate: false,
-			draggable: false
+			draggable: false,
+			swipe: false
 		})
 		const buttons = $('.navigation_button')
 
