@@ -40,6 +40,7 @@ setTimeout(async () => {
 						slidesToShow: 1,
 						slidesToScroll: 1,
 						rows: 1,
+						slidesPerRow: 1,
 						dots: items.length > 2
 					}
 				}
