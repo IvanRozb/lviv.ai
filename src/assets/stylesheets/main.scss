@@ -21,8 +21,8 @@
     padding-top: 35vh;
     padding-left: 5vw;
 
-    @include respond(tab-port){
-        padding-top: 25vh;
+    @include respond(tab-land){
+        padding-top: 15vh;
         padding-left: 5.5vw;
 
         display: block;
@@ -31,6 +31,10 @@
             margin-bottom: 8vh;
         }
     }
+
+    @include respond(tab-port){
+        padding-top: 25vh;
+    }
 }
 .intro_text{
 
@@ -38,8 +42,9 @@
         max-width: 30vw;
     }
 
-    @include respond(tab-port){
+    @include respond(tab-land){
         float: right;
+        margin-right: 5vw;
     }
 
 }
@@ -55,7 +60,7 @@
     margin-left: 8vw;
 }
 .intro_text_connector{
-    @include respond(tab-port){
+    @include respond(tab-land){
        @include flex-center;
     }
 }
@@ -493,8 +498,16 @@ div[id*='blob']{
 .curriculum_title-wrapper{
     position: relative;
     width: 46vw;
-    /*margin: 0 6vw 0 auto;*/
     margin-left: auto;
+
+    @include respond(tab-land){
+        top: -10vh;
+        right: 10vw;
+    }
+    @include respond(tab-port){
+        top: 0;
+        right: 0;
+    }
 }
 .curriculum_title-wrapper::after{
     content: "";
@@ -623,14 +636,16 @@ div[id*='blob']{
     margin-top: 1.6vh;
 }
 .vacancies_statistic{
-    width: 100%;
+    width: 95%;
     margin-top: 14vh;
     display: flex;
     flex-direction: column;
 
-    font-size: var(--h4-size);
-    line-height: var(--h4-line-height);
-    letter-spacing: var(--h4-small-spacing);
+    @include text-h4;
+
+    @include respond(tab-land){
+        width: 79%;
+    }
 }
 .vacancies_jobs{
     display: flex;
@@ -665,9 +680,11 @@ div[id*='blob']{
     margin: 1.4vw 0 0 auto;
     text-align: center;
 
-    font-size: var(--small-size);
-    line-height: var(--small-height);
-    letter-spacing: var(--small-letter-spacing);
+    @include text-small;
+
+    @include respond(tab-land){
+        margin: 1.4vw 4vw 0 auto;
+    }
 }
 
 /*sponsors*/
