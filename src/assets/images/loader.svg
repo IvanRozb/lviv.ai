@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="margin: auto; background: transparent; display: block; shape-rendering: auto;" width="6.25rem" height="6.25rem" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<svg xmlns="http://www.w3.org/2000/svg" style="margin: auto; background: transparent; display: block; shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
   <g transform="translate(80,50)">
     <g transform="rotate(0)">
       <circle cx="0" cy="0" r="6" fill="red" fill-opacity="1">
