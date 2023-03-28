@@ -5,16 +5,16 @@ import { Fetch } from './fetch'
 
 //Sidebar behavior
 function sidebarLinks() {
-    const links = document.querySelectorAll(`.sidebar_link`)
+	const links = document.querySelectorAll(`.sidebar_link`)
 
-    links.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            document.querySelectorAll(`.sidebar_link`).forEach((link) => {
-                link.parentElement.classList.remove('sidebar_link_visited')
-            })
-            e.target.parentElement.classList.add('sidebar_link_visited')
-        })
-    })
+	links.forEach(link => {
+		link.addEventListener('click', e => {
+			document.querySelectorAll(`.sidebar_link`).forEach(link => {
+				link.parentElement.classList.remove('sidebar_link_visited')
+			})
+			e.target.parentElement.classList.add('sidebar_link_visited')
+		})
+	})
 }
 
 sidebarLinks()
@@ -36,17 +36,17 @@ vacancies.insertAdjacentHTML('beforeend', blob3HTML)
 
 // Get jobs info
 setTimeout(async () => {
-    const jobsTableContainer = document.querySelector('.vacancies_statistic')
-    jobsTableContainer.innerHTML = await Fetch.getJobsPositions()
+	const jobsTableContainer = document.querySelector('.vacancies_statistic')
+	jobsTableContainer.innerHTML = await Fetch.getJobsPositions()
 }, 0)
 
 //Animate sponsors
 function animateSponsors() {
-    const sponsors_inner = document.querySelector('.sponsors_inner')
-    const sponsors_container = document.querySelector('.sponsors_cards')
+	const sponsors_inner = document.querySelector('.sponsors_inner')
+	const sponsors_container = document.querySelector('.sponsors_cards')
 
-    const animation = new CardsAnimate(sponsors_inner, sponsors_container, 1)
-    animation.init()
+	const animation = new CardsAnimate(sponsors_inner, sponsors_container, 1)
+	animation.init()
 }
 
 animateSponsors()

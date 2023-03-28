@@ -1,180 +1,290 @@
 <!DOCTYPE html>
 <html lang="ua">
-<head>
-    <meta charset="UTF-8">
-    <title>Artificial Intelligence</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../../assets/stylesheets/header.scss">
-    <link rel="stylesheet" href="../../assets/stylesheets/about_us.scss">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.svg">
-</head>
-<body>
-<header class='header' id='header'>
-    <div class='overlapper'></div>
-    <div class='menu_icon'>
-        <span class='bar1'></span>
-        <span class='bar2'></span>
-        <span class='bar3'></span>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Artificial Intelligence</title>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="../../assets/stylesheets/header.scss" />
+		<link rel="stylesheet" href="../../assets/stylesheets/about_us.scss" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Jura&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="../../assets/images/favicon.svg"
+		/>
+	</head>
+	<body>
+		<header class="header" id="header">
+			<div class="overlapper"></div>
+			<div class="menu_icon">
+				<span class="bar1"></span>
+				<span class="bar2"></span>
+				<span class="bar3"></span>
+			</div>
 
-    <nav>
-        <ul class='nav'>
-            <li class='nav_item'>
-                <div class='nav_link_wrapper'>
-                    <a class='nav_link' href='index.html'>Головна</a>
-                </div>
-                <div class='nav_underline'></div>
-            </li>
-            <li class='nav_item active'>
-                <div class='nav_link_wrapper'>
-                    <a class='nav_link' href='#'>Про нас</a>
-                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
-                         stroke='currentColor' class='nav_shevron'>
-                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
-                    </svg>
-                </div>
-                <div class='nav_underline'></div>
-                <ul class='nav_sub'>
-                    <li class='nav_sub_item'>карта курсів</li>
-                    <li class='nav_sub_item'>про викладачів</li>
-                    <li class='nav_sub_item'>навчальні програми</li>
-                </ul>
-            </li>
-            <li class='nav_lang'>
-                <div class='nav_item'>
-                    <a class='nav_link active' href='#'>UA</a>
-                </div>
-                <div class='nav_item'>
-                    <a class='nav_link' href='en/index.html'>EN</a>
-                </div>
-            </li>
-            <li class='nav_item'>
-                <div class='nav_link_wrapper'>
-                    <a class='nav_link' href='applicant.html'>Абітурієнту</a>
-                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5'
-                         stroke='currentColor' class='nav_shevron'>
-                        <path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' />
-                    </svg>
-                </div>
-                <div class='nav_underline'></div>
-                <ul class='nav_sub'>
-                    <li class='nav_sub_item'>Що з документами?</li>
-                    <li class='nav_sub_item'>Важливі дати</li>
-                    <li class='nav_sub_item'><span>Перелік конкурсних предметів ЗНО</span></li>
-                    <li class='nav_sub_item'>Вартість навчання</li>
-                </ul>
-            </li>
-            <li class='nav_item'>
-                <div class='nav_link_wrapper'>
-                    <a class='nav_link' href='ais.html'>СШІ</a>
-                </div>
-                <div class='nav_underline'></div>
-            </li>
-        </ul>
-    </nav>
+			<nav>
+				<ul class="nav">
+					<li class="nav_item">
+						<div class="nav_link_wrapper">
+							<a class="nav_link" href="index.html">Головна</a>
+						</div>
+						<div class="nav_underline"></div>
+					</li>
+					<li class="nav_item active">
+						<div class="nav_link_wrapper">
+							<a class="nav_link" href="#">Про нас</a>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="nav_shevron"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+								/>
+							</svg>
+						</div>
+						<div class="nav_underline"></div>
+						<div class="nav_sub">
+							<a href="about_us.html#course_cards_section"
+								><span
+									data-link="course_cards_section"
+									class="nav_sub_item"
+									>Карта курсів</span
+								></a
+							>
+							<a href="about_us.html#teachers_section"
+								><span
+									data-link="teachers_section"
+									class="nav_sub_item"
+									>Про викладачів</span
+								></a
+							>
+							<a href="about_us.html#programs_section"
+								><span
+									data-link="programs_section"
+									class="nav_sub_item"
+									>Навчальні програми</span
+								></a
+							>
+						</div>
+					</li>
+					<li class="nav_lang">
+						<div class="nav_item">
+							<a class="nav_link active" href="#">UA</a>
+						</div>
+						<div class="nav_item">
+							<a class="nav_link" href="en/about_us.html">EN</a>
+						</div>
+					</li>
+					<li class="nav_item">
+						<div class="nav_link_wrapper">
+							<a class="nav_link" href="applicant.html"
+								>Абітурієнту</a
+							>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="nav_shevron"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+								/>
+							</svg>
+						</div>
+						<div class="nav_underline"></div>
+						<div class="nav_sub">
+							<a href="applicant.html#docs_section"
+								><span class="nav_sub_item"
+									>Що з документами?</span
+								></a
+							>
+							<a href="applicant.html#calendar_section"
+								><span class="nav_sub_item"
+									>Важливі дати</span
+								></a
+							>
+							<a href="applicant.html#subjects_section"
+								><span class="nav_sub_item"
+									>Перелік конкурсних предметів ЗНО</span
+								></a
+							>
+							<a href="applicant.html#pay_section"
+								><span class="nav_sub_item"
+									>Вартість навчання</span
+								></a
+							>
+						</div>
+					</li>
+					<li class="nav_item">
+						<div class="nav_link_wrapper">
+							<a class="nav_link" href="ais.html">СШІ</a>
+						</div>
+						<div class="nav_underline"></div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<section class="navigation_section">
+			<img
+				class="navigation_image"
+				src="../../assets/images/about_us_bg.png"
+				alt="Graduation image"
+			/>
 
-</header>
-<section class='navigation_section'>
+			<div class="navigation_buttons_container">
+				<ul class="navigation_buttons">
+					<li class="navigation_item">
+						<div class="navigation_button">
+							<div class="navigation_icon_wrapper">
+								<img
+									src="../../assets/images/course_card_icon.svg"
+									alt="course_card_icon"
+									class="navigation_icon"
+								/>
+							</div>
+							<div>карта курсів</div>
+						</div>
+					</li>
+					<li class="navigation_item">
+						<div class="navigation_button">
+							<div class="navigation_icon_wrapper">
+								<img
+									src="../../assets/images/staff_icon.svg"
+									alt="staff_icon"
+									class="navigation_icon"
+								/>
+							</div>
+							<div>про викладачів</div>
+						</div>
+					</li>
+					<li class="navigation_item">
+						<div class="navigation_button">
+							<div class="navigation_icon_wrapper">
+								<img
+									src="../../assets/images/universities_icon.svg"
+									alt="universities_icon"
+									class="navigation_icon navigation_icon-programs"
+								/>
+							</div>
+							<div>навчальні програми</div>
+						</div>
+					</li>
 
-    <img class='navigation_image' src='../../assets/images/about_us_bg.png' alt='Graduation image'>
+					<div class="navigation_underline"></div>
+				</ul>
+			</div>
+		</section>
+		<div class="carousel">
+			<section class="course_cards_section carousel_item">
+				<section class="animated_bg bg_cards_section"></section>
+				<div class="my-loader course_card-loader">
+					<img src="../../assets/images/loader.svg" alt="loader" />
+				</div>
+				<!-- Dynamic course cards  -->
+			</section>
+			<section class="teachers_section carousel_item">
+				<section class="animated_bg bg_teachers_section"></section>
+				<div class="my-loader teachers-loader">
+					<img src="../../assets/images/loader.svg" alt="loader" />
+				</div>
+				<div class="teachers_carousel"></div>
+			</section>
+			<section class="programs_section carousel_item">
+				<section class="animated_bg bg_programs_section"></section>
+				<div class="programs_container">
+					<h4 class="programs_title">
+						Програми мобільності для студентів та викладачів
+					</h4>
+					<div class="my-loader programs-loader">
+						<img
+							src="../../assets/images/loader.svg"
+							alt="loader"
+						/>
+					</div>
+					<div class="programs_carousel_wrap">
+						<div class="programs_carousel"></div>
+					</div>
+					<div class="programs_explanation">
+						<h4 class="programs_title">Програма Еразмус+КА1</h4>
+						<div class="programs_content">
+							<h3 class="programs_subtitle">Що це таке?</h3>
+							<p class="programs_context">
+								Напрямом Erasmus+KA1 передбачено співпрацю для
+								взаємного обміну студентами та співробітниками
+								вищих навчальних закладів на основі укладання
+								двосторонніх міжінституційних угод між вищими
+								навчальними закладами країн-членів програми та
+								країн-партнерів
+							</p>
+							<h3 class="programs_subtitle">
+								Поточні конкурси програми Еразмус+КА1
+							</h3>
+							<p class="programs_context">
+								Підготовчі документи для участі у конкурсі для
+								навчання за даною <br />
+								програмою
+								<a href="#"
+									><span class="color_letter_red"
+										>за посиланням</span
+									></a
+								>.
+							</p>
+							<h5 class="programs_info_title">
+								Важлива інформація:
+							</h5>
+							<ul class="programs_info">
+								<li class="programs_info_item">
+									координатор академічної мобільності за
+									програмою ERASMUS+KA1 <br /><span
+										class="underline"
+										>Леся Брич, е-mail:
+										erasmus@lpnu.ua</span
+									>
+								</li>
+								<li class="programs_info_item">
+									Документи приймають в
+									<span class="underline"
+										>301А Головного корпусу</span
+									>
+								</li>
+								<li class="programs_info_item">
+									Сертифікат про підтвердження знань іноземної
+									мови рівня В2 є
+									<span class="underline">обов'язковим</span>.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
 
-    <div class='navigation_buttons_container'>
-        <ul class='navigation_buttons'>
-            <li class='navigation_item'>
-                <div class='navigation_button'>
-                    <div class='navigation_icon_wrapper'>
-                        <img src='../../assets/images/course_card_icon.svg' alt='course_card_icon' class='navigation_icon'>
-                    </div>
-                    <div>карта курсів</div>
-                </div>
-            </li>
-            <li class='navigation_item'>
-                <div class='navigation_button'>
-                    <div class='navigation_icon_wrapper'>
-                        <img src='../../assets/images/staff_icon.svg' alt='staff_icon' class='navigation_icon'>
-                    </div>
-                    <div>про викладачів</div>
-                </div>
-            </li>
-            <li class='navigation_item'>
-                <div class='navigation_button'>
-                    <div class='navigation_icon_wrapper'>
-                        <img src='../../assets/images/universities_icon.svg' alt='universities_icon' class='navigation_icon navigation_icon-programs'>
-                    </div>
-                    <div>навчальні програми</div>
-                </div>
-            </li>
-
-            <div class='navigation_underline'></div>
-        </ul>
-
-    </div>
-</section>
-<div class='carousel'>
-    <section class='course_cards_section carousel_item'>
-        <section class='animated_bg bg_cards_section'></section>
-        <div class='my-loader course_card-loader'>
-            <img src='../../assets/images/loader.svg' alt='loader' >
-        </div>
-        <!-- Dynamic course cards  -->
-    </section>
-    <section class='teachers_section carousel_item'>
-        <section class='animated_bg bg_teachers_section'></section>
-        <div class='my-loader teachers-loader'>
-            <img src='../../assets/images/loader.svg' alt='loader' >
-        </div>
-        <div class='teachers_carousel'>
-        </div>
-    </section>
-    <section class="programs_section carousel_item">
-        <section class="animated_bg bg_programs_section"></section>
-        <div class="programs_container">
-            <h4 class="programs_title">Програми мобільності для студентів та викладачів</h4>
-            <div class='my-loader programs-loader'>
-                <img src='../../assets/images/loader.svg' alt='loader' >
-            </div>
-            <div class="programs_carousel_wrap">
-                <div class="programs_carousel"></div>
-            </div>
-            <div class="programs_explanation">
-                <h4 class="programs_title">Програма Еразмус+КА1</h4>
-                <div class="programs_content">
-                    <h3 class="programs_subtitle">Що це таке?</h3>
-                    <p class="programs_context">
-                        Напрямом Erasmus+KA1 передбачено співпрацю для взаємного обміну студентами
-                        та співробітниками вищих навчальних закладів на основі укладання двосторонніх
-                        міжінституційних угод між вищими навчальними закладами країн-членів програми
-                        та країн-партнерів</p>
-                    <h3 class="programs_subtitle">Поточні конкурси програми Еразмус+КА1</h3>
-                    <p class="programs_context">Підготовчі документи для участі у конкурсі для навчання за даною
-                        <br> програмою <a href="#"><span class="color_letter_red">за посиланням</span></a>.
-                    </p>
-                    <h5 class="programs_info_title">Важлива інформація:</h5>
-                    <ul class="programs_info">
-                        <li class="programs_info_item">координатор академічної мобільності за програмою ERASMUS+KA1
-                            <br><span class="underline">Леся Брич, е-mail: erasmus@lpnu.ua</span>
-                        </li>
-                        <li class="programs_info_item">Документи приймають в
-                            <span class="underline">301А Головного корпусу</span>
-                        </li>
-                        <li class="programs_info_item">Сертифікат про підтвердження знань іноземної мови рівня В2 є
-                            <span class="underline">обов'язковим</span>.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-<img class="logo" src="../../assets/images/logo.svg" alt="logo">
-<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
-<script type="module" src="../../../node_modules/slick-carousel/slick/slick.min.js"></script>
-<script type="module" src="../../assets/scripts/about_us.js"></script>
-<script src='../../assets/scripts/header.js'></script>
-</body>
+		<img class="logo" src="../../assets/images/logo.svg" alt="logo" />
+		<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+		<script
+			type="module"
+			src="../../../node_modules/slick-carousel/slick/slick.min.js"
+		></script>
+		<script type="module" src="../../assets/scripts/about_us.js"></script>
+		<script type="module" src="../../assets/scripts/header.js"></script>
+	</body>
 </html>

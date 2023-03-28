@@ -1,288 +1,313 @@
-@import "mixins";
-.page_container {
-    padding: 0 10vw;
+@import 'mixins';
 
-    @include respond(phone) {
-        padding-left: 8vw;
-    }
+.page_container {
+	padding: 0 10vw;
+
+	@include respond(phone) {
+		padding-left: 8vw;
+	}
 }
 
 /*Youtube video*/
-.video{
-    position: relative;
-    margin: 25vh  auto;
+.video {
+	position: relative;
+	margin: 25vh auto;
 
-    width: 75vw;
-    height: 75vh;
+	width: 75vw;
+	height: 75vh;
 
-    @include respond(tab-land) {
-        margin-bottom: 20vh;
-        width: 70vw;
-        height: 50vh;
-    }
-    @include respond(tab-port) {
-        margin: 17vh  auto;
-        width: 80vw;
-        height: 45vh;
-
-    }
-    @include respond(phone) {
-        margin: 12vh  auto;
-        width: 80vw;
-        height: 30vh;
-    }
+	@include respond(tab-land) {
+		margin-bottom: 20vh;
+		width: 70vw;
+		height: 50vh;
+	}
+	@include respond(tab-port) {
+		margin: 17vh auto;
+		width: 80vw;
+		height: 45vh;
+	}
+	@include respond(phone) {
+		margin: 12vh auto;
+		width: 80vw;
+		height: 30vh;
+	}
 }
 
 .video-loader {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.main-loader{
-    width: 6rem;
+.main-loader {
+	width: 6rem;
 }
 
 .video iframe {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 
-    filter: grayscale(100%);
-    border: 0;
+	filter: grayscale(100%);
+	border: 0;
 }
 
 /*Big project cards*/
 .ais-content-section {
-    display: flex;
-    column-gap: 10vw;
+	display: flex;
+	column-gap: 10vw;
 
-    margin-bottom: 35vh;
+	margin-bottom: 35vh;
 
-    @include respond(tab-land) {
-        margin-bottom: 30vh;
-    }
-    @include respond(tab-port) {
-        margin-bottom: 20vh;
-    }
-    @include respond(phone) {
-        margin-bottom: 15vh;
-        column-gap: 8.5vw;
-    }
+	@include respond(tab-land) {
+		margin-bottom: 30vh;
+	}
+	@include respond(tab-port) {
+		margin-bottom: 20vh;
+	}
+	@include respond(phone) {
+		margin-bottom: 15vh;
+		column-gap: 8.5vw;
+	}
 }
 
 .ais-info {
-    display: grid;
+	display: grid;
 
-    row-gap: 5vh;
+	row-gap: 5vh;
 
-    @include respond(phone) {
-        row-gap: 3vh;
-    }
+	@include respond(phone) {
+		row-gap: 3vh;
+	}
 }
 
 .info-desc {
-    display: grid;
-    column-gap: 5vh;
+	display: grid;
+	column-gap: 5vh;
 
-    font-size: 1.15vw;
+	font-size: 1.15vw;
 }
+
 .info-desc-text {
-    display: grid;
-    column-gap: 5vh;
+	display: grid;
+	column-gap: 5vh;
 
-    font-size: 1.15vw;
+	font-size: 1.15vw;
 
-    @include respond(tab-land) {
-        font-size: 1.3vw;
-    }
+	@include respond(tab-land) {
+		font-size: 1.3vw;
+	}
 
-    @include respond(tab-port) {
-        line-height: 3.3vw;
-        font-size: 1.7vw;
-    }
+	@include respond(tab-port) {
+		line-height: 3.3vw;
+		font-size: 1.7vw;
+	}
 
-    @include respond(phone) {
-        font-size: 2.2vw;
-    }
+	@include respond(phone) {
+		font-size: 2.2vw;
+	}
 }
 
 .ais-link {
-    margin-top: 4vh;
-    text-decoration-line: underline;
-    position: relative;
+	position: relative;
+	margin-top: 4vh;
+	padding-bottom: 0;
+	text-decoration-line: underline;
+	margin-bottom: 0;
 
-    @include respond(tab-land) {
-        font-size: 1.3vw;
-    }
+	@include respond(tab-land) {
+		font-size: 1.3vw;
+	}
 
-    @include respond(tab-port) {
-        font-size: 1.6vw;
-    }
+	@include respond(tab-port) {
+		font-size: 1.6vw;
+	}
 
-    @include respond(phone) {
-        font-size: 2.2vw;
-    }
+	@include respond(phone) {
+		font-size: 2.2vw;
+	}
 }
 
-.ais-link:after{
-    content: "";
-    position: absolute;
-    top: -0.3vh;
-    right: 12vw;
+.ais-link:after {
+	content: '';
+	position: absolute;
+	top: -0.3vh;
+	right: 21vw;
 
-    --size: .8vw;
+	--size: 0.8vw;
 
-    width: var(--size);
-    height: var(--size);
+	width: var(--size);
+	height: var(--size);
 
+	border-right: 3px solid white;
+	border-top: 3px solid white;
 
-    border-right: 3px solid white;
-    border-top: 3px solid white;
+	transform: rotate(45deg) translateY(50%);
 
-    transform: rotate(45deg) translateY(50%);
+	@include respond(tab-land) {
+		right: 19vw;
+	}
 
-    @include respond(tab-port) {
-        right: 2vw;
-        --size: .9vw;
-    }
-
-    @include respond(phone) {
-        right: -2vw;
-    }
+	@include respond(tab-port) {
+		--size: 0.9vw;
+		right: 10vw;
+	}
+	@include respond(phone) {
+		border-right: 2px solid white;
+		border-top: 2px solid white;
+		top: 0;
+		right: 5vw;
+	}
 }
 
 .ais-img {
-    width: 30vw;
-    height: 30vw;
+	width: 30vw;
+	height: 30vw;
 
-    object-fit: contain;
-    object-position: top;
+	object-fit: contain;
+	object-position: top;
 
-    @include respond(tab-port) {
-        width: 35vw;
-        height: 35vw;
-    }
+	@include respond(tab-port) {
+		width: 35vw;
+		height: 35vw;
+	}
 
-    @include respond(phone) {
-        line-height: 4vw;
-    }
+	@include respond(phone) {
+		line-height: 4vw;
+	}
 
-    transition: transform 800ms ease;
+	transition: transform 800ms ease;
 }
-.ais-img:hover, .ais-img:focus {
-    transform: scale(1.2);
+
+.ais-img:hover,
+.ais-img:focus {
+	transform: scale(1.2);
 }
 
 /*Instuments*/
 
 .ais-subtitle {
-    text-align: center;
+	text-align: center;
 
-    margin-top: 30vh;
-    margin-bottom: 20vh;
+	margin-top: 30vh;
+	margin-bottom: 20vh;
 
-    @include respond(tab-port) {
-        margin-top: 20vh;
-        margin-bottom: 15vh;
-    }
+	@include respond(tab-port) {
+		margin-top: 20vh;
+		margin-bottom: 15vh;
+	}
 
-    @include respond(phone) {
-        margin-top: 15vh;
-        margin-bottom: 10vh;
-    }
+	@include respond(phone) {
+		margin-top: 15vh;
+		margin-bottom: 10vh;
+	}
+}
+
+.slick-track {
+	display: flex;
+}
+
+.slick-list {
+	overflow: hidden;
+	height: auto !important;
+}
+
+.slick-arrow {
+	display: none !important;
+}
+
+.slick-slide > div {
+	height: inherit !important;
+}
+.slick-slide > div {
+	//height: 1px ;
 }
 
 .ais-list {
-    list-style: none;
+	list-style: none;
+}
 
-    display: grid;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: clamp(3%, 4%, 5%);
-
-    @include respond(phone) {
-        //grid-template-columns: 1fr 1fr;  // for 2 small cards
-
-        gap: 3.5%;                         //just for 1 small card
-        grid-template-columns: 1fr;
-    }
+.ais-list-item {
+	padding: 0 1rem;
+	margin-bottom: 3rem;
 }
 
 .ais-photo {
-    display: flex;
-    justify-content: center;
-    aspect-ratio: 1/1;
-    width: 99%;
+	display: flex;
+	justify-content: center;
+	aspect-ratio: 1/1;
+	width: 99%;
 
-    margin-bottom:  6.5vh;
+	margin-bottom: 6.5vh;
 
-    object-fit: cover;
-    border: 4px white solid;
-    @include respond(tab-land) {
-        width: 23.5vw;
-        margin-bottom: 3.5vh;
-    }
-    @include respond(tab-port) {
-        margin-bottom: 2vh;
-    }
-    @include respond(phone) {
-        //width: 35vw;       // for 2 small cards
-        margin-bottom: 3vh;  // for 1 small card
-        margin-left: auto;
-        margin-right: auto;
-        width: 55vw;
-    }
+	object-fit: cover;
+	@include respond(tab-land) {
+		width: 23.5vw;
+		margin-bottom: 3.5vh;
+		border: 4px white solid;
+	}
+	@include respond(tab-port) {
+		margin-bottom: 2vh;
+	}
+	@include respond(phone) {
+		//width: 35vw;       // for 2 small cards
+		margin-bottom: 3vh; // for 1 small card
+		margin-left: auto;
+		margin-right: auto;
+		width: 55vw;
+	}
 
-    transition: transform 300ms ease;
+	transition: transform 300ms ease;
 }
-.ais-photo:hover, .ais-photo:focus {
-    transform: scale(1.05);
+
+.ais-photo:hover,
+.ais-photo:focus {
+	transform: scale(1.05);
 }
 
 .ais-item-link {
-    font-weight: 600;
-    text-decoration-line: underline;
-    @include respond(tab-land) {
-        font-size: 1.8vw;
-    }
-    @include respond(phone) {
-        display: flex;
-        justify-content: center;
-        font-size: 3.5vw;
-        //font-size: 2.5vw;    //  for 2 small cards
-    }
+	font-weight: 600;
+	text-decoration-line: underline;
+	@include respond(tab-land) {
+		font-size: 1.8vw;
+	}
+	@include respond(phone) {
+		display: flex;
+		justify-content: center;
+		font-size: 3.5vw;
+		//font-size: 2.5vw;    //  for 2 small cards
+	}
 }
 
-
 .ais-item-desc {
-    margin-top: 4vh;
+	margin-top: 4vh;
+	font-size: 1.3vw;
 
-    @include respond(tab-land) {
-        margin-top: 3vh;
-    }
+	@include respond(tab-land) {
+		margin-top: 3vh;
+	}
 
-    @include respond(tab-port) {
-        margin-top: 2vh;
-    }
-    @include respond(phone) {
-        line-height: 4vw;
-        width: 55vw;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 2.6vw;
-        //text-align: center; //tut hz treba chy ni
-    }
+	@include respond(tab-port) {
+		margin-top: 2vh;
+		font-size: 1.4vw;
+	}
+	@include respond(phone) {
+		line-height: 4vw;
+		width: 55vw;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 2.6vw;
+		//text-align: center; //tut hz treba chy ni
+	}
 }
 
 /*Footer*/
 
 footer {
-    margin-top: 30vh;
+	margin-top: 30vh;
 }
-

@@ -1,48 +1,48 @@
-@import "mixins";
-@import "main_keyframes";
+@import 'mixins';
+@import 'main_keyframes';
 
 :root {
-  /* Colors */
+	/* Colors */
 
-  --black: rgba(0, 5, 9, 1);
-  --peachy: rgba(233, 40, 40, 1);
-  --peachy-light: rgba(233, 40, 40, 0.8);
-  --transparent-fire-brick: rgba(200, 0, 0, 0.2);
-  --transparent-fire-brick-2: rgba(200, 0, 0, 0);
-  --transparent-white: rgba(255, 255, 255, 0.8);
-  --white: rgba(255, 255, 255, 1);
+	--black: rgba(0, 5, 9, 1);
+	--peachy: rgba(233, 40, 40, 1);
+	--peachy-light: rgba(233, 40, 40, 0.8);
+	--transparent-fire-brick: rgba(200, 0, 0, 0.2);
+	--transparent-fire-brick-2: rgba(200, 0, 0, 0);
+	--transparent-white: rgba(255, 255, 255, 0.8);
+	--white: rgba(255, 255, 255, 1);
 
-  /* Typographies */
+	/* Typographies */
 
-  --font-family: "Montserrat", sans-serif;
-  --font-family-second: 'Jura', sans-serif;
+	--font-family: 'Montserrat', sans-serif;
+	--font-family-second: 'Jura', sans-serif;
 
-  --h-font-weight: 600;
+	--h-font-weight: 600;
 
-  --h1-size: 4.58vw; /* 88px */
-  --h1-font-weight: 700;
-  --h1-letter-spacing: 0.08em;
+	--h1-size: 4.58vw; /* 88px */
+	--h1-font-weight: 700;
+	--h1-letter-spacing: 0.08em;
 
-  --h2-size: 3.9vw; /*75px*/
+	--h2-size: 3.9vw; /*75px*/
 
-  --h3-size: 3vw; /* 59px */
+	--h3-size: 3vw; /* 59px */
 
-  --h4-size: 1.6vw; /* 30px */
-  --h4-small-spacing: 0.06em;
-  --h4-line-height: 3.4vh;
-  --h4-font-weight: 400;
+	--h4-size: 1.6vw; /* 30px */
+	--h4-small-spacing: 0.06em;
+	--h4-line-height: 3.4vh;
+	--h4-font-weight: 400;
 
-  --h5-size: 1.4vw; /* 27px */
-  --h5-line-height: 3vh;
-  --small-size: 1vw; /* 20px */
-  --small-weight: 300;
-  --small-height: 2.4vh;
-  --small-letter-spacing: 0.05em;
+	--h5-size: 1.4vw; /* 27px */
+	--h5-line-height: 3vh;
+	--small-size: 1vw; /* 20px */
+	--small-weight: 300;
+	--small-height: 2.4vh;
+	--small-letter-spacing: 0.05em;
 
-  --navbar-animation-duration: 0.3s;
-  @include respond(phone) {
-    --navbar-animation-duration: 0.6s;
-  }
+	--navbar-animation-duration: 0.3s;
+	@include respond(phone) {
+		--navbar-animation-duration: 0.6s;
+	}
 }
 
 /* zeroing style */
@@ -115,14 +115,14 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  font-weight: normal;
-  vertical-align: baseline;
-  background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
 }
 
 article,
@@ -136,577 +136,637 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
 
 nav ul {
-  list-style: none;
+	list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 
 a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  text-decoration: none;
-  color: white;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	text-decoration: none;
+	color: white;
 }
 
 button {
-  all: unset;
+	all: unset;
 }
 
 /*our styles*/
 html {
-  scroll-behavior: smooth;
-  // This defines what 1rem is
-  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+	scroll-behavior: smooth;
+	// This defines what 1rem is
+	font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
 
-  @include respond(tab-land) { // width < 1200?
-    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
-  }
+	@include respond(tab-land) {
+		// width < 1200?
+		font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+	}
 
-  @include respond(tab-port) { // width < 900?
-    font-size: 50%; //1 rem = 8px, 8/16 = 50%
-  }
+	@include respond(tab-port) {
+		// width < 900?
+		font-size: 50%; //1 rem = 8px, 8/16 = 50%
+	}
 }
 
 body {
-  line-height: 1;
-  font-family: var(--font-family);
-  color: var(--white);
-  letter-spacing: var(--h1-letter-spacing);
-  font-weight: normal;
-  font-size: var(--h5-size);
-  background-color: var(--black);
-  margin: 0;
+	line-height: 1;
+	font-family: var(--font-family);
+	color: var(--white);
+	letter-spacing: var(--h1-letter-spacing);
+	font-weight: normal;
+	font-size: var(--h5-size);
+	background-color: var(--black);
+	margin: 0;
 
-  overflow-x: hidden;
-  max-width: 100vw;
+	overflow-x: hidden;
+	max-width: 100vw;
 
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox */
 
-  @include respond--main-font-size;
+	@include respond--main-font-size;
 }
 
 .unscrollable {
-  @include respond(tab-port) {
-    overflow: auto;
-  }
-  @include respond(phone) {
-    overflow: hidden;
-  }
+	@include respond(tab-port) {
+		overflow: auto;
+	}
+	@include respond(phone) {
+		overflow: hidden;
+	}
 }
 
 .overlapper {
-  display: none;
-  width: 100vw;
-  height: 100vh;
+	display: none;
+	width: 100vw;
+	height: 100vh;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
 }
 
 .overlapper.active {
-  display: block;
+	display: block;
 }
 
 body::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+	display: none; /* Safari and Chrome */
 }
 
-h1, h2, h3,
-h4, h5, h6 {
-  font-weight: var(--h-font-weight);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--h-font-weight);
 }
 
 h1 {
-  letter-spacing: var(--h1-letter-spacing);
-  font-size: var(--h1-size);
-  font-weight: var(--h1-font-weight);
+	letter-spacing: var(--h1-letter-spacing);
+	font-size: var(--h1-size);
+	font-weight: var(--h1-font-weight);
 
-  @include respond(tab-port) {
-    font-size: 5vw;
-  }
-  @include respond(phone) {
-    font-size: 5.5vw;
-  }
+	@include respond(tab-port) {
+		font-size: 5vw;
+	}
+	@include respond(phone) {
+		font-size: 5.5vw;
+	}
 }
 
 h2 {
-  font-size: var(--h1-size);
-  letter-spacing: var(--h1-letter-spacing);
+	font-size: var(--h1-size);
+	letter-spacing: var(--h1-letter-spacing);
 }
 
 h3 {
-  font-size: var(--h2-size);
+	font-size: var(--h2-size);
 
-  @include respond(tab-port) {
-    font-size: 4vw;
-  }
-  @include respond(phone) {
-    font-size: 4.5vw;
-  }
+	@include respond(tab-port) {
+		font-size: 4vw;
+	}
+	@include respond(phone) {
+		font-size: 4.5vw;
+	}
 }
 
 h4 {
-  font-size: var(--h3-size);
+	font-size: var(--h3-size);
 
-  @include respond(tab-port) {
-    font-size: 3.5vw;
-  }
-  @include respond(phone) {
-    font-size: 4vw;
-  }
+	@include respond(tab-port) {
+		font-size: 3.5vw;
+	}
+	@include respond(phone) {
+		font-size: 4vw;
+	}
 }
 
 h5 {
-  font-size: var(--h4-size);
-  line-height: var(--h4-line-height);
-  letter-spacing: var(--h4-small-spacing);
-  font-weight: var(--h4-font-weight);
+	font-size: var(--h4-size);
+	line-height: var(--h4-line-height);
+	letter-spacing: var(--h4-small-spacing);
+	font-weight: var(--h4-font-weight);
 
-  @include respond(tab-land) {
-    font-size: 3vw;
-    line-height: 3vw;
-  }
-  @include respond(tab-port) {
-    font-size: 4vw;
-    line-height: 4vw;
-  }
+	@include respond(tab-land) {
+		font-size: 3vw;
+		line-height: 3vw;
+	}
+	@include respond(tab-port) {
+		font-size: 4vw;
+		line-height: 4vw;
+	}
 }
 
 h6 {
-  font-size: var(--h5-size);
+	font-size: var(--h5-size);
 
-  @include respond--main-font-size;
+	@include respond--main-font-size;
 }
 
 p {
-  font-size: var(--h5-size);
-  line-height: 3vw;
-  letter-spacing: 0.07em;
+	font-size: var(--h5-size);
+	line-height: 3vw;
+	letter-spacing: 0.07em;
 
-  @include respond--main-font-size;
+	@include respond--main-font-size;
 
-  @include respond(phone) {
-    line-height: 5vw;
-  }
-
+	@include respond(phone) {
+		line-height: 4vw;
+	}
 }
 
 button {
-  color: var(--white);
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: var(--h5-size);
-  line-height: 3.2vh;
-  letter-spacing: 0.07em;
+	color: var(--white);
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: var(--h5-size);
+	line-height: 3.2vh;
+	letter-spacing: 0.07em;
 
-  @include respond--main-font-size;
+	@include respond--main-font-size;
 }
 
 ::selection {
-  background-color: var(--peachy-light);
-  color: var(--white);
+	background-color: var(--peachy-light);
+	color: var(--white);
 }
 
 /* Container */
 .container {
-  width: 89vw;
+	width: 89vw;
 }
 
 /* colors */
 .color_letter_red {
-  color: var(--peachy);
+	color: var(--peachy);
 }
 
 /* header */
 .header {
-  margin-top: 25px;
-  width: 80%;
+	width: 80%;
 
-  position: absolute;
-  left: 50%;
-  top: 0;
-  -webkit-transform: translate(-50%, 0);
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
+	position: relative;
+	top: 0;
+	margin: 15px auto 0 !important;
+	z-index: 1;
 
-  z-index: 1;
+	@include respond(tab-port) {
+		width: 89%;
+		left: 0;
+		transform: none;
 
-  @include respond(tab-port) {
-    width: 89%;
-    left: 0;
-    transform: none;
-
-    margin-top: 0;
-  }
+		margin-top: 0;
+	}
 }
 
 /* navigation burder menu */
 .menu_icon {
-  display: none;
+	display: none;
 
-  position: fixed;
-  top: 90vh;
-  left: 92%;
-  transform: translateY(-50%);
-  z-index: 12;
+	position: fixed;
+	top: 90vh;
+	right: 5%;
+	transform: translateY(-50%);
+	z-index: 999;
 
-  cursor: pointer;
+	cursor: pointer;
 
-  @include respond(tab-port) {
-    display: block;
-  }
+	@include respond(tab-port) {
+		display: block;
+	}
 }
 
-.bar1, .bar2, .bar3 {
-  display: block;
-  width: 32px;
-  height: 4px;
-  background-color: var(--white);
-  margin: 6px 0 6px auto;
-  transition: var(--navbar-animation-duration);
-  border-radius: 50px;
+.bar1,
+.bar2,
+.bar3 {
+	display: block;
+	width: 32px;
+	height: 4px;
+	background-color: var(--white);
+	margin: 6px 0 6px auto;
+	transition: var(--navbar-animation-duration);
+	border-radius: 50px;
 
-  @include respond(phone) {
-    transition: var(--navbar-animation-duration);
-  }
+	@include respond(phone) {
+		transition: var(--navbar-animation-duration);
+	}
 }
 
 .bar2 {
-  width: 70%;
+	width: 70%;
 }
 
 .bar3 {
-  width: 90%;
+	width: 90%;
 }
 
 .change .bar1 {
-  transform: rotate(-45deg) translate(-7px, 3px);
+	transform: rotate(-45deg) translate(-7px, 3px);
 }
 
 .change .bar2 {
-  opacity: 0;
+	opacity: 0;
 }
 
 .change .bar3 {
-  width: 100%;
-  transform: rotate(45deg) translate(-11px, -7.5px);
+	width: 100%;
+	transform: rotate(45deg) translate(-11px, -7.5px);
 }
-
 
 /* navigation */
 .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  z-index: 11;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	z-index: 11;
 
-  @include respond(tab-port) {
-    flex-direction: column;
-    justify-content: start;
+	@include respond(tab-port) {
+		flex-direction: column;
+		justify-content: start;
 
-    position: fixed;
+		position: fixed;
 
-    height: 100vh;
-    width: 33vw;
-    padding-top: 12vh;
+		height: 100vh;
+		width: 33vw;
+		padding-top: 12vh;
 
-    background: var(--black);
-    right: -33vw;
-    transition: var(--navbar-animation-duration) ease-in-out;
-  }
+		background: var(--black);
+		right: -33vw;
+		transition: var(--navbar-animation-duration) ease-in-out;
+	}
 
-  @include respond(phone) {
-    right: -100vw;
-    width: 100vw;
-    transition-duration: var(--navbar-animation-duration);
+	@include respond(phone) {
+		right: -100vw;
+		width: 100vw;
+		transition-duration: var(--navbar-animation-duration);
 
-    padding-top: 0;
+		padding-top: 0;
 
-    justify-content: center;
-  }
+		justify-content: center;
+	}
 }
 
 .nav.expanded {
-  right: 0;
+	right: 0;
 }
 
 .nav_lang {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 20%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 20%;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 
-  @include respond(tab-port) {
-    display: flex;
-    width: 40%;
-    flex-direction: row;
+	@include respond(tab-port) {
+		display: flex;
+		width: 40%;
+		flex-direction: row;
 
-    position: absolute;
-    right: 0;
-    top: 2vh;
+		position: absolute;
+		right: 0;
+		top: 2vh;
 
-    .nav_item {
-      border: none;
-      border-radius: 0;
-      margin: 0;
+		.nav_item {
+			border: none;
+			border-radius: 0;
+			margin: 0;
 
-      width: 30%;
+			width: 30%;
 
-      &:first-child {
-        margin: 0;
-        border-right: 0.5px solid #b7b4b4;
-      }
+			&:first-child {
+				margin: 0;
+				border-right: 0.5px solid #b7b4b4;
+			}
 
-      &:last-child {
-        margin: 0;
-      }
+			&:last-child {
+				margin: 0;
+			}
 
-      & .active {
-        color: var(--peachy);
-      }
-    }
-  }
+			& .active {
+				color: var(--peachy);
+			}
+		}
+	}
 
-  @include respond(phone) {
-    top: 4vh;
-    right: -6vw;
+	@include respond(phone) {
+		top: 4vh;
+		right: -6vw;
 
-    .nav_item {
-      font-size: 180%;
-    }
-  }
+		.nav_item {
+			font-size: 180%;
+		}
+	}
 }
 
 .nav_lang :first-child {
-  margin-right: 5px;
+	margin-right: 5px;
 }
 
 .nav_lang :last-child {
-  margin-left: 5px;
+	margin-left: 5px;
 }
 
 .nav_item {
-  width: 20%;
-  text-align: center;
+	width: 20%;
+	text-align: center;
 
-  position: relative;
+	position: relative;
 
-  line-height: 34px;
-  letter-spacing: 0.07em;
-  font-size: 1.4vw;
+	line-height: 34px;
+	letter-spacing: 0.07em;
+	font-size: 1.4vw;
 
-  cursor: pointer;
-  border-radius: 5px;
+	cursor: pointer;
+	border-radius: 5px;
 
-  @include respond(tab-port) {
-    width: 90%;
-    margin: 0 auto 1rem;
+	@include respond(tab-port) {
+		width: 90%;
+		margin: 0 auto 1rem;
 
-    border: 1px #ffffff solid;
-  }
+		border: 1px #ffffff solid;
+	}
 
-  @include respond(phone) {
-    width: 50%;
-    padding: 1.1vh 0;
-    font-size: 2rem;
-  }
+	@include respond(phone) {
+		width: 50%;
+		padding: 1.1vh 0;
+		font-size: 2rem;
+	}
 }
 
 .nav_item.active > .nav_link_wrapper > a {
-  @include respond(tab-port) {
-    color: var(--peachy);
-  }
+	@include respond(tab-port) {
+		color: var(--peachy);
+	}
 }
 
 .nav_underline {
-  content: "";
-  display: block;
-  width: 90%;
-  height: 0.15em;
-  border-radius: 3px;
+	content: '';
+	display: block;
+	width: 90%;
+	height: 0.15em;
+	border-radius: 3px;
 
-  margin: 1rem auto 0;
+	margin: 1rem auto 0;
 
-  -webkit-transition: background-color 0.25s linear;
+	-webkit-transition: background-color 0.25s linear;
 
-  -o-transition: background-color 0.25s linear;
+	-o-transition: background-color 0.25s linear;
 
-  transition: background-color 0.25s linear;
+	transition: background-color 0.25s linear;
 
-  @include respond(tab-port) {
-    display: none;
-    margin: 2px auto;
-    width: 77%;
-  }
+	@include respond(tab-port) {
+		display: none;
+		margin: 2px auto;
+		width: 77%;
+	}
 }
 
 .nav_sub {
-  display: none;
-  width: 93%;
-  margin-left: 7%;
-  margin-bottom: 0;
+	display: none;
+	width: 93%;
+	margin-left: 7%;
+	margin-bottom: 0;
 
-  @include respond(tab-port) {
-    display: block;
-  }
+	a {
+		pointer-events: none;
+	}
+
+	a.active {
+		pointer-events: auto;
+	}
+
+	@include respond(tab-port) {
+		display: block;
+	}
 }
 
 .nav_sub_item {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  width: 100%;
-  height: 0;
+	width: 100%;
+	height: 0;
 
-  text-align: left;
-  opacity: 0;
+	text-align: left;
+	opacity: 0;
 
-  line-height: initial;
+	line-height: initial;
 
-  animation: expandNavSubItemBackwords 0.5s ease-in-out forwards;
+	animation: expandNavSubItemBackwords 0.5s ease-in-out forwards;
+}
 
+.nav_sub_item.active {
+	color: var(--peachy);
 }
 
 .nav_sub_item:hover {
-  @include respond(tab-port) {
-    color: var(--peachy);
-  }
+	@include respond(tab-port) {
+		color: var(--peachy);
+	}
 }
 
 .nav_sub_item.expanded {
-  animation: expandNavSubItem 0.5s ease-in-out forwards;
+	animation: expandNavSubItem 0.5s ease-in-out forwards;
 }
 
 .nav_sub_item::before {
-  content: '';
-  display: block;
-  width: 10%;
-  height: 2px;
+	content: '';
+	display: block;
+	width: 10%;
+	height: 2px;
 
-  margin-right: 1rem;
+	margin-right: 1rem;
 
-  background: var(--white);
+	background: var(--white);
 
-  @include respond(phone) {
-    width: 6%;
-  }
+	@include respond(phone) {
+		width: 6%;
+	}
 }
 
 .nav_sub_item > span {
-  width: 90%;
+	width: 90%;
 }
 
 .sub_sub_item::before {
-  display: none;
+	display: none;
 }
 
 .nav_item:hover > .nav_underline {
-  background-color: var(--peachy);
+	background-color: var(--peachy);
 }
 
 .nav_lang :nth-child(n):hover:after {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 .nav_item.active > .nav_underline {
-  background-color: var(--peachy);
+	background-color: var(--peachy);
 }
 
 .nav_link_wrapper {
-  @include respond(tab-port) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	@include respond(tab-port) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-    height: 6vh;
-  }
+		height: 6vh;
+	}
 }
 
 .nav_link {
-  @include respond(tab-port) {
-    margin-left: 2rem;
-  }
+	@include respond(tab-port) {
+		margin-left: 2rem;
+	}
 }
 
 .nav_link:hover {
-  @include respond(tab-port) {
-    color: var(--peachy);
-  }
+	@include respond(tab-port) {
+		color: var(--peachy);
+	}
 }
 
 .nav_shevron {
-  display: none;
+	display: none;
 
-  width: 2rem;
-  height: 2rem;
-  margin-right: 2rem;
-  animation: rotation180to0 0.5s ease-in-out forwards;
+	width: 2rem;
+	height: 2rem;
+	margin-right: 2rem;
+	animation: rotation180to0 0.5s ease-in-out forwards;
 
-
-  @include respond(tab-port) {
-    display: block;
-  }
+	@include respond(tab-port) {
+		display: block;
+	}
 }
 
 .rotate {
-  animation-name: rotation180;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+	animation-name: rotation180;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
 }
 
 .nav_link_wrapper.active {
-  color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.8);
 }
 
 .logo {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
 
-  width: 3.2em;
+	width: 3.2em;
 
-  @include respond(tab-port) {
-    display: none;
-  }
+	@include respond(tab-port) {
+		width: 5em;
+		margin-top: 2vh;
+	}
 }
 
 /*END of navigation*/
 
 /*loader*/
 .my-loader {
-  display: block;
-  margin: 0 auto;
-  width: 6.25rem;
-  height: 6.25rem;
+	display: block;
+	margin: 0 auto;
+	width: 10vw;
+	height: 10vw;
+
+	img{
+		height: 100%;
+	}
 }
 
-
 .hidden {
-  display: none;
+	display: none;
 }
 
 .visible {
-  display: block;
+	display: block;
+}
+
+.nav_sub .nav_sub_item.active {
+	color: var(--peachy);
+}
+
+.slick-dots {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 1rem 0;
+
+	list-style-type: none;
+}
+
+.slick-dots li {
+	margin: 0 0.25rem;
+	@include respond(tab-port) {
+		margin: 3rem 0.75rem 0;
+	}
+	@include respond(tab-port) {
+		margin-top: 0;
+	}
+}
+
+.slick-dots button {
+	display: block;
+	--size: 0.8rem;
+	width: var(--size);
+	height: var(--size);
+	padding: 0;
+
+	border: none;
+	border-radius: 100%;
+	background-color: var(--white);
+
+	text-indent: -9999px;
+	cursor: pointer;
+	@include respond(tab-port) {
+		--size: 2.3rem;
+	}
+}
+
+.slick-dots li.slick-active button {
+	background-color: var(--peachy);
 }
