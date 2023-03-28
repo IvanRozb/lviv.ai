@@ -8,6 +8,7 @@ import {
 
 // Carousel functions
 function activateCarousel() {
+
 	const underline = $('.navigation_underline')
 
 	$(document).ready(function () {
@@ -103,6 +104,7 @@ function activateProgramsCarousel() {
 
 // Course cards page functions
 function addCourseCardsBtnListeners() {
+
 	$('.degree_btn').each(function () {
 		$(this).on('click', function () {
 			$(this).addClass('active').siblings().removeClass('active')
