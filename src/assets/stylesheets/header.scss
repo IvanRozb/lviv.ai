@@ -710,8 +710,12 @@ button {
 .my-loader {
 	display: block;
 	margin: 0 auto;
-	width: 6.25rem;
-	height: 6.25rem;
+	width: 10vw;
+	height: 10vw;
+
+	img{
+		height: 100%;
+	}
 }
 
 .hidden {
