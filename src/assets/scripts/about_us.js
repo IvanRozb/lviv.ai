@@ -105,25 +105,9 @@ function activateProgramsCarousel() {
 // Course cards page functions
 function addCourseCardsBtnListeners() {
 
-	$('.degree_btn').each(function () {
-		$(this).on('click', function () {
-			$(this).addClass('active').siblings().removeClass('active')
-
-			if ($(this).hasClass('bachelor_btn')) {
-				$('.nav_bachelor')
-					.addClass('active')
-					.siblings()
-					.removeClass('active')
-			} else {
-				$('.nav_master')
-					.addClass('active')
-					.siblings()
-					.removeClass('active')
-			}
-		})
-	})
-
 	const yearBtns = $('.year_btn')
+	const master_btns = $('.nav_master > .year_btn')
+	const bachelor_btns = $('.nav_bachelor > .year_btn')
 
 	yearBtns.each(function () {
 		const btn = $(this)
@@ -146,6 +130,28 @@ function addCourseCardsBtnListeners() {
 					dots: true,
 					arrows: true
 				})
+		})
+	})
+
+	$('.degree_btn').each(function () {
+		$(this).on('click', function () {
+			$(this).addClass('active').siblings().removeClass('active')
+
+			if ($(this).hasClass('bachelor_btn')) {
+				$('.nav_bachelor')
+					.addClass('active')
+					.siblings()
+					.removeClass('active')
+
+				bachelor_btns.first().trigger('click')
+			} else {
+				$('.nav_master')
+					.addClass('active')
+					.siblings()
+					.removeClass('active')
+
+				master_btns.first().trigger('click')
+			}
 		})
 	})
 }

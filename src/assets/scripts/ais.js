@@ -20,39 +20,4 @@ setTimeout(async () => {
 	container.insertAdjacentHTML('beforeend', dynamicPage)
 	mainLoader.classList.add('hidden')
 
-	$(document).ready(function () {
-		const slider = $('.ais-list')
-		const items = $('.ais-list-item')
-		slider.slick({
-			speed: 500,
-			infinite: false,
-			adaptiveHeight: true,
-			waitForAnimate: false,
-			slidesToShow: 3,
-			slidesToScroll: 3,
-			rows: 2,
-			draggable: false,
-			dots: items.length > 2 * 3,
-			responsive: [
-				{
-					breakpoint: 600 + 1,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						rows: 1,
-						slidesPerRow: 1,
-						dots: items.length > 2
-					}
-				}
-			]
-		})
-		let maxHeight = 0
-
-		items.each(function () {
-			if ($(this).height() > maxHeight) maxHeight = $(this).height()
-		})
-
-		// Set the height of all items to the maximum height
-		$(items).css('height', maxHeight)
-	})
 }, 0)

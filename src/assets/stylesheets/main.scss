@@ -403,7 +403,7 @@ div[id*='blob'] {
 .ais-info {
 	margin-top: 18.5vh;
 	@include respond(tab-port) {
-		margin-top: 35vh;
+		margin-top: 20vh;
 	}
 }
 .ais-info_title {
@@ -503,7 +503,7 @@ div[id*='blob'] {
 	margin-top: 80vh;
 
 	@include respond(tab-port) {
-		margin-top: 60vh;
+		margin-top: 40vh;
 	}
 }
 .curriculum_inner {
@@ -635,7 +635,10 @@ div[id*='blob'] {
 
 /*vacancies*/
 .vacancies {
-	margin-top: 100vh;
+	margin-top: 90vh;
+	@include respond(tab-port) {
+		margin-top: 40vh;
+	}
 }
 .vacancies_content {
 	margin-left: 6vw;
@@ -704,6 +707,9 @@ div[id*='blob'] {
 .sponsors {
 	margin-top: 70vh;
 	height: fit-content;
+	@include respond(tab-port) {
+		margin-top: 40vh;
+	}
 }
 .sponsors .container {
 	display: flex;
@@ -779,6 +785,9 @@ div[id*='blob'] {
 /*apply*/
 .apply_section {
 	margin-top: 30vh;
+	@include respond(tab-port){
+		margin-top: 20vh;
+	}
 }
 .apply_content {
 	@include flex-center;
@@ -818,7 +827,7 @@ div[id*='blob'] {
 	cursor: pointer;
 
 	@include respond(tab-port) {
-		height: 7vh;
+		height: 5vh;
 	}
 }
 

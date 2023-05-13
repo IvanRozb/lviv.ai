@@ -527,7 +527,7 @@ button {
 	}
 
 	@include respond(phone) {
-		width: 50%;
+		width: 75%;
 		padding: 1.1vh 0;
 		font-size: 2rem;
 	}
@@ -656,6 +656,12 @@ button {
 
 .nav_link {
 	@include respond(tab-port) {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+
 		margin-left: 2rem;
 	}
 }
@@ -670,8 +676,9 @@ button {
 	display: none;
 
 	width: 2rem;
-	height: 2rem;
-	margin-right: 2rem;
+	height: 100%;
+	padding: 0 2rem;
+
 	animation: rotation180to0 0.5s ease-in-out forwards;
 
 	@include respond(tab-port) {
