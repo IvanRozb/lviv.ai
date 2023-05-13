@@ -208,28 +208,19 @@
 	}
 }
 
-.slick-track {
-	display: flex;
-}
-
-.slick-list {
-	overflow: hidden;
-	height: auto !important;
-}
-
-.slick-arrow {
-	display: none !important;
-}
-
-.slick-slide > div {
-	height: inherit !important;
-}
-.slick-slide > div {
-	//height: 1px ;
-}
-
 .ais-list {
 	list-style: none;
+	display: grid;
+	gap: 3vw;
+	grid-template-columns: 1fr 1fr 1fr;
+
+	@include respond(tab-port){
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include respond(phone){
+		grid-template-columns: 1fr;
+	}
 }
 
 .ais-list-item {
@@ -246,21 +237,6 @@
 	margin-bottom: 6.5vh;
 
 	object-fit: cover;
-	@include respond(tab-land) {
-		width: 23.5vw;
-		margin-bottom: 3.5vh;
-		border: 4px white solid;
-	}
-	@include respond(tab-port) {
-		margin-bottom: 2vh;
-	}
-	@include respond(phone) {
-		//width: 35vw;       // for 2 small cards
-		margin-bottom: 3vh; // for 1 small card
-		margin-left: auto;
-		margin-right: auto;
-		width: 55vw;
-	}
 
 	transition: transform 300ms ease;
 }
@@ -273,6 +249,7 @@
 .ais-item-link {
 	font-weight: 600;
 	text-decoration-line: underline;
+
 	@include respond(tab-land) {
 		font-size: 1.8vw;
 	}
@@ -280,7 +257,6 @@
 		display: flex;
 		justify-content: center;
 		font-size: 3.5vw;
-		//font-size: 2.5vw;    //  for 2 small cards
 	}
 }
 
@@ -298,11 +274,8 @@
 	}
 	@include respond(phone) {
 		line-height: 4vw;
-		width: 55vw;
-		margin-left: auto;
-		margin-right: auto;
 		font-size: 2.6vw;
-		//text-align: center; //tut hz treba chy ni
+		text-align: center;
 	}
 }
 
